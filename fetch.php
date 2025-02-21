@@ -56,6 +56,11 @@ if ($action == 'get_company_list') {
             $row['purchase_2'] = $total_purchase["purchase_2"] == null ? "₱ 0.00" : "₱ " . number_format($total_purchase["purchase_2"] ?? 0, 2, '.', ',');
             $row['purchase_3'] = $total_purchase["purchase_3"] == null ? "₱ 0.00" : "₱ " . number_format($total_purchase["purchase_3"] ?? 0, 2, '.', ',');
         }
+        $branches_display  = "SELECT * FROM branch_master WHERE company_id = '$id'";
+        $result_branches = $conn->query($branches_display);
+        while ($branches = $result_branches->fetch_assoc()) {
+            $row['branches'][] = $branches["branch_name"];
+        }
         $rows[] = $row;
     }
 } else if ($action == 'get_branch') {

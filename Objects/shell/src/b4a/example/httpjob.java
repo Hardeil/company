@@ -24,8 +24,8 @@ public static RemoteObject _tag = RemoteObject.declareNull("Object");
 public static RemoteObject _invalidurl = RemoteObject.createImmutable("");
 public static RemoteObject _defaultscheme = RemoteObject.createImmutable("");
 public static b4a.example.main _main = null;
-public static b4a.example.device _device = null;
 public static b4a.example.branch _branch = null;
+public static b4a.example.device _device = null;
 public static b4a.example.starter _starter = null;
 public static b4a.example.httputils2service _httputils2service = null;
 public static Object[] GetGlobals(RemoteObject _ref) throws Exception {

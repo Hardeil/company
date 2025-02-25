@@ -15,7 +15,7 @@ return RemoteObject.createImmutable("");
 }
 public static RemoteObject  _drawwrappedtextrotated(RemoteObject __ref,RemoteObject _canvas,RemoteObject _text,RemoteObject _x,RemoteObject _y,RemoteObject _maxwidth,RemoteObject _fontsize,RemoteObject _color,RemoteObject _alignment,RemoteObject _angle) throws Exception{
 try {
-		Debug.PushSubsStack("DrawWrappedTextRotated (bargraph) ","bargraph",2,__ref.getField(false, "ba"),__ref,144);
+		Debug.PushSubsStack("DrawWrappedTextRotated (bargraph) ","bargraph",3,__ref.getField(false, "ba"),__ref,144);
 if (RapidSub.canDelegate("drawwrappedtextrotated")) { return __ref.runUserSub(false, "bargraph","drawwrappedtextrotated", __ref, _canvas, _text, _x, _y, _maxwidth, _fontsize, _color, _alignment, _angle);}
 RemoteObject _words = null;
 RemoteObject _line = RemoteObject.createImmutable("");
@@ -95,7 +95,7 @@ _y = RemoteObject.solve(new RemoteObject[] {_y,_lineheight}, "+",1, 1);Debug.loc
  };
  BA.debugLineNum = 171;BA.debugLine="Return y - originalY";
 Debug.ShouldStop(1024);
-Debug.CheckDeviceExceptions();if (true) return RemoteObject.solve(new RemoteObject[] {_y,_originaly}, "-",1, 1);
+if (true) return RemoteObject.solve(new RemoteObject[] {_y,_originaly}, "-",1, 1);
  BA.debugLineNum = 172;BA.debugLine="End Sub";
 Debug.ShouldStop(2048);
 return RemoteObject.createImmutable(0);
@@ -108,7 +108,7 @@ finally {
 		}}
 public static RemoteObject  _formatnumberwithlabel(RemoteObject __ref,RemoteObject _number) throws Exception{
 try {
-		Debug.PushSubsStack("FormatNumberWithLabel (bargraph) ","bargraph",2,__ref.getField(false, "ba"),__ref,134);
+		Debug.PushSubsStack("FormatNumberWithLabel (bargraph) ","bargraph",3,__ref.getField(false, "ba"),__ref,134);
 if (RapidSub.canDelegate("formatnumberwithlabel")) { return __ref.runUserSub(false, "bargraph","formatnumberwithlabel", __ref, _number);}
 Debug.locals.put("number", _number);
  BA.debugLineNum = 134;BA.debugLine="Sub FormatNumberWithLabel(number As Int) As String";
@@ -118,18 +118,18 @@ Debug.ShouldStop(64);
 if (RemoteObject.solveBoolean("g",_number,BA.numberCast(double.class, 1000000))) { 
  BA.debugLineNum = 136;BA.debugLine="Return Floor(number / 1000000) & \"M\"";
 Debug.ShouldStop(128);
-Debug.CheckDeviceExceptions();if (true) return RemoteObject.concat(bargraph.__c.runMethod(true,"Floor",(Object)(RemoteObject.solve(new RemoteObject[] {_number,RemoteObject.createImmutable(1000000)}, "/",0, 0))),RemoteObject.createImmutable("M"));
+if (true) return RemoteObject.concat(bargraph.__c.runMethod(true,"Floor",(Object)(RemoteObject.solve(new RemoteObject[] {_number,RemoteObject.createImmutable(1000000)}, "/",0, 0))),RemoteObject.createImmutable("M"));
  }else 
 { BA.debugLineNum = 137;BA.debugLine="Else If number >= 1000 Then";
 Debug.ShouldStop(256);
 if (RemoteObject.solveBoolean("g",_number,BA.numberCast(double.class, 1000))) { 
  BA.debugLineNum = 138;BA.debugLine="Return Floor(number / 1000) & \"k\"";
 Debug.ShouldStop(512);
-Debug.CheckDeviceExceptions();if (true) return RemoteObject.concat(bargraph.__c.runMethod(true,"Floor",(Object)(RemoteObject.solve(new RemoteObject[] {_number,RemoteObject.createImmutable(1000)}, "/",0, 0))),RemoteObject.createImmutable("k"));
+if (true) return RemoteObject.concat(bargraph.__c.runMethod(true,"Floor",(Object)(RemoteObject.solve(new RemoteObject[] {_number,RemoteObject.createImmutable(1000)}, "/",0, 0))),RemoteObject.createImmutable("k"));
  }else {
  BA.debugLineNum = 140;BA.debugLine="Return number ' No formatting needed for v";
 Debug.ShouldStop(2048);
-Debug.CheckDeviceExceptions();if (true) return BA.NumberToString(_number);
+if (true) return BA.NumberToString(_number);
  }}
 ;
  BA.debugLineNum = 142;BA.debugLine="End Sub";
@@ -144,7 +144,7 @@ finally {
 		}}
 public static RemoteObject  _formatnumberwithsuffix(RemoteObject __ref,RemoteObject _number) throws Exception{
 try {
-		Debug.PushSubsStack("FormatNumberWithSuffix (bargraph) ","bargraph",2,__ref.getField(false, "ba"),__ref,124);
+		Debug.PushSubsStack("FormatNumberWithSuffix (bargraph) ","bargraph",3,__ref.getField(false, "ba"),__ref,124);
 if (RapidSub.canDelegate("formatnumberwithsuffix")) { return __ref.runUserSub(false, "bargraph","formatnumberwithsuffix", __ref, _number);}
 Debug.locals.put("number", _number);
  BA.debugLineNum = 124;BA.debugLine="Sub FormatNumberWithSuffix(number As Int) As Strin";
@@ -154,18 +154,18 @@ Debug.ShouldStop(268435456);
 if (RemoteObject.solveBoolean("g",_number,BA.numberCast(double.class, 1000000))) { 
  BA.debugLineNum = 126;BA.debugLine="Return NumberFormat(number / 1000000, 1, 1) & \"M";
 Debug.ShouldStop(536870912);
-Debug.CheckDeviceExceptions();if (true) return RemoteObject.concat(bargraph.__c.runMethod(true,"NumberFormat",(Object)(RemoteObject.solve(new RemoteObject[] {_number,RemoteObject.createImmutable(1000000)}, "/",0, 0)),(Object)(BA.numberCast(int.class, 1)),(Object)(BA.numberCast(int.class, 1))),RemoteObject.createImmutable("M"));
+if (true) return RemoteObject.concat(bargraph.__c.runMethod(true,"NumberFormat",(Object)(RemoteObject.solve(new RemoteObject[] {_number,RemoteObject.createImmutable(1000000)}, "/",0, 0)),(Object)(BA.numberCast(int.class, 1)),(Object)(BA.numberCast(int.class, 1))),RemoteObject.createImmutable("M"));
  }else 
 { BA.debugLineNum = 127;BA.debugLine="Else If number >= 1000 Then";
 Debug.ShouldStop(1073741824);
 if (RemoteObject.solveBoolean("g",_number,BA.numberCast(double.class, 1000))) { 
  BA.debugLineNum = 128;BA.debugLine="Return NumberFormat(number / 1000, 1, 1) & \"k\"";
 Debug.ShouldStop(-2147483648);
-Debug.CheckDeviceExceptions();if (true) return RemoteObject.concat(bargraph.__c.runMethod(true,"NumberFormat",(Object)(RemoteObject.solve(new RemoteObject[] {_number,RemoteObject.createImmutable(1000)}, "/",0, 0)),(Object)(BA.numberCast(int.class, 1)),(Object)(BA.numberCast(int.class, 1))),RemoteObject.createImmutable("k"));
+if (true) return RemoteObject.concat(bargraph.__c.runMethod(true,"NumberFormat",(Object)(RemoteObject.solve(new RemoteObject[] {_number,RemoteObject.createImmutable(1000)}, "/",0, 0)),(Object)(BA.numberCast(int.class, 1)),(Object)(BA.numberCast(int.class, 1))),RemoteObject.createImmutable("k"));
  }else {
  BA.debugLineNum = 130;BA.debugLine="Return NumberFormat(number, 1, 0)";
 Debug.ShouldStop(2);
-Debug.CheckDeviceExceptions();if (true) return bargraph.__c.runMethod(true,"NumberFormat",(Object)(BA.numberCast(double.class, _number)),(Object)(BA.numberCast(int.class, 1)),(Object)(BA.numberCast(int.class, 0)));
+if (true) return bargraph.__c.runMethod(true,"NumberFormat",(Object)(BA.numberCast(double.class, _number)),(Object)(BA.numberCast(int.class, 1)),(Object)(BA.numberCast(int.class, 0)));
  }}
 ;
  BA.debugLineNum = 132;BA.debugLine="End Sub";
@@ -180,7 +180,7 @@ finally {
 		}}
 public static RemoteObject  _initialize(RemoteObject __ref,RemoteObject _ba,RemoteObject _active,RemoteObject _panel,RemoteObject _sale1,RemoteObject _sale2,RemoteObject _sale3,RemoteObject _product,RemoteObject _legend,RemoteObject _maxsales,RemoteObject _titlestring) throws Exception{
 try {
-		Debug.PushSubsStack("Initialize (bargraph) ","bargraph",2,__ref.getField(false, "ba"),__ref,6);
+		Debug.PushSubsStack("Initialize (bargraph) ","bargraph",3,__ref.getField(false, "ba"),__ref,6);
 if (RapidSub.canDelegate("initialize")) { return __ref.runUserSub(false, "bargraph","initialize", __ref, _ba, _active, _panel, _sale1, _sale2, _sale3, _product, _legend, _maxsales, _titlestring);}
 __ref.runVoidMethodAndSync("innerInitializeHelper", _ba);
 RemoteObject _alignleftcenter = RemoteObject.createImmutable(0);

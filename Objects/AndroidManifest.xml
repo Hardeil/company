@@ -34,7 +34,7 @@
 		<activity
 			android:windowSoftInputMode="stateHidden"
 			android:launchMode="singleTop"
-			android:name=".device"
+			android:name=".branch"
 			android:label="B4A Example"
 			android:screenOrientation="unspecified"
 			android:exported="true">
@@ -42,7 +42,7 @@
 		<activity
 			android:windowSoftInputMode="stateHidden"
 			android:launchMode="singleTop"
-			android:name=".branch"
+			android:name=".device"
 			android:label="B4A Example"
 			android:screenOrientation="unspecified"
 			android:exported="true">

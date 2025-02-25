@@ -53,8 +53,8 @@ public boolean isSingleton() {
 public static RemoteObject __c = RemoteObject.declareNull("anywheresoftware.b4a.keywords.Common");
 public static RemoteObject _company_selected = RemoteObject.createImmutable("");
 public static b4a.example.main _main = null;
-public static b4a.example.device _device = null;
 public static b4a.example.branch _branch = null;
+public static b4a.example.device _device = null;
 public static b4a.example.httputils2service _httputils2service = null;
   public Object[] GetGlobals() {
 		return new Object[] {"Branch",Debug.moduleToString(b4a.example.branch.class),"company_selected",starter._company_selected,"Device",Debug.moduleToString(b4a.example.device.class),"HttpUtils2Service",Debug.moduleToString(b4a.example.httputils2service.class),"Main",Debug.moduleToString(b4a.example.main.class),"Service",starter.mostCurrent._service};

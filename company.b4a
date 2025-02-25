@@ -21,7 +21,7 @@ Library4=okhttputils2
 Library5=xui
 Library6=stringutils
 ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="34"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~CreateResourceFromFile(Macro, Themes.LightTheme)~\n~'End of default text.~\n~
-Module1=|relative|..\barGraph
+Module1=barGraph
 Module2=Branch
 Module3=Device
 Module4=Starter
@@ -47,15 +47,15 @@ Version=13.1
 Sub Process_Globals
 	'These global variables will be declared once when the application starts.
 	'These variables can be accessed from all modules.
-	Private xui As XUI	
-	Public company As String 
+	Private xui As XUI
+	Public company As String
 	
 End Sub
 
 Sub Globals
 	'These global variables will be redeclared each time the activity is created.
 	Private ScrollView1 As ScrollView
-	Dim PHPURL As String = "https://192.168.8.192/Company/fetch.php?action=get_company_list"
+	Dim PHPURL As String = "https://192.168.8.117/Company/fetch.php?action=get_company_list"
 	Dim TableDetails As List
 	'Private navigate As Button
 	Private Button1 As Button
@@ -99,10 +99,14 @@ Sub Activity_Create(FirstTime As Boolean)
 	Panel1.AddView(purchasePanel,25dip,barPanel.top+barPanel.Height+Panel2.Height+20dip,Activity.Width-50dip,300dip)
 End Sub
 Sub LoadCompanyData
-	Dim Job1 As HttpJob
-	Job1.Initialize("GetData", Me)
-	Job1.Download(PHPURL)
-	ProgressDialogShow("Loading Data...")
+	Try
+		Dim Job1 As HttpJob
+		Job1.Initialize("GetData", Me)
+		Job1.Download(PHPURL)
+		ProgressDialogShow("Loading Data...")
+	Catch
+		Log(LastException.Message)
+	End Try
 End Sub
 Sub JobDone(job As HttpJob)
 	ProgressDialogHide
@@ -112,13 +116,161 @@ Sub JobDone(job As HttpJob)
 			parser.Initialize(job.GetString)
 			Select Case job.JobName
 				Case "GetData"
+					Dim scrollHeight As Int = 0
 					Dim salesArray As List = parser.NextArray
-					Log(job.GetString)
+					' Parse the root object
+					' Get the list of branches
+			
 					If salesArray.Size = 0 Then
 						ToastMessageShow("No data received", True)
 						Return
 					End If
-            
+					
+					' Grid Layout Settings
+					Dim numColumns As Int = 2 ' Adjust based on preference
+					Dim pnlWidth As Int = Activity.Width - 100dip
+					Dim pnlHeight As Int = 280dip
+					Dim padding As Int = 10dip
+					Dim leftPosition As Int = 50dip
+					Dim topPosition As Int = 77dip
+					Dim count As Int = 0 ' Track panel count
+					If Activity.Width >= 1340 Then
+						pnlWidth = 490dip
+						pnlHeight = 300dip
+						padding = 10dip
+						leftPosition = 10dip
+					End If
+					' Loop through fetched company data
+					For Each record As Map In salesArray
+						Dim name As String = record.Get("company_name")
+						Dim company_id As Int = record.Get("comId")
+						Dim total_count As Int = record.Get("total_count")
+						Dim total_pos As Int = record.Get("totalDevices")
+				
+						' Create a new Panel dynamically
+						Dim Panel As Panel
+						Panel.Initialize("Panel")
+						ScrollView1.Panel.AddView(Panel, leftPosition, topPosition, pnlWidth, pnlHeight)
+						Panel.Color = Colors.Black
+
+						' Add a sub-panel (Panel2) for the title
+						Dim Panel2 As Panel
+						Panel2.Initialize("Panel2")
+						Panel2.Color = Colors.Black
+						Panel2.Tag = name
+						Panel2.SendToBack
+						Panel.AddView(Panel2, 0, 0, Panel.Width, 6%y)
+
+						' Label for the company name
+						Dim Label17 As Label
+						Label17.Initialize("Label17")
+						Label17.Text = name
+						Label17.Tag = company_id
+						Label17.TextSize = 18
+						Label17.TextColor = Colors.White
+						Label17.Gravity = Gravity.CENTER_VERTICAL
+						Label17.Typeface = Typeface.MONOSPACE
+						Panel2.AddView(Label17, 10dip, 0dip, Panel2.Width, Panel2.Height)
+				
+						Dim myImage As Bitmap
+						myImage = LoadBitmap(File.DirAssets, "arrows-removebg-preview.png")
+						If myImage.IsInitialized Then
+							Dim resizedImage As Bitmap = myImage.Resize(DipToCurrent(4.5%x), myImage.Height * DipToCurrent(2%y) / myImage.Width, True)
+							Dim imgView As ImageView
+							imgView.Initialize("")
+							imgView.Bitmap = resizedImage
+							Panel2.AddView(imgView, Panel2.Width - 8%x, 0dip, 10%x, Panel2.Height)
+						Else
+							Log("Error loading image")
+						End If
+				
+						Dim panelWidth As Int = Panel.Width /3
+						Dim padding As Int = 10dip
+						Dim labelheight As Int = 35dip
+				
+				
+						panelWidth = Panel.Width /2
+				 
+						Dim totalStore As Label
+						totalStore.Initialize("")
+						totalStore.Text = total_count
+						totalStore.TextColor = Colors.Black
+						totalStore.TextSize = primaryFontSize
+						totalStore.Gravity = Gravity.CENTER
+						totalStore.Typeface = Typeface.SERIF
+						Panel.AddView(totalStore,0,Label17.Height+padding+160dip,panelWidth,labelheight)
+				
+						Dim totalStoreLabel As Label
+						totalStoreLabel.Initialize("")
+						totalStoreLabel.Text = " Total Store"
+						totalStoreLabel.TextColor = Colors.Gray
+						totalStoreLabel.TextSize = secondaryFontSize
+						totalStoreLabel.Gravity = Gravity.CENTER
+						totalStoreLabel.Typeface = Typeface.MONOSPACE
+						totalStoreLabel.Text = totalStoreLabel.Text.ToUpperCase
+						Panel.AddView(totalStoreLabel,0,totalStore.top+padding+20dip,panelWidth,labelheight)
+				
+						Dim totalPos As Label
+						totalPos.Initialize("")
+						totalPos.Text = total_pos
+						totalPos.TextColor = Colors.Black
+						totalPos.TextSize = primaryFontSize
+						totalPos.Gravity = Gravity.CENTER
+						totalPos.Typeface = Typeface.SERIF
+						Panel.AddView(totalPos,panelWidth,totalStoreLabel.Height+padding+160dip,panelWidth,labelheight)
+				
+						Dim totalPosLabel As Label
+						totalPosLabel.Initialize("")
+						totalPosLabel.Text = " Total Pos"
+						totalPosLabel.TextColor = Colors.Gray
+						totalPosLabel.TextSize = secondaryFontSize
+						totalPosLabel.Gravity = Gravity.CENTER
+						totalPosLabel.Typeface = Typeface.MONOSPACE
+						totalPosLabel.Text = totalPosLabel.Text.ToUpperCase
+						Panel.AddView(totalPosLabel,panelWidth,totalPos.top+padding+20dip,panelWidth,labelheight)
+						
+		
+						' Positioning logic for grid layout
+						Dim branchName As String
+						Dim branchSales1 As Int
+						Dim branchSales2 As Int
+						Dim branchSales3 As Int
+						If record.ContainsKey("branches") Then
+							Dim branches As List = record.Get("branches")
+							For j = 0 To branches.Size - 1
+								Dim specificbranch As Map = branches.Get(j)
+								branchName = GetMapValueOrDefault(specificbranch, "branch_name", "Unknown Branch")
+								branchSales1 = GetMapValueOrDefault(specificbranch, "sales1", 0)
+								branchSales2  = GetMapValueOrDefault(specificbranch, "sales2", 0)
+								branchSales3= GetMapValueOrDefault(specificbranch, "sales3", 0)
+								' Log branch details
+								Log($"Company: ${name}, Branch: ${branchName}, Sales1: ${branchSales1}, Sales2: ${branchSales2}, Sales3: ${branchSales3}"$)
+							Next
+						Else
+							Log($"Company: ${name} has no branches information."$)
+						End If
+				
+						If Activity.Width >= 1340 Then
+							count = count + 1
+							If count Mod numColumns = 0 Then
+								' Move to the next row
+								leftPosition = 10dip
+								topPosition = topPosition + pnlHeight + padding
+							Else
+								' Move to the next column
+								leftPosition = leftPosition + pnlWidth + padding
+							End If
+							scrollHeight = scrollHeight + 175dip
+						Else
+							topPosition = topPosition + pnlHeight + padding
+							scrollHeight = scrollHeight + 300dip + padding
+						End If
+				
+						' Apply border styling
+						Dim cd As ColorDrawable
+						cd.Initialize2(Colors.White, 0dip, 1dip, Colors.Black)
+						Panel.Background = cd
+					Next
 					' Initialize arrays dynamically based on data size
 					Dim totalCompanies As Int = salesArray.Size
 					Dim sales(totalCompanies) As Int
@@ -127,31 +279,33 @@ Sub JobDone(job As HttpJob)
 					Dim purchase(totalCompanies) As Int
 					Dim purchase1(totalCompanies) As Int
 					Dim purchase2(totalCompanies) As Int
-					Dim product(totalCompanies) As String
+					Dim companyName(totalCompanies) As String
+					'Dim totalBranches As Int = branches.Size
+					'Dim sales1(totalBranches) As Int
+			
 					
 					For i = 0 To totalCompanies - 1
 						Dim record As Map = salesArray.Get(i)
-						product(i) = record.GetDefault("company_name", "Unknown")
+						companyName(i) = record.GetDefault("company_name", "Unknown")
 						sales(i) = record.GetDefault("sales_1", 0)
 						sales1(i) = record.GetDefault("sales_2", 0)
 						sales2(i) = record.GetDefault("sales_3", 0)
 						purchase(i) = record.GetDefault("purchase_1", 0)
 						purchase1(i) = record.GetDefault("purchase_2", 0)
 						purchase2(i) = record.GetDefault("purchase_", 0)
-					Next
-            
+						
+					Next	
+						
 					barPanel.RemoveAllViews
 					barPanel.Invalidate ' Force redraw
 	
 					Dim legend() As String = Array As String("Sales1","Sales2","Sales3")
-					barGraph.Initialize(Activity, barPanel, sales, sales1, sales2, product,legend,10000,"Total Sales of the Company")
-					
-					barGraph1.Initialize(Activity, purchasePanel, purchase, purchase1, purchase2, product,legend,10000,"Total Purchase of the Company")
+					barGraph.Initialize(Activity, barPanel, sales, sales1, sales2, companyName,legend,10000,"Total Sales of the Company")
+					legend = Array As String("Purchase1","Purchase2","Purchase3")
+					barGraph1.Initialize(Activity, purchasePanel, purchase, purchase1, purchase2, companyName,legend,10000,"Total Purchase of the Company")
                 
 				Case "UpdateData"
-					' Handle data update
 					ToastMessageShow("Data updated successfully", False)
-					'CallSubDelayed(Me, "FetchData") ' Ensure data refresh
 					LoadCompanyData
 				Case Else
 					Log("Unknown job: " & job.JobName)
@@ -163,6 +317,13 @@ Sub JobDone(job As HttpJob)
 		ToastMessageShow("Error: " & job.ErrorMessage, True)
 	End If
 	job.Release
+End Sub
+Sub GetMapValueOrDefault(m As Map, Key As String, DefaultValue As Object) As Object
+	If m.ContainsKey(Key) Then
+		Return m.Get(Key)
+	Else
+		Return DefaultValue
+	End If
 End Sub
 
 Sub Activity_Resume

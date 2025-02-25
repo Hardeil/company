@@ -5,19 +5,23 @@ bargraph
 httpjob
 1
 httpjob
-main,activity_create,1,1,47,68
+main,activity_create,1,0,47,68
 ,label1,,panel1,,panel2,,scrollview1,,barpanel,,purchasepanel,,phpurl
 ,label1,,panel1,,panel2,,scrollview1
 ,loadcompanydata,httpjob,initialize,httpjob,download,httpjob,addscheme
-main,loadcompanydata,0,0,69,74
+main,loadcompanydata,0,0,69,78
 ,phpurl
 
 httpjob,initialize,httpjob,download,httpjob,addscheme
-main,activity_pause,0,0,140,142
+main,activity_pause,0,0,301,303
 
 
 
-main,activity_resume,0,0,136,138
+main,activity_resume,0,0,297,299
+
+
+
+main,getmapvalueordefault,0,0,289,295
 
 
 
@@ -25,11 +29,11 @@ main,globals,0,1,23,44
 ,phpurl,,titlefontsize,,primaryfontsize,,secondaryfontsize,,legend
 ,phpurl,,titlefontsize,,primaryfontsize,,secondaryfontsize,,legend
 
-main,jobdone,0,1,75,134
-,barpanel,,legend,,bargraph,,bargraph1,,purchasepanel,httputils2service,tempfolder,,phpurl
-,legend
-httpjob,getstring,bargraph,initialize,,loadcompanydata,httpjob,release,httpjob,getstring2,bargraph,formatnumberwithsuffix,bargraph,formatnumberwithlabel,httpjob,initialize,httpjob,download,httpjob,addscheme
-main,label17_click,0,0,145,153
+main,jobdone,0,1,79,288
+,scrollview1,,panel2,,primaryfontsize,,secondaryfontsize,,barpanel,,legend,,bargraph,,bargraph1,,purchasepanel,httputils2service,tempfolder,,phpurl
+,panel2,,legend
+httpjob,getstring,,getmapvalueordefault,bargraph,initialize,,loadcompanydata,httpjob,release,httpjob,getstring2,bargraph,formatnumberwithsuffix,bargraph,formatnumberwithlabel,httpjob,initialize,httpjob,download,httpjob,addscheme
+main,label17_click,0,0,306,314
 starter,company_selected
 starter,company_selected
 
@@ -165,54 +169,6 @@ bargraph,formatnumberwithsuffix,0,0,124,132
 
 
 
-device,activity_create,1,0,33,145
-,label1,,labeltitle,,panel1,,panel2,,panel3,,panel4,,scrollview1,,scrollviewpanel,,tabledetails,,panelwidth,,tdleftpos,,home,,branches,,devices,,phpurl,branch,branch_selected,,pageno,,limit
-,label1,,labeltitle,,panel1,,panel2,,panel3,,panel4,,scrollview1,,panelwidth,,phpurl
-,responsivelabel,,loadcompanydata,httpjob,initialize,httpjob,download,httpjob,addscheme
-device,responsivelabel,0,0,147,152
-
-
-
-device,loadcompanydata,0,0,154,159
-,phpurl,branch,branch_selected,,pageno,,limit
-,phpurl
-httpjob,initialize,httpjob,download,httpjob,addscheme
-device,activity_pause,0,0,354,355
-
-
-
-device,activity_resume,0,0,351,352
-
-
-
-device,backbtn_click,0,0,161,169
-,pageno,,num,,pagelabel,,scrollview1,,phpurl,branch,branch_selected,,limit
-,pageno,,num,,phpurl
-,loadcompanydata,httpjob,initialize,httpjob,download,httpjob,addscheme
-device,branch_click,0,0,360,363
-
-
-
-device,globals,0,1,10,31
-,limit,,num,,pageno,,phpurl,branch,branch_selected,,panelwidth,,tdleftpos
-,limit,,num,,pageno,,phpurl,,panelwidth,,tdleftpos
-
-device,home_click,0,0,356,359
-
-
-
-device,jobdone,0,0,181,348
-,tabledetails,,scrollviewpanel,,totallabel,,labeltitle,,label1,,branches,,devices,,scrollview1,,panelwidth,,num,,tdleftpos,,panel3,,pagelabel,,pageno,,limit,httputils2service,tempfolder
-,tabledetails,,panelwidth,,num
-httpjob,getstring,httpjob,getstring2
-device,nxtlabel_click,0,0,172,178
-,pageno,,pagelabel,,scrollview1,,phpurl,branch,branch_selected,,limit
-,pageno,,phpurl
-,loadcompanydata,httpjob,initialize,httpjob,download,httpjob,addscheme
-device,process_globals,0,1,6,8
-
-
-
 branch,activity_create,1,0,352,430
 ,labeltitle,,panel3,,scrollview1,,home,,branches,,popuppanel,,target_id_display,,target_countlabel,,totaltarget,,panel,,phpurl,starter,company_selected
 ,labeltitle,,panel3,,scrollview1,,phpurl
@@ -271,6 +227,54 @@ branch,totaltarget_click,0,0,446,452
 
 branch,totaltargettitle_click,0,0,454,460
 ,popuppanel
+
+
+device,activity_create,1,0,33,145
+,label1,,labeltitle,,panel1,,panel2,,panel3,,panel4,,scrollview1,,scrollviewpanel,,tabledetails,,panelwidth,,tdleftpos,,home,,branches,,devices,,phpurl,branch,branch_selected,,pageno,,limit
+,label1,,labeltitle,,panel1,,panel2,,panel3,,panel4,,scrollview1,,panelwidth,,phpurl
+,responsivelabel,,loadcompanydata,httpjob,initialize,httpjob,download,httpjob,addscheme
+device,responsivelabel,0,0,147,152
+
+
+
+device,loadcompanydata,0,0,154,159
+,phpurl,branch,branch_selected,,pageno,,limit
+,phpurl
+httpjob,initialize,httpjob,download,httpjob,addscheme
+device,activity_pause,0,0,354,355
+
+
+
+device,activity_resume,0,0,351,352
+
+
+
+device,backbtn_click,0,0,161,169
+,pageno,,num,,pagelabel,,scrollview1,,phpurl,branch,branch_selected,,limit
+,pageno,,num,,phpurl
+,loadcompanydata,httpjob,initialize,httpjob,download,httpjob,addscheme
+device,branch_click,0,0,360,363
+
+
+
+device,globals,0,1,10,31
+,limit,,num,,pageno,,phpurl,branch,branch_selected,,panelwidth,,tdleftpos
+,limit,,num,,pageno,,phpurl,,panelwidth,,tdleftpos
+
+device,home_click,0,0,356,359
+
+
+
+device,jobdone,0,0,181,348
+,tabledetails,,scrollviewpanel,,totallabel,,labeltitle,,label1,,branches,,devices,,scrollview1,,panelwidth,,num,,tdleftpos,,panel3,,pagelabel,,pageno,,limit,httputils2service,tempfolder
+,tabledetails,,panelwidth,,num
+httpjob,getstring,httpjob,getstring2
+device,nxtlabel_click,0,0,172,178
+,pageno,,pagelabel,,scrollview1,,phpurl,branch,branch_selected,,limit
+,pageno,,phpurl
+,loadcompanydata,httpjob,initialize,httpjob,download,httpjob,addscheme
+device,process_globals,0,1,6,8
+
 
 
 starter,application_error,0,0,30,32

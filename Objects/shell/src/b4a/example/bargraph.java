@@ -13,8 +13,8 @@ public class bargraph {
 public static RemoteObject __c = RemoteObject.declareNull("anywheresoftware.b4a.keywords.Common");
 public static RemoteObject _activitypanel = RemoteObject.declareNull("anywheresoftware.b4a.objects.PanelWrapper");
 public static b4a.example.main _main = null;
-public static b4a.example.device _device = null;
 public static b4a.example.branch _branch = null;
+public static b4a.example.device _device = null;
 public static b4a.example.starter _starter = null;
 public static b4a.example.httputils2service _httputils2service = null;
 public static Object[] GetGlobals(RemoteObject _ref) throws Exception {

@@ -8,7 +8,7 @@ public class device_subs_0 {
 
 public static RemoteObject  _activity_create(RemoteObject _firsttime) throws Exception{
 try {
-		Debug.PushSubsStack("Activity_Create (device) ","device",1,device.mostCurrent.activityBA,device.mostCurrent,33);
+		Debug.PushSubsStack("Activity_Create (device) ","device",2,device.mostCurrent.activityBA,device.mostCurrent,33);
 if (RapidSub.canDelegate("activity_create")) { return b4a.example.device.remoteMe.runUserSub(false, "device","activity_create", _firsttime);}
 RemoteObject _tablelabel = RemoteObject.declareNull("anywheresoftware.b4a.objects.PanelWrapper");
 RemoteObject _idlabel = RemoteObject.declareNull("anywheresoftware.b4a.objects.LabelWrapper");
@@ -285,7 +285,7 @@ finally {
 		}}
 public static RemoteObject  _activity_pause(RemoteObject _userclosed) throws Exception{
 try {
-		Debug.PushSubsStack("Activity_Pause (device) ","device",1,device.mostCurrent.activityBA,device.mostCurrent,354);
+		Debug.PushSubsStack("Activity_Pause (device) ","device",2,device.mostCurrent.activityBA,device.mostCurrent,354);
 if (RapidSub.canDelegate("activity_pause")) { return b4a.example.device.remoteMe.runUserSub(false, "device","activity_pause", _userclosed);}
 Debug.locals.put("UserClosed", _userclosed);
  BA.debugLineNum = 354;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
@@ -302,7 +302,7 @@ finally {
 		}}
 public static RemoteObject  _activity_resume() throws Exception{
 try {
-		Debug.PushSubsStack("Activity_Resume (device) ","device",1,device.mostCurrent.activityBA,device.mostCurrent,351);
+		Debug.PushSubsStack("Activity_Resume (device) ","device",2,device.mostCurrent.activityBA,device.mostCurrent,351);
 if (RapidSub.canDelegate("activity_resume")) { return b4a.example.device.remoteMe.runUserSub(false, "device","activity_resume");}
  BA.debugLineNum = 351;BA.debugLine="Sub Activity_Resume";
 Debug.ShouldStop(1073741824);
@@ -318,7 +318,7 @@ finally {
 		}}
 public static RemoteObject  _backbtn_click() throws Exception{
 try {
-		Debug.PushSubsStack("backBtn_Click (device) ","device",1,device.mostCurrent.activityBA,device.mostCurrent,161);
+		Debug.PushSubsStack("backBtn_Click (device) ","device",2,device.mostCurrent.activityBA,device.mostCurrent,161);
 if (RapidSub.canDelegate("backbtn_click")) { return b4a.example.device.remoteMe.runUserSub(false, "device","backbtn_click");}
  BA.debugLineNum = 161;BA.debugLine="Private Sub backBtn_Click";
 Debug.ShouldStop(1);
@@ -353,7 +353,7 @@ finally {
 		}}
 public static RemoteObject  _branch_click() throws Exception{
 try {
-		Debug.PushSubsStack("branch_Click (device) ","device",1,device.mostCurrent.activityBA,device.mostCurrent,360);
+		Debug.PushSubsStack("branch_Click (device) ","device",2,device.mostCurrent.activityBA,device.mostCurrent,360);
 if (RapidSub.canDelegate("branch_click")) { return b4a.example.device.remoteMe.runUserSub(false, "device","branch_click");}
  BA.debugLineNum = 360;BA.debugLine="Private Sub branch_Click";
 Debug.ShouldStop(128);
@@ -420,7 +420,7 @@ return RemoteObject.createImmutable("");
 }
 public static RemoteObject  _home_click() throws Exception{
 try {
-		Debug.PushSubsStack("home_Click (device) ","device",1,device.mostCurrent.activityBA,device.mostCurrent,356);
+		Debug.PushSubsStack("home_Click (device) ","device",2,device.mostCurrent.activityBA,device.mostCurrent,356);
 if (RapidSub.canDelegate("home_click")) { return b4a.example.device.remoteMe.runUserSub(false, "device","home_click");}
  BA.debugLineNum = 356;BA.debugLine="Private Sub home_Click";
 Debug.ShouldStop(8);
@@ -442,7 +442,7 @@ finally {
 		}}
 public static RemoteObject  _jobdone(RemoteObject _job) throws Exception{
 try {
-		Debug.PushSubsStack("JobDone (device) ","device",1,device.mostCurrent.activityBA,device.mostCurrent,181);
+		Debug.PushSubsStack("JobDone (device) ","device",2,device.mostCurrent.activityBA,device.mostCurrent,181);
 if (RapidSub.canDelegate("jobdone")) { return b4a.example.device.remoteMe.runUserSub(false, "device","jobdone", _job);}
 RemoteObject _parser = RemoteObject.declareNull("anywheresoftware.b4a.objects.collections.JSONParser");
 RemoteObject _ypos = RemoteObject.createImmutable(0);
@@ -894,7 +894,7 @@ finally {
 		}}
 public static RemoteObject  _loadcompanydata() throws Exception{
 try {
-		Debug.PushSubsStack("LoadCompanyData (device) ","device",1,device.mostCurrent.activityBA,device.mostCurrent,154);
+		Debug.PushSubsStack("LoadCompanyData (device) ","device",2,device.mostCurrent.activityBA,device.mostCurrent,154);
 if (RapidSub.canDelegate("loadcompanydata")) { return b4a.example.device.remoteMe.runUserSub(false, "device","loadcompanydata");}
 RemoteObject _job1 = RemoteObject.declareNull("b4a.example.httpjob");
  BA.debugLineNum = 154;BA.debugLine="Sub LoadCompanyData";
@@ -923,7 +923,7 @@ finally {
 		}}
 public static RemoteObject  _nxtlabel_click() throws Exception{
 try {
-		Debug.PushSubsStack("nxtLabel_Click (device) ","device",1,device.mostCurrent.activityBA,device.mostCurrent,172);
+		Debug.PushSubsStack("nxtLabel_Click (device) ","device",2,device.mostCurrent.activityBA,device.mostCurrent,172);
 if (RapidSub.canDelegate("nxtlabel_click")) { return b4a.example.device.remoteMe.runUserSub(false, "device","nxtlabel_click");}
  BA.debugLineNum = 172;BA.debugLine="Private Sub nxtLabel_Click";
 Debug.ShouldStop(2048);
@@ -961,7 +961,7 @@ return RemoteObject.createImmutable("");
 }
 public static RemoteObject  _responsivelabel(RemoteObject _label) throws Exception{
 try {
-		Debug.PushSubsStack("responsiveLabel (device) ","device",1,device.mostCurrent.activityBA,device.mostCurrent,147);
+		Debug.PushSubsStack("responsiveLabel (device) ","device",2,device.mostCurrent.activityBA,device.mostCurrent,147);
 if (RapidSub.canDelegate("responsivelabel")) { return b4a.example.device.remoteMe.runUserSub(false, "device","responsivelabel", _label);}
 RemoteObject _charwidth = RemoteObject.createImmutable(0);
 RemoteObject _padding = RemoteObject.createImmutable(0);
@@ -980,7 +980,7 @@ Debug.ShouldStop(2097152);
 _homewidth = RemoteObject.solve(new RemoteObject[] {(RemoteObject.solve(new RemoteObject[] {_label.runMethod(true,"getText").runMethod(true,"length"),_charwidth}, "*",0, 1)),_padding}, "+",1, 1);Debug.locals.put("homeWidth", _homewidth);Debug.locals.put("homeWidth", _homewidth);
  BA.debugLineNum = 151;BA.debugLine="Return homeWidth";
 Debug.ShouldStop(4194304);
-Debug.CheckDeviceExceptions();if (true) return _homewidth;
+if (true) return _homewidth;
  BA.debugLineNum = 152;BA.debugLine="End Sub";
 Debug.ShouldStop(8388608);
 return RemoteObject.createImmutable(0);

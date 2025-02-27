@@ -71,7 +71,7 @@ Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2(
 	graphCanvas.Initialize(activityPanel)
 
 	' Define the maximum sale value to scale the bars accordingly
-	Dim maxSale As Int = maxSales * 1.2
+	Dim maxSale As Int = maxSales 
 
 	Dim cv As Canvas
 	cv.Initialize(panel)
@@ -97,7 +97,7 @@ Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2(
         
 		For j = 0 To barsPerProduct - 1
 			Dim sale As Int = saleValues(j)
-			Dim barHeight As Int = (sale / maxSale) * (activityPanel.Height - 50dip)
+			Dim barHeight As Int = (sale / maxSales) * (activityPanel.Height )
 			Dim xBar As Int = xPos + j * (barWidth + gap)
             
 			Dim r As Rect
@@ -116,9 +116,9 @@ Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2(
 		Dim productLabelX As Int = alignLeftCenter + 50dip
 		cv.DrawText(product(i), xPos + productLabelX, productLabelY, Typeface.MONOSPACE, 12, Colors.Black, "CENTER")
 	Next
-	Dim numLabels As Int = 10
+	Dim numLabels As Int =10
 	For i = 0 To numLabels
-		Dim labelValue As Int = Round((maxSale / numLabels) * i) ' Ensure whole number
+		Dim labelValue As Int = Round((maxSales / numLabels) * i) ' Ensure whole number
 		Dim labelYPos As Int = activityPanel.Height - ((labelValue / maxSale) * activityPanel.Height) ' Adjust Y position based on the scale
 
 		' Use IntToString to avoid decimal points

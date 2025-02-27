@@ -23,11 +23,12 @@ Library6=stringutils
 ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="34"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~CreateResourceFromFile(Macro, Themes.LightTheme)~\n~'End of default text.~\n~
 Module1=barGraph
 Module2=Branch
-Module3=Device
-Module4=Starter
+Module3=CheckBargraph
+Module4=Device
+Module5=Starter
 NumberOfFiles=7
 NumberOfLibraries=6
-NumberOfModules=4
+NumberOfModules=5
 Version=13.1
 @EndOfDesignText@
 #Region  Project Attributes 
@@ -116,6 +117,7 @@ Sub JobDone(job As HttpJob)
 			parser.Initialize(job.GetString)
 			Select Case job.JobName
 				Case "GetData"
+				
 					Dim scrollHeight As Int = 0
 					Dim salesArray As List = parser.NextArray
 					' Parse the root object
@@ -146,7 +148,7 @@ Sub JobDone(job As HttpJob)
 						Dim company_id As Int = record.Get("comId")
 						Dim total_count As Int = record.Get("total_count")
 						Dim total_pos As Int = record.Get("totalDevices")
-				
+						
 						' Create a new Panel dynamically
 						Dim Panel As Panel
 						Panel.Initialize("Panel")
@@ -159,7 +161,7 @@ Sub JobDone(job As HttpJob)
 						Panel2.Color = Colors.Black
 						Panel2.Tag = name
 						Panel2.SendToBack
-						Panel.AddView(Panel2, 0, 0, Panel.Width, 6%y)
+						'Panel.AddView(Panel2, 0, 0, Panel.Width, 6%y)
 
 						' Label for the company name
 						Dim Label17 As Label
@@ -170,7 +172,7 @@ Sub JobDone(job As HttpJob)
 						Label17.TextColor = Colors.White
 						Label17.Gravity = Gravity.CENTER_VERTICAL
 						Label17.Typeface = Typeface.MONOSPACE
-						Panel2.AddView(Label17, 10dip, 0dip, Panel2.Width, Panel2.Height)
+						'Panel2.AddView(Label17, 10dip, 0dip, Panel2.Width, Panel2.Height)
 				
 						Dim myImage As Bitmap
 						myImage = LoadBitmap(File.DirAssets, "arrows-removebg-preview.png")
@@ -179,7 +181,7 @@ Sub JobDone(job As HttpJob)
 							Dim imgView As ImageView
 							imgView.Initialize("")
 							imgView.Bitmap = resizedImage
-							Panel2.AddView(imgView, Panel2.Width - 8%x, 0dip, 10%x, Panel2.Height)
+							'Panel2.AddView(imgView, Panel2.Width - 8%x, 0dip, 10%x, Panel2.Height)
 						Else
 							Log("Error loading image")
 						End If
@@ -198,7 +200,7 @@ Sub JobDone(job As HttpJob)
 						totalStore.TextSize = primaryFontSize
 						totalStore.Gravity = Gravity.CENTER
 						totalStore.Typeface = Typeface.SERIF
-						Panel.AddView(totalStore,0,Label17.Height+padding+160dip,panelWidth,labelheight)
+						'Panel.AddView(totalStore,0,Label17.Height+padding+160dip,panelWidth,labelheight)
 				
 						Dim totalStoreLabel As Label
 						totalStoreLabel.Initialize("")
@@ -208,7 +210,7 @@ Sub JobDone(job As HttpJob)
 						totalStoreLabel.Gravity = Gravity.CENTER
 						totalStoreLabel.Typeface = Typeface.MONOSPACE
 						totalStoreLabel.Text = totalStoreLabel.Text.ToUpperCase
-						Panel.AddView(totalStoreLabel,0,totalStore.top+padding+20dip,panelWidth,labelheight)
+						'Panel.AddView(totalStoreLabel,0,totalStore.top+padding+20dip,panelWidth,labelheight)
 				
 						Dim totalPos As Label
 						totalPos.Initialize("")
@@ -217,7 +219,7 @@ Sub JobDone(job As HttpJob)
 						totalPos.TextSize = primaryFontSize
 						totalPos.Gravity = Gravity.CENTER
 						totalPos.Typeface = Typeface.SERIF
-						Panel.AddView(totalPos,panelWidth,totalStoreLabel.Height+padding+160dip,panelWidth,labelheight)
+						'Panel.AddView(totalPos,panelWidth,totalStoreLabel.Height+padding+160dip,panelWidth,labelheight)
 				
 						Dim totalPosLabel As Label
 						totalPosLabel.Initialize("")
@@ -227,28 +229,54 @@ Sub JobDone(job As HttpJob)
 						totalPosLabel.Gravity = Gravity.CENTER
 						totalPosLabel.Typeface = Typeface.MONOSPACE
 						totalPosLabel.Text = totalPosLabel.Text.ToUpperCase
-						Panel.AddView(totalPosLabel,panelWidth,totalPos.top+padding+20dip,panelWidth,labelheight)
-						
 		
-						' Positioning logic for grid layout
-						Dim branchName As String
-						Dim branchSales1 As Int
-						Dim branchSales2 As Int
-						Dim branchSales3 As Int
+					For i = 0 To salesArray.Size - 1
+						
+					Dim record As Map = salesArray.Get(i)
+					Dim currentComId As String = record.Get("comId")
+    
+					' Check if the current company's comId matches the target comId
+					If currentComId = 1 Then
+
+						' Check if the company has branches
 						If record.ContainsKey("branches") Then
-							Dim branches As List = record.Get("branches")
-							For j = 0 To branches.Size - 1
-								Dim specificbranch As Map = branches.Get(j)
-								branchName = GetMapValueOrDefault(specificbranch, "branch_name", "Unknown Branch")
-								branchSales1 = GetMapValueOrDefault(specificbranch, "sales1", 0)
-								branchSales2  = GetMapValueOrDefault(specificbranch, "sales2", 0)
-								branchSales3= GetMapValueOrDefault(specificbranch, "sales3", 0)
-								' Log branch details
-								Log($"Company: ${name}, Branch: ${branchName}, Sales1: ${branchSales1}, Sales2: ${branchSales2}, Sales3: ${branchSales3}"$)
-							Next
-						Else
-							Log($"Company: ${name} has no branches information."$)
-						End If
+						Dim branches As List = record.Get("branches")
+						Dim totalBranches As Int = branches.Size
+            
+						' Initialize arrays for the current company's branches
+						Dim branchNames(totalBranches) As String
+						Dim branchSales1(totalBranches) As Int
+						Dim branchSales2(totalBranches) As Int
+						Dim branchSales3(totalBranches) As Int
+            
+						' Populate the arrays with branch details
+						'For j = 0 To totalBranches - 1
+						'	Dim branchMap As Map = branches.Get(j)
+							'branchNames(j) = branchMap.Get("branch_name")
+							'branchSales1(j) = branchMap.Get("sales1")
+							'branchSales2(j) = branchMap.Get("sales2")
+							'branchSales3(j) = branchMap.Get("sales3")
+						'Next
+            
+						' Initialize the bar graph with the branch sales data
+						
+            
+						' Log branch details for the current company
+            			
+					'For j = 0 To totalBranches - 1
+              '  Log($"Company: ${name}, Branch: ${branchNames(j)}, Sales1: ${branchSales1(j)}, Sales2: ${branchSales2(j)}, Sales3: ${branchSales3(j)}"$)
+					'Next
+									Dim legend() As String = Array As String("Sales1", "Sales2", "Sales3")
+									'barGraph.Initialize(Activity, barPanel, branchSales1, branchSales2, branchSales3, branchNames, legend, 1000, "Total Sales of branches")
+					Else
+					Log($"Company: ${name} has no branches information."$)
+				End If
+			End If
+					Next
+
+
+						
+
 				
 						If Activity.Width >= 1340 Then
 							count = count + 1
@@ -280,9 +308,8 @@ Sub JobDone(job As HttpJob)
 					Dim purchase1(totalCompanies) As Int
 					Dim purchase2(totalCompanies) As Int
 					Dim companyName(totalCompanies) As String
-					'Dim totalBranches As Int = branches.Size
-					'Dim sales1(totalBranches) As Int
-			
+					Dim max_value(totalCompanies) As Int 
+					Dim maxSale As Int=0
 					
 					For i = 0 To totalCompanies - 1
 						Dim record As Map = salesArray.Get(i)
@@ -293,16 +320,18 @@ Sub JobDone(job As HttpJob)
 						purchase(i) = record.GetDefault("purchase_1", 0)
 						purchase1(i) = record.GetDefault("purchase_2", 0)
 						purchase2(i) = record.GetDefault("purchase_", 0)
-						
+						max_value(i) = record.GetDefault("max_value", 0)
+						maxSale = Max(maxSale, max_value(i))
+					
 					Next	
-						
+					Log(maxSale)
 					barPanel.RemoveAllViews
 					barPanel.Invalidate ' Force redraw
-	
+
 					Dim legend() As String = Array As String("Sales1","Sales2","Sales3")
-					barGraph.Initialize(Activity, barPanel, sales, sales1, sales2, companyName,legend,10000,"Total Sales of the Company")
+					barGraph.Initialize(Activity, barPanel, sales, sales1, sales2, companyName,legend,maxSale,"Total Sales of the Company")
 					legend = Array As String("Purchase1","Purchase2","Purchase3")
-					barGraph1.Initialize(Activity, purchasePanel, purchase, purchase1, purchase2, companyName,legend,10000,"Total Purchase of the Company")
+					barGraph1.Initialize(Activity, purchasePanel, purchase, purchase1, purchase2, companyName,legend,maxSale,"Total Purchase of the Company")
                 
 				Case "UpdateData"
 					ToastMessageShow("Data updated successfully", False)

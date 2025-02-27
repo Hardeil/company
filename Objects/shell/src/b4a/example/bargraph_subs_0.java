@@ -360,9 +360,9 @@ _graphcanvas = RemoteObject.createNew ("anywheresoftware.b4a.objects.drawable.Ca
  BA.debugLineNum = 65;BA.debugLine="graphCanvas.Initialize(activityPanel)";
 Debug.ShouldStop(1);
 _graphcanvas.runVoidMethod ("Initialize",(Object)((__ref.getField(false,"_activitypanel" /*RemoteObject*/ ).getObject())));
- BA.debugLineNum = 68;BA.debugLine="Dim maxSale As Int = maxSales * 1.2";
+ BA.debugLineNum = 68;BA.debugLine="Dim maxSale As Int = maxSales";
 Debug.ShouldStop(8);
-_maxsale = BA.numberCast(int.class, RemoteObject.solve(new RemoteObject[] {_maxsales,RemoteObject.createImmutable(1.2)}, "*",0, 0));Debug.locals.put("maxSale", _maxsale);Debug.locals.put("maxSale", _maxsale);
+_maxsale = _maxsales;Debug.locals.put("maxSale", _maxsale);Debug.locals.put("maxSale", _maxsale);
  BA.debugLineNum = 70;BA.debugLine="Dim cv As Canvas";
 Debug.ShouldStop(32);
 _cv = RemoteObject.createNew ("anywheresoftware.b4a.objects.drawable.CanvasWrapper");Debug.locals.put("cv", _cv);
@@ -427,9 +427,9 @@ Debug.locals.put("j", _j);
  BA.debugLineNum = 93;BA.debugLine="Dim sale As Int = saleValues(j)";
 Debug.ShouldStop(268435456);
 _sale = _salevalues.getArrayElement(true,BA.numberCast(int.class, _j));Debug.locals.put("sale", _sale);Debug.locals.put("sale", _sale);
- BA.debugLineNum = 94;BA.debugLine="Dim barHeight As Int = (sale / maxSale) * (acti";
+ BA.debugLineNum = 94;BA.debugLine="Dim barHeight As Int = (sale / maxSales) * (act";
 Debug.ShouldStop(536870912);
-_barheight = BA.numberCast(int.class, RemoteObject.solve(new RemoteObject[] {(RemoteObject.solve(new RemoteObject[] {_sale,_maxsale}, "/",0, 0)),(RemoteObject.solve(new RemoteObject[] {__ref.getField(false,"_activitypanel" /*RemoteObject*/ ).runMethod(true,"getHeight"),bargraph.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 50)))}, "-",1, 1))}, "*",0, 0));Debug.locals.put("barHeight", _barheight);Debug.locals.put("barHeight", _barheight);
+_barheight = BA.numberCast(int.class, RemoteObject.solve(new RemoteObject[] {(RemoteObject.solve(new RemoteObject[] {_sale,_maxsales}, "/",0, 0)),(__ref.getField(false,"_activitypanel" /*RemoteObject*/ ).runMethod(true,"getHeight"))}, "*",0, 0));Debug.locals.put("barHeight", _barheight);Debug.locals.put("barHeight", _barheight);
  BA.debugLineNum = 95;BA.debugLine="Dim xBar As Int = xPos + j * (barWidth + gap)";
 Debug.ShouldStop(1073741824);
 _xbar = RemoteObject.solve(new RemoteObject[] {_xpos,RemoteObject.createImmutable(_j),(RemoteObject.solve(new RemoteObject[] {_barwidth,_gap}, "+",1, 1))}, "+*",1, 1);Debug.locals.put("xBar", _xbar);Debug.locals.put("xBar", _xbar);
@@ -470,7 +470,7 @@ _cv.runVoidMethod ("DrawText",__ref.getField(false, "ba"),(Object)(_product.getA
  }
 }Debug.locals.put("i", _i);
 ;
- BA.debugLineNum = 113;BA.debugLine="Dim numLabels As Int = 10";
+ BA.debugLineNum = 113;BA.debugLine="Dim numLabels As Int =10";
 Debug.ShouldStop(65536);
 _numlabels = BA.numberCast(int.class, 10);Debug.locals.put("numLabels", _numlabels);Debug.locals.put("numLabels", _numlabels);
  BA.debugLineNum = 114;BA.debugLine="For i = 0 To numLabels";
@@ -481,9 +481,9 @@ final int limit79 = _numlabels.<Integer>get().intValue();
 _i = 0 ;
 for (;(step79 > 0 && _i <= limit79) || (step79 < 0 && _i >= limit79) ;_i = ((int)(0 + _i + step79))  ) {
 Debug.locals.put("i", _i);
- BA.debugLineNum = 115;BA.debugLine="Dim labelValue As Int = Round((maxSale / numLabe";
+ BA.debugLineNum = 115;BA.debugLine="Dim labelValue As Int = Round((maxSales / numLab";
 Debug.ShouldStop(262144);
-_labelvalue = BA.numberCast(int.class, bargraph.__c.runMethod(true,"Round",(Object)(RemoteObject.solve(new RemoteObject[] {(RemoteObject.solve(new RemoteObject[] {_maxsale,_numlabels}, "/",0, 0)),RemoteObject.createImmutable(_i)}, "*",0, 0))));Debug.locals.put("labelValue", _labelvalue);Debug.locals.put("labelValue", _labelvalue);
+_labelvalue = BA.numberCast(int.class, bargraph.__c.runMethod(true,"Round",(Object)(RemoteObject.solve(new RemoteObject[] {(RemoteObject.solve(new RemoteObject[] {_maxsales,_numlabels}, "/",0, 0)),RemoteObject.createImmutable(_i)}, "*",0, 0))));Debug.locals.put("labelValue", _labelvalue);Debug.locals.put("labelValue", _labelvalue);
  BA.debugLineNum = 116;BA.debugLine="Dim labelYPos As Int = activityPanel.Height - ((";
 Debug.ShouldStop(524288);
 _labelypos = BA.numberCast(int.class, RemoteObject.solve(new RemoteObject[] {__ref.getField(false,"_activitypanel" /*RemoteObject*/ ).runMethod(true,"getHeight"),(RemoteObject.solve(new RemoteObject[] {(RemoteObject.solve(new RemoteObject[] {_labelvalue,_maxsale}, "/",0, 0)),__ref.getField(false,"_activitypanel" /*RemoteObject*/ ).runMethod(true,"getHeight")}, "*",0, 0))}, "-",1, 0));Debug.locals.put("labelYPos", _labelypos);Debug.locals.put("labelYPos", _labelypos);

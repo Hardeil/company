@@ -276,14 +276,14 @@ Debug.ShouldStop(1048576);
 _updatedata_remote(_target_id,_new_value);
  BA.debugLineNum = 438;BA.debugLine="Log(\"Updated target \" & target_id & \" with value";
 Debug.ShouldStop(2097152);
-branch.mostCurrent.__c.runVoidMethod ("LogImpl","2917510",RemoteObject.concat(RemoteObject.createImmutable("Updated target "),_target_id,RemoteObject.createImmutable(" with value "),_new_value),0);
+branch.mostCurrent.__c.runVoidMethod ("LogImpl","8983046",RemoteObject.concat(RemoteObject.createImmutable("Updated target "),_target_id,RemoteObject.createImmutable(" with value "),_new_value),0);
  BA.debugLineNum = 439;BA.debugLine="LoadCompanyData";
 Debug.ShouldStop(4194304);
 _loadcompanydata();
  }else {
  BA.debugLineNum = 441;BA.debugLine="Log(\"Invalid input values\")";
 Debug.ShouldStop(16777216);
-branch.mostCurrent.__c.runVoidMethod ("LogImpl","2917513",RemoteObject.createImmutable("Invalid input values"),0);
+branch.mostCurrent.__c.runVoidMethod ("LogImpl","8983049",RemoteObject.createImmutable("Invalid input values"),0);
  };
  BA.debugLineNum = 443;BA.debugLine="End Sub";
 Debug.ShouldStop(67108864);
@@ -624,7 +624,7 @@ _panel2.runVoidMethod ("AddView",(Object)((_imgview.getObject())),(Object)(Remot
  }else {
  BA.debugLineNum = 143;BA.debugLine="Log(\"Error loading image\")";
 Debug.ShouldStop(16384);
-branch.mostCurrent.__c.runVoidMethod ("LogImpl","2786519",RemoteObject.createImmutable("Error loading image"),0);
+branch.mostCurrent.__c.runVoidMethod ("LogImpl","8852055",RemoteObject.createImmutable("Error loading image"),0);
  };
  BA.debugLineNum = 146;BA.debugLine="Dim panelWidth As Int = Panel.Width /3";
 Debug.ShouldStop(131072);
@@ -1110,7 +1110,7 @@ _loadcompanydata();
 default: {
  BA.debugLineNum = 339;BA.debugLine="Log(\"Unknown job: \" & job.JobName)";
 Debug.ShouldStop(262144);
-branch.mostCurrent.__c.runVoidMethod ("LogImpl","2786715",RemoteObject.concat(RemoteObject.createImmutable("Unknown job: "),_job.getField(true,"_jobname" /*RemoteObject*/ )),0);
+branch.mostCurrent.__c.runVoidMethod ("LogImpl","8852251",RemoteObject.concat(RemoteObject.createImmutable("Unknown job: "),_job.getField(true,"_jobname" /*RemoteObject*/ )),0);
  break; }
 }
 ;
@@ -1308,7 +1308,7 @@ Debug.ShouldStop(256);
 _target_id = BA.ObjectToString(_target_id_btn.runMethod(false,"getTag"));Debug.locals.put("target_id", _target_id);Debug.locals.put("target_id", _target_id);
  BA.debugLineNum = 459;BA.debugLine="Log(target_id&\"This is clicked id\")";
 Debug.ShouldStop(1024);
-branch.mostCurrent.__c.runVoidMethod ("LogImpl","21048581",RemoteObject.concat(_target_id,RemoteObject.createImmutable("This is clicked id")),0);
+branch.mostCurrent.__c.runVoidMethod ("LogImpl","81114117",RemoteObject.concat(_target_id,RemoteObject.createImmutable("This is clicked id")),0);
  BA.debugLineNum = 460;BA.debugLine="End Sub";
 Debug.ShouldStop(2048);
 return RemoteObject.createImmutable("");

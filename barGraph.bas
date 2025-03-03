@@ -5,17 +5,73 @@ Type=Class
 Version=13.1
 @EndOfDesignText@
 Sub Class_Globals
-
-	Dim activityPanel As Panel
+	Private checkBoxes() As CheckBox
+	Private checkedSales() As Boolean
+	
+	Dim color() As Int = Array As Int(Colors.RGB(255, 0, 0), Colors.RGB(200, 20, 20), Colors.RGB(100, 10, 10))
+	Dim legendPanel As Panel
+	Dim Active1 As Activity 
+	Dim panel_l As Panel
+	Dim sale_1() As Int
+	Dim sale_2() As Int
+	Dim sale_3() As Int
+	Dim product1() As String 
+	Dim legend1() As String
+	Dim maxSales1 As Int = 0
+	Dim titleString1 As String = ""
 End Sub
 
 Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2() As Int, sale3() As Int, product() As String , legend() As String, maxSales As Int, TitleString As String)
+	Active1 = Active
+	panel_l = panel
+	sale_1 = sale1
+	sale_2 = sale2
+	sale_3 = sale3
+	product1 = product
+	legend1 = legend
+	maxSales1 = maxSales
+	titleString1 = TitleString
+	
+	legendPanel.Initialize("")
+	legendPanel.Width = panel.Width
+	legendPanel.Height = 30dip
+	
+	Dim legendWidth As Int = legendPanel.Width / legend.Length
+	checkBoxes = Array As CheckBox()
+	checkedSales = Array As Boolean()
+    
+	Dim checkBoxes(sale1.Length) As CheckBox   ' Resize global arrays
+	Dim checkedSales(sale1.Length) As Boolean
+	For i = 0 To legend.Length - 1
+		'Dim colorLabel As Label
+		'colorLabel.Initialize("")
+		'colorLabel.Color = color(i)
+		'legendPanel.AddView(colorLabel, (legendWidth * i)+20dip, 10dip, 10dip, legendPanel.Height-18dip)
+
+		Dim legendLabel As CheckBox
+		legendLabel.Initialize("chkChange")
+		legendLabel.Text = legend(i)
+		legendLabel.TextColor = color(i)
+		legendLabel.Gravity = Gravity.CENTER
+		legendLabel.Checked = True
+		legendPanel.AddView(legendLabel, (legendWidth * i) + 30dip, 0dip, legendWidth - 30dip, legendPanel.Height)
+
+		legendLabel.Tag = i ' Assign the index as the Tag value
+		checkBoxes(i) = legendLabel ' Store reference in global array
+		checkedSales(i) = True ' Ensure the checkbox is set as checked
+	Next
+
+	DrawGraph(Active, panel, sale1, sale2, sale3, product, maxSales, TitleString)
+End Sub
+Sub DrawGraph(Active As Activity, panel As Panel, sale1() As Int, sale2() As Int, sale3() As Int, product() As String , maxSales As Int, TitleString As String)
+	panel.Invalidate
 	panel.RemoveAllViews
 	panel.Height = 400dip
-
+	
+	panel.AddView(legendPanel, 0, 0, panel.Width, 30dip)
 	Dim activityPanel As Panel
 	activityPanel.Initialize("activityPanel")
-	
+
 	activityPanel.Width = 80%x
 	If Active.Width > 800 Then
 		activityPanel.Width = 55%x
@@ -33,33 +89,9 @@ Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2(
 	Title.Typeface = Typeface.MONOSPACE
 	Title.Gravity = Gravity.CENTER
 	Title.TextColor = Colors.Black
-	
+	Title.SendToBack
 	' Add legend above the title
-	Dim legendPanel As Panel
-	legendPanel.Initialize("")
-	legendPanel.Width = panel.Width
-	legendPanel.Height = 30dip
-	panel.AddView(legendPanel, (panel.Width/2) + 20dip, 0, activityPanel.Width/2, 30dip)
 	
-	Dim legend() As String = Array As String("Sales 1", "Sales 2", "Sales 3")
-	Dim color() As Int = Array As Int(Colors.RGB(255, 0, 0), Colors.RGB(200, 20, 20), Colors.RGB(100, 10, 10))
-
-	Dim legendWidth As Int = legendPanel.Width / legend.Length
-	
-	For i = 0 To legend.Length - 1
-		Dim colorLabel As Label
-		colorLabel.Initialize("")
-		colorLabel.Color = color(i)
-		legendPanel.AddView(colorLabel, (legendWidth * i)+20dip, 10dip, 10dip, legendPanel.Height-18dip)
-
-		Dim legendLabel As Label
-		legendLabel.Initialize("")
-		legendLabel.Text = legend(i)
-		legendLabel.TextColor = Colors.black  ' Set text color for better visibility
-		legendLabel.Gravity = Gravity.CENTER
-		legendPanel.AddView(legendLabel, (legendWidth * i)+30dip, 0dip, legendWidth-30dip, legendPanel.Height)
-	Next
-
 	' Add title label below the legend
 	panel.AddView(Title, 0, alignTopCenter / 2, panel.Width, 30dip)
 	
@@ -71,7 +103,7 @@ Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2(
 	graphCanvas.Initialize(activityPanel)
 
 	' Define the maximum sale value to scale the bars accordingly
-	Dim maxSale As Int = maxSales 
+	Dim maxSale As Int = maxSales
 
 	Dim cv As Canvas
 	cv.Initialize(panel)
@@ -92,24 +124,32 @@ Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2(
 	graphCanvas.Initialize(activityPanel)
     
 	For i = 0 To totalProducts - 1
+		
 		Dim xPos As Int = xStart + i * (barsPerProduct * (barWidth + gap) + productGap)
 		Dim saleValues() As Int = Array As Int(sale1(i), sale2(i), sale3(i))
         
+		Dim indexOffset As Int = 0
+		
 		For j = 0 To barsPerProduct - 1
-			Dim sale As Int = saleValues(j)
-			Dim barHeight As Int = (sale / maxSales) * (activityPanel.Height )
-			Dim xBar As Int = xPos + j * (barWidth + gap)
-            
-			Dim r As Rect
-			r.Initialize(xBar, activityPanel.Height - barHeight, xBar + barWidth, panel.Height)
-			graphCanvas.DrawRect(r, color(j), True, 2dip)
-            
-			' Display sales value
-			Dim fontSize As Int = 8
-			If Active.Width > 800 Then
-				fontSize = 10
+			If j < checkedSales.Length And checkedSales(j) Then
+				Dim sale As Int = saleValues(j)
+				Dim barHeight As Int = (sale / maxSales) * (activityPanel.Height )
+				'Dim xBar As Int = xPos + j * (barWidth + gap)
+				Dim xBar As Int = xPos + indexOffset * barWidth
+				
+				Dim r As Rect
+				r.Initialize(xBar, activityPanel.Height - barHeight, xBar + barWidth, panel.Height)
+				graphCanvas.DrawRect(r, color(j), True, 2dip)
+	            
+				' Display sales value
+				Dim fontSize As Int = 8
+				If Active.Width > 800 Then
+					fontSize = 10
+				End If
+				graphCanvas.DrawText( FormatNumberWithSuffix(sale), xBar + (barWidth / 2), activityPanel.Height - barHeight - 5dip, Typeface.MONOSPACE, fontSize, Colors.Black, "CENTER")
+				indexOffset = indexOffset + 1 '
 			End If
-			graphCanvas.DrawText( FormatNumberWithSuffix(sale), xBar + (barWidth / 2), activityPanel.Height - barHeight - 5dip, Typeface.MONOSPACE, fontSize, Colors.Black, "CENTER")
+			
 		Next
 		
 		Dim productLabelY As Int = activityPanel.Height + alignTopCenter + 20dip
@@ -125,6 +165,44 @@ Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2(
 		cv.DrawText(FormatNumberWithLabel(labelValue), alignLeftCenter - 10dip, labelYPos + alignTopCenter + 5dip, Typeface.MONOSPACE, 10, Colors.Black, "RIGHT")
 	Next
 End Sub
+Sub chkChange_CheckedChange(Checked As Boolean)
+	If Sender Is CheckBox Then
+		Dim chk As CheckBox = Sender
+        
+		' Ensure the checkbox has a valid tag
+		If Not(IsNumber(chk.Tag)) Then
+			Log("Error: Checkbox Tag is not a valid number")
+			Return
+		End If
+
+		Dim index As Int = chk.Tag
+		Dim checkedCount As Int = 0
+        
+		' Count checked checkboxes
+		For i = 0 To checkedSales.Length - 1
+			If checkedSales(i) Then checkedCount = checkedCount + 1
+		Next
+        
+		' Prevent unchecking the last checked checkbox
+		If Checked = False And checkedCount = 1 Then
+			chk.Checked = True
+			Return
+		End If
+        
+		' Update the checkedSales array
+		checkedSales(index) = Checked
+        
+		' Log checkbox changes
+		Log("Checkbox " & index & " changed to: " & chk.Checked)
+        
+		' Redraw the graph to reflect changes
+		DrawGraph(Active1, panel_l, sale_1, sale_2, sale_3, product1,  maxSales1, titleString1)
+		panel_l.Invalidate
+	Else
+		Log("Error: Sender is not a CheckBox")
+	End If
+End Sub
+
 
 
 Sub FormatNumberWithSuffix(number As Int) As String
@@ -147,32 +225,3 @@ Sub FormatNumberWithLabel(number As Int) As String
     End If
 End Sub
 
-Sub DrawWrappedTextRotated(canvas As Canvas, text As String, x As Int, y As Int, maxWidth As Int, fontSize As Float, color As Int, alignment As String, angle As Float) As Int
-	Dim words() As String = Regex.Split(" ", text)
-	Dim line As String = ""
-	Dim lineHeight As Int = 20dip ' Space between lines
-	Dim originalY As Int = y ' Store original Y position
-
-	For Each word As String In words
-		Dim testLine As String = line & word & " "
-		Dim textWidth As Int = canvas.MeasureStringWidth(testLine, Typeface.MONOSPACE, fontSize)
-
-		If textWidth > maxWidth And line <> "" Then
-			' Draw the current line
-			canvas.DrawTextRotated(line, x, y, Typeface.DEFAULT_BOLD, fontSize, color, alignment, angle)
-			y = y + lineHeight ' Move to next line
-			line = word & " " ' Start new line
-		Else
-			line = testLine ' Add word to current line
-		End If
-	Next
-
-	' Draw the last line
-	If line <> "" Then
-		canvas.DrawTextRotated(line, x, y, Typeface.DEFAULT_BOLD, fontSize, color, alignment, angle)
-		y = y + lineHeight ' Move final Y position
-	End If
-
-	' Return the new height
-	Return y - originalY
-End Sub

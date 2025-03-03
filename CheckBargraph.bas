@@ -20,10 +20,9 @@ Sub Class_Globals
 	Private maxSale As Int
 End Sub
 
-Public Sub Initialize(Active1 As Activity, barPanel1 As Panel, nextBtn As Button, bckBtn As Button, sales_1() As Int, sales_2() As Int, sales_3() As Int, comName1() As String, maxSale1 As Int, legend() As String)
+Public Sub Initialize(Active1 As Activity, Panel As Panel, nextBtn As Button, bckBtn As Button, sales_1() As Int, sales_2() As Int, sales_3() As Int, comName1() As String, maxSale1 As Int, legend() As String)
 	' Store parameters in global variables
 	Active = Active1
-	barPanel = barPanel1
 	nxtBtn = nextBtn
 	backBtn = bckBtn
 	sales = sales_1
@@ -31,22 +30,29 @@ Public Sub Initialize(Active1 As Activity, barPanel1 As Panel, nextBtn As Button
 	sales2 = sales_3
 	comName = comName1
 	maxSale = maxSale1
-
+	Panel.Initialize("")
+	nextBtn.Initialize("nxtBtn")
+	bckBtn.Initialize("bckBtn")
+    
+    
 	Dim legendCount As Int = legend.Length
+    
+	' Initialize global arrays properly
 	checkBoxes = Array As CheckBox()
 	checkedSales = Array As Boolean()
-	Dim checkBoxes(legendCount) As CheckBox
+    
+	Dim checkBoxes(legendCount) As CheckBox   ' Resize global arrays
 	Dim checkedSales(legendCount) As Boolean
-
+    
 	Dim legendPanel As Panel
 	legendPanel.Initialize("")
 	legendPanel.Width = Active.Width
 	legendPanel.Height = 50dip
-	Active1.AddView(legendPanel, (barPanel1.Width/3.5), barPanel1.Top + 5dip, barPanel1.Width/1.5, 50dip)
-
+	Panel.AddView(legendPanel, (Panel.Width / 3.5), 0, Panel.Width / 1.5, 50dip)
+    
 	Dim Color() As Int = Array As Int(Colors.Red, Colors.Green, Colors.Blue)
 	Dim legendWidth As Int = legendPanel.Width / legend.Length
-
+    
 	For i = 0 To legendCount - 1
 		Dim chk As CheckBox
 		chk.Initialize("chkChange") ' Ensure correct event name
@@ -58,14 +64,21 @@ Public Sub Initialize(Active1 As Activity, barPanel1 As Panel, nextBtn As Button
 		chk.Checked = True ' Initially checked
         
 		legendPanel.AddView(chk, (legendWidth * i) + 10dip, 5dip, legendWidth - 20dip, 40dip)
-		checkBoxes(i) = chk
+        
+		checkBoxes(i) = chk ' Store reference in global array
 		checkedSales(i) = True
 	Next
+    
+	Dim barPanel1 As Panel
+	barPanel1.Initialize("")
+	Panel.AddView(barPanel1, 0, legendPanel.Height, Panel.Width, 350dip)
+	barPanel = barPanel1
+    
 	DrawGraph
 End Sub
 
+
 Sub DrawGraph()
-	' Call DrawGraph with stored global variables
 	DrawGraph1(Active, barPanel, nxtBtn, backBtn, sales, sales1, sales2, comName, maxSale)
 End Sub
 
@@ -92,6 +105,7 @@ Sub chkChange_CheckedChange(Checked As Boolean)
 End Sub
 
 Public Sub DrawGraph1(Active1 As Activity,barPanel1 As Panel,nextBtn As Button,bckBtn As Button,sales_1() As Int,sales_2() As Int,sales_3() As Int,comName1() As String,maxSale1 As Int)
+	barPanel1.Initialize("")
 	barPanel1.RemoveAllViews ' Clear previous drawings
     
 	Dim Color() As Int = Array As Int(Colors.Red, Colors.Green, Colors.Blue)
@@ -103,7 +117,7 @@ Public Sub DrawGraph1(Active1 As Activity,barPanel1 As Panel,nextBtn As Button,b
 	End If
 	activityPanel.Height = 250dip
 	activityPanel.Color = Colors.ARGB(70, 211, 211, 211)
-
+	
 	Dim alignLeftCenter As Int = 0 ' Ensure left alignment when one dataset is checked
 	If checkedSales.Length > 1 Then
 		alignLeftCenter = (barPanel1.Width - activityPanel.Width) / 2
@@ -111,24 +125,6 @@ Public Sub DrawGraph1(Active1 As Activity,barPanel1 As Panel,nextBtn As Button,b
 
 	Dim alignTopCenter As Int = (barPanel1.Height - activityPanel.Height) / 2
 	Dim btnLeft As Int = 0
-
-	bckBtn.Initialize("backBtn")
-	bckBtn.Color = Colors.ARGB(50,0,0,0)
-	If Active1.Width > 800 Then
-		btnLeft = (alignLeftCenter/2)
-	Else
-		btnLeft = (alignLeftCenter/2)-30dip
-	End If
-	barPanel1.AddView(bckBtn,btnLeft,(barPanel1.Height/2)-10dip,30dip,30dip)
-	
-	nextBtn.Initialize("nxtBtn")
-	nextBtn.Color = Colors.ARGB(50,0,0,0)
-	barPanel1.AddView(nextBtn,activityPanel.Width+(alignLeftCenter)+15dip,(barPanel1.Height/2)-5dip,30dip,30dip)
-	
-	If sales_1.Length <= 10 Then
-		nextBtn.Visible = False
-		bckBtn.Visible = False
-	End If
 	
 	Dim titleLabel As Label
 	titleLabel.Initialize("")
@@ -138,7 +134,6 @@ Public Sub DrawGraph1(Active1 As Activity,barPanel1 As Panel,nextBtn As Button,b
 	titleLabel.TextSize = 20
 	titleLabel.TextColor = Colors.Black
 	barPanel1.AddView(titleLabel,0,alignTopCenter - 40dip,barPanel1.Width, 50dip)
-	
 	barPanel1.AddView(activityPanel, alignLeftCenter, alignTopCenter, activityPanel.Width, activityPanel.Height)
 
 	Dim graphCanvas As Canvas
@@ -275,7 +270,20 @@ Public Sub DrawGraph1(Active1 As Activity,barPanel1 As Panel,nextBtn As Button,b
 		barPanel1.AddView(lblCompany, lblCompanyLeft, lblCompanyTop, lblCompanyWidth, 15dip)
 		
 	Next
+	bckBtn.Initialize("backBtn")
+	bckBtn.Color = Colors.ARGB(50,0,0,0)
+	bckBtn.Gravity =Gravity.FILL
 	
+	If Active1.Width > 800 Then
+		btnLeft = (alignLeftCenter/2)
+	Else
+		btnLeft = (alignLeftCenter/2)-30dip
+	End If
+	barPanel1.AddView(bckBtn,btnLeft,(barPanel1.Height/2)-10dip,30dip,30dip)
+	
+	nextBtn.Initialize("nextBtn")
+	nextBtn.Color = Colors.ARGB(50,0,0,0)
+	barPanel1.AddView(nextBtn,activityPanel.Width+(alignLeftCenter)+15dip,(barPanel1.Height/2)-5dip,30dip,30dip)
 End Sub
 
 

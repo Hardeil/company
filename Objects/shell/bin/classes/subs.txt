@@ -1,8 +1,8 @@
 b4a.example
 0
 3
-bargraph
 checkbargraph
+bargraph
 httpjob
 1
 httpjob
@@ -14,15 +14,15 @@ main,loadcompanydata,0,0,69,78
 ,phpurl
 
 httpjob,initialize,httpjob,download,httpjob,addscheme
-main,activity_pause,0,0,329,331
+main,activity_pause,0,0,330,332
 
 
 
-main,activity_resume,0,0,325,327
+main,activity_resume,0,0,326,328
 
 
 
-main,getmapvalueordefault,0,0,317,323
+main,getmapvalueordefault,0,0,318,324
 
 
 
@@ -30,11 +30,11 @@ main,globals,0,1,23,44
 ,phpurl,,titlefontsize,,primaryfontsize,,secondaryfontsize,,legend
 ,phpurl,,titlefontsize,,primaryfontsize,,secondaryfontsize,,legend
 
-main,jobdone,0,1,79,316
-,scrollview1,,panel2,,primaryfontsize,,secondaryfontsize,,legend,,barpanel,,bargraph,,bargraph1,,purchasepanel,httputils2service,tempfolder,,phpurl
+main,jobdone,1,0,79,317
+,panel2,,primaryfontsize,,secondaryfontsize,,legend,,barpanel,,bargraph1,,purchasepanel,httputils2service,tempfolder,,phpurl
 ,panel2,,legend
-httpjob,getstring,bargraph,initialize,,loadcompanydata,httpjob,release,httpjob,getstring2,bargraph,formatnumberwithsuffix,bargraph,formatnumberwithlabel,httpjob,initialize,httpjob,download,httpjob,addscheme
-main,label17_click,0,0,334,342
+httpjob,getstring,bargraph,initialize,,loadcompanydata,httpjob,release,httpjob,getstring2,bargraph,drawgraph,bargraph,formatnumberwithsuffix,bargraph,formatnumberwithlabel,httpjob,initialize,httpjob,download,httpjob,addscheme
+main,label17_click,0,0,335,343
 starter,company_selected
 starter,company_selected
 
@@ -150,26 +150,62 @@ httpjob,putstring,0,0,75,77
 
 
 ,putbytes,,addscheme
-bargraph,initialize,0,0,6,121
+bargraph,initialize,1,1,18,59
+
+
+,drawgraph,,formatnumberwithsuffix,,formatnumberwithlabel
+bargraph,chkchange_checkedchange,1,0,162,198
+
+
+,drawgraph,,formatnumberwithsuffix,,formatnumberwithlabel
+bargraph,drawgraph,0,1,60,161
 
 
 ,formatnumberwithsuffix,,formatnumberwithlabel
-bargraph,class_globals,0,0,1,4
+bargraph,class_globals,0,0,1,16
 
 
 
-bargraph,drawwrappedtextrotated,0,0,144,172
+bargraph,formatnumberwithsuffix,0,0,202,210
 
 
 
-bargraph,formatnumberwithlabel,0,0,134,142
+bargraph,formatnumberwithlabel,0,0,212,220
 
 
 
-bargraph,formatnumberwithsuffix,0,0,124,132
+checkbargraph,chkchange_checkedchange,1,0,79,99
+
+
+,drawgraph,,drawgraph1,,formatnumberwithlabel,,formatnumberwithsuffix
+checkbargraph,drawgraph,0,0,75,77
+
+
+,drawgraph1,,formatnumberwithlabel,,formatnumberwithsuffix
+checkbargraph,class_globals,0,0,1,15
 
 
 
+checkbargraph,drawgraph1,0,0,101,281
+
+
+,formatnumberwithlabel,,formatnumberwithsuffix
+checkbargraph,formatnumberwithlabel,0,0,325,333
+
+
+
+checkbargraph,formatnumberwithsuffix,0,0,315,323
+
+
+
+checkbargraph,drawwrappedtextrotated,0,0,285,313
+
+
+
+checkbargraph,initialize,1,0,17,72
+
+
+,drawgraph,,drawgraph1,,formatnumberwithlabel,,formatnumberwithsuffix
 branch,activity_create,1,0,352,430
 ,labeltitle,,panel3,,scrollview1,,home,,branches,,popuppanel,,target_id_display,,target_countlabel,,totaltarget,,panel,,phpurl,starter,company_selected
 ,labeltitle,,panel3,,scrollview1,,phpurl
@@ -278,38 +314,6 @@ device,process_globals,0,1,6,8
 
 
 
-checkbargraph,chkchange_checkedchange,1,0,66,86
-
-
-,drawgraph,,drawgraph1,,formatnumberwithlabel,,formatnumberwithsuffix
-checkbargraph,drawgraph,0,0,61,64
-
-
-,drawgraph1,,formatnumberwithlabel,,formatnumberwithsuffix
-checkbargraph,class_globals,0,0,1,15
-
-
-
-checkbargraph,drawgraph1,0,0,88,273
-
-
-,formatnumberwithlabel,,formatnumberwithsuffix
-checkbargraph,formatnumberwithlabel,0,0,317,325
-
-
-
-checkbargraph,formatnumberwithsuffix,0,0,307,315
-
-
-
-checkbargraph,drawwrappedtextrotated,0,0,277,305
-
-
-
-checkbargraph,initialize,1,0,17,59
-
-
-,drawgraph,,drawgraph1,,formatnumberwithlabel,,formatnumberwithsuffix
 starter,application_error,0,0,30,32
 
 

@@ -56,7 +56,7 @@ End Sub
 Sub Globals
 	'These global variables will be redeclared each time the activity is created.
 	Private ScrollView1 As ScrollView
-	Dim PHPURL As String = "https://192.168.8.117/Company/fetch.php?action=get_company_list"
+	Dim PHPURL As String = "https:192.168.8.117/Company/fetch.php?action=get_company_list&page=1"
 	Dim TableDetails As List
 	'Private navigate As Button
 	Private Button1 As Button
@@ -94,10 +94,10 @@ Sub Activity_Create(FirstTime As Boolean)
 	LoadCompanyData
 	
 	barPanel.Initialize("")
-	Panel1.AddView(barPanel,25dip,Panel2.Height+20dip,Activity.Width-50dip,300dip)
+	Panel1.AddView(barPanel,25dip,Panel2.Height+20dip,Activity.Width-50dip,450dip)
 	
 	purchasePanel.Initialize("")
-	Panel1.AddView(purchasePanel,25dip,barPanel.top+barPanel.Height+Panel2.Height+20dip,Activity.Width-50dip,300dip)
+	Panel1.AddView(purchasePanel,25dip,barPanel.top+barPanel.Height+Panel2.Height+20dip - 100dip,Activity.Width-50dip,0dip)
 End Sub
 Sub LoadCompanyData
 	Try
@@ -152,7 +152,7 @@ Sub JobDone(job As HttpJob)
 						' Create a new Panel dynamically
 						Dim Panel As Panel
 						Panel.Initialize("Panel")
-						ScrollView1.Panel.AddView(Panel, leftPosition, topPosition, pnlWidth, pnlHeight)
+						'ScrollView1.Panel.AddView(Panel, leftPosition, topPosition, pnlWidth, pnlHeight)
 						Panel.Color = Colors.Black
 
 						' Add a sub-panel (Panel2) for the title
@@ -248,19 +248,19 @@ Sub JobDone(job As HttpJob)
 						Dim branchSales1(totalBranches) As Int
 						Dim branchSales2(totalBranches) As Int
 						Dim branchSales3(totalBranches) As Int
-            
+
 						' Populate the arrays with branch details
-						'For j = 0 To totalBranches - 1
-						'	Dim branchMap As Map = branches.Get(j)
-							'branchNames(j) = branchMap.Get("branch_name")
-							'branchSales1(j) = branchMap.Get("sales1")
-							'branchSales2(j) = branchMap.Get("sales2")
-							'branchSales3(j) = branchMap.Get("sales3")
-						'Next
-            
+						For j = 0 To totalBranches - 1
+										Dim branchMap As Map = branches.Get(j)
+										branchNames(j) = branchMap.GetDefault("branch_name","").As(String)
+										branchSales1(j) = branchMap.GetDefault("sales1",0)
+										branchSales2(j) = branchMap.GetDefault("sales2",0)
+										branchSales3(j) = branchMap.GetDefault("sales3",0)
+										
+									Next
+									
 						' Initialize the bar graph with the branch sales data
-						
-            
+								
 						' Log branch details for the current company
             			
 					'For j = 0 To totalBranches - 1
@@ -322,17 +322,18 @@ Sub JobDone(job As HttpJob)
 						purchase2(i) = record.GetDefault("purchase_", 0)
 						max_value(i) = record.GetDefault("max_value", 0)
 						maxSale = Max(maxSale, max_value(i))
-					
 					Next	
-					Log(maxSale)
+			
 					barPanel.RemoveAllViews
 					barPanel.Invalidate ' Force redraw
-
+				
+					Dim comName() As String = Array As String("EZWARE","EZWARE1","EZWARE2","EZWARE3")
+					Dim nxtBtn As Button
+					Dim backBtn As Button
 					Dim legend() As String = Array As String("Sales1","Sales2","Sales3")
-					barGraph.Initialize(Activity, barPanel, sales, sales1, sales2, companyName,legend,maxSale,"Total Sales of the Company")
+					'barGraph.Initialize(Activity,barPanel,nxtBtn,backBtn,sales,sales1,sales2,comName,400000,legend)
 					legend = Array As String("Purchase1","Purchase2","Purchase3")
 					barGraph1.Initialize(Activity, purchasePanel, purchase, purchase1, purchase2, companyName,legend,maxSale,"Total Purchase of the Company")
-                
 				Case "UpdateData"
 					ToastMessageShow("Data updated successfully", False)
 					LoadCompanyData

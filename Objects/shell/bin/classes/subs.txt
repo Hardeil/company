@@ -14,15 +14,15 @@ main,loadcompanydata,0,0,69,78
 ,phpurl
 
 httpjob,initialize,httpjob,download,httpjob,addscheme
-main,activity_pause,0,0,330,332
+main,activity_pause,0,0,324,326
 
 
 
-main,activity_resume,0,0,326,328
+main,activity_resume,0,0,320,322
 
 
 
-main,getmapvalueordefault,0,0,318,324
+main,getmapvalueordefault,0,0,312,318
 
 
 
@@ -30,11 +30,11 @@ main,globals,0,1,23,44
 ,phpurl,,titlefontsize,,primaryfontsize,,secondaryfontsize,,legend
 ,phpurl,,titlefontsize,,primaryfontsize,,secondaryfontsize,,legend
 
-main,jobdone,1,0,79,317
-,panel2,,primaryfontsize,,secondaryfontsize,,legend,,barpanel,,bargraph1,,purchasepanel,httputils2service,tempfolder,,phpurl
+main,jobdone,1,0,79,311
+,panel2,,primaryfontsize,,secondaryfontsize,,legend,,bargraph1,,purchasepanel,,barpanel,httputils2service,tempfolder,,phpurl
 ,panel2,,legend
 httpjob,getstring,bargraph,initialize,,loadcompanydata,httpjob,release,httpjob,getstring2,bargraph,drawgraph,bargraph,formatnumberwithsuffix,bargraph,formatnumberwithlabel,httpjob,initialize,httpjob,download,httpjob,addscheme
-main,label17_click,0,0,335,343
+main,label17_click,0,0,329,337
 starter,company_selected
 starter,company_selected
 
@@ -150,27 +150,27 @@ httpjob,putstring,0,0,75,77
 
 
 ,putbytes,,addscheme
-bargraph,initialize,1,1,18,59
+bargraph,initialize,1,0,17,64
 
 
 ,drawgraph,,formatnumberwithsuffix,,formatnumberwithlabel
-bargraph,chkchange_checkedchange,1,0,162,198
+bargraph,chkchange_checkedchange,1,0,167,188
 
 
 ,drawgraph,,formatnumberwithsuffix,,formatnumberwithlabel
-bargraph,drawgraph,0,1,60,161
+bargraph,drawgraph,0,1,65,166
 
 
 ,formatnumberwithsuffix,,formatnumberwithlabel
-bargraph,class_globals,0,0,1,16
+bargraph,class_globals,0,0,1,15
 
 
 
-bargraph,formatnumberwithsuffix,0,0,202,210
+bargraph,formatnumberwithsuffix,0,0,192,200
 
 
 
-bargraph,formatnumberwithlabel,0,0,212,220
+bargraph,formatnumberwithlabel,0,0,202,210
 
 
 

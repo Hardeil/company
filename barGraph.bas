@@ -7,7 +7,6 @@ Version=13.1
 Sub Class_Globals
 	Private checkBoxes() As CheckBox
 	Private checkedSales() As Boolean
-	
 	Dim color() As Int = Array As Int(Colors.RGB(255, 0, 0), Colors.RGB(200, 20, 20), Colors.RGB(100, 10, 10))
 	Dim legendPanel As Panel
 	Dim Active1 As Activity 
@@ -32,6 +31,10 @@ Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2(
 	maxSales1 = maxSales
 	titleString1 = TitleString
 	
+	If sale1.Length <> product.Length Or sale2.Length <> product.Length Or sale3.Length <> product.Length Then
+		Return ' Exit if validation fails
+	End If
+	
 	legendPanel.Initialize("")
 	legendPanel.Width = panel.Width
 	legendPanel.Height = 30dip
@@ -40,24 +43,26 @@ Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2(
 	checkBoxes = Array As CheckBox()
 	checkedSales = Array As Boolean()
     
-	Dim checkBoxes(sale1.Length) As CheckBox   ' Resize global arrays
-	Dim checkedSales(sale1.Length) As Boolean
+	Dim checkBoxes(legend.Length) As CheckBox   ' Resize global arrays
+	Dim checkedSales(legend.Length) As Boolean
 	For i = 0 To legend.Length - 1
 		'Dim colorLabel As Label
 		'colorLabel.Initialize("")
 		'colorLabel.Color = color(i)
 		'legendPanel.AddView(colorLabel, (legendWidth * i)+20dip, 10dip, 10dip, legendPanel.Height-18dip)
 
-		Dim legendLabel As CheckBox
-		legendLabel.Initialize("chkChange")
-		legendLabel.Text = legend(i)
-		legendLabel.TextColor = color(i)
-		legendLabel.Gravity = Gravity.CENTER
-		legendLabel.Checked = True
-		legendPanel.AddView(legendLabel, (legendWidth * i) + 30dip, 0dip, legendWidth - 30dip, legendPanel.Height)
+		Dim chk As CheckBox
+		chk.Initialize("chkChange") 
+		chk.Text = legend(i)
+		chk.TextSize = 10
+		chk.Typeface = Typeface.MONOSPACE
+		chk.TextColor = color(i)
+		chk.Tag = i
+		chk.Checked = True
+		legendPanel.AddView(chk, (legendWidth * i) + 30dip, 0dip, legendWidth - 30dip, legendPanel.Height)
 
-		legendLabel.Tag = i ' Assign the index as the Tag value
-		checkBoxes(i) = legendLabel ' Store reference in global array
+		' Assign the index as the Tag value
+		checkBoxes(i) = chk ' Store reference in global array
 		checkedSales(i) = True ' Ensure the checkbox is set as checked
 	Next
 
@@ -168,34 +173,19 @@ End Sub
 Sub chkChange_CheckedChange(Checked As Boolean)
 	If Sender Is CheckBox Then
 		Dim chk As CheckBox = Sender
+		Dim index As Int = chk.Tag 
         
-		' Ensure the checkbox has a valid tag
-		If Not(IsNumber(chk.Tag)) Then
-			Log("Error: Checkbox Tag is not a valid number")
-			Return
-		End If
-
-		Dim index As Int = chk.Tag
 		Dim checkedCount As Int = 0
-        
-		' Count checked checkboxes
 		For i = 0 To checkedSales.Length - 1
-			If checkedSales(i) Then checkedCount = checkedCount + 1
+			If checkedSales(i) = True Then checkedCount = checkedCount + 1
 		Next
         
-		' Prevent unchecking the last checked checkbox
 		If Checked = False And checkedCount = 1 Then
 			chk.Checked = True
 			Return
 		End If
         
-		' Update the checkedSales array
 		checkedSales(index) = Checked
-        
-		' Log checkbox changes
-		Log("Checkbox " & index & " changed to: " & chk.Checked)
-        
-		' Redraw the graph to reflect changes
 		DrawGraph(Active1, panel_l, sale_1, sale_2, sale_3, product1,  maxSales1, titleString1)
 		panel_l.Invalidate
 	Else

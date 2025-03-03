@@ -68,7 +68,7 @@ RDebugUtils.currentLine=4259845;
 if (_job== null) { 
 RDebugUtils.currentLine=4259846;
  //BA.debugLineNum = 4259846;BA.debugLine="Log(\"HttpUtils2Service: job completed multiple t";
-anywheresoftware.b4a.keywords.Common.LogImpl("24259846","HttpUtils2Service: job completed multiple times - "+BA.NumberToString(_taskid),0);
+anywheresoftware.b4a.keywords.Common.LogImpl("54259846","HttpUtils2Service: job completed multiple times - "+BA.NumberToString(_taskid),0);
 RDebugUtils.currentLine=4259847;
  //BA.debugLineNum = 4259847;BA.debugLine="Return";
 if (true) return "";
@@ -98,7 +98,7 @@ RDebugUtils.currentLine=4194304;
  //BA.debugLineNum = 4194304;BA.debugLine="Sub hc_ResponseError (Response As OkHttpResponse,";
 RDebugUtils.currentLine=4194306;
  //BA.debugLineNum = 4194306;BA.debugLine="Log($\"ResponseError. Reason: ${Reason}, Response:";
-anywheresoftware.b4a.keywords.Common.LogImpl("24194306",("ResponseError. Reason: "+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(_reason))+", Response: "+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(_response.getErrorResponse()))+""),0);
+anywheresoftware.b4a.keywords.Common.LogImpl("54194306",("ResponseError. Reason: "+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(_reason))+", Response: "+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(_response.getErrorResponse()))+""),0);
 RDebugUtils.currentLine=4194308;
  //BA.debugLineNum = 4194308;BA.debugLine="Response.Release";
 _response.Release();
@@ -110,7 +110,7 @@ RDebugUtils.currentLine=4194310;
 if (_job== null) { 
 RDebugUtils.currentLine=4194311;
  //BA.debugLineNum = 4194311;BA.debugLine="Log(\"HttpUtils2Service (hc_ResponseError): job c";
-anywheresoftware.b4a.keywords.Common.LogImpl("24194311","HttpUtils2Service (hc_ResponseError): job completed multiple times - "+BA.NumberToString(_taskid),0);
+anywheresoftware.b4a.keywords.Common.LogImpl("54194311","HttpUtils2Service (hc_ResponseError): job completed multiple times - "+BA.NumberToString(_taskid),0);
 RDebugUtils.currentLine=4194312;
  //BA.debugLineNum = 4194312;BA.debugLine="Return";
 if (true) return "";
@@ -149,7 +149,7 @@ RDebugUtils.currentLine=4063234;
 if (_job== null) { 
 RDebugUtils.currentLine=4063235;
  //BA.debugLineNum = 4063235;BA.debugLine="Log(\"HttpUtils2Service (hc_ResponseSuccess): job";
-anywheresoftware.b4a.keywords.Common.LogImpl("24063235","HttpUtils2Service (hc_ResponseSuccess): job completed multiple times - "+BA.NumberToString(_taskid),0);
+anywheresoftware.b4a.keywords.Common.LogImpl("54063235","HttpUtils2Service (hc_ResponseSuccess): job completed multiple times - "+BA.NumberToString(_taskid),0);
 RDebugUtils.currentLine=4063236;
  //BA.debugLineNum = 4063236;BA.debugLine="Return";
 if (true) return "";
@@ -206,10 +206,10 @@ anywheresoftware.b4a.keywords.Common.File.Delete(_tempfolder,"~test.test");
        catch (Exception e6) {
 			processBA.setLastException(e6);RDebugUtils.currentLine=3735559;
  //BA.debugLineNum = 3735559;BA.debugLine="Log(LastException)";
-anywheresoftware.b4a.keywords.Common.LogImpl("23735559",BA.ObjectToString(anywheresoftware.b4a.keywords.Common.LastException(processBA)),0);
+anywheresoftware.b4a.keywords.Common.LogImpl("53735559",BA.ObjectToString(anywheresoftware.b4a.keywords.Common.LastException(processBA)),0);
 RDebugUtils.currentLine=3735560;
  //BA.debugLineNum = 3735560;BA.debugLine="Log(\"Switching to File.DirInternal\")";
-anywheresoftware.b4a.keywords.Common.LogImpl("23735560","Switching to File.DirInternal",0);
+anywheresoftware.b4a.keywords.Common.LogImpl("53735560","Switching to File.DirInternal",0);
 RDebugUtils.currentLine=3735561;
  //BA.debugLineNum = 3735561;BA.debugLine="TempFolder = File.DirInternal";
 _tempfolder = anywheresoftware.b4a.keywords.Common.File.getDirInternal();
@@ -219,7 +219,7 @@ RDebugUtils.currentLine=3735566;
 if (_hc.IsInitialized()==anywheresoftware.b4a.keywords.Common.False) { 
 RDebugUtils.currentLine=3735568;
  //BA.debugLineNum = 3735568;BA.debugLine="Log(\"(Http client initialized with accept all op";
-anywheresoftware.b4a.keywords.Common.LogImpl("23735568","(Http client initialized with accept all option.)",0);
+anywheresoftware.b4a.keywords.Common.LogImpl("53735568","(Http client initialized with accept all option.)",0);
 RDebugUtils.currentLine=3735569;
  //BA.debugLineNum = 3735569;BA.debugLine="hc.InitializeAcceptAll(\"hc\")";
 _hc.InitializeAcceptAll("hc");

@@ -56,7 +56,7 @@ End Sub
 Sub Globals
 	'These global variables will be redeclared each time the activity is created.
 	Private ScrollView1 As ScrollView
-	Dim PHPURL As String = "https:192.168.8.117/Company/fetch.php?action=get_company_list&page=1"
+	Dim PHPURL As String = "https://192.168.8.117/Company/fetch.php?action=get_company_list&page=1"
 	Dim TableDetails As List
 	'Private navigate As Button
 	Private Button1 As Button
@@ -74,6 +74,7 @@ Sub Globals
 	Public legend() As String = Array As String("Sales1", "Sales2", "Sales3")
 	
 	Dim purchasePanel As Panel
+	
 End Sub
 
 
@@ -236,7 +237,7 @@ Sub JobDone(job As HttpJob)
 					Dim currentComId As String = record.Get("comId")
     
 					' Check if the current company's comId matches the target comId
-					If currentComId = 3 Then
+					If currentComId = 1 Then
 
 						' Check if the company has branches
 						If record.ContainsKey("branches") Then
@@ -260,7 +261,7 @@ Sub JobDone(job As HttpJob)
 									Next
 									
 									Dim legend() As String = Array As String("Sales1","Sales2","Sales3")
-									barGraph1.Initialize(Activity, purchasePanel, branchSales1, branchSales2, branchSales3, branchNames,legend,19000,"Total Purchase of the Company")
+									'barGraph1.Initialize(Activity, purchasePanel, branchSales1, branchSales2, branchSales3, branchNames,legend,19000,"Total Purchase of the Company")
 		
 					Else
 					Log($"Company: ${name} has no branches information."$)
@@ -296,6 +297,7 @@ Sub JobDone(job As HttpJob)
 					' Initialize arrays dynamically based on data size
 					Dim totalCompanies As Int = salesArray.Size
 					Dim sales(totalCompanies) As Int
+					Dim comId(totalCompanies) As Int
 					Dim sales1(totalCompanies) As Int
 					Dim sales2(totalCompanies) As Int
 					Dim purchase(totalCompanies) As Int
@@ -308,6 +310,7 @@ Sub JobDone(job As HttpJob)
 					For i = 0 To totalCompanies - 1
 						Dim record As Map = salesArray.Get(i)
 						companyName(i) = record.GetDefault("company_name", "Unknown")
+						comId(i) = record.GetDefault("comId", 0)
 						sales(i) = record.GetDefault("sales_1", 0)
 						sales1(i) = record.GetDefault("sales_2", 0)
 						sales2(i) = record.GetDefault("sales_3", 0)
@@ -321,11 +324,11 @@ Sub JobDone(job As HttpJob)
 					barPanel.RemoveAllViews
 					barPanel.Invalidate ' Force redraw
 				
-					Dim comName() As String = Array As String("EZWARE","EZWARE1","EZWARE2","EZWARE3")
-					Dim nxtBtn As Button
-					Dim backBtn As Button
+
+
 					Dim legend() As String = Array As String("Sales1","Sales2","Sales3")
-					'barGraph.Initialize(Activity,barPanel,nxtBtn,backBtn,sales,sales1,sales2,comName,400000,legend)
+					'barGraph.changePage(Activity,"Branch")
+					barGraph.Initialize(Activity,barPanel,sales,sales1,sales2,companyName,legend,maxSale,"Total Sale of the Company",comId,"Branch")
 					'legend = Array As String("Purchase1","Purchase2","Purchase3")
 					'barGraph1.Initialize(Activity, purchasePanel, purchase, purchase1, purchase2, companyName,legend,maxSale,"Total Purchase of the Company")
 				Case "UpdateData"

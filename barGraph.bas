@@ -9,18 +9,25 @@ Sub Class_Globals
 	Private checkedSales() As Boolean
 	Dim color() As Int = Array As Int(Colors.RGB(255, 0, 0), Colors.RGB(200, 20, 20), Colors.RGB(100, 10, 10))
 	Dim legendPanel As Panel
-	Dim Active1 As Activity 
+	Dim Active1 As Activity
 	Dim panel_l As Panel
 	Dim sale_1() As Int
 	Dim sale_2() As Int
 	Dim sale_3() As Int
-	Dim product1() As String 
+	Dim product1() As String
 	Dim legend1() As String
 	Dim maxSales1 As Int = 0
 	Dim titleString1 As String = ""
+	Dim comId1() As Int
+	' Pagination variables
+	Private currentPage As Int = 1
+	Private itemsPerPage As Int = 5 ' Adjust this based on how many products you want per page
+	Private btnNext As Button
+	Private btnBack As Button
+	Dim layout As String = ""
 End Sub
 
-Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2() As Int, sale3() As Int, product() As String , legend() As String, maxSales As Int, TitleString As String)
+Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2() As Int, sale3() As Int, product() As String , legend() As String, maxSales As Int, TitleString As String,comId() As Int, layout1 As String)
 	Active1 = Active
 	panel_l = panel
 	sale_1 = sale1
@@ -30,7 +37,8 @@ Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2(
 	legend1 = legend
 	maxSales1 = maxSales
 	titleString1 = TitleString
-	
+	comId1 = comId
+	layout = layout1
 	If sale1.Length <> product.Length Or sale2.Length <> product.Length Or sale3.Length <> product.Length Then
 		Return ' Exit if validation fails
 	End If
@@ -68,11 +76,13 @@ Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2(
 
 	DrawGraph(Active, panel, sale1, sale2, sale3, product, maxSales, TitleString)
 End Sub
-Sub DrawGraph(Active As Activity, panel As Panel, sale1() As Int, sale2() As Int, sale3() As Int, product() As String , maxSales As Int, TitleString As String)
+
+
+Sub DrawGraph(Active As Activity, panel As Panel, sale1() As Int, sale2() As Int, sale3() As Int, product() As String, maxSales As Int, TitleString As String)
 	panel.Invalidate
 	panel.RemoveAllViews
-	panel.Height = 400dip
-	
+	panel.Height = 450dip ' Increased height to accommodate buttons
+    
 	panel.AddView(legendPanel, 0, 0, panel.Width, 30dip)
 	Dim activityPanel As Panel
 	activityPanel.Initialize("activityPanel")
@@ -83,10 +93,10 @@ Sub DrawGraph(Active As Activity, panel As Panel, sale1() As Int, sale2() As Int
 	End If
 	activityPanel.Height = 250dip
 	activityPanel.Color = Colors.ARGB(70, 211, 211, 211)
-	
+    
 	Dim alignLeftCenter As Int = (Active.Width - activityPanel.Width) / 2
-	Dim alignTopCenter As Int = (panel.Height - activityPanel.Height) / 2
-	
+	Dim alignTopCenter As Int = (panel.Height - activityPanel.Height) / 2 - 20dip ' Adjusted for buttons
+    
 	Dim Title As Label
 	Title.Initialize("")
 	Title.Text = TitleString
@@ -94,86 +104,116 @@ Sub DrawGraph(Active As Activity, panel As Panel, sale1() As Int, sale2() As Int
 	Title.Typeface = Typeface.MONOSPACE
 	Title.Gravity = Gravity.CENTER
 	Title.TextColor = Colors.Black
-	Title.SendToBack
-	' Add legend above the title
-	
-	' Add title label below the legend
 	panel.AddView(Title, 0, alignTopCenter / 2, panel.Width, 30dip)
-	
-	' Add the panel to the activity
+    
 	panel.AddView(activityPanel, alignLeftCenter, alignTopCenter, activityPanel.Width, activityPanel.Height)
 
-	' Create a Canvas object to draw on the panel
 	Dim graphCanvas As Canvas
 	graphCanvas.Initialize(activityPanel)
 
-	' Define the maximum sale value to scale the bars accordingly
-	Dim maxSale As Int = maxSales
-
+	Dim maxSale As Int = maxSales * 1.2
 	Dim cv As Canvas
 	cv.Initialize(panel)
     
-	' Draw bars
-	Dim totalProducts As Int =  sale1.Length
+	' Pagination logic
+	Dim totalProducts As Int = sale1.Length
+	Dim startIndex As Int = (currentPage - 1) * itemsPerPage
+	Dim endIndex As Int = Min(startIndex + itemsPerPage - 1, totalProducts - 1)
 	Dim barsPerProduct As Int = 3
-	Dim totalBars As Int = totalProducts * barsPerProduct
+	Dim totalBars As Int = (endIndex - startIndex + 1) * barsPerProduct
 	Dim gap As Int = 5dip
-	Dim productGap As Int = 15dip
-	Dim padding As Int = 20dip
+	Dim productGap As Int = 0dip
+	Dim padding As Int = 10dip
     
-	Dim availableWidth As Int = activityPanel.Width - (padding * 2) - ((totalProducts - 1) * productGap) - ((totalBars - totalProducts) * gap)
+	Dim availableWidth As Int = activityPanel.Width - (padding * 2) - (((endIndex - startIndex + 1) - 1) * productGap) - ((totalBars - (endIndex - startIndex + 1)) * gap)
 	Dim barWidth As Int = availableWidth / totalBars
 	Dim xStart As Int = padding
     
-	Dim graphCanvas As Canvas
-	graphCanvas.Initialize(activityPanel)
-    
-	For i = 0 To totalProducts - 1
-		
-		Dim xPos As Int = xStart + i * (barsPerProduct * (barWidth + gap) + productGap)
+	For i = startIndex To endIndex
+		Dim xPos As Int = xStart + (i - startIndex) * (barsPerProduct * (barWidth + gap) + productGap)
 		Dim saleValues() As Int = Array As Int(sale1(i), sale2(i), sale3(i))
-        
 		Dim indexOffset As Int = 0
-		
+        
 		For j = 0 To barsPerProduct - 1
 			If j < checkedSales.Length And checkedSales(j) Then
 				Dim sale As Int = saleValues(j)
-				Dim barHeight As Int = (sale / maxSales) * (activityPanel.Height )
-				'Dim xBar As Int = xPos + j * (barWidth + gap)
+				Dim barHeight As Int = (sale / maxSale) * (activityPanel.Height)
 				Dim xBar As Int = xPos + indexOffset * barWidth
-				
+                
 				Dim r As Rect
-				r.Initialize(xBar, activityPanel.Height - barHeight, xBar + barWidth, panel.Height)
+				r.Initialize(xBar, activityPanel.Height - barHeight, xBar + barWidth, activityPanel.Height)
 				graphCanvas.DrawRect(r, color(j), True, 2dip)
-	            
-				' Display sales value
+                
 				Dim fontSize As Int = 8
 				If Active.Width > 800 Then
 					fontSize = 10
 				End If
-				graphCanvas.DrawText( FormatNumberWithSuffix(sale), xBar + (barWidth / 2), activityPanel.Height - barHeight - 5dip, Typeface.MONOSPACE, fontSize, Colors.Black, "CENTER")
-				indexOffset = indexOffset + 1 '
+				graphCanvas.DrawText(FormatNumberWithSuffix(sale), xBar + (barWidth / 2), activityPanel.Height - barHeight - 5dip, Typeface.MONOSPACE, fontSize, Colors.Black, "CENTER")
+				indexOffset = indexOffset + 1
 			End If
-			
 		Next
-		
-		Dim productLabelY As Int = activityPanel.Height + alignTopCenter + 20dip
-		Dim productLabelX As Int = alignLeftCenter + 50dip
-		cv.DrawText(product(i), xPos + productLabelX, productLabelY, Typeface.MONOSPACE, 12, Colors.Black, "CENTER")
+        
+		Dim productLabel As Label
+		productLabel.Initialize("productLabel")
+		productLabel.Text = product(i)
+		productLabel.Typeface = Typeface.MONOSPACE
+		productLabel.TextSize = 12
+		productLabel.Tag = comId1(i)
+		productLabel.TextColor = Colors.Black
+		productLabel.Gravity = Gravity.CENTER
+		Dim productLabelY As Int = activityPanel.Height + alignTopCenter + 10dip
+		Dim productLabelX As Int = alignLeftCenter
+		panel.AddView(productLabel, xPos + productLabelX, productLabelY, 100dip, 30dip)
 	Next
-	Dim numLabels As Int =10
+    
+	' Draw Y-axis labels
+	Dim numLabels As Int = 10
 	For i = 0 To numLabels
-		Dim labelValue As Int = Round((maxSales / numLabels) * i) ' Ensure whole number
-		Dim labelYPos As Int = activityPanel.Height - ((labelValue / maxSale) * activityPanel.Height) ' Adjust Y position based on the scale
-
-		' Use IntToString to avoid decimal points
+		Dim labelValue As Int = Round((maxSale / numLabels) * i)
+		Dim labelYPos As Int = activityPanel.Height - ((labelValue / maxSale) * activityPanel.Height)
 		cv.DrawText(FormatNumberWithLabel(labelValue), alignLeftCenter - 10dip, labelYPos + alignTopCenter + 5dip, Typeface.MONOSPACE, 10, Colors.Black, "RIGHT")
 	Next
+    
+	' Add Next and Back buttons
+	btnBack.Initialize("btnBack")
+	btnBack.Text = "Back"
+	btnBack.TextSize = 14
+	btnBack.Typeface = Typeface.MONOSPACE
+	btnBack.TextColor = Colors.White
+	Dim cdBack As ColorDrawable
+	cdBack.Initialize2(Colors.RGB(61, 12, 2), 10dip, 2dip, Colors.Black)
+	btnBack.Background = cdBack
+	panel.AddView(btnBack, alignLeftCenter, activityPanel.Height + alignTopCenter + 50dip, 100dip, 40dip)
+    
+	btnNext.Initialize("btnNext")
+	btnNext.Text = "Next"
+	btnNext.TextSize = 14
+	btnNext.Typeface = Typeface.MONOSPACE
+	btnNext.TextColor = Colors.White
+	Dim cdNext As ColorDrawable
+	cdNext.Initialize2(Colors.RGB(185, 46, 52), 10dip, 2dip, Colors.Black)
+	btnNext.Background = cdNext
+	panel.AddView(btnNext, panel.Width - alignLeftCenter - 100dip, activityPanel.Height + alignTopCenter + 50dip, 100dip, 40dip)
+    
+	' Enable/Disable buttons based on page position
+	btnBack.Enabled = (currentPage > 1)
+	btnNext.Enabled = (endIndex < totalProducts - 1)
 End Sub
+
+Sub btnNext_Click
+	currentPage = currentPage + 1
+	DrawGraph(Active1, panel_l, sale_1, sale_2, sale_3, product1, maxSales1, titleString1)
+End Sub
+
+Sub btnBack_Click
+	currentPage = currentPage - 1
+	DrawGraph(Active1, panel_l, sale_1, sale_2, sale_3, product1, maxSales1, titleString1)
+End Sub
+
 Sub chkChange_CheckedChange(Checked As Boolean)
 	If Sender Is CheckBox Then
 		Dim chk As CheckBox = Sender
-		Dim index As Int = chk.Tag 
+		Dim index As Int = chk.Tag
         
 		Dim checkedCount As Int = 0
 		For i = 0 To checkedSales.Length - 1
@@ -186,14 +226,20 @@ Sub chkChange_CheckedChange(Checked As Boolean)
 		End If
         
 		checkedSales(index) = Checked
-		DrawGraph(Active1, panel_l, sale_1, sale_2, sale_3, product1,  maxSales1, titleString1)
+		DrawGraph(Active1, panel_l, sale_1, sale_2, sale_3, product1, maxSales1, titleString1)
 		panel_l.Invalidate
 	Else
 		Log("Error: Sender is not a CheckBox")
 	End If
 End Sub
 
-
+Sub productLabel_Click
+	Dim clickedLabel As Label = Sender
+	Dim selectedCompany As Int = clickedLabel.Tag
+	Log("Selected Company ID: " & selectedCompany)
+	StartActivity(layout)
+	Active1.Finish
+End Sub
 
 Sub FormatNumberWithSuffix(number As Int) As String
 	If number >= 1000000 Then
@@ -206,12 +252,11 @@ Sub FormatNumberWithSuffix(number As Int) As String
 End Sub
 
 Sub FormatNumberWithLabel(number As Int) As String
-    If number >= 1000000 Then
-        Return Floor(number / 1000000) & "M"
-    Else If number >= 1000 Then
-        Return Floor(number / 1000) & "k"
-    Else
-        Return number ' No formatting needed for values below 1000
-    End If
+	If number >= 1000000 Then
+		Return Floor(number / 1000000) & "M"
+	Else If number >= 1000 Then
+		Return Floor(number / 1000) & "k"
+	Else
+		Return number
+	End If
 End Sub
-

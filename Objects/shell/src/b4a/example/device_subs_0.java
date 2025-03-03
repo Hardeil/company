@@ -980,7 +980,7 @@ Debug.ShouldStop(2097152);
 _homewidth = RemoteObject.solve(new RemoteObject[] {(RemoteObject.solve(new RemoteObject[] {_label.runMethod(true,"getText").runMethod(true,"length"),_charwidth}, "*",0, 1)),_padding}, "+",1, 1);Debug.locals.put("homeWidth", _homewidth);Debug.locals.put("homeWidth", _homewidth);
  BA.debugLineNum = 151;BA.debugLine="Return homeWidth";
 Debug.ShouldStop(4194304);
-if (true) return _homewidth;
+Debug.CheckDeviceExceptions();if (true) return _homewidth;
  BA.debugLineNum = 152;BA.debugLine="End Sub";
 Debug.ShouldStop(8388608);
 return RemoteObject.createImmutable(0);

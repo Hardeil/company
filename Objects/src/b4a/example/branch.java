@@ -673,14 +673,14 @@ RDebugUtils.currentLine=1900549;
 _updatedata_remote(_target_id,_new_value);
 RDebugUtils.currentLine=1900550;
  //BA.debugLineNum = 1900550;BA.debugLine="Log(\"Updated target \" & target_id & \" with value";
-anywheresoftware.b4a.keywords.Common.LogImpl("21900550","Updated target "+BA.NumberToString(_target_id)+" with value "+BA.NumberToString(_new_value),0);
+anywheresoftware.b4a.keywords.Common.LogImpl("51900550","Updated target "+BA.NumberToString(_target_id)+" with value "+BA.NumberToString(_new_value),0);
 RDebugUtils.currentLine=1900551;
  //BA.debugLineNum = 1900551;BA.debugLine="LoadCompanyData";
 _loadcompanydata();
  }else {
 RDebugUtils.currentLine=1900553;
  //BA.debugLineNum = 1900553;BA.debugLine="Log(\"Invalid input values\")";
-anywheresoftware.b4a.keywords.Common.LogImpl("21900553","Invalid input values",0);
+anywheresoftware.b4a.keywords.Common.LogImpl("51900553","Invalid input values",0);
  };
 RDebugUtils.currentLine=1900555;
  //BA.debugLineNum = 1900555;BA.debugLine="End Sub";
@@ -993,7 +993,7 @@ _panel2.AddView((android.view.View)(_imgview.getObject()),(int) (_panel2.getWidt
  }else {
 RDebugUtils.currentLine=1769559;
  //BA.debugLineNum = 1769559;BA.debugLine="Log(\"Error loading image\")";
-anywheresoftware.b4a.keywords.Common.LogImpl("21769559","Error loading image",0);
+anywheresoftware.b4a.keywords.Common.LogImpl("51769559","Error loading image",0);
  };
 RDebugUtils.currentLine=1769562;
  //BA.debugLineNum = 1769562;BA.debugLine="Dim panelWidth As Int = Panel.Width /3";
@@ -1478,7 +1478,7 @@ _loadcompanydata();
 default: {
 RDebugUtils.currentLine=1769755;
  //BA.debugLineNum = 1769755;BA.debugLine="Log(\"Unknown job: \" & job.JobName)";
-anywheresoftware.b4a.keywords.Common.LogImpl("21769755","Unknown job: "+_job._jobname /*String*/ ,0);
+anywheresoftware.b4a.keywords.Common.LogImpl("51769755","Unknown job: "+_job._jobname /*String*/ ,0);
  break; }
 }
 ;
@@ -1570,7 +1570,7 @@ RDebugUtils.currentLine=2031619;
 _target_id = BA.ObjectToString(_target_id_btn.getTag());
 RDebugUtils.currentLine=2031621;
  //BA.debugLineNum = 2031621;BA.debugLine="Log(target_id&\"This is clicked id\")";
-anywheresoftware.b4a.keywords.Common.LogImpl("22031621",_target_id+"This is clicked id",0);
+anywheresoftware.b4a.keywords.Common.LogImpl("52031621",_target_id+"This is clicked id",0);
 RDebugUtils.currentLine=2031622;
  //BA.debugLineNum = 2031622;BA.debugLine="End Sub";
 return "";

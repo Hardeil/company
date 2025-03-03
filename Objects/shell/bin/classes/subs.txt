@@ -6,35 +6,35 @@ bargraph
 httpjob
 1
 httpjob
-main,activity_create,1,0,47,68
+main,activity_create,1,0,48,69
 ,label1,,panel1,,panel2,,scrollview1,,barpanel,,purchasepanel,,phpurl
 ,label1,,panel1,,panel2,,scrollview1
 ,loadcompanydata,httpjob,initialize,httpjob,download,httpjob,addscheme
-main,loadcompanydata,0,0,69,78
+main,loadcompanydata,0,0,70,79
 ,phpurl
 
 httpjob,initialize,httpjob,download,httpjob,addscheme
-main,activity_pause,0,0,324,326
+main,activity_pause,0,0,327,329
 
 
 
-main,activity_resume,0,0,320,322
+main,activity_resume,0,0,323,325
 
 
 
-main,getmapvalueordefault,0,0,312,318
+main,getmapvalueordefault,0,0,315,321
 
 
 
-main,globals,0,1,23,44
+main,globals,0,1,23,45
 ,phpurl,,titlefontsize,,primaryfontsize,,secondaryfontsize,,legend
 ,phpurl,,titlefontsize,,primaryfontsize,,secondaryfontsize,,legend
 
-main,jobdone,1,0,79,311
-,panel2,,primaryfontsize,,secondaryfontsize,,legend,,bargraph1,,purchasepanel,,barpanel,httputils2service,tempfolder,,phpurl
+main,jobdone,1,0,80,314
+,panel2,,primaryfontsize,,secondaryfontsize,,legend,,barpanel,,bargraph,httputils2service,tempfolder,,phpurl
 ,panel2,,legend
 httpjob,getstring,bargraph,initialize,,loadcompanydata,httpjob,release,httpjob,getstring2,bargraph,drawgraph,bargraph,formatnumberwithsuffix,bargraph,formatnumberwithlabel,httpjob,initialize,httpjob,download,httpjob,addscheme
-main,label17_click,0,0,329,337
+main,label17_click,0,0,332,340
 starter,company_selected
 starter,company_selected
 
@@ -150,27 +150,39 @@ httpjob,putstring,0,0,75,77
 
 
 ,putbytes,,addscheme
-bargraph,initialize,1,0,17,64
+bargraph,initialize,1,0,24,72
 
 
 ,drawgraph,,formatnumberwithsuffix,,formatnumberwithlabel
-bargraph,chkchange_checkedchange,1,0,167,188
+bargraph,btnback_click,0,0,202,205
 
 
 ,drawgraph,,formatnumberwithsuffix,,formatnumberwithlabel
-bargraph,drawgraph,0,1,65,166
+bargraph,drawgraph,0,0,75,195
 
 
 ,formatnumberwithsuffix,,formatnumberwithlabel
-bargraph,class_globals,0,0,1,15
+bargraph,btnnext_click,0,0,197,200
+
+
+,drawgraph,,formatnumberwithsuffix,,formatnumberwithlabel
+bargraph,chkchange_checkedchange,1,0,207,228
+
+
+,drawgraph,,formatnumberwithsuffix,,formatnumberwithlabel
+bargraph,class_globals,0,0,1,22
 
 
 
-bargraph,formatnumberwithsuffix,0,0,192,200
+bargraph,formatnumberwithsuffix,0,0,238,246
 
 
 
-bargraph,formatnumberwithlabel,0,0,202,210
+bargraph,formatnumberwithlabel,0,0,248,256
+
+
+
+bargraph,productlabel_click,0,0,230,236
 
 
 

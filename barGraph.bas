@@ -237,6 +237,7 @@ Sub productLabel_Click
 	Dim clickedLabel As Label = Sender
 	Dim selectedCompany As Int = clickedLabel.Tag
 	Log("Selected Company ID: " & selectedCompany)
+	Starter.company_selected = selectedCompany
 	StartActivity(layout)
 	Active1.Finish
 End Sub

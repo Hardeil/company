@@ -510,7 +510,7 @@ anywheresoftware.b4a.keywords.Common.ProgressDialogShow(mostCurrent.activityBA,B
        catch (Exception e7) {
 			processBA.setLastException(e7);RDebugUtils.currentLine=196615;
  //BA.debugLineNum = 196615;BA.debugLine="Log(LastException.Message)";
-anywheresoftware.b4a.keywords.Common.LogImpl("5196615",anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
+anywheresoftware.b4a.keywords.Common.LogImpl("8196615",anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
  };
 RDebugUtils.currentLine=196617;
  //BA.debugLineNum = 196617;BA.debugLine="End Sub";
@@ -776,7 +776,7 @@ _imgview.setBitmap((android.graphics.Bitmap)(_resizedimage.getObject()));
  }else {
 RDebugUtils.currentLine=262218;
  //BA.debugLineNum = 262218;BA.debugLine="Log(\"Error loading image\")";
-anywheresoftware.b4a.keywords.Common.LogImpl("5262218","Error loading image",0);
+anywheresoftware.b4a.keywords.Common.LogImpl("8262218","Error loading image",0);
  };
 RDebugUtils.currentLine=262221;
  //BA.debugLineNum = 262221;BA.debugLine="Dim panelWidth As Int = Panel.Width /3";
@@ -901,7 +901,7 @@ RDebugUtils.currentLine=262274;
  //BA.debugLineNum = 262274;BA.debugLine="If record.ContainsKey(\"branches\") Then";
 if (_record.ContainsKey((Object)("branches"))) { 
 RDebugUtils.currentLine=262275;
- //BA.debugLineNum = 262275;BA.debugLine="Dim branches As List = record.Get(\"branches\"";
+ //BA.debugLineNum = 262275;BA.debugLine="Dim branches As List = record.Get(\"branches";
 _branches = new anywheresoftware.b4a.objects.collections.List();
 _branches = (anywheresoftware.b4a.objects.collections.List) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.collections.List(), (java.util.List)(_record.Get((Object)("branches"))));
 RDebugUtils.currentLine=262276;
@@ -935,26 +935,26 @@ RDebugUtils.currentLine=262286;
 _branchmap = new anywheresoftware.b4a.objects.collections.Map();
 _branchmap = (anywheresoftware.b4a.objects.collections.Map) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.collections.Map(), (java.util.Map)(_branches.Get(_j)));
 RDebugUtils.currentLine=262287;
- //BA.debugLineNum = 262287;BA.debugLine="branchNames(j) = branchMap.GetDefault(\"b";
+ //BA.debugLineNum = 262287;BA.debugLine="branchNames(j) = branchMap.GetDefault(\"";
 _branchnames[_j] = (BA.ObjectToString(_branchmap.GetDefault((Object)("branch_name"),(Object)(""))));
 RDebugUtils.currentLine=262288;
- //BA.debugLineNum = 262288;BA.debugLine="branchSales1(j) = branchMap.GetDefault(\"";
+ //BA.debugLineNum = 262288;BA.debugLine="branchSales1(j) = branchMap.GetDefault(";
 _branchsales1[_j] = (int)(BA.ObjectToNumber(_branchmap.GetDefault((Object)("sales1"),(Object)(0))));
 RDebugUtils.currentLine=262289;
- //BA.debugLineNum = 262289;BA.debugLine="branchSales2(j) = branchMap.GetDefault(\"";
+ //BA.debugLineNum = 262289;BA.debugLine="branchSales2(j) = branchMap.GetDefault(";
 _branchsales2[_j] = (int)(BA.ObjectToNumber(_branchmap.GetDefault((Object)("sales2"),(Object)(0))));
 RDebugUtils.currentLine=262290;
- //BA.debugLineNum = 262290;BA.debugLine="branchSales3(j) = branchMap.GetDefault(\"";
+ //BA.debugLineNum = 262290;BA.debugLine="branchSales3(j) = branchMap.GetDefault(";
 _branchsales3[_j] = (int)(BA.ObjectToNumber(_branchmap.GetDefault((Object)("sales3"),(Object)(0))));
  }
 };
 RDebugUtils.currentLine=262294;
- //BA.debugLineNum = 262294;BA.debugLine="Dim legend() As String = Array As String(";
+ //BA.debugLineNum = 262294;BA.debugLine="Dim legend() As String = Array As String";
 mostCurrent._legend = new String[]{"Sales1","Sales2","Sales3"};
  }else {
 RDebugUtils.currentLine=262298;
- //BA.debugLineNum = 262298;BA.debugLine="Log($\"Company: ${name} has no branches inform";
-anywheresoftware.b4a.keywords.Common.LogImpl("5262298",("Company: "+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(_name))+" has no branches information."),0);
+ //BA.debugLineNum = 262298;BA.debugLine="Log($\"Company: ${name} has no branches info";
+anywheresoftware.b4a.keywords.Common.LogImpl("8262298",("Company: "+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(_name))+" has no branches information."),0);
  };
  };
  }
@@ -1092,6 +1092,9 @@ mostCurrent._barpanel.RemoveAllViews();
 RDebugUtils.currentLine=262356;
  //BA.debugLineNum = 262356;BA.debugLine="barPanel.Invalidate ' Force redraw";
 mostCurrent._barpanel.Invalidate();
+RDebugUtils.currentLine=262358;
+ //BA.debugLineNum = 262358;BA.debugLine="Activity.Initialize(\"\")";
+mostCurrent._activity.Initialize(mostCurrent.activityBA,"");
 RDebugUtils.currentLine=262360;
  //BA.debugLineNum = 262360;BA.debugLine="Dim legend() As String = Array As String(\"Sal";
 mostCurrent._legend = new String[]{"Sales1","Sales2","Sales3"};
@@ -1110,13 +1113,13 @@ _loadcompanydata();
 default: {
 RDebugUtils.currentLine=262369;
  //BA.debugLineNum = 262369;BA.debugLine="Log(\"Unknown job: \" & job.JobName)";
-anywheresoftware.b4a.keywords.Common.LogImpl("5262369","Unknown job: "+_job._jobname /*String*/ ,0);
+anywheresoftware.b4a.keywords.Common.LogImpl("8262369","Unknown job: "+_job._jobname /*String*/ ,0);
  break; }
 }
 ;
  } 
-       catch (Exception e168) {
-			processBA.setLastException(e168);RDebugUtils.currentLine=262372;
+       catch (Exception e169) {
+			processBA.setLastException(e169);RDebugUtils.currentLine=262372;
  //BA.debugLineNum = 262372;BA.debugLine="ToastMessageShow(\"Error parsing sales data\", Tr";
 anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Error parsing sales data"),anywheresoftware.b4a.keywords.Common.True);
  };

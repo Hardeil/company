@@ -8,7 +8,7 @@ public class checkbargraph_subs_0 {
 
 public static RemoteObject  _chkchange_checkedchange(RemoteObject __ref,RemoteObject _checked) throws Exception{
 try {
-		Debug.PushSubsStack("chkChange_CheckedChange (checkbargraph) ","checkbargraph",1,__ref.getField(false, "ba"),__ref,79);
+		Debug.PushSubsStack("chkChange_CheckedChange (checkbargraph) ","checkbargraph",2,__ref.getField(false, "ba"),__ref,79);
 if (RapidSub.canDelegate("chkchange_checkedchange")) { return __ref.runUserSub(false, "checkbargraph","chkchange_checkedchange", __ref, _checked);}
 RemoteObject _chk = RemoteObject.declareNull("anywheresoftware.b4a.objects.CompoundButtonWrapper.CheckBoxWrapper");
 RemoteObject _index = RemoteObject.createImmutable(0);
@@ -64,7 +64,7 @@ __ref.runClassMethod (b4a.example.checkbargraph.class, "_drawgraph" /*RemoteObje
  }else {
  BA.debugLineNum = 97;BA.debugLine="Log(\"Error: Sender is not a CheckBox\")";
 Debug.ShouldStop(1);
-checkbargraph.__c.runVoidMethod ("LogImpl","5786450",RemoteObject.createImmutable("Error: Sender is not a CheckBox"),0);
+checkbargraph.__c.runVoidMethod ("LogImpl","81376274",RemoteObject.createImmutable("Error: Sender is not a CheckBox"),0);
  };
  BA.debugLineNum = 99;BA.debugLine="End Sub";
 Debug.ShouldStop(4);
@@ -105,7 +105,7 @@ return RemoteObject.createImmutable("");
 }
 public static RemoteObject  _drawgraph(RemoteObject __ref) throws Exception{
 try {
-		Debug.PushSubsStack("DrawGraph (checkbargraph) ","checkbargraph",1,__ref.getField(false, "ba"),__ref,75);
+		Debug.PushSubsStack("DrawGraph (checkbargraph) ","checkbargraph",2,__ref.getField(false, "ba"),__ref,75);
 if (RapidSub.canDelegate("drawgraph")) { return __ref.runUserSub(false, "checkbargraph","drawgraph", __ref);}
  BA.debugLineNum = 75;BA.debugLine="Sub DrawGraph()";
 Debug.ShouldStop(1024);
@@ -124,7 +124,7 @@ finally {
 		}}
 public static RemoteObject  _drawgraph1(RemoteObject __ref,RemoteObject _active1,RemoteObject _barpanel1,RemoteObject _nextbtn,RemoteObject _bckbtn,RemoteObject _sales_1,RemoteObject _sales_2,RemoteObject _sales_3,RemoteObject _comname1,RemoteObject _maxsale1) throws Exception{
 try {
-		Debug.PushSubsStack("DrawGraph1 (checkbargraph) ","checkbargraph",1,__ref.getField(false, "ba"),__ref,101);
+		Debug.PushSubsStack("DrawGraph1 (checkbargraph) ","checkbargraph",2,__ref.getField(false, "ba"),__ref,101);
 if (RapidSub.canDelegate("drawgraph1")) { return __ref.runUserSub(false, "checkbargraph","drawgraph1", __ref, _active1, _barpanel1, _nextbtn, _bckbtn, _sales_1, _sales_2, _sales_3, _comname1, _maxsale1);}
 RemoteObject _color = null;
 RemoteObject _activitypanel = RemoteObject.declareNull("anywheresoftware.b4a.objects.PanelWrapper");
@@ -611,7 +611,7 @@ finally {
 		}}
 public static RemoteObject  _drawwrappedtextrotated(RemoteObject __ref,RemoteObject _canvas,RemoteObject _text,RemoteObject _x,RemoteObject _y,RemoteObject _maxwidth,RemoteObject _fontsize,RemoteObject _color,RemoteObject _alignment,RemoteObject _angle) throws Exception{
 try {
-		Debug.PushSubsStack("DrawWrappedTextRotated (checkbargraph) ","checkbargraph",1,__ref.getField(false, "ba"),__ref,285);
+		Debug.PushSubsStack("DrawWrappedTextRotated (checkbargraph) ","checkbargraph",2,__ref.getField(false, "ba"),__ref,285);
 if (RapidSub.canDelegate("drawwrappedtextrotated")) { return __ref.runUserSub(false, "checkbargraph","drawwrappedtextrotated", __ref, _canvas, _text, _x, _y, _maxwidth, _fontsize, _color, _alignment, _angle);}
 RemoteObject _words = null;
 RemoteObject _line = RemoteObject.createImmutable("");
@@ -704,7 +704,7 @@ finally {
 		}}
 public static RemoteObject  _formatnumberwithlabel(RemoteObject __ref,RemoteObject _number) throws Exception{
 try {
-		Debug.PushSubsStack("FormatNumberWithLabel (checkbargraph) ","checkbargraph",1,__ref.getField(false, "ba"),__ref,325);
+		Debug.PushSubsStack("FormatNumberWithLabel (checkbargraph) ","checkbargraph",2,__ref.getField(false, "ba"),__ref,325);
 if (RapidSub.canDelegate("formatnumberwithlabel")) { return __ref.runUserSub(false, "checkbargraph","formatnumberwithlabel", __ref, _number);}
 Debug.locals.put("number", _number);
  BA.debugLineNum = 325;BA.debugLine="Sub FormatNumberWithLabel(number As Int) As String";
@@ -740,7 +740,7 @@ finally {
 		}}
 public static RemoteObject  _formatnumberwithsuffix(RemoteObject __ref,RemoteObject _number) throws Exception{
 try {
-		Debug.PushSubsStack("FormatNumberWithSuffix (checkbargraph) ","checkbargraph",1,__ref.getField(false, "ba"),__ref,315);
+		Debug.PushSubsStack("FormatNumberWithSuffix (checkbargraph) ","checkbargraph",2,__ref.getField(false, "ba"),__ref,315);
 if (RapidSub.canDelegate("formatnumberwithsuffix")) { return __ref.runUserSub(false, "checkbargraph","formatnumberwithsuffix", __ref, _number);}
 Debug.locals.put("number", _number);
  BA.debugLineNum = 315;BA.debugLine="Sub FormatNumberWithSuffix(number As Int) As Strin";
@@ -776,7 +776,7 @@ finally {
 		}}
 public static RemoteObject  _initialize(RemoteObject __ref,RemoteObject _ba,RemoteObject _active1,RemoteObject _panel,RemoteObject _nextbtn,RemoteObject _bckbtn,RemoteObject _sales_1,RemoteObject _sales_2,RemoteObject _sales_3,RemoteObject _comname1,RemoteObject _maxsale1,RemoteObject _legend) throws Exception{
 try {
-		Debug.PushSubsStack("Initialize (checkbargraph) ","checkbargraph",1,__ref.getField(false, "ba"),__ref,17);
+		Debug.PushSubsStack("Initialize (checkbargraph) ","checkbargraph",2,__ref.getField(false, "ba"),__ref,17);
 if (RapidSub.canDelegate("initialize")) { return __ref.runUserSub(false, "checkbargraph","initialize", __ref, _ba, _active1, _panel, _nextbtn, _bckbtn, _sales_1, _sales_2, _sales_3, _comname1, _maxsale1, _legend);}
 __ref.runVoidMethodAndSync("innerInitializeHelper", _ba);
 RemoteObject _legendcount = RemoteObject.createImmutable(0);

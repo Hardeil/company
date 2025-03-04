@@ -241,32 +241,32 @@ Sub JobDone(job As HttpJob)
 
 						' Check if the company has branches
 						If record.ContainsKey("branches") Then
-						Dim branches As List = record.Get("branches")
-						Dim totalBranches As Int = branches.Size
-            
-						' Initialize arrays for the current company's branches
-						Dim branchNames(totalBranches) As String
-						Dim branchSales1(totalBranches) As Int
-						Dim branchSales2(totalBranches) As Int
-						Dim branchSales3(totalBranches) As Int
+							Dim branches As List = record.Get("branches")
+							Dim totalBranches As Int = branches.Size
+	            
+							' Initialize arrays for the current company's branches
+							Dim branchNames(totalBranches) As String
+							Dim branchSales1(totalBranches) As Int
+							Dim branchSales2(totalBranches) As Int
+							Dim branchSales3(totalBranches) As Int
 
-						' Populate the arrays with branch details
-						For j = 0 To totalBranches - 1
-										Dim branchMap As Map = branches.Get(j)
-										branchNames(j) = branchMap.GetDefault("branch_name","").As(String)
-										branchSales1(j) = branchMap.GetDefault("sales1",0)
-										branchSales2(j) = branchMap.GetDefault("sales2",0)
-										branchSales3(j) = branchMap.GetDefault("sales3",0)
+							' Populate the arrays with branch details
+							For j = 0 To totalBranches - 1
+											Dim branchMap As Map = branches.Get(j)
+											branchNames(j) = branchMap.GetDefault("branch_name","").As(String)
+											branchSales1(j) = branchMap.GetDefault("sales1",0)
+											branchSales2(j) = branchMap.GetDefault("sales2",0)
+											branchSales3(j) = branchMap.GetDefault("sales3",0)
+				
+										Next
+										
+										Dim legend() As String = Array As String("Sales1","Sales2","Sales3")
+										'barGraph1.Initialize(Activity, purchasePanel, branchSales1, branchSales2, branchSales3, branchNames,legend,19000,"Total Purchase of the Company",branchSales1,"Branch")
 			
-									Next
-									
-									Dim legend() As String = Array As String("Sales1","Sales2","Sales3")
-									'barGraph1.Initialize(Activity, purchasePanel, branchSales1, branchSales2, branchSales3, branchNames,legend,19000,"Total Purchase of the Company")
-		
-					Else
-					Log($"Company: ${name} has no branches information."$)
-				End If
-			End If
+						Else
+							Log($"Company: ${name} has no branches information."$)
+						End If
+					End If
 					Next
 
 
@@ -324,7 +324,7 @@ Sub JobDone(job As HttpJob)
 					barPanel.RemoveAllViews
 					barPanel.Invalidate ' Force redraw
 				
-
+					Activity.Initialize("")
 
 					Dim legend() As String = Array As String("Sales1","Sales2","Sales3")
 					'barGraph.changePage(Activity,"Branch")

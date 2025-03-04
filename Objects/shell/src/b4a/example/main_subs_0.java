@@ -397,7 +397,7 @@ _imgview.runMethod(false,"setBitmap",(_resizedimage.getObject()));
  }else {
  BA.debugLineNum = 154;BA.debugLine="Log(\"Error loading image\")";
 Debug.ShouldStop(33554432);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","5262218",RemoteObject.createImmutable("Error loading image"),0);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","8262218",RemoteObject.createImmutable("Error loading image"),0);
  };
  BA.debugLineNum = 157;BA.debugLine="Dim panelWidth As Int = Panel.Width /3";
 Debug.ShouldStop(268435456);
@@ -522,7 +522,7 @@ if (RemoteObject.solveBoolean("=",_currentcomid,BA.NumberToString(1))) {
  BA.debugLineNum = 210;BA.debugLine="If record.ContainsKey(\"branches\") Then";
 Debug.ShouldStop(131072);
 if (_record.runMethod(true,"ContainsKey",(Object)((RemoteObject.createImmutable("branches")))).<Boolean>get().booleanValue()) { 
- BA.debugLineNum = 211;BA.debugLine="Dim branches As List = record.Get(\"branches\"";
+ BA.debugLineNum = 211;BA.debugLine="Dim branches As List = record.Get(\"branches";
 Debug.ShouldStop(262144);
 _branches = RemoteObject.createNew ("anywheresoftware.b4a.objects.collections.List");
 _branches = RemoteObject.declareNull("anywheresoftware.b4a.AbsObjectWrapper").runMethod(false, "ConvertToWrapper", RemoteObject.createNew("anywheresoftware.b4a.objects.collections.List"), _record.runMethod(false,"Get",(Object)((RemoteObject.createImmutable("branches")))));Debug.locals.put("branches", _branches);Debug.locals.put("branches", _branches);
@@ -553,28 +553,28 @@ Debug.locals.put("j", _j);
 Debug.ShouldStop(536870912);
 _branchmap = RemoteObject.createNew ("anywheresoftware.b4a.objects.collections.Map");
 _branchmap = RemoteObject.declareNull("anywheresoftware.b4a.AbsObjectWrapper").runMethod(false, "ConvertToWrapper", RemoteObject.createNew("anywheresoftware.b4a.objects.collections.Map"), _branches.runMethod(false,"Get",(Object)(BA.numberCast(int.class, _j))));Debug.locals.put("branchMap", _branchmap);Debug.locals.put("branchMap", _branchmap);
- BA.debugLineNum = 223;BA.debugLine="branchNames(j) = branchMap.GetDefault(\"b";
+ BA.debugLineNum = 223;BA.debugLine="branchNames(j) = branchMap.GetDefault(\"";
 Debug.ShouldStop(1073741824);
 _branchnames.setArrayElement ((BA.ObjectToString(_branchmap.runMethod(false,"GetDefault",(Object)(RemoteObject.createImmutable(("branch_name"))),(Object)((RemoteObject.createImmutable("")))))),BA.numberCast(int.class, _j));
- BA.debugLineNum = 224;BA.debugLine="branchSales1(j) = branchMap.GetDefault(\"";
+ BA.debugLineNum = 224;BA.debugLine="branchSales1(j) = branchMap.GetDefault(";
 Debug.ShouldStop(-2147483648);
 _branchsales1.setArrayElement (BA.numberCast(int.class, _branchmap.runMethod(false,"GetDefault",(Object)(RemoteObject.createImmutable(("sales1"))),(Object)(RemoteObject.createImmutable((0))))),BA.numberCast(int.class, _j));
- BA.debugLineNum = 225;BA.debugLine="branchSales2(j) = branchMap.GetDefault(\"";
+ BA.debugLineNum = 225;BA.debugLine="branchSales2(j) = branchMap.GetDefault(";
 Debug.ShouldStop(1);
 _branchsales2.setArrayElement (BA.numberCast(int.class, _branchmap.runMethod(false,"GetDefault",(Object)(RemoteObject.createImmutable(("sales2"))),(Object)(RemoteObject.createImmutable((0))))),BA.numberCast(int.class, _j));
- BA.debugLineNum = 226;BA.debugLine="branchSales3(j) = branchMap.GetDefault(\"";
+ BA.debugLineNum = 226;BA.debugLine="branchSales3(j) = branchMap.GetDefault(";
 Debug.ShouldStop(2);
 _branchsales3.setArrayElement (BA.numberCast(int.class, _branchmap.runMethod(false,"GetDefault",(Object)(RemoteObject.createImmutable(("sales3"))),(Object)(RemoteObject.createImmutable((0))))),BA.numberCast(int.class, _j));
  }
 }Debug.locals.put("j", _j);
 ;
- BA.debugLineNum = 230;BA.debugLine="Dim legend() As String = Array As String(";
+ BA.debugLineNum = 230;BA.debugLine="Dim legend() As String = Array As String";
 Debug.ShouldStop(32);
 main.mostCurrent._legend = RemoteObject.createNewArray("String",new int[] {3},new Object[] {BA.ObjectToString("Sales1"),BA.ObjectToString("Sales2"),RemoteObject.createImmutable("Sales3")});
  }else {
- BA.debugLineNum = 234;BA.debugLine="Log($\"Company: ${name} has no branches inform";
+ BA.debugLineNum = 234;BA.debugLine="Log($\"Company: ${name} has no branches info";
 Debug.ShouldStop(512);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","5262298",(RemoteObject.concat(RemoteObject.createImmutable("Company: "),main.mostCurrent.__c.runMethod(true,"SmartStringFormatter",(Object)(BA.ObjectToString("")),(Object)((_name))),RemoteObject.createImmutable(" has no branches information."))),0);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","8262298",(RemoteObject.concat(RemoteObject.createImmutable("Company: "),main.mostCurrent.__c.runMethod(true,"SmartStringFormatter",(Object)(BA.ObjectToString("")),(Object)((_name))),RemoteObject.createImmutable(" has no branches information."))),0);
  };
  };
  }
@@ -707,6 +707,9 @@ main.mostCurrent._barpanel.runVoidMethod ("RemoveAllViews");
  BA.debugLineNum = 292;BA.debugLine="barPanel.Invalidate ' Force redraw";
 Debug.ShouldStop(8);
 main.mostCurrent._barpanel.runVoidMethod ("Invalidate");
+ BA.debugLineNum = 294;BA.debugLine="Activity.Initialize(\"\")";
+Debug.ShouldStop(32);
+main.mostCurrent._activity.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("")));
  BA.debugLineNum = 296;BA.debugLine="Dim legend() As String = Array As String(\"Sal";
 Debug.ShouldStop(128);
 main.mostCurrent._legend = RemoteObject.createNewArray("String",new int[] {3},new Object[] {BA.ObjectToString("Sales1"),BA.ObjectToString("Sales2"),RemoteObject.createImmutable("Sales3")});
@@ -725,14 +728,14 @@ _loadcompanydata();
 default: {
  BA.debugLineNum = 305;BA.debugLine="Log(\"Unknown job: \" & job.JobName)";
 Debug.ShouldStop(65536);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","5262369",RemoteObject.concat(RemoteObject.createImmutable("Unknown job: "),_job.getField(true,"_jobname" /*RemoteObject*/ )),0);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","8262369",RemoteObject.concat(RemoteObject.createImmutable("Unknown job: "),_job.getField(true,"_jobname" /*RemoteObject*/ )),0);
  break; }
 }
 ;
  Debug.CheckDeviceExceptions();
 } 
-       catch (Exception e168) {
-			BA.rdebugUtils.runVoidMethod("setLastException",main.processBA, e168.toString()); BA.debugLineNum = 308;BA.debugLine="ToastMessageShow(\"Error parsing sales data\", Tr";
+       catch (Exception e169) {
+			BA.rdebugUtils.runVoidMethod("setLastException",main.processBA, e169.toString()); BA.debugLineNum = 308;BA.debugLine="ToastMessageShow(\"Error parsing sales data\", Tr";
 Debug.ShouldStop(524288);
 main.mostCurrent.__c.runVoidMethod ("ToastMessageShow",(Object)(BA.ObjectToCharSequence("Error parsing sales data")),(Object)(main.mostCurrent.__c.getField(true,"True")));
  };
@@ -811,7 +814,7 @@ main.mostCurrent.__c.runVoidMethod ("ProgressDialogShow",main.mostCurrent.activi
        catch (Exception e7) {
 			BA.rdebugUtils.runVoidMethod("setLastException",main.processBA, e7.toString()); BA.debugLineNum = 77;BA.debugLine="Log(LastException.Message)";
 Debug.ShouldStop(4096);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","5196615",main.mostCurrent.__c.runMethod(false,"LastException",main.mostCurrent.activityBA).runMethod(true,"getMessage"),0);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","8196615",main.mostCurrent.__c.runMethod(false,"LastException",main.mostCurrent.activityBA).runMethod(true,"getMessage"),0);
  };
  BA.debugLineNum = 79;BA.debugLine="End Sub";
 Debug.ShouldStop(16384);
@@ -835,8 +838,8 @@ device_subs_0._process_globals();
 starter_subs_0._process_globals();
 httputils2service_subs_0._process_globals();
 main.myClass = BA.getDeviceClass ("b4a.example.main");
-checkbargraph.myClass = BA.getDeviceClass ("b4a.example.checkbargraph");
 bargraph.myClass = BA.getDeviceClass ("b4a.example.bargraph");
+checkbargraph.myClass = BA.getDeviceClass ("b4a.example.checkbargraph");
 branch.myClass = BA.getDeviceClass ("b4a.example.branch");
 device.myClass = BA.getDeviceClass ("b4a.example.device");
 starter.myClass = BA.getDeviceClass ("b4a.example.starter");

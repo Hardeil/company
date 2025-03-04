@@ -22,6 +22,7 @@ Sub Globals
 	'These global variables will be redeclared each time the activity is created.
 	'These variables can only be accessed from this module.Private ScrollView1 As ScrollView
 	Dim PHPURL As String = "https://192.168.8.192/Company/fetch.php?action=get_branch&company_id="&Starter.company_selected
+	Dim PHPURL1 As String = "https://192.168.8.117/Company/fetch.php?action=get_company_list&page=1"
 	Dim TableDetails As List
 	Private ScrollView1 As ScrollView
 	Private LabelTitle As Label
@@ -37,15 +38,26 @@ Sub Globals
 	Dim target_id_display As Label
 	Dim totalTarget As Label
 	Dim Panel As Panel
+	Dim barGraph As barGraph
+	Dim purchasePanel As Panel
 End Sub
-
+Sub LoadCompanyData1
+	Try
+		Dim Job1 As HttpJob
+		Job1.Initialize("GetBranches", Me)
+		Job1.Download(PHPURL1)
+		ProgressDialogShow("Loading Data...")
+	Catch
+		Log(LastException.Message)
+	End Try
+End Sub
 Sub LoadCompanyData
 	Dim Job1 As HttpJob
 	totalTarget.Initialize("")
 	totalTarget.RemoveView
 	Panel.Initialize("")
 	Panel.RemoveAllViews
-	PHPURL = "https://192.168.8.141/Company/fetch.php?action=get_branch&company_id="&Starter.company_selected
+	PHPURL = "https://192.168.8.117/Company/fetch.php?action=get_branch&company_id="&Starter.company_selected
 	Job1.Initialize("GetData", Me)
 	Job1.Download(PHPURL)
 	ProgressDialogShow("Loading Data...")
@@ -111,7 +123,7 @@ Sub JobDone(job As HttpJob)
 						' Create a new Panel dynamically
 					
 						Panel.Initialize("Panel")
-						ScrollView1.Panel.AddView(Panel, leftPosition, topPosition+10dip, pnlWidth, pnlHeight)
+						ScrollView1.Panel.AddView(Panel, leftPosition, topPosition+400dip, pnlWidth, pnlHeight)
 						Panel.Color = Colors.Black
 
 						' Add a sub-panel (Panel2) for the title
@@ -341,6 +353,52 @@ Sub JobDone(job As HttpJob)
 					ToastMessageShow("Data updated successfully", False)
 					'CallSubDelayed(Me, "FetchData") ' Ensure data refresh
 					LoadCompanyData
+				Case "GetBranches"
+					Dim scrollHeight As Int = 0
+					Dim salesArray As List = parser.NextArray
+
+					Dim idCom As Int = Starter.company_selected.As(Int)
+						For i = 0 To salesArray.Size - 1
+						
+							Dim record As Map = salesArray.Get(i)
+							Dim currentComId As String = record.Get("comId")
+    
+							' Check if the current company's comId matches the target comId
+						If currentComId = idCom Then
+
+								' Check if the company has branches
+								If record.ContainsKey("branches") Then
+									Dim branches1 As List = record.Get("branches")
+									Dim totalBranches As Int = branches1.Size
+	            
+									' Initialize arrays for the current company's branches
+									Dim branchNames(totalBranches) As String
+									Dim branchSales1(totalBranches) As Int
+									Dim branchSales2(totalBranches) As Int
+									Dim branchSales3(totalBranches) As Int
+
+									' Populate the arrays with branch details
+									For j = 0 To totalBranches - 1
+										Dim branchMap As Map = branches1.Get(j)
+										branchNames(j) = branchMap.GetDefault("branch_name","").As(String)
+										branchSales1(j) = branchMap.GetDefault("sales1",0)
+										branchSales2(j) = branchMap.GetDefault("sales2",0)
+										branchSales3(j) = branchMap.GetDefault("sales3",0)
+				
+									Next
+									
+							
+									purchasePanel.Initialize("")
+									ScrollView1.Panel.AddView(purchasePanel,0,20dip,Activity.Width,400dip)
+									Dim legend() As String = Array As String("Sales1","Sales2","Sales3")
+									barGraph.Initialize(Activity, purchasePanel, branchSales1, branchSales2, branchSales3, branchNames,legend,19000,"Total Purchase of the Company",branchSales1,"Branch")
+			
+								Else
+									Log($"Company: ${name} has no branches information."$)
+								End If
+							End If
+						Next
+
 				Case Else
 					Log("Unknown job: " & job.JobName)
 			End Select
@@ -433,6 +491,7 @@ Sub Activity_Create(FirstTime As Boolean)
 	popupPanelBackground.AddView(edit_button, 25dip, 200dip, 80%x - 40dip, 100dip)
 	
 	LoadCompanyData
+	LoadCompanyData1
 End Sub
 
 Sub edit_button_Click

@@ -51,9 +51,9 @@ public static RemoteObject _taskidtojob = RemoteObject.declareNull("anywheresoft
 public static RemoteObject _tempfolder = RemoteObject.createImmutable("");
 public static RemoteObject _taskcounter = RemoteObject.createImmutable(0);
 public static b4a.example.main _main = null;
-public static b4a.example.branch _branch = null;
 public static b4a.example.device _device = null;
 public static b4a.example.starter _starter = null;
+public static b4a.example.branch _branch = null;
   public Object[] GetGlobals() {
 		return new Object[] {"Branch",Debug.moduleToString(b4a.example.branch.class),"Device",Debug.moduleToString(b4a.example.device.class),"hc",httputils2service._hc,"Main",Debug.moduleToString(b4a.example.main.class),"Receiver",httputils2service.mostCurrent._receiver,"Starter",Debug.moduleToString(b4a.example.starter.class),"taskCounter",httputils2service._taskcounter,"TaskIdToJob",httputils2service._taskidtojob,"TempFolder",httputils2service._tempfolder};
 }

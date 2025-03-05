@@ -71,6 +71,8 @@ Sub Globals
 	Dim barGraph1 As barGraph
 	Dim barPanel As Panel
 	Dim activityPanel As Panel
+	Dim nxtBtn As Button
+	Dim backbtn As Button
 	Public legend() As String = Array As String("Sales1", "Sales2", "Sales3")
 	
 	Dim purchasePanel As Panel
@@ -109,6 +111,7 @@ Sub LoadCompanyData
 	Catch
 		Log(LastException.Message)
 	End Try
+	
 End Sub
 Sub JobDone(job As HttpJob)
 	ProgressDialogHide
@@ -268,10 +271,6 @@ Sub JobDone(job As HttpJob)
 						End If
 					End If
 					Next
-
-
-						
-
 				
 						If Activity.Width >= 1340 Then
 							count = count + 1
@@ -328,7 +327,9 @@ Sub JobDone(job As HttpJob)
 
 					Dim legend() As String = Array As String("Sales1","Sales2","Sales3")
 					'barGraph.changePage(Activity,"Branch")
-					barGraph.Initialize(Activity,barPanel,sales,sales1,sales2,companyName,legend,maxSale,"Total Sale of the Company",comId,"Branch")
+					nxtBtn.Initialize("nxtBtn")
+					backbtn.Initialize("backbtn")
+					barGraph.Initialize(Activity,barPanel,sales,sales1,sales2,companyName,legend,maxSale,"Total Sale of the Company",comId,"Branch",nxtBtn,backbtn)
 					'legend = Array As String("Purchase1","Purchase2","Purchase3")
 					'barGraph1.Initialize(Activity, purchasePanel, purchase, purchase1, purchase2, companyName,legend,maxSale,"Total Purchase of the Company")
 				Case "UpdateData"
@@ -374,3 +375,6 @@ End Sub
 
 
 
+Sub nxtBtn_Click
+	Log("sad")
+End Sub

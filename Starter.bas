@@ -14,7 +14,7 @@ Sub Process_Globals
 	'These variables can be accessed from all modules.
 
 	Public company_selected As String
-	
+	Public BranchActivity As Object
 	
 End Sub
 

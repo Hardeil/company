@@ -6,37 +6,41 @@ checkbargraph
 httpjob
 1
 httpjob
-main,activity_create,1,0,48,69
+main,activity_create,1,0,50,71
 ,label1,,panel1,,panel2,,scrollview1,,barpanel,,purchasepanel,,phpurl
 ,label1,,panel1,,panel2,,scrollview1
 ,loadcompanydata,httpjob,initialize,httpjob,download,httpjob,addscheme
-main,loadcompanydata,0,0,70,79
+main,loadcompanydata,0,0,72,82
 ,phpurl
 
 httpjob,initialize,httpjob,download,httpjob,addscheme
-main,activity_pause,0,0,327,329
+main,activity_pause,0,0,328,330
 
 
 
-main,activity_resume,0,0,323,325
+main,activity_resume,0,0,324,326
 
 
 
-main,getmapvalueordefault,0,0,315,321
+main,getmapvalueordefault,0,0,316,322
 
 
 
-main,globals,0,1,23,45
+main,globals,0,1,23,47
 ,phpurl,,titlefontsize,,primaryfontsize,,secondaryfontsize,,legend
 ,phpurl,,titlefontsize,,primaryfontsize,,secondaryfontsize,,legend
 
-main,jobdone,1,0,80,314
-,panel2,,primaryfontsize,,secondaryfontsize,,legend,,barpanel,,bargraph,httputils2service,tempfolder,,phpurl
+main,jobdone,1,0,83,315
+,panel2,,primaryfontsize,,secondaryfontsize,,legend,,barpanel,,nxtbtn,,backbtn,,bargraph,httputils2service,tempfolder,,phpurl
 ,panel2,,legend
 httpjob,getstring,bargraph,initialize,,loadcompanydata,httpjob,release,httpjob,getstring2,bargraph,drawgraph,bargraph,formatnumberwithsuffix,bargraph,formatnumberwithlabel,httpjob,initialize,httpjob,download,httpjob,addscheme
-main,label17_click,0,0,332,340
+main,label17_click,0,0,333,341
 starter,company_selected
 starter,company_selected
+
+main,nxtbtn_click,0,0,345,347
+
+
 
 main,process_globals,0,1,15,21
 
@@ -150,42 +154,42 @@ httpjob,putstring,0,0,75,77
 
 
 ,putbytes,,addscheme
-bargraph,initialize,1,0,24,72
+bargraph,initialize,1,0,23,89
 
 
 ,drawgraph,,formatnumberwithsuffix,,formatnumberwithlabel
-bargraph,btnback_click,0,0,202,205
+bargraph,class_globals,0,0,1,21
 
 
-,drawgraph,,formatnumberwithsuffix,,formatnumberwithlabel
-bargraph,drawgraph,0,0,75,195
+
+bargraph,drawgraph,0,0,91,199
 
 
 ,formatnumberwithsuffix,,formatnumberwithlabel
-bargraph,btnnext_click,0,0,197,200
-
-
-,drawgraph,,formatnumberwithsuffix,,formatnumberwithlabel
-bargraph,chkchange_checkedchange,1,0,207,228
-
-
-,drawgraph,,formatnumberwithsuffix,,formatnumberwithlabel
-bargraph,class_globals,0,0,1,22
+bargraph,formatnumberwithsuffix,0,0,223,231
 
 
 
-bargraph,formatnumberwithsuffix,0,0,239,247
+bargraph,formatnumberwithlabel,0,0,233,241
 
 
 
-bargraph,formatnumberwithlabel,0,0,249,257
+bargraph,getcurrentpage,0,0,205,207
 
 
 
-bargraph,productlabel_click,0,0,230,237
+bargraph,productlabel_click,0,0,214,221
 starter,company_selected
 starter,company_selected
 
+bargraph,setcurrentpage,0,0,209,212
+
+
+,updategraph,,drawgraph,,formatnumberwithsuffix,,formatnumberwithlabel
+bargraph,updategraph,0,0,201,203
+
+
+,drawgraph,,formatnumberwithsuffix,,formatnumberwithlabel
 checkbargraph,chkchange_checkedchange,1,0,79,99
 
 
@@ -218,70 +222,6 @@ checkbargraph,initialize,1,0,17,72
 
 
 ,drawgraph,,drawgraph1,,formatnumberwithlabel,,formatnumberwithsuffix
-branch,activity_create,1,0,410,489
-,labeltitle,,panel3,,scrollview1,,home,,branches,,popuppanel,,target_id_display,,target_countlabel,,totaltarget,,panel,,phpurl,starter,company_selected,,phpurl1
-,labeltitle,,panel3,,scrollview1,,phpurl
-,responsivelabel,,loadcompanydata,,loadcompanydata1,httpjob,initialize,httpjob,download,httpjob,addscheme
-branch,responsivelabel,0,0,527,532
-
-
-
-branch,loadcompanydata,0,0,48,58
-,totaltarget,,panel,,phpurl,starter,company_selected
-,phpurl
-httpjob,initialize,httpjob,download,httpjob,addscheme
-branch,loadcompanydata1,0,0,38,47
-,phpurl1
-
-httpjob,initialize,httpjob,download,httpjob,addscheme
-branch,activity_pause,0,0,538,540
-
-
-
-branch,activity_resume,0,0,534,536
-
-
-
-branch,closebutton_click,0,0,522,524
-,popuppanel
-
-
-branch,edit_button_click,0,0,491,502
-,target_id_display,,target_countlabel,,phpurl,,totaltarget,,panel,starter,company_selected
-,phpurl
-,updatedata_remote,,loadcompanydata,httpjob,initialize,httpjob,download,httpjob,addscheme
-branch,updatedata_remote,0,0,60,66
-,phpurl
-,phpurl
-httpjob,initialize,httpjob,download,httpjob,addscheme
-branch,globals,0,1,15,37
-,phpurl,starter,company_selected,,phpurl1,,titlefontsize,,primaryfontsize,,secondaryfontsize,,num
-,phpurl,,phpurl1,,titlefontsize,,primaryfontsize,,secondaryfontsize,,num
-
-branch,home_click,0,0,543,546
-
-
-
-branch,jobdone,1,0,68,408
-,tabledetails,,totaltarget,,target_countlabel,,branches,,labeltitle,,panel,,scrollview1,,primaryfontsize,,secondaryfontsize,starter,company_selected,,purchasepanel,,bargraph,httputils2service,tempfolder,,phpurl
-,tabledetails,,phpurl
-httpjob,getstring,,loadcompanydata,bargraph,initialize,httpjob,release,httpjob,getstring2,httpjob,initialize,httpjob,download,httpjob,addscheme,bargraph,drawgraph,bargraph,formatnumberwithsuffix,bargraph,formatnumberwithlabel
-branch,label17_click,0,0,548,555
-,branch_selected
-,branch_selected
-
-branch,process_globals,0,1,6,13
-
-
-
-branch,totaltarget_click,0,0,505,511
-,popuppanel,,target_id_display
-
-
-branch,totaltargettitle_click,0,0,513,519
-,popuppanel
-
-
 device,activity_create,1,0,33,145
 ,label1,,labeltitle,,panel1,,panel2,,panel3,,panel4,,scrollview1,,scrollviewpanel,,tabledetails,,panelwidth,,tdleftpos,,home,,branches,,devices,,phpurl,branch,branch_selected,,pageno,,limit
 ,label1,,labeltitle,,panel1,,panel2,,panel3,,panel4,,scrollview1,,panelwidth,,phpurl
@@ -352,6 +292,82 @@ starter,service_start,0,0,21,23
 
 starter,service_taskremoved,0,0,25,27
 
+
+
+branch,activity_create,1,0,387,459
+,labeltitle,,panel3,,scrollview1,,home,,branches,,popuppanel,,target_id_display,,target_countlabel,,purchasepanel,,phpurl1,,currentpage
+,labeltitle,,panel3,,scrollview1,,phpurl1
+,responsivelabel,,loadcompanydata1,httpjob,initialize,httpjob,download,httpjob,addscheme
+branch,responsivelabel,0,0,496,501
+
+
+
+branch,loadcompanydata1,0,1,37,47
+,phpurl1,,currentpage
+,phpurl1
+httpjob,initialize,httpjob,download,httpjob,addscheme
+branch,activity_pause,0,0,506,507
+
+
+
+branch,activity_resume,0,0,503,504
+
+
+
+branch,backbtn_click,0,0,528,531
+,currentpage
+,currentpage
+
+branch,closebutton_click,0,0,492,494
+,popuppanel
+
+
+branch,edit_button_click,0,0,465,476
+,target_id_display,,target_countlabel,,phpurl,,totaltarget,,panel,starter,company_selected
+,phpurl
+,updatedata_remote,,loadcompanydata,httpjob,initialize,httpjob,download,httpjob,addscheme
+branch,updatedata_remote,0,0,61,66
+,phpurl
+,phpurl
+httpjob,initialize,httpjob,download,httpjob,addscheme
+branch,loadcompanydata,0,0,49,59
+,totaltarget,,panel,,phpurl,starter,company_selected
+,phpurl
+httpjob,initialize,httpjob,download,httpjob,addscheme
+branch,fetchnewpagedata,0,0,461,463
+,phpurl1,,currentpage
+,phpurl1
+,loadcompanydata1,httpjob,initialize,httpjob,download,httpjob,addscheme
+branch,globals,0,1,12,35
+,phpurl,starter,company_selected,,phpurl1,,titlefontsize,,primaryfontsize,,secondaryfontsize,,num,,currentpage
+,phpurl,,phpurl1,,titlefontsize,,primaryfontsize,,secondaryfontsize,,num,,currentpage
+
+branch,home_click,0,0,509,512
+
+
+
+branch,jobdone,1,0,68,385
+,tabledetails,,totaltarget,,target_countlabel,,branches,,labeltitle,,panel,,scrollview1,,primaryfontsize,,secondaryfontsize,starter,company_selected,,purchasepanel,,nxtbtn,,backbtn,,bargraph,httputils2service,tempfolder,,phpurl
+,tabledetails,,phpurl
+httpjob,getstring,,loadcompanydata,bargraph,initialize,httpjob,release,httpjob,getstring2,httpjob,initialize,httpjob,download,httpjob,addscheme,bargraph,drawgraph,bargraph,formatnumberwithsuffix,bargraph,formatnumberwithlabel
+branch,label17_click,0,0,514,519
+,branch_selected
+,branch_selected
+
+branch,nxtbtn_click,0,1,522,526
+,currentpage,,phpurl1
+,currentpage,,phpurl1
+,fetchnewpagedata,,loadcompanydata1,httpjob,initialize,httpjob,download,httpjob,addscheme
+branch,process_globals,0,1,6,10
+
+
+
+branch,totaltarget_click,0,0,478,483
+,popuppanel,,target_id_display
+
+
+branch,totaltargettitle_click,0,0,485,490
+,popuppanel
 
 
 httputils2service,completejob,0,0,152,169

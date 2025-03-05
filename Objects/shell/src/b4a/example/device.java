@@ -77,8 +77,8 @@ public static RemoteObject _home = RemoteObject.declareNull("anywheresoftware.b4
 public static RemoteObject _tdleftpos = RemoteObject.createImmutable(0);
 public static RemoteObject _totallabel = RemoteObject.declareNull("anywheresoftware.b4a.objects.LabelWrapper");
 public static b4a.example.main _main = null;
-public static b4a.example.branch _branch = null;
 public static b4a.example.starter _starter = null;
+public static b4a.example.branch _branch = null;
 public static b4a.example.httputils2service _httputils2service = null;
   public Object[] GetGlobals() {
 		return new Object[] {"Activity",device.mostCurrent._activity,"Branch",Debug.moduleToString(b4a.example.branch.class),"branches",device.mostCurrent._branches,"devices",device.mostCurrent._devices,"home",device.mostCurrent._home,"HttpUtils2Service",Debug.moduleToString(b4a.example.httputils2service.class),"Label1",device.mostCurrent._label1,"LabelTitle",device.mostCurrent._labeltitle,"limit",device._limit,"Main",Debug.moduleToString(b4a.example.main.class),"num",device._num,"pageLabel",device.mostCurrent._pagelabel,"pageNo",device._pageno,"Panel1",device.mostCurrent._panel1,"Panel2",device.mostCurrent._panel2,"Panel3",device.mostCurrent._panel3,"Panel4",device.mostCurrent._panel4,"panelWidth",device._panelwidth,"PHPURL",device.mostCurrent._phpurl,"ScrollView1",device.mostCurrent._scrollview1,"ScrollViewPanel",device.mostCurrent._scrollviewpanel,"Starter",Debug.moduleToString(b4a.example.starter.class),"TableDetails",device.mostCurrent._tabledetails,"tdleftPos",device._tdleftpos,"TotalLabel",device.mostCurrent._totallabel,"xui",device._xui};

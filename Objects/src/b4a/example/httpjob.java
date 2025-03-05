@@ -61,9 +61,9 @@ public Object _tag = null;
 public String _invalidurl = "";
 public String _defaultscheme = "";
 public b4a.example.main _main = null;
-public b4a.example.branch _branch = null;
 public b4a.example.device _device = null;
 public b4a.example.starter _starter = null;
+public b4a.example.branch _branch = null;
 public b4a.example.httputils2service _httputils2service = null;
 public String  _getstring(b4a.example.httpjob __ref) throws Exception{
 __ref = this;

@@ -72,13 +72,15 @@ public static RemoteObject _bargraph = RemoteObject.declareNull("b4a.example.bar
 public static RemoteObject _bargraph1 = RemoteObject.declareNull("b4a.example.bargraph");
 public static RemoteObject _barpanel = RemoteObject.declareNull("anywheresoftware.b4a.objects.PanelWrapper");
 public static RemoteObject _activitypanel = RemoteObject.declareNull("anywheresoftware.b4a.objects.PanelWrapper");
+public static RemoteObject _nxtbtn = RemoteObject.declareNull("anywheresoftware.b4a.objects.ButtonWrapper");
+public static RemoteObject _backbtn = RemoteObject.declareNull("anywheresoftware.b4a.objects.ButtonWrapper");
 public static RemoteObject _legend = null;
 public static RemoteObject _purchasepanel = RemoteObject.declareNull("anywheresoftware.b4a.objects.PanelWrapper");
-public static b4a.example.branch _branch = null;
 public static b4a.example.device _device = null;
 public static b4a.example.starter _starter = null;
+public static b4a.example.branch _branch = null;
 public static b4a.example.httputils2service _httputils2service = null;
   public Object[] GetGlobals() {
-		return new Object[] {"Activity",main.mostCurrent._activity,"activityPanel",main.mostCurrent._activitypanel,"barGraph",Debug.moduleToString(b4a.example.bargraph.class),"barGraph1",main.mostCurrent._bargraph1,"barPanel",main.mostCurrent._barpanel,"Branch",Debug.moduleToString(b4a.example.branch.class),"Button1",main.mostCurrent._button1,"company",main._company,"Device",Debug.moduleToString(b4a.example.device.class),"HttpUtils2Service",Debug.moduleToString(b4a.example.httputils2service.class),"Label1",main.mostCurrent._label1,"legend",main.mostCurrent._legend,"navigate",main.mostCurrent._navigate,"Panel1",main.mostCurrent._panel1,"Panel2",main.mostCurrent._panel2,"PHPURL",main.mostCurrent._phpurl,"primaryFontSize",main._primaryfontsize,"purchasePanel",main.mostCurrent._purchasepanel,"ScrollView1",main.mostCurrent._scrollview1,"secondaryFontSize",main._secondaryfontsize,"Starter",Debug.moduleToString(b4a.example.starter.class),"TableDetails",main.mostCurrent._tabledetails,"titleFontSize",main._titlefontsize,"xui",main._xui};
+		return new Object[] {"Activity",main.mostCurrent._activity,"activityPanel",main.mostCurrent._activitypanel,"backbtn",main.mostCurrent._backbtn,"barGraph",Debug.moduleToString(b4a.example.bargraph.class),"barGraph1",main.mostCurrent._bargraph1,"barPanel",main.mostCurrent._barpanel,"Branch",Debug.moduleToString(b4a.example.branch.class),"Button1",main.mostCurrent._button1,"company",main._company,"Device",Debug.moduleToString(b4a.example.device.class),"HttpUtils2Service",Debug.moduleToString(b4a.example.httputils2service.class),"Label1",main.mostCurrent._label1,"legend",main.mostCurrent._legend,"navigate",main.mostCurrent._navigate,"nxtBtn",main.mostCurrent._nxtbtn,"Panel1",main.mostCurrent._panel1,"Panel2",main.mostCurrent._panel2,"PHPURL",main.mostCurrent._phpurl,"primaryFontSize",main._primaryfontsize,"purchasePanel",main.mostCurrent._purchasepanel,"ScrollView1",main.mostCurrent._scrollview1,"secondaryFontSize",main._secondaryfontsize,"Starter",Debug.moduleToString(b4a.example.starter.class),"TableDetails",main.mostCurrent._tabledetails,"titleFontSize",main._titlefontsize,"xui",main._xui};
 }
 }

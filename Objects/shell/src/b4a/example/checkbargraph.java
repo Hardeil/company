@@ -23,9 +23,9 @@ public static RemoteObject _sales2 = null;
 public static RemoteObject _comname = null;
 public static RemoteObject _maxsale = RemoteObject.createImmutable(0);
 public static b4a.example.main _main = null;
-public static b4a.example.branch _branch = null;
 public static b4a.example.device _device = null;
 public static b4a.example.starter _starter = null;
+public static b4a.example.branch _branch = null;
 public static b4a.example.httputils2service _httputils2service = null;
 public static Object[] GetGlobals(RemoteObject _ref) throws Exception {
 		return new Object[] {"Active",_ref.getField(false, "_active"),"backBtn",_ref.getField(false, "_backbtn"),"barPanel",_ref.getField(false, "_barpanel"),"checkBoxes",_ref.getField(false, "_checkboxes"),"checkedSales",_ref.getField(false, "_checkedsales"),"comName",_ref.getField(false, "_comname"),"maxSale",_ref.getField(false, "_maxsale"),"nxtBtn",_ref.getField(false, "_nxtbtn"),"sales",_ref.getField(false, "_sales"),"sales1",_ref.getField(false, "_sales1"),"sales2",_ref.getField(false, "_sales2")};

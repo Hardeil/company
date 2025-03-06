@@ -119,11 +119,11 @@ Debug.ShouldStop(268435456);
 if (_m.runMethod(true,"ContainsKey",(Object)((_key))).<Boolean>get().booleanValue()) { 
  BA.debugLineNum = 318;BA.debugLine="Return m.Get(Key)";
 Debug.ShouldStop(536870912);
-Debug.CheckDeviceExceptions();if (true) return _m.runMethod(false,"Get",(Object)((_key)));
+if (true) return _m.runMethod(false,"Get",(Object)((_key)));
  }else {
  BA.debugLineNum = 320;BA.debugLine="Return DefaultValue";
 Debug.ShouldStop(-2147483648);
-Debug.CheckDeviceExceptions();if (true) return _defaultvalue;
+if (true) return _defaultvalue;
  };
  BA.debugLineNum = 322;BA.debugLine="End Sub";
 Debug.ShouldStop(2);
@@ -844,7 +844,7 @@ if (RapidSub.canDelegate("nxtbtn_click")) { return b4a.example.main.remoteMe.run
 Debug.ShouldStop(16777216);
  BA.debugLineNum = 346;BA.debugLine="Log(\"sad\")";
 Debug.ShouldStop(33554432);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","18060929",RemoteObject.createImmutable("sad"),0);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","1589825",RemoteObject.createImmutable("sad"),0);
  BA.debugLineNum = 347;BA.debugLine="End Sub";
 Debug.ShouldStop(67108864);
 return RemoteObject.createImmutable("");
@@ -867,10 +867,10 @@ starter_subs_0._process_globals();
 branch_subs_0._process_globals();
 httputils2service_subs_0._process_globals();
 main.myClass = BA.getDeviceClass ("b4a.example.main");
-bargraph.myClass = BA.getDeviceClass ("b4a.example.bargraph");
 checkbargraph.myClass = BA.getDeviceClass ("b4a.example.checkbargraph");
 device.myClass = BA.getDeviceClass ("b4a.example.device");
 starter.myClass = BA.getDeviceClass ("b4a.example.starter");
+bargraph.myClass = BA.getDeviceClass ("b4a.example.bargraph");
 branch.myClass = BA.getDeviceClass ("b4a.example.branch");
 httputils2service.myClass = BA.getDeviceClass ("b4a.example.httputils2service");
 httpjob.myClass = BA.getDeviceClass ("b4a.example.httpjob");

@@ -38,6 +38,7 @@ Sub Globals
 	Dim backbtn As Button
 	Dim purchasePanel As Panel
 	Dim currentPage As Int = 1
+	Dim totalSales As Int = 0
 End Sub
 
 Sub LoadCompanyData1
@@ -110,6 +111,7 @@ Sub JobDone(job As HttpJob)
 						Dim totalSales2 As String = record.Get("total_sales2")
 						Dim totalSales3 As String = record.Get("total_sales3")
 						Dim target_id As String = record.Get("branch_target_id")
+						totalSales = totalSales1.Length
 						target_countLabel.Text = total_count
 						branches.Text = "Branches - " & companyName
 						branches.Text = branches.Text.ToUpperCase
@@ -119,7 +121,7 @@ Sub JobDone(job As HttpJob)
 						LabelTitle.Typeface = Typeface.MONOSPACE
                         
 						Panel.Initialize("Panel")
-						ScrollView1.Panel.AddView(Panel, leftPosition, topPosition + 400dip, pnlWidth, pnlHeight)
+						ScrollView1.Panel.AddView(Panel, leftPosition, topPosition + 450dip, pnlWidth, pnlHeight)
 						Panel.Color = Colors.Black
 
 						Dim Panel2 As Panel
@@ -369,6 +371,7 @@ Sub JobDone(job As HttpJob)
 								Dim legend() As String = Array As String("Sales1", "Sales2", "Sales3")
 								nxtBtn.Initialize("nxtBtn")
 								backbtn.Initialize("backbtn")
+								backbtn.Enabled = currentPage > 1
 								barGraph.Initialize(Activity, purchasePanel, branchSales1, branchSales2, branchSales3, branchNames, legend, 19000, "Sla", branchSales1, "Branch",nxtBtn,backbtn)
 							Else
 								Log($"Company: ${name} has no branches information."$)
@@ -462,6 +465,7 @@ Sub Activity_Create(FirstTime As Boolean)
 	ScrollView1.Panel.AddView(purchasePanel, 0, 20dip, Activity.Width, 400dip)
 
 	LoadCompanyData1
+	'LoadCompanyData
 End Sub
 
 Sub FetchNewPageData
@@ -474,7 +478,6 @@ Sub edit_button_Click
 
 	If IsNumber(target_id) And IsNumber(new_value) Then
 		UpdateData_Remote(target_id, new_value)
-		Log("Updated target " & target_id & " with value " & new_value)
 		LoadCompanyData
 	Else
 		Log("Invalid input values")
@@ -492,7 +495,6 @@ Sub totalTargetTitle_Click
 	popupPanel.Visible = True
 	Dim target_id_btn As Label = Sender
 	Dim target_id As String = target_id_btn.Tag
-	Log(target_id & "This is clicked id")
 End Sub
 
 Sub closeButton_Click
@@ -526,12 +528,11 @@ End Sub
 
 ' New click event handlers for barGraph buttons
 Sub nxtBtn_Click
-	Log(currentPage) ' This should now work
 	currentPage = currentPage + 1
 	FetchNewPageData
 End Sub
 
 Sub backbtn_Click
-	Log(currentPage)
 	currentPage = currentPage - 1
+	FetchNewPageData
 End Sub

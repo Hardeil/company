@@ -1172,13 +1172,13 @@ public static String  _nxtbtn_click() throws Exception{
 RDebugUtils.currentModule="main";
 if (Debug.shouldDelegate(mostCurrent.activityBA, "nxtbtn_click", false))
 	 {return ((String) Debug.delegate(mostCurrent.activityBA, "nxtbtn_click", null));}
-RDebugUtils.currentLine=8060928;
- //BA.debugLineNum = 8060928;BA.debugLine="Sub nxtBtn_Click";
-RDebugUtils.currentLine=8060929;
- //BA.debugLineNum = 8060929;BA.debugLine="Log(\"sad\")";
-anywheresoftware.b4a.keywords.Common.LogImpl("18060929","sad",0);
-RDebugUtils.currentLine=8060930;
- //BA.debugLineNum = 8060930;BA.debugLine="End Sub";
+RDebugUtils.currentLine=589824;
+ //BA.debugLineNum = 589824;BA.debugLine="Sub nxtBtn_Click";
+RDebugUtils.currentLine=589825;
+ //BA.debugLineNum = 589825;BA.debugLine="Log(\"sad\")";
+anywheresoftware.b4a.keywords.Common.LogImpl("1589825","sad",0);
+RDebugUtils.currentLine=589826;
+ //BA.debugLineNum = 589826;BA.debugLine="End Sub";
 return "";
 }
 }

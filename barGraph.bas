@@ -196,8 +196,7 @@ Sub DrawGraph(Active As Activity, panel As Panel, sale1() As Int, sale2() As Int
 		panel.AddView(btnNext, panel.Width - alignLeftCenter - 100dip, activityPanel.Height + alignTopCenter + 50dip, 100dip, 40dip)
     
 		' Update button enabled state
-		btnBack.Enabled = True
-		btnNext.Enabled = True
+
 		Log("btnNext Enabled: " & btnNext.Enabled) ' Debug log
 	Catch
 		Log(LastException)
@@ -243,5 +242,26 @@ Sub FormatNumberWithLabel(number As Int) As String
 		Return Floor(number / 1000) & "k"
 	Else
 		Return number
+	End If
+End Sub
+Sub chkChange_CheckedChange(Checked As Boolean)
+	If Sender Is CheckBox Then
+		Dim chk As CheckBox = Sender
+		Dim index As Int = chk.Tag
+        
+		Dim checkedCount As Int = 0
+		For i = 0 To checkedSales.Length - 1
+			If checkedSales(i) = True Then checkedCount = checkedCount + 1
+		Next
+        
+		If Checked = False And checkedCount = 1 Then
+			chk.Checked = True
+			Return
+		End If
+        
+		checkedSales(index) = Checked
+		UpdateGraph ' Call DrawGraph without parameters
+	Else
+		Log("Error: Sender is not a CheckBox")
 	End If
 End Sub

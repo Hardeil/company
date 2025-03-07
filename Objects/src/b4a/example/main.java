@@ -512,7 +512,7 @@ anywheresoftware.b4a.keywords.Common.ProgressDialogShow(mostCurrent.activityBA,B
        catch (Exception e7) {
 			processBA.setLastException(e7);RDebugUtils.currentLine=196615;
  //BA.debugLineNum = 196615;BA.debugLine="Log(LastException.Message)";
-anywheresoftware.b4a.keywords.Common.LogImpl("0196615",anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
+anywheresoftware.b4a.keywords.Common.LogImpl("2196615",anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
  };
 RDebugUtils.currentLine=196618;
  //BA.debugLineNum = 196618;BA.debugLine="End Sub";
@@ -778,7 +778,7 @@ _imgview.setBitmap((android.graphics.Bitmap)(_resizedimage.getObject()));
  }else {
 RDebugUtils.currentLine=262218;
  //BA.debugLineNum = 262218;BA.debugLine="Log(\"Error loading image\")";
-anywheresoftware.b4a.keywords.Common.LogImpl("0262218","Error loading image",0);
+anywheresoftware.b4a.keywords.Common.LogImpl("2262218","Error loading image",0);
  };
 RDebugUtils.currentLine=262221;
  //BA.debugLineNum = 262221;BA.debugLine="Dim panelWidth As Int = Panel.Width /3";
@@ -956,7 +956,7 @@ mostCurrent._legend = new String[]{"Sales1","Sales2","Sales3"};
  }else {
 RDebugUtils.currentLine=262298;
  //BA.debugLineNum = 262298;BA.debugLine="Log($\"Company: ${name} has no branches info";
-anywheresoftware.b4a.keywords.Common.LogImpl("0262298",("Company: "+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(_name))+" has no branches information."),0);
+anywheresoftware.b4a.keywords.Common.LogImpl("2262298",("Company: "+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(_name))+" has no branches information."),0);
  };
  };
  }
@@ -1121,7 +1121,7 @@ _loadcompanydata();
 default: {
 RDebugUtils.currentLine=262367;
  //BA.debugLineNum = 262367;BA.debugLine="Log(\"Unknown job: \" & job.JobName)";
-anywheresoftware.b4a.keywords.Common.LogImpl("0262367","Unknown job: "+_job._jobname /*String*/ ,0);
+anywheresoftware.b4a.keywords.Common.LogImpl("2262367","Unknown job: "+_job._jobname /*String*/ ,0);
  break; }
 }
 ;
@@ -1176,7 +1176,7 @@ RDebugUtils.currentLine=589824;
  //BA.debugLineNum = 589824;BA.debugLine="Sub nxtBtn_Click";
 RDebugUtils.currentLine=589825;
  //BA.debugLineNum = 589825;BA.debugLine="Log(\"sad\")";
-anywheresoftware.b4a.keywords.Common.LogImpl("0589825","sad",0);
+anywheresoftware.b4a.keywords.Common.LogImpl("2589825","sad",0);
 RDebugUtils.currentLine=589826;
  //BA.debugLineNum = 589826;BA.debugLine="End Sub";
 return "";

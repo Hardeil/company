@@ -158,9 +158,10 @@ Sub responsiveLabel(label As Label) As Int
 End Sub
 
 Sub LoadCompanyData
-	PHPURL = "https://192.168.8.142/Company/fetch.php?action=get_device&id="&Branch.branch_selected&"&page="&pageNo&"&limit="&limit
+	PHPURL = "https://192.168.8.117/Company/fetch.php?action=get_device&id="&Branch.branch_selected&"&page="&pageNo&"&limit="&limit
+	Log(PHPURL)
 	Dim Job1 As HttpJob
-	Job1.Initialize("LoadData", Me)
+	Job1.Initialize("", Me)
 	Job1.Download(PHPURL)
 End Sub
 
@@ -207,7 +208,8 @@ Sub JobDone(job As HttpJob)
 				Dim sales1 As String = record.Get("sales1")
 				Dim sales2 As String = record.Get("sales2")
 				Dim sales3 As String = record.Get("sales3")
-				Dim id As Int = record.Get("num")
+				'Dim id As Int = record.Get("num")
+				Dim id As Int = 0
 				totalDevices = record.Get("totalDevices")
 				Dim comName As String = record.Get("comName")
 				LabelTitle.Text = record.Get("branchName")

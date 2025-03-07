@@ -170,7 +170,7 @@ bargraph,class_globals,0,0,1,22
 
 
 
-bargraph,drawgraph,0,1,107,215
+bargraph,drawgraph,0,0,107,215
 
 
 ,formatnumberwithsuffix,,formatnumberwithlabel
@@ -234,23 +234,23 @@ device,responsivelabel,0,0,147,152
 
 
 
-device,loadcompanydata,0,0,154,159
+device,loadcompanydata,0,0,154,160
 ,phpurl,branch,branch_selected,,pageno,,limit
 ,phpurl
 httpjob,initialize,httpjob,download,httpjob,addscheme
-device,activity_pause,0,0,354,355
+device,activity_pause,0,0,356,357
 
 
 
-device,activity_resume,0,0,351,352
+device,activity_resume,0,0,353,354
 
 
 
-device,backbtn_click,0,0,161,169
+device,backbtn_click,0,0,162,170
 ,pageno,,num,,pagelabel,,scrollview1,,phpurl,branch,branch_selected,,limit
 ,pageno,,num,,phpurl
 ,loadcompanydata,httpjob,initialize,httpjob,download,httpjob,addscheme
-device,branch_click,0,0,360,363
+device,branch_click,0,0,362,365
 
 
 
@@ -258,15 +258,15 @@ device,globals,0,1,10,31
 ,limit,,num,,pageno,,phpurl,branch,branch_selected,,panelwidth,,tdleftpos
 ,limit,,num,,pageno,,phpurl,,panelwidth,,tdleftpos
 
-device,home_click,0,0,356,359
+device,home_click,0,0,358,361
 
 
 
-device,jobdone,0,0,181,348
+device,jobdone,0,0,182,350
 ,tabledetails,,scrollviewpanel,,totallabel,,labeltitle,,label1,,branches,,devices,,scrollview1,,panelwidth,,num,,tdleftpos,,panel3,,pagelabel,,pageno,,limit,httputils2service,tempfolder
 ,tabledetails,,panelwidth,,num
 httpjob,getstring,httpjob,getstring2
-device,nxtlabel_click,0,0,172,178
+device,nxtlabel_click,0,0,173,179
 ,pageno,,pagelabel,,scrollview1,,phpurl,branch,branch_selected,,limit
 ,pageno,,phpurl
 ,loadcompanydata,httpjob,initialize,httpjob,download,httpjob,addscheme
@@ -310,7 +310,7 @@ branch,loadcompanydata,0,0,130,140
 ,totaltarget,,panel,,phpurl,starter,company_selected
 ,phpurl
 httpjob,initialize,httpjob,download,httpjob,addscheme
-branch,loadcompanydata1,0,1,119,128
+branch,loadcompanydata1,0,0,119,128
 ,phpurl1,,currentpage,,bargraphinitialized
 ,phpurl1
 httpjob,initialize,httpjob,download,httpjob,addscheme
@@ -350,7 +350,7 @@ branch,home_click,0,0,533,536
 
 
 
-branch,jobdone,1,1,149,484
+branch,jobdone,1,0,149,484
 ,tabledetails,,totaltarget,,totalsales,,target_countlabel,,branches,,labeltitle,,panel,,scrollviewpanel4,,primaryfontsize,,secondaryfontsize,starter,company_selected,,purchasepanel,,bargraphinitialized,,nxtbtn,,backbtn,,bargraph,,currentpage,httputils2service,tempfolder,,phpurl
 ,tabledetails,,totalsales,,bargraphinitialized,,phpurl
 httpjob,getstring,,loadcompanydata,bargraph,initialize,bargraph,updategraph,httpjob,release,httpjob,getstring2,httpjob,initialize,httpjob,download,httpjob,addscheme,bargraph,drawgraph,bargraph,formatnumberwithsuffix,bargraph,formatnumberwithlabel

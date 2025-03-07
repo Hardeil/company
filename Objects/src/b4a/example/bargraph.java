@@ -76,7 +76,7 @@ RDebugUtils.currentLine=2424833;
 if (_active.IsInitialized()==__c.False) { 
 RDebugUtils.currentLine=2424834;
  //BA.debugLineNum = 2424834;BA.debugLine="Log(\"Error: Activity is not initialized\")";
-__c.LogImpl("02424834","Error: Activity is not initialized",0);
+__c.LogImpl("22424834","Error: Activity is not initialized",0);
 RDebugUtils.currentLine=2424835;
  //BA.debugLineNum = 2424835;BA.debugLine="Return";
 if (true) return "";
@@ -346,7 +346,7 @@ __ref._updategraph /*String*/ (null);
  }else {
 RDebugUtils.currentLine=2949138;
  //BA.debugLineNum = 2949138;BA.debugLine="Log(\"Error: Sender is not a CheckBox\")";
-__c.LogImpl("02949138","Error: Sender is not a CheckBox",0);
+__c.LogImpl("22949138","Error: Sender is not a CheckBox",0);
  };
 RDebugUtils.currentLine=2949140;
  //BA.debugLineNum = 2949140;BA.debugLine="End Sub";
@@ -737,13 +737,13 @@ RDebugUtils.currentLine=2490469;
  //BA.debugLineNum = 2490469;BA.debugLine="panel.AddView(btnBack, alignLeftCenter, activity";
 _panel.AddView((android.view.View)(__ref._btnback /*anywheresoftware.b4a.objects.ButtonWrapper*/ .getObject()),_alignleftcenter,(int) (_activitypanel.getHeight()+_aligntopcenter+__c.DipToCurrent((int) (50))),__c.DipToCurrent((int) (100)),__c.DipToCurrent((int) (40)));
 RDebugUtils.currentLine=2490470;
- //BA.debugLineNum = 2490470;BA.debugLine="panel.AddView(btnNext, activityPanel.Width - ali";
+ //BA.debugLineNum = 2490470;BA.debugLine="panel.AddView(btnNext, activityPanel.Widt";
 _panel.AddView((android.view.View)(__ref._btnnext /*anywheresoftware.b4a.objects.ButtonWrapper*/ .getObject()),(int) (_activitypanel.getWidth()-_alignleftcenter),(int) (_activitypanel.getHeight()+_aligntopcenter+__c.DipToCurrent((int) (50))),__c.DipToCurrent((int) (100)),__c.DipToCurrent((int) (40)));
  } 
        catch (Exception e85) {
 			ba.setLastException(e85);RDebugUtils.currentLine=2490474;
  //BA.debugLineNum = 2490474;BA.debugLine="Log(LastException)";
-__c.LogImpl("02490474",BA.ObjectToString(__c.LastException(ba)),0);
+__c.LogImpl("22490474",BA.ObjectToString(__c.LastException(ba)),0);
  };
 RDebugUtils.currentLine=2490476;
  //BA.debugLineNum = 2490476;BA.debugLine="End Sub";
@@ -841,7 +841,7 @@ RDebugUtils.currentLine=2752514;
 _selectedcompany = (int)(BA.ObjectToNumber(_clickedlabel.getTag()));
 RDebugUtils.currentLine=2752515;
  //BA.debugLineNum = 2752515;BA.debugLine="Log(\"Selected Company ID: \" & selectedCompany)";
-__c.LogImpl("02752515","Selected Company ID: "+BA.NumberToString(_selectedcompany),0);
+__c.LogImpl("22752515","Selected Company ID: "+BA.NumberToString(_selectedcompany),0);
 RDebugUtils.currentLine=2752516;
  //BA.debugLineNum = 2752516;BA.debugLine="Starter.company_selected = selectedCompany";
 _starter._company_selected /*String*/  = BA.NumberToString(_selectedcompany);

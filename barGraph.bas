@@ -212,7 +212,7 @@ Public Sub DrawGraph(Active As Activity, panel As Panel, sale1() As Int, sale2()
 		'btnNext.Enabled = (currentPage * itemsPerPage) < sale1.Length
 		' Add buttons to panel without reinitializing
 		panel.AddView(btnBack, alignLeftCenter, activityPanel.Height + alignTopCenter + 50dip, 100dip, 40dip)
-		panel.AddView(btnNext, activityPanel.Width - alignLeftCenter , activityPanel.Height + alignTopCenter + 50dip, 100dip, 40dip)
+       		panel.AddView(btnNext, activityPanel.Width - alignLeftCenter , activityPanel.Height + alignTopCenter + 50dip, 100dip, 40dip)
     
 
 	Catch

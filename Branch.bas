@@ -39,6 +39,7 @@ Sub Globals
 	Dim purchasePanel As Panel
 	Dim currentPage As Int = 1
 	Dim totalSales As Int = 0
+	Dim barGraphInitialized As Boolean = False
 End Sub
 
 Sub LoadCompanyData1
@@ -369,10 +370,22 @@ Sub JobDone(job As HttpJob)
                                 
 								purchasePanel.RemoveAllViews
 								Dim legend() As String = Array As String("Sales1", "Sales2", "Sales3")
-								nxtBtn.Initialize("nxtBtn")
-								backbtn.Initialize("backbtn")
-								backbtn.Enabled = currentPage > 1
-								barGraph.Initialize(Activity, purchasePanel, branchSales1, branchSales2, branchSales3, branchNames, legend, 19000, "Sla", branchSales1, "Branch",nxtBtn,backbtn)
+								
+								If barGraphInitialized = False Then
+									nxtBtn.Initialize("nxtBtn")
+									backbtn.Initialize("backbtn")
+									barGraph.Initialize(Activity, purchasePanel, branchSales1, branchSales2, branchSales3, branchNames, legend, 19000, "Sla", branchSales1, "Branch", nxtBtn, backbtn)
+									barGraphInitialized = True
+								Else
+									' Update barGraph with new data
+									barGraph.sale_1 = branchSales1
+									barGraph.sale_2 = branchSales2
+									barGraph.sale_3 = branchSales3
+									barGraph.product1 = branchNames
+									barGraph.comId1 = branchSales1 ' Assuming comId1 should match sales1 for simplicity
+									barGraph.SetCurrentPage(currentPage) ' Update page
+								End If
+								backbtn.Enabled = currentPage > 1				
 							Else
 								Log($"Company: ${name} has no branches information."$)
 							End If
@@ -529,6 +542,7 @@ End Sub
 ' New click event handlers for barGraph buttons
 Sub nxtBtn_Click
 	currentPage = currentPage + 1
+	Log(currentPage)
 	FetchNewPageData
 End Sub
 

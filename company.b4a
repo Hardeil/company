@@ -18,8 +18,9 @@ Library1=core
 Library2=json
 Library3=okhttp
 Library4=okhttputils2
-Library5=xui
-Library6=stringutils
+Library5=stringutils
+Library6=xui
+Library7=randomaccessfile
 ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="34"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~CreateResourceFromFile(Macro, Themes.LightTheme)~\n~'End of default text.~\n~
 Module1=barGraph
 Module2=Branch
@@ -27,7 +28,7 @@ Module3=CheckBargraph
 Module4=Device
 Module5=Starter
 NumberOfFiles=7
-NumberOfLibraries=6
+NumberOfLibraries=7
 NumberOfModules=5
 Version=13.1
 @EndOfDesignText@

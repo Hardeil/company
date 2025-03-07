@@ -6,7 +6,7 @@ Version=13.1
 @EndOfDesignText@
 Sub Class_Globals
 	Private checkBoxes() As CheckBox
-	Private checkedSales() As Boolean
+	Public checkedSales() As Boolean
 	Dim color() As Int = Array As Int(Colors.RGB(255, 0, 0), Colors.RGB(200, 20, 20), Colors.RGB(100, 10, 10))
 	Dim legendPanel As Panel
 	Dim Active1 As Activity
@@ -24,6 +24,7 @@ Sub Class_Globals
 	Public btnNext As Button
 	Public btnBack As Button
 	Dim layout As String = ""
+	Private isFirstInit As Boolean = True
 End Sub
 
 Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2() As Int, sale3() As Int, product() As String, legend() As String, maxSales As Int, TitleString As String, comId() As Int, layout1 As String,NextBtn As Button,Backbtn As Button)
@@ -58,19 +59,34 @@ Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2(
     
 	Dim checkBoxes(legend.Length) As CheckBox
 	Dim checkedSales(legend.Length) As Boolean
-	For i = 0 To legend.Length - 1
-		Dim chk As CheckBox
-		chk.Initialize("chkChange")
-		chk.Text = legend(i)
-		chk.TextSize = 10
-		chk.Typeface = Typeface.MONOSPACE
-		chk.TextColor = color(i)
-		chk.Tag = i
-		chk.Checked = True
-		legendPanel.AddView(chk, (legendWidth * i) + 30dip, 0dip, legendWidth - 30dip, legendPanel.Height)
-		checkBoxes(i) = chk
-		checkedSales(i) = True
-	Next
+	If isFirstInit Then
+		' Only initialize arrays on first call
+		Dim tempCheckBoxes(legend.Length) As CheckBox
+		checkBoxes = tempCheckBoxes
+		Dim tempCheckedSales(legend.Length) As Boolean
+		checkedSales = tempCheckedSales
+        
+		' Initialize checkboxes only once
+		For i = 0 To legend.Length - 1
+			Dim chk As CheckBox
+			chk.Initialize("chkChange")
+			chk.Text = legend(i)
+			chk.TextSize = 10
+			chk.Typeface = Typeface.MONOSPACE
+			chk.TextColor = color(i)
+			chk.Tag = i
+			chk.Checked = True  ' Default state
+			checkedSales(i) = True
+			legendPanel.AddView(chk, (legendWidth * i) + 30dip, 0dip, legendWidth - 30dip, legendPanel.Height)
+			checkBoxes(i) = chk
+		Next
+		isFirstInit = False
+	Else
+		' Restore previous states
+		For i = 0 To checkBoxes.Length - 1
+			checkBoxes(i).Checked = checkedSales(i)
+		Next
+	End If
 
 	' Initialize buttons here, not in DrawGraph
 	'btnBack.Initialize("btnBack")
@@ -102,7 +118,9 @@ Sub DrawGraph(Active As Activity, panel As Panel, sale1() As Int, sale2() As Int
 		If panel.Width = 0 Then
 			panel.Width = 800dip
 		End If
+		
 		panel.AddView(legendPanel, 0, 0, panel.Width, 30dip)
+		
 		Dim activityPanel As Panel
 		activityPanel.Initialize("activityPanel")
 
@@ -190,7 +208,8 @@ Sub DrawGraph(Active As Activity, panel As Panel, sale1() As Int, sale2() As Int
 			Dim labelYPos As Int = activityPanel.Height - ((labelValue / maxSale) * activityPanel.Height)
 			cv.DrawText(FormatNumberWithLabel(labelValue), alignLeftCenter - 10dip, labelYPos + alignTopCenter + 5dip, Typeface.MONOSPACE, 10, Colors.Black, "RIGHT")
 		Next
-    
+		btnBack.Enabled = currentPage > 1
+		btnNext.Enabled = (currentPage * itemsPerPage) < sale1.Length
 		' Add buttons to panel without reinitializing
 		panel.AddView(btnBack, alignLeftCenter, activityPanel.Height + alignTopCenter + 50dip, 100dip, 40dip)
 		panel.AddView(btnNext, panel.Width - alignLeftCenter - 100dip, activityPanel.Height + alignTopCenter + 50dip, 100dip, 40dip)

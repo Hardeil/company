@@ -401,7 +401,7 @@ _imgview.runMethod(false,"setBitmap",(_resizedimage.getObject()));
  }else {
  BA.debugLineNum = 157;BA.debugLine="Log(\"Error loading image\")";
 Debug.ShouldStop(268435456);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","1262218",RemoteObject.createImmutable("Error loading image"),0);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","0262218",RemoteObject.createImmutable("Error loading image"),0);
  };
  BA.debugLineNum = 160;BA.debugLine="Dim panelWidth As Int = Panel.Width /3";
 Debug.ShouldStop(-2147483648);
@@ -578,7 +578,7 @@ main.mostCurrent._legend = RemoteObject.createNewArray("String",new int[] {3},ne
  }else {
  BA.debugLineNum = 237;BA.debugLine="Log($\"Company: ${name} has no branches info";
 Debug.ShouldStop(4096);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","1262298",(RemoteObject.concat(RemoteObject.createImmutable("Company: "),main.mostCurrent.__c.runMethod(true,"SmartStringFormatter",(Object)(BA.ObjectToString("")),(Object)((_name))),RemoteObject.createImmutable(" has no branches information."))),0);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","0262298",(RemoteObject.concat(RemoteObject.createImmutable("Company: "),main.mostCurrent.__c.runMethod(true,"SmartStringFormatter",(Object)(BA.ObjectToString("")),(Object)((_name))),RemoteObject.createImmutable(" has no branches information."))),0);
  };
  };
  }
@@ -738,7 +738,7 @@ _loadcompanydata();
 default: {
  BA.debugLineNum = 306;BA.debugLine="Log(\"Unknown job: \" & job.JobName)";
 Debug.ShouldStop(131072);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","1262367",RemoteObject.concat(RemoteObject.createImmutable("Unknown job: "),_job.getField(true,"_jobname" /*RemoteObject*/ )),0);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","0262367",RemoteObject.concat(RemoteObject.createImmutable("Unknown job: "),_job.getField(true,"_jobname" /*RemoteObject*/ )),0);
  break; }
 }
 ;
@@ -824,7 +824,7 @@ main.mostCurrent.__c.runVoidMethod ("ProgressDialogShow",main.mostCurrent.activi
        catch (Exception e7) {
 			BA.rdebugUtils.runVoidMethod("setLastException",main.processBA, e7.toString()); BA.debugLineNum = 79;BA.debugLine="Log(LastException.Message)";
 Debug.ShouldStop(16384);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","1196615",main.mostCurrent.__c.runMethod(false,"LastException",main.mostCurrent.activityBA).runMethod(true,"getMessage"),0);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","0196615",main.mostCurrent.__c.runMethod(false,"LastException",main.mostCurrent.activityBA).runMethod(true,"getMessage"),0);
  };
  BA.debugLineNum = 82;BA.debugLine="End Sub";
 Debug.ShouldStop(131072);
@@ -844,7 +844,7 @@ if (RapidSub.canDelegate("nxtbtn_click")) { return b4a.example.main.remoteMe.run
 Debug.ShouldStop(16777216);
  BA.debugLineNum = 346;BA.debugLine="Log(\"sad\")";
 Debug.ShouldStop(33554432);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","1589825",RemoteObject.createImmutable("sad"),0);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","0589825",RemoteObject.createImmutable("sad"),0);
  BA.debugLineNum = 347;BA.debugLine="End Sub";
 Debug.ShouldStop(67108864);
 return RemoteObject.createImmutable("");

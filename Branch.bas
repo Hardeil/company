@@ -40,7 +40,86 @@ Sub Globals
 	Dim currentPage As Int = 1
 	Dim totalSales As Int = 0
 	Dim barGraphInitialized As Boolean = False
+	Private Panel4 As Panel
+	Dim scrollViewPanel4 As ScrollView
 End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	Activity.LoadLayout("Branch")
+	home.Initialize("home")
+	home.Text = "HOME |"
+	home.TextColor = Colors.Black
+	home.Typeface = Typeface.MONOSPACE
+	home.Gravity = Gravity.CENTER
+	home.TextSize = 16
+	Panel3.AddView(home, 0, 0, responsiveLabel(home), Panel3.Height)
+	Panel3.Color = Colors.Transparent
+    
+	branches.Initialize("")
+	branches.Text = "Branches"
+	branches.Typeface = Typeface.MONOSPACE
+	branches.Gravity = Gravity.CENTER_VERTICAL
+	branches.TextSize = 16
+	Panel3.AddView(branches, responsiveLabel(home), 0, 300dip, Panel3.Height)
+    
+	popupPanel.Initialize("")
+	popupPanel.Color = Colors.ARGB(200, 0, 0, 0)
+	popupPanel.Visible = False
+	Activity.AddView(popupPanel, 0, 0, Activity.Width, Activity.Height)
+    
+	Dim popupPanelBackground As Panel
+	popupPanelBackground.Initialize("")
+	popupPanelBackground.Color = Colors.White
+	popupPanel.AddView(popupPanelBackground, 70dip, 50dip, 550dip, Activity.Height - 500dip)
+	Dim leftPosition As Int = (popupPanel.Width - popupPanelBackground.Width) / 2
+	popupPanelBackground.Left = leftPosition
+    
+	Dim closeButton As Label
+	closeButton.Initialize("closeButton")
+	closeButton.Text = "X"
+	closeButton.TextSize = 20
+	closeButton.TextColor = Colors.Red
+	closeButton.Typeface = Typeface.DEFAULT_BOLD
+	popupPanelBackground.AddView(closeButton, popupPanelBackground.Width - 25dip, 5dip, 100dip, 40dip)
+    
+	target_id_display.Initialize("target_id_display")
+	target_id_display.TextSize = 20
+	target_id_display.TextColor = Colors.Red
+	target_id_display.Typeface = Typeface.DEFAULT_BOLD
+	popupPanelBackground.AddView(target_id_display, popupPanelBackground.Width - 25dip, 50dip, 100dip, 40dip)
+    
+	Dim popupText As Label
+	popupText.Initialize("")
+	popupText.Text = "Edit Target"
+	popupText.TextColor = Colors.Black
+	popupText.TextSize = 58
+	popupText.Gravity = Gravity.CENTER
+	popupPanelBackground.AddView(popupText, 25dip, 10dip, 80%x - 40dip, 100dip)
+    
+	target_countLabel.Initialize("")
+	target_countLabel.TextColor = Colors.Black
+	target_countLabel.TextSize = 58
+	target_countLabel.Gravity = Gravity.CENTER
+	popupPanelBackground.AddView(target_countLabel, 25dip, 80dip, 80%x - 40dip, 100dip)
+	ScrollView1.Panel.Color = Colors.ARGB(255, 251, 251, 251)
+    
+	Dim edit_button As Button
+	edit_button.Initialize("edit_button")
+	edit_button.Text = "Update"
+	edit_button.TextColor = Colors.Black
+	edit_button.TextSize = 58
+	edit_button.Gravity = Gravity.CENTER
+	popupPanelBackground.AddView(edit_button, 25dip, 200dip, 80%x - 40dip, 100dip)
+    
+	purchasePanel.Initialize("")
+	Panel4.AddView(purchasePanel, 0, 0dip, Activity.Width, 430dip)
+
+	scrollViewPanel4.Initialize(Panel4.Height - purchasePanel.Height)
+	Panel4.AddView(scrollViewPanel4,0,purchasePanel.Height,Panel4.Width,Panel4.Height - purchasePanel.Height)
+	LoadCompanyData1
+	LoadCompanyData
+End Sub
+
 
 Sub LoadCompanyData1
 	Try
@@ -48,7 +127,7 @@ Sub LoadCompanyData1
 		Job1.Initialize("GetBranches", Me)
 		PHPURL1 = $"https://192.168.8.117/Company/fetch.php?action=get_company_list&page=${currentPage}"$
 		Job1.Download(PHPURL1)
-		'ProgressDialogShow("Loading Data...")
+		ProgressDialogShow("Loading Data...")
 	Catch
 		Log(LastException.Message)
 	End Try
@@ -74,7 +153,7 @@ Sub UpdateData_Remote(target_id As Int, new_value As Int)
 End Sub
 
 Sub JobDone(job As HttpJob)
-	ProgressDialogHide
+	'ProgressDialogHide
 	Dim scrollHeight As Int = 0
     
 	If job.Success = True Then
@@ -122,7 +201,7 @@ Sub JobDone(job As HttpJob)
 						LabelTitle.Typeface = Typeface.MONOSPACE
                         
 						Panel.Initialize("Panel")
-						ScrollView1.Panel.AddView(Panel, leftPosition, topPosition + 450dip, pnlWidth, pnlHeight)
+						scrollViewPanel4.Panel.AddView(Panel, leftPosition, topPosition, pnlWidth, pnlHeight)
 						Panel.Color = Colors.Black
 
 						Dim Panel2 As Panel
@@ -335,8 +414,8 @@ Sub JobDone(job As HttpJob)
 						End If
 					Next
                     
-					ScrollView1.Panel.Height = scrollHeight
-                
+					scrollViewPanel4.Panel.Height = scrollHeight
+					ProgressDialogHide
 				Case "UpdateData"
 					ToastMessageShow("Data updated successfully", False)
 					LoadCompanyData
@@ -376,6 +455,7 @@ Sub JobDone(job As HttpJob)
 									backbtn.Initialize("backbtn")
 									barGraph.Initialize(Activity, purchasePanel, branchSales1, branchSales2, branchSales3, branchNames, legend, 19000, "Sla", branchSales1, "Branch", nxtBtn, backbtn)
 									barGraphInitialized = True
+									ProgressDialogHide
 								Else
 									' Update barGraph with new data
 									barGraph.sale_1 = branchSales1
@@ -385,7 +465,8 @@ Sub JobDone(job As HttpJob)
 									barGraph.comId1 = branchSales1 ' Assuming comId1 should match sales1 for simplicity
 									barGraph.SetCurrentPage(currentPage) ' Update page
 								End If
-								backbtn.Enabled = currentPage > 1				
+								backbtn.Enabled = currentPage > 1	
+					
 							Else
 								Log($"Company: ${name} has no branches information."$)
 							End If
@@ -406,80 +487,6 @@ Sub JobDone(job As HttpJob)
 	job.Release
 End Sub
 
-Sub Activity_Create(FirstTime As Boolean)
-	Activity.LoadLayout("Branch")
-    
-	home.Initialize("home")
-	home.Text = "HOME |"
-	home.TextColor = Colors.Black
-	home.Typeface = Typeface.MONOSPACE
-	home.Gravity = Gravity.CENTER
-	home.TextSize = 16
-	Panel3.AddView(home, 0, 0, responsiveLabel(home), Panel3.Height)
-	Panel3.Color = Colors.Transparent
-    
-	branches.Initialize("")
-	branches.Text = "Branches"
-	branches.Typeface = Typeface.MONOSPACE
-	branches.Gravity = Gravity.CENTER_VERTICAL
-	branches.TextSize = 16
-	Panel3.AddView(branches, responsiveLabel(home), 0, 300dip, Panel3.Height)
-    
-	popupPanel.Initialize("")
-	popupPanel.Color = Colors.ARGB(200, 0, 0, 0)
-	popupPanel.Visible = False
-	Activity.AddView(popupPanel, 0, 0, Activity.Width, Activity.Height)
-    
-	Dim popupPanelBackground As Panel
-	popupPanelBackground.Initialize("")
-	popupPanelBackground.Color = Colors.White
-	popupPanel.AddView(popupPanelBackground, 70dip, 50dip, 550dip, Activity.Height - 500dip)
-	Dim leftPosition As Int = (popupPanel.Width - popupPanelBackground.Width) / 2
-	popupPanelBackground.Left = leftPosition
-    
-	Dim closeButton As Label
-	closeButton.Initialize("closeButton")
-	closeButton.Text = "X"
-	closeButton.TextSize = 20
-	closeButton.TextColor = Colors.Red
-	closeButton.Typeface = Typeface.DEFAULT_BOLD
-	popupPanelBackground.AddView(closeButton, popupPanelBackground.Width - 25dip, 5dip, 100dip, 40dip)
-    
-	target_id_display.Initialize("target_id_display")
-	target_id_display.TextSize = 20
-	target_id_display.TextColor = Colors.Red
-	target_id_display.Typeface = Typeface.DEFAULT_BOLD
-	popupPanelBackground.AddView(target_id_display, popupPanelBackground.Width - 25dip, 50dip, 100dip, 40dip)
-    
-	Dim popupText As Label
-	popupText.Initialize("")
-	popupText.Text = "Edit Target"
-	popupText.TextColor = Colors.Black
-	popupText.TextSize = 58
-	popupText.Gravity = Gravity.CENTER
-	popupPanelBackground.AddView(popupText, 25dip, 10dip, 80%x - 40dip, 100dip)
-    
-	target_countLabel.Initialize("")
-	target_countLabel.TextColor = Colors.Black
-	target_countLabel.TextSize = 58
-	target_countLabel.Gravity = Gravity.CENTER
-	popupPanelBackground.AddView(target_countLabel, 25dip, 80dip, 80%x - 40dip, 100dip)
-	ScrollView1.Panel.Color = Colors.ARGB(255, 251, 251, 251)
-    
-	Dim edit_button As Button
-	edit_button.Initialize("edit_button")
-	edit_button.Text = "Update"
-	edit_button.TextColor = Colors.Black
-	edit_button.TextSize = 58
-	edit_button.Gravity = Gravity.CENTER
-	popupPanelBackground.AddView(edit_button, 25dip, 200dip, 80%x - 40dip, 100dip)
-    
-	purchasePanel.Initialize("")
-	ScrollView1.Panel.AddView(purchasePanel, 0, 20dip, Activity.Width, 400dip)
-
-	LoadCompanyData1
-	'LoadCompanyData
-End Sub
 
 Sub FetchNewPageData
 	LoadCompanyData1 ' Fetch new data for the current page

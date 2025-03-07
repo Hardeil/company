@@ -90,7 +90,7 @@ Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2(
 
 	' Initialize buttons here, not in DrawGraph
 	'btnBack.Initialize("btnBack")
-	btnBack.Text = "Back"
+	btnBack.Text = "<"
 	btnBack.TextSize = 14
 	btnBack.Typeface = Typeface.MONOSPACE
 	btnBack.TextColor = Colors.White
@@ -99,7 +99,7 @@ Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2(
 	btnBack.Background = cdBack
 
 	'btnNext.Initialize("btnNext")
-	btnNext.Text = "Next"
+	btnNext.Text = ">"
 	btnNext.TextSize = 14
 	btnNext.Typeface = Typeface.MONOSPACE
 	btnNext.TextColor = Colors.White
@@ -211,12 +211,9 @@ Sub DrawGraph(Active As Activity, panel As Panel, sale1() As Int, sale2() As Int
 		btnBack.Enabled = currentPage > 1
 		btnNext.Enabled = (currentPage * itemsPerPage) < sale1.Length
 		' Add buttons to panel without reinitializing
-		panel.AddView(btnBack, alignLeftCenter, activityPanel.Height + alignTopCenter + 50dip, 100dip, 40dip)
-		panel.AddView(btnNext, panel.Width - alignLeftCenter - 100dip, activityPanel.Height + alignTopCenter + 50dip, 100dip, 40dip)
-    
-		' Update button enabled state
-
-		Log("btnNext Enabled: " & btnNext.Enabled) ' Debug log
+		panel.AddView(btnBack, alignLeftCenter, activityPanel.Height + alignTopCenter + 50dip, 50dip, 40dip)
+		panel.AddView(btnNext, panel.Width - alignLeftCenter - 15dip , activityPanel.Height + alignTopCenter + 50dip, 50dip, 40dip)
+    	
 	Catch
 		Log(LastException)
 	End Try

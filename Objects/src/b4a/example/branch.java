@@ -572,14 +572,14 @@ mostCurrent._scrollviewpanel4.Initialize(mostCurrent.activityBA,(int) (mostCurre
 RDebugUtils.currentLine=3407943;
  //BA.debugLineNum = 3407943;BA.debugLine="Panel4.AddView(scrollViewPanel4,0,purchasePanel.H";
 mostCurrent._panel4.AddView((android.view.View)(mostCurrent._scrollviewpanel4.getObject()),(int) (0),mostCurrent._purchasepanel.getHeight(),mostCurrent._panel4.getWidth(),(int) (mostCurrent._panel4.getHeight()-mostCurrent._purchasepanel.getHeight()));
-RDebugUtils.currentLine=3407944;
- //BA.debugLineNum = 3407944;BA.debugLine="LoadCompanyData1";
-_loadcompanydata1();
 RDebugUtils.currentLine=3407945;
  //BA.debugLineNum = 3407945;BA.debugLine="LoadCompanyData";
 _loadcompanydata();
 RDebugUtils.currentLine=3407946;
- //BA.debugLineNum = 3407946;BA.debugLine="End Sub";
+ //BA.debugLineNum = 3407946;BA.debugLine="LoadCompanyData1";
+_loadcompanydata1();
+RDebugUtils.currentLine=3407947;
+ //BA.debugLineNum = 3407947;BA.debugLine="End Sub";
 return "";
 }
 public static int  _responsivelabel(anywheresoftware.b4a.objects.LabelWrapper _label) throws Exception{
@@ -606,40 +606,6 @@ if (true) return _homewidth;
 RDebugUtils.currentLine=3801093;
  //BA.debugLineNum = 3801093;BA.debugLine="End Sub";
 return 0;
-}
-public static String  _loadcompanydata1() throws Exception{
-RDebugUtils.currentModule="branch";
-if (Debug.shouldDelegate(mostCurrent.activityBA, "loadcompanydata1", false))
-	 {return ((String) Debug.delegate(mostCurrent.activityBA, "loadcompanydata1", null));}
-b4a.example.httpjob _job1 = null;
-RDebugUtils.currentLine=3145728;
- //BA.debugLineNum = 3145728;BA.debugLine="Sub LoadCompanyData1";
-RDebugUtils.currentLine=3145729;
- //BA.debugLineNum = 3145729;BA.debugLine="Try";
-try {RDebugUtils.currentLine=3145730;
- //BA.debugLineNum = 3145730;BA.debugLine="Dim Job1 As HttpJob";
-_job1 = new b4a.example.httpjob();
-RDebugUtils.currentLine=3145731;
- //BA.debugLineNum = 3145731;BA.debugLine="Job1.Initialize(\"GetBranches\", Me)";
-_job1._initialize /*String*/ (null,processBA,"GetBranches",branch.getObject());
-RDebugUtils.currentLine=3145732;
- //BA.debugLineNum = 3145732;BA.debugLine="PHPURL1 = $\"https://192.168.8.117/Company/fetch.";
-mostCurrent._phpurl1 = ("https://192.168.8.117/Company/fetch.php?action=get_company_list&page="+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(_currentpage))+"");
-RDebugUtils.currentLine=3145733;
- //BA.debugLineNum = 3145733;BA.debugLine="Job1.Download(PHPURL1)";
-_job1._download /*String*/ (null,mostCurrent._phpurl1);
-RDebugUtils.currentLine=3145734;
- //BA.debugLineNum = 3145734;BA.debugLine="ProgressDialogShow(\"Loading Data...\")";
-anywheresoftware.b4a.keywords.Common.ProgressDialogShow(mostCurrent.activityBA,BA.ObjectToCharSequence("Loading Data..."));
- } 
-       catch (Exception e8) {
-			processBA.setLastException(e8);RDebugUtils.currentLine=3145736;
- //BA.debugLineNum = 3145736;BA.debugLine="Log(LastException.Message)";
-anywheresoftware.b4a.keywords.Common.LogImpl("03145736",anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
- };
-RDebugUtils.currentLine=3145738;
- //BA.debugLineNum = 3145738;BA.debugLine="End Sub";
-return "";
 }
 public static String  _loadcompanydata() throws Exception{
 RDebugUtils.currentModule="branch";
@@ -672,11 +638,41 @@ _job1._initialize /*String*/ (null,processBA,"GetData",branch.getObject());
 RDebugUtils.currentLine=3211272;
  //BA.debugLineNum = 3211272;BA.debugLine="Job1.Download(PHPURL)";
 _job1._download /*String*/ (null,mostCurrent._phpurl);
-RDebugUtils.currentLine=3211273;
- //BA.debugLineNum = 3211273;BA.debugLine="ProgressDialogShow(\"Loading Data...\")";
-anywheresoftware.b4a.keywords.Common.ProgressDialogShow(mostCurrent.activityBA,BA.ObjectToCharSequence("Loading Data..."));
 RDebugUtils.currentLine=3211274;
  //BA.debugLineNum = 3211274;BA.debugLine="End Sub";
+return "";
+}
+public static String  _loadcompanydata1() throws Exception{
+RDebugUtils.currentModule="branch";
+if (Debug.shouldDelegate(mostCurrent.activityBA, "loadcompanydata1", false))
+	 {return ((String) Debug.delegate(mostCurrent.activityBA, "loadcompanydata1", null));}
+b4a.example.httpjob _job1 = null;
+RDebugUtils.currentLine=3145728;
+ //BA.debugLineNum = 3145728;BA.debugLine="Sub LoadCompanyData1";
+RDebugUtils.currentLine=3145729;
+ //BA.debugLineNum = 3145729;BA.debugLine="Dim Job1 As HttpJob";
+_job1 = new b4a.example.httpjob();
+RDebugUtils.currentLine=3145730;
+ //BA.debugLineNum = 3145730;BA.debugLine="Job1.Initialize(\"GetBranches\", Me)";
+_job1._initialize /*String*/ (null,processBA,"GetBranches",branch.getObject());
+RDebugUtils.currentLine=3145731;
+ //BA.debugLineNum = 3145731;BA.debugLine="PHPURL1 = $\"https://192.168.8.117/Company/fetch.";
+mostCurrent._phpurl1 = ("https://192.168.8.117/Company/fetch.php?action=get_company_list&page="+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(_currentpage))+"");
+RDebugUtils.currentLine=3145732;
+ //BA.debugLineNum = 3145732;BA.debugLine="Log(PHPURL1)";
+anywheresoftware.b4a.keywords.Common.LogImpl("03145732",mostCurrent._phpurl1,0);
+RDebugUtils.currentLine=3145733;
+ //BA.debugLineNum = 3145733;BA.debugLine="Job1.Download(PHPURL1)";
+_job1._download /*String*/ (null,mostCurrent._phpurl1);
+RDebugUtils.currentLine=3145734;
+ //BA.debugLineNum = 3145734;BA.debugLine="If barGraphInitialized = False Then";
+if (_bargraphinitialized==anywheresoftware.b4a.keywords.Common.False) { 
+RDebugUtils.currentLine=3145735;
+ //BA.debugLineNum = 3145735;BA.debugLine="ProgressDialogShow(\"Loading Data...\")";
+anywheresoftware.b4a.keywords.Common.ProgressDialogShow(mostCurrent.activityBA,BA.ObjectToCharSequence("Loading Data..."));
+ };
+RDebugUtils.currentLine=3145737;
+ //BA.debugLineNum = 3145737;BA.debugLine="End Sub";
 return "";
 }
 public static String  _activity_pause(boolean _userclosed) throws Exception{
@@ -1680,60 +1676,60 @@ RDebugUtils.currentLine=3342639;
  //BA.debugLineNum = 3342639;BA.debugLine="ProgressDialogHide";
 anywheresoftware.b4a.keywords.Common.ProgressDialogHide();
  }else {
-RDebugUtils.currentLine=3342642;
- //BA.debugLineNum = 3342642;BA.debugLine="barGraph.sale_1 = branchSales1";
-mostCurrent._bargraph._sale_1 /*int[]*/  = _branchsales1;
 RDebugUtils.currentLine=3342643;
- //BA.debugLineNum = 3342643;BA.debugLine="barGraph.sale_2 = branchSales2";
-mostCurrent._bargraph._sale_2 /*int[]*/  = _branchsales2;
+ //BA.debugLineNum = 3342643;BA.debugLine="barGraph.sale_1 = branchSales1";
+mostCurrent._bargraph._sale_1 /*int[]*/  = _branchsales1;
 RDebugUtils.currentLine=3342644;
- //BA.debugLineNum = 3342644;BA.debugLine="barGraph.sale_3 = branchSales3";
-mostCurrent._bargraph._sale_3 /*int[]*/  = _branchsales3;
+ //BA.debugLineNum = 3342644;BA.debugLine="barGraph.sale_2 = branchSales2";
+mostCurrent._bargraph._sale_2 /*int[]*/  = _branchsales2;
 RDebugUtils.currentLine=3342645;
- //BA.debugLineNum = 3342645;BA.debugLine="barGraph.product1 = branchNames";
-mostCurrent._bargraph._product1 /*String[]*/  = _branchnames;
+ //BA.debugLineNum = 3342645;BA.debugLine="barGraph.sale_3 = branchSales3";
+mostCurrent._bargraph._sale_3 /*int[]*/  = _branchsales3;
 RDebugUtils.currentLine=3342646;
- //BA.debugLineNum = 3342646;BA.debugLine="barGraph.comId1 = branchSales1 ' Assuming";
-mostCurrent._bargraph._comid1 /*int[]*/  = _branchsales1;
+ //BA.debugLineNum = 3342646;BA.debugLine="barGraph.product1 = branchNames";
+mostCurrent._bargraph._product1 /*String[]*/  = _branchnames;
 RDebugUtils.currentLine=3342647;
- //BA.debugLineNum = 3342647;BA.debugLine="barGraph.SetCurrentPage(currentPage) ' Up";
-mostCurrent._bargraph._setcurrentpage /*String*/ (null,_currentpage);
+ //BA.debugLineNum = 3342647;BA.debugLine="barGraph.comId1 = branchSales1 ' Assuming";
+mostCurrent._bargraph._comid1 /*int[]*/  = _branchsales1;
+RDebugUtils.currentLine=3342648;
+ //BA.debugLineNum = 3342648;BA.debugLine="barGraph.UpdateGraph";
+mostCurrent._bargraph._updategraph /*String*/ (null);
  };
-RDebugUtils.currentLine=3342649;
- //BA.debugLineNum = 3342649;BA.debugLine="backbtn.Enabled = currentPage > 1";
+RDebugUtils.currentLine=3342651;
+ //BA.debugLineNum = 3342651;BA.debugLine="backbtn.Enabled = currentPage > 1";
 mostCurrent._backbtn.setEnabled(_currentpage>1);
  }else {
-RDebugUtils.currentLine=3342652;
- //BA.debugLineNum = 3342652;BA.debugLine="Log($\"Company: ${name} has no branches inf";
-anywheresoftware.b4a.keywords.Common.LogImpl("03342652",("Company: "+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(_name))+" has no branches information."),0);
+RDebugUtils.currentLine=3342654;
+ //BA.debugLineNum = 3342654;BA.debugLine="Log($\"Company: ${name} has no branches inf";
+anywheresoftware.b4a.keywords.Common.LogImpl("03342654",("Company: "+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(_name))+" has no branches information."),0);
  };
  };
  }
 };
  break; }
 default: {
-RDebugUtils.currentLine=3342658;
- //BA.debugLineNum = 3342658;BA.debugLine="Log(\"Unknown job: \" & job.JobName)";
-anywheresoftware.b4a.keywords.Common.LogImpl("03342658","Unknown job: "+_job._jobname /*String*/ ,0);
+RDebugUtils.currentLine=3342660;
+ //BA.debugLineNum = 3342660;BA.debugLine="Log(\"Unknown job: \" & job.JobName)";
+anywheresoftware.b4a.keywords.Common.LogImpl("03342660","Unknown job: "+_job._jobname /*String*/ ,0);
  break; }
 }
 ;
  } 
        catch (Exception e286) {
-			processBA.setLastException(e286);RDebugUtils.currentLine=3342662;
- //BA.debugLineNum = 3342662;BA.debugLine="ToastMessageShow(\"Error parsing data\", True)";
+			processBA.setLastException(e286);RDebugUtils.currentLine=3342664;
+ //BA.debugLineNum = 3342664;BA.debugLine="ToastMessageShow(\"Error parsing data\", True)";
 anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Error parsing data"),anywheresoftware.b4a.keywords.Common.True);
  };
  }else {
-RDebugUtils.currentLine=3342665;
- //BA.debugLineNum = 3342665;BA.debugLine="ToastMessageShow(\"Error: \" & job.ErrorMessage, T";
+RDebugUtils.currentLine=3342667;
+ //BA.debugLineNum = 3342667;BA.debugLine="ToastMessageShow(\"Error: \" & job.ErrorMessage, T";
 anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Error: "+_job._errormessage /*String*/ ),anywheresoftware.b4a.keywords.Common.True);
  };
-RDebugUtils.currentLine=3342668;
- //BA.debugLineNum = 3342668;BA.debugLine="job.Release";
+RDebugUtils.currentLine=3342670;
+ //BA.debugLineNum = 3342670;BA.debugLine="job.Release";
 _job._release /*String*/ (null);
-RDebugUtils.currentLine=3342669;
- //BA.debugLineNum = 3342669;BA.debugLine="End Sub";
+RDebugUtils.currentLine=3342671;
+ //BA.debugLineNum = 3342671;BA.debugLine="End Sub";
 return "";
 }
 public static String  _label17_click() throws Exception{

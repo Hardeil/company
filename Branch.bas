@@ -17,7 +17,7 @@ End Sub
 
 Sub Globals
 	Private ScrollView1 As ScrollView
-	Dim PHPURL As String = "https://192.168.8.192/Company/fetch.php?action=get_branch&company_id=" & Starter.company_selected
+	Dim PHPURL As String = "https://192.168.8.117/Company/fetch.php?action=get_branch&company_id=" & Starter.company_selected
 	Dim PHPURL1 As String = "https://192.168.8.117/Company/fetch.php?action=get_company_list&page=1"
 	Dim TableDetails As List
 	Private LabelTitle As Label
@@ -116,21 +116,21 @@ Sub Activity_Create(FirstTime As Boolean)
 
 	scrollViewPanel4.Initialize(Panel4.Height - purchasePanel.Height)
 	Panel4.AddView(scrollViewPanel4,0,purchasePanel.Height,Panel4.Width,Panel4.Height - purchasePanel.Height)
-	LoadCompanyData1
+	
 	LoadCompanyData
+	LoadCompanyData1
 End Sub
 
 
 Sub LoadCompanyData1
-	Try
 		Dim Job1 As HttpJob
 		Job1.Initialize("GetBranches", Me)
 		PHPURL1 = $"https://192.168.8.117/Company/fetch.php?action=get_company_list&page=${currentPage}"$
+		Log(PHPURL1)
 		Job1.Download(PHPURL1)
-		ProgressDialogShow("Loading Data...")
-	Catch
-		Log(LastException.Message)
-	End Try
+		If barGraphInitialized = False Then
+			ProgressDialogShow("Loading Data...")
+		End If
 End Sub
 
 Sub LoadCompanyData
@@ -142,7 +142,7 @@ Sub LoadCompanyData
 	PHPURL = "https://192.168.8.117/Company/fetch.php?action=get_branch&company_id=" & Starter.company_selected
 	Job1.Initialize("GetData", Me)
 	Job1.Download(PHPURL)
-	ProgressDialogShow("Loading Data...")
+	'ProgressDialogShow("Loading Data...")
 End Sub
 
 Sub UpdateData_Remote(target_id As Int, new_value As Int)
@@ -457,13 +457,15 @@ Sub JobDone(job As HttpJob)
 									barGraphInitialized = True
 									ProgressDialogHide
 								Else
+									'barGraph.DrawGraph(Activity, purchasePanel, branchSales1, branchSales2, branchSales3, branchNames, 19000, "Sla")
 									' Update barGraph with new data
 									barGraph.sale_1 = branchSales1
 									barGraph.sale_2 = branchSales2
 									barGraph.sale_3 = branchSales3
 									barGraph.product1 = branchNames
 									barGraph.comId1 = branchSales1 ' Assuming comId1 should match sales1 for simplicity
-									barGraph.SetCurrentPage(currentPage) ' Update page
+									barGraph.UpdateGraph
+									'barGraph.SetCurrentPage(currentPage) ' Update page
 								End If
 								backbtn.Enabled = currentPage > 1	
 					

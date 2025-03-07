@@ -119,11 +119,11 @@ Debug.ShouldStop(268435456);
 if (_m.runMethod(true,"ContainsKey",(Object)((_key))).<Boolean>get().booleanValue()) { 
  BA.debugLineNum = 318;BA.debugLine="Return m.Get(Key)";
 Debug.ShouldStop(536870912);
-if (true) return _m.runMethod(false,"Get",(Object)((_key)));
+Debug.CheckDeviceExceptions();if (true) return _m.runMethod(false,"Get",(Object)((_key)));
  }else {
  BA.debugLineNum = 320;BA.debugLine="Return DefaultValue";
 Debug.ShouldStop(-2147483648);
-if (true) return _defaultvalue;
+Debug.CheckDeviceExceptions();if (true) return _defaultvalue;
  };
  BA.debugLineNum = 322;BA.debugLine="End Sub";
 Debug.ShouldStop(2);

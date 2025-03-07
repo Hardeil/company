@@ -201,14 +201,14 @@ branch.mostCurrent._scrollviewpanel4.runVoidMethod ("Initialize",branch.mostCurr
  BA.debugLineNum = 112;BA.debugLine="Panel4.AddView(scrollViewPanel4,0,purchasePanel.H";
 Debug.ShouldStop(32768);
 branch.mostCurrent._panel4.runVoidMethod ("AddView",(Object)((branch.mostCurrent._scrollviewpanel4.getObject())),(Object)(BA.numberCast(int.class, 0)),(Object)(branch.mostCurrent._purchasepanel.runMethod(true,"getHeight")),(Object)(branch.mostCurrent._panel4.runMethod(true,"getWidth")),(Object)(RemoteObject.solve(new RemoteObject[] {branch.mostCurrent._panel4.runMethod(true,"getHeight"),branch.mostCurrent._purchasepanel.runMethod(true,"getHeight")}, "-",1, 1)));
- BA.debugLineNum = 113;BA.debugLine="LoadCompanyData1";
-Debug.ShouldStop(65536);
-_loadcompanydata1();
  BA.debugLineNum = 114;BA.debugLine="LoadCompanyData";
 Debug.ShouldStop(131072);
 _loadcompanydata();
- BA.debugLineNum = 115;BA.debugLine="End Sub";
+ BA.debugLineNum = 115;BA.debugLine="LoadCompanyData1";
 Debug.ShouldStop(262144);
+_loadcompanydata1();
+ BA.debugLineNum = 116;BA.debugLine="End Sub";
+Debug.ShouldStop(524288);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -219,13 +219,13 @@ finally {
 		}}
 public static RemoteObject  _activity_pause(RemoteObject _userclosed) throws Exception{
 try {
-		Debug.PushSubsStack("Activity_Pause (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,528);
+		Debug.PushSubsStack("Activity_Pause (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,530);
 if (RapidSub.canDelegate("activity_pause")) { return b4a.example.branch.remoteMe.runUserSub(false, "branch","activity_pause", _userclosed);}
 Debug.locals.put("UserClosed", _userclosed);
- BA.debugLineNum = 528;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
-Debug.ShouldStop(32768);
- BA.debugLineNum = 529;BA.debugLine="End Sub";
-Debug.ShouldStop(65536);
+ BA.debugLineNum = 530;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
+Debug.ShouldStop(131072);
+ BA.debugLineNum = 531;BA.debugLine="End Sub";
+Debug.ShouldStop(262144);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -236,12 +236,12 @@ finally {
 		}}
 public static RemoteObject  _activity_resume() throws Exception{
 try {
-		Debug.PushSubsStack("Activity_Resume (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,525);
+		Debug.PushSubsStack("Activity_Resume (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,527);
 if (RapidSub.canDelegate("activity_resume")) { return b4a.example.branch.remoteMe.runUserSub(false, "branch","activity_resume");}
- BA.debugLineNum = 525;BA.debugLine="Sub Activity_Resume";
-Debug.ShouldStop(4096);
- BA.debugLineNum = 526;BA.debugLine="End Sub";
-Debug.ShouldStop(8192);
+ BA.debugLineNum = 527;BA.debugLine="Sub Activity_Resume";
+Debug.ShouldStop(16384);
+ BA.debugLineNum = 528;BA.debugLine="End Sub";
+Debug.ShouldStop(32768);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -252,18 +252,18 @@ finally {
 		}}
 public static RemoteObject  _backbtn_click() throws Exception{
 try {
-		Debug.PushSubsStack("backbtn_Click (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,550);
+		Debug.PushSubsStack("backbtn_Click (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,552);
 if (RapidSub.canDelegate("backbtn_click")) { return b4a.example.branch.remoteMe.runUserSub(false, "branch","backbtn_click");}
- BA.debugLineNum = 550;BA.debugLine="Sub backbtn_Click";
-Debug.ShouldStop(32);
- BA.debugLineNum = 551;BA.debugLine="currentPage = currentPage - 1";
-Debug.ShouldStop(64);
-branch._currentpage = RemoteObject.solve(new RemoteObject[] {branch._currentpage,RemoteObject.createImmutable(1)}, "-",1, 1);
- BA.debugLineNum = 552;BA.debugLine="FetchNewPageData";
+ BA.debugLineNum = 552;BA.debugLine="Sub backbtn_Click";
 Debug.ShouldStop(128);
-_fetchnewpagedata();
- BA.debugLineNum = 553;BA.debugLine="End Sub";
+ BA.debugLineNum = 553;BA.debugLine="currentPage = currentPage - 1";
 Debug.ShouldStop(256);
+branch._currentpage = RemoteObject.solve(new RemoteObject[] {branch._currentpage,RemoteObject.createImmutable(1)}, "-",1, 1);
+ BA.debugLineNum = 554;BA.debugLine="FetchNewPageData";
+Debug.ShouldStop(512);
+_fetchnewpagedata();
+ BA.debugLineNum = 555;BA.debugLine="End Sub";
+Debug.ShouldStop(1024);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -274,15 +274,15 @@ finally {
 		}}
 public static RemoteObject  _closebutton_click() throws Exception{
 try {
-		Debug.PushSubsStack("closeButton_Click (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,514);
+		Debug.PushSubsStack("closeButton_Click (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,516);
 if (RapidSub.canDelegate("closebutton_click")) { return b4a.example.branch.remoteMe.runUserSub(false, "branch","closebutton_click");}
- BA.debugLineNum = 514;BA.debugLine="Sub closeButton_Click";
-Debug.ShouldStop(2);
- BA.debugLineNum = 515;BA.debugLine="popupPanel.Visible = False";
-Debug.ShouldStop(4);
-branch.mostCurrent._popuppanel.runMethod(true,"setVisible",branch.mostCurrent.__c.getField(true,"False"));
- BA.debugLineNum = 516;BA.debugLine="End Sub";
+ BA.debugLineNum = 516;BA.debugLine="Sub closeButton_Click";
 Debug.ShouldStop(8);
+ BA.debugLineNum = 517;BA.debugLine="popupPanel.Visible = False";
+Debug.ShouldStop(16);
+branch.mostCurrent._popuppanel.runMethod(true,"setVisible",branch.mostCurrent.__c.getField(true,"False"));
+ BA.debugLineNum = 518;BA.debugLine="End Sub";
+Debug.ShouldStop(32);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -293,34 +293,34 @@ finally {
 		}}
 public static RemoteObject  _edit_button_click() throws Exception{
 try {
-		Debug.PushSubsStack("edit_button_Click (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,489);
+		Debug.PushSubsStack("edit_button_Click (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,491);
 if (RapidSub.canDelegate("edit_button_click")) { return b4a.example.branch.remoteMe.runUserSub(false, "branch","edit_button_click");}
 RemoteObject _target_id = RemoteObject.createImmutable(0);
 RemoteObject _new_value = RemoteObject.createImmutable(0);
- BA.debugLineNum = 489;BA.debugLine="Sub edit_button_Click";
-Debug.ShouldStop(256);
- BA.debugLineNum = 490;BA.debugLine="Dim target_id As Int = target_id_display.Text";
-Debug.ShouldStop(512);
-_target_id = BA.numberCast(int.class, branch.mostCurrent._target_id_display.runMethod(true,"getText"));Debug.locals.put("target_id", _target_id);Debug.locals.put("target_id", _target_id);
- BA.debugLineNum = 491;BA.debugLine="Dim new_value As Int = target_countLabel.Text";
+ BA.debugLineNum = 491;BA.debugLine="Sub edit_button_Click";
 Debug.ShouldStop(1024);
-_new_value = BA.numberCast(int.class, branch.mostCurrent._target_countlabel.runMethod(true,"getText"));Debug.locals.put("new_value", _new_value);Debug.locals.put("new_value", _new_value);
- BA.debugLineNum = 493;BA.debugLine="If IsNumber(target_id) And IsNumber(new_value) Th";
+ BA.debugLineNum = 492;BA.debugLine="Dim target_id As Int = target_id_display.Text";
+Debug.ShouldStop(2048);
+_target_id = BA.numberCast(int.class, branch.mostCurrent._target_id_display.runMethod(true,"getText"));Debug.locals.put("target_id", _target_id);Debug.locals.put("target_id", _target_id);
+ BA.debugLineNum = 493;BA.debugLine="Dim new_value As Int = target_countLabel.Text";
 Debug.ShouldStop(4096);
-if (RemoteObject.solveBoolean(".",branch.mostCurrent.__c.runMethod(true,"IsNumber",(Object)(BA.NumberToString(_target_id)))) && RemoteObject.solveBoolean(".",branch.mostCurrent.__c.runMethod(true,"IsNumber",(Object)(BA.NumberToString(_new_value))))) { 
- BA.debugLineNum = 494;BA.debugLine="UpdateData_Remote(target_id, new_value)";
-Debug.ShouldStop(8192);
-_updatedata_remote(_target_id,_new_value);
- BA.debugLineNum = 495;BA.debugLine="LoadCompanyData";
+_new_value = BA.numberCast(int.class, branch.mostCurrent._target_countlabel.runMethod(true,"getText"));Debug.locals.put("new_value", _new_value);Debug.locals.put("new_value", _new_value);
+ BA.debugLineNum = 495;BA.debugLine="If IsNumber(target_id) And IsNumber(new_value) Th";
 Debug.ShouldStop(16384);
+if (RemoteObject.solveBoolean(".",branch.mostCurrent.__c.runMethod(true,"IsNumber",(Object)(BA.NumberToString(_target_id)))) && RemoteObject.solveBoolean(".",branch.mostCurrent.__c.runMethod(true,"IsNumber",(Object)(BA.NumberToString(_new_value))))) { 
+ BA.debugLineNum = 496;BA.debugLine="UpdateData_Remote(target_id, new_value)";
+Debug.ShouldStop(32768);
+_updatedata_remote(_target_id,_new_value);
+ BA.debugLineNum = 497;BA.debugLine="LoadCompanyData";
+Debug.ShouldStop(65536);
 _loadcompanydata();
  }else {
- BA.debugLineNum = 497;BA.debugLine="Log(\"Invalid input values\")";
-Debug.ShouldStop(65536);
+ BA.debugLineNum = 499;BA.debugLine="Log(\"Invalid input values\")";
+Debug.ShouldStop(262144);
 branch.mostCurrent.__c.runVoidMethod ("LogImpl","03538952",RemoteObject.createImmutable("Invalid input values"),0);
  };
- BA.debugLineNum = 499;BA.debugLine="End Sub";
-Debug.ShouldStop(262144);
+ BA.debugLineNum = 501;BA.debugLine="End Sub";
+Debug.ShouldStop(1048576);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -331,15 +331,15 @@ finally {
 		}}
 public static RemoteObject  _fetchnewpagedata() throws Exception{
 try {
-		Debug.PushSubsStack("FetchNewPageData (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,485);
+		Debug.PushSubsStack("FetchNewPageData (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,487);
 if (RapidSub.canDelegate("fetchnewpagedata")) { return b4a.example.branch.remoteMe.runUserSub(false, "branch","fetchnewpagedata");}
- BA.debugLineNum = 485;BA.debugLine="Sub FetchNewPageData";
-Debug.ShouldStop(16);
- BA.debugLineNum = 486;BA.debugLine="LoadCompanyData1 ' Fetch new data for the current";
-Debug.ShouldStop(32);
-_loadcompanydata1();
- BA.debugLineNum = 487;BA.debugLine="End Sub";
+ BA.debugLineNum = 487;BA.debugLine="Sub FetchNewPageData";
 Debug.ShouldStop(64);
+ BA.debugLineNum = 488;BA.debugLine="LoadCompanyData1 ' Fetch new data for the current";
+Debug.ShouldStop(128);
+_loadcompanydata1();
+ BA.debugLineNum = 489;BA.debugLine="End Sub";
+Debug.ShouldStop(256);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -352,8 +352,8 @@ public static RemoteObject  _globals() throws Exception{
  //BA.debugLineNum = 12;BA.debugLine="Sub Globals";
  //BA.debugLineNum = 13;BA.debugLine="Private ScrollView1 As ScrollView";
 branch.mostCurrent._scrollview1 = RemoteObject.createNew ("anywheresoftware.b4a.objects.ScrollViewWrapper");
- //BA.debugLineNum = 14;BA.debugLine="Dim PHPURL As String = \"https://192.168.8.192/Com";
-branch.mostCurrent._phpurl = RemoteObject.concat(RemoteObject.createImmutable("https://192.168.8.192/Company/fetch.php?action=get_branch&company_id="),branch.mostCurrent._starter._company_selected /*RemoteObject*/ );
+ //BA.debugLineNum = 14;BA.debugLine="Dim PHPURL As String = \"https://192.168.8.117/Com";
+branch.mostCurrent._phpurl = RemoteObject.concat(RemoteObject.createImmutable("https://192.168.8.117/Company/fetch.php?action=get_branch&company_id="),branch.mostCurrent._starter._company_selected /*RemoteObject*/ );
  //BA.debugLineNum = 15;BA.debugLine="Dim PHPURL1 As String = \"https://192.168.8.117/Co";
 branch.mostCurrent._phpurl1 = BA.ObjectToString("https://192.168.8.117/Company/fetch.php?action=get_company_list&page=1");
  //BA.debugLineNum = 16;BA.debugLine="Dim TableDetails As List";
@@ -407,18 +407,18 @@ return RemoteObject.createImmutable("");
 }
 public static RemoteObject  _home_click() throws Exception{
 try {
-		Debug.PushSubsStack("home_Click (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,531);
+		Debug.PushSubsStack("home_Click (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,533);
 if (RapidSub.canDelegate("home_click")) { return b4a.example.branch.remoteMe.runUserSub(false, "branch","home_click");}
- BA.debugLineNum = 531;BA.debugLine="Private Sub home_Click";
-Debug.ShouldStop(262144);
- BA.debugLineNum = 532;BA.debugLine="StartActivity(\"Main\")";
-Debug.ShouldStop(524288);
-branch.mostCurrent.__c.runVoidMethod ("StartActivity",branch.processBA,(Object)((RemoteObject.createImmutable("Main"))));
- BA.debugLineNum = 533;BA.debugLine="Activity.Finish";
+ BA.debugLineNum = 533;BA.debugLine="Private Sub home_Click";
 Debug.ShouldStop(1048576);
-branch.mostCurrent._activity.runVoidMethod ("Finish");
- BA.debugLineNum = 534;BA.debugLine="End Sub";
+ BA.debugLineNum = 534;BA.debugLine="StartActivity(\"Main\")";
 Debug.ShouldStop(2097152);
+branch.mostCurrent.__c.runVoidMethod ("StartActivity",branch.processBA,(Object)((RemoteObject.createImmutable("Main"))));
+ BA.debugLineNum = 535;BA.debugLine="Activity.Finish";
+Debug.ShouldStop(4194304);
+branch.mostCurrent._activity.runVoidMethod ("Finish");
+ BA.debugLineNum = 536;BA.debugLine="End Sub";
+Debug.ShouldStop(8388608);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -1299,32 +1299,32 @@ branch._bargraphinitialized = branch.mostCurrent.__c.getField(true,"True");
 Debug.ShouldStop(8);
 branch.mostCurrent.__c.runVoidMethod ("ProgressDialogHide");
  }else {
- BA.debugLineNum = 455;BA.debugLine="barGraph.sale_1 = branchSales1";
-Debug.ShouldStop(64);
-branch.mostCurrent._bargraph.setField ("_sale_1" /*RemoteObject*/ ,_branchsales1);
- BA.debugLineNum = 456;BA.debugLine="barGraph.sale_2 = branchSales2";
+ BA.debugLineNum = 456;BA.debugLine="barGraph.sale_1 = branchSales1";
 Debug.ShouldStop(128);
-branch.mostCurrent._bargraph.setField ("_sale_2" /*RemoteObject*/ ,_branchsales2);
- BA.debugLineNum = 457;BA.debugLine="barGraph.sale_3 = branchSales3";
+branch.mostCurrent._bargraph.setField ("_sale_1" /*RemoteObject*/ ,_branchsales1);
+ BA.debugLineNum = 457;BA.debugLine="barGraph.sale_2 = branchSales2";
 Debug.ShouldStop(256);
-branch.mostCurrent._bargraph.setField ("_sale_3" /*RemoteObject*/ ,_branchsales3);
- BA.debugLineNum = 458;BA.debugLine="barGraph.product1 = branchNames";
+branch.mostCurrent._bargraph.setField ("_sale_2" /*RemoteObject*/ ,_branchsales2);
+ BA.debugLineNum = 458;BA.debugLine="barGraph.sale_3 = branchSales3";
 Debug.ShouldStop(512);
-branch.mostCurrent._bargraph.setField ("_product1" /*RemoteObject*/ ,_branchnames);
- BA.debugLineNum = 459;BA.debugLine="barGraph.comId1 = branchSales1 ' Assuming";
+branch.mostCurrent._bargraph.setField ("_sale_3" /*RemoteObject*/ ,_branchsales3);
+ BA.debugLineNum = 459;BA.debugLine="barGraph.product1 = branchNames";
 Debug.ShouldStop(1024);
-branch.mostCurrent._bargraph.setField ("_comid1" /*RemoteObject*/ ,_branchsales1);
- BA.debugLineNum = 460;BA.debugLine="barGraph.SetCurrentPage(currentPage) ' Up";
+branch.mostCurrent._bargraph.setField ("_product1" /*RemoteObject*/ ,_branchnames);
+ BA.debugLineNum = 460;BA.debugLine="barGraph.comId1 = branchSales1 ' Assuming";
 Debug.ShouldStop(2048);
-branch.mostCurrent._bargraph.runClassMethod (b4a.example.bargraph.class, "_setcurrentpage" /*RemoteObject*/ ,(Object)(branch._currentpage));
+branch.mostCurrent._bargraph.setField ("_comid1" /*RemoteObject*/ ,_branchsales1);
+ BA.debugLineNum = 461;BA.debugLine="barGraph.UpdateGraph";
+Debug.ShouldStop(4096);
+branch.mostCurrent._bargraph.runClassMethod (b4a.example.bargraph.class, "_updategraph" /*RemoteObject*/ );
  };
- BA.debugLineNum = 462;BA.debugLine="backbtn.Enabled = currentPage > 1";
-Debug.ShouldStop(8192);
+ BA.debugLineNum = 464;BA.debugLine="backbtn.Enabled = currentPage > 1";
+Debug.ShouldStop(32768);
 branch.mostCurrent._backbtn.runMethod(true,"setEnabled",BA.ObjectToBoolean(RemoteObject.solveBoolean(">",branch._currentpage,BA.numberCast(double.class, 1))));
  }else {
- BA.debugLineNum = 465;BA.debugLine="Log($\"Company: ${name} has no branches inf";
-Debug.ShouldStop(65536);
-branch.mostCurrent.__c.runVoidMethod ("LogImpl","03342652",(RemoteObject.concat(RemoteObject.createImmutable("Company: "),branch.mostCurrent.__c.runMethod(true,"SmartStringFormatter",(Object)(BA.ObjectToString("")),(Object)((_name))),RemoteObject.createImmutable(" has no branches information."))),0);
+ BA.debugLineNum = 467;BA.debugLine="Log($\"Company: ${name} has no branches inf";
+Debug.ShouldStop(262144);
+branch.mostCurrent.__c.runVoidMethod ("LogImpl","03342654",(RemoteObject.concat(RemoteObject.createImmutable("Company: "),branch.mostCurrent.__c.runMethod(true,"SmartStringFormatter",(Object)(BA.ObjectToString("")),(Object)((_name))),RemoteObject.createImmutable(" has no branches information."))),0);
  };
  };
  }
@@ -1332,29 +1332,29 @@ branch.mostCurrent.__c.runVoidMethod ("LogImpl","03342652",(RemoteObject.concat(
 ;
  break; }
 default: {
- BA.debugLineNum = 471;BA.debugLine="Log(\"Unknown job: \" & job.JobName)";
-Debug.ShouldStop(4194304);
-branch.mostCurrent.__c.runVoidMethod ("LogImpl","03342658",RemoteObject.concat(RemoteObject.createImmutable("Unknown job: "),_job.getField(true,"_jobname" /*RemoteObject*/ )),0);
+ BA.debugLineNum = 473;BA.debugLine="Log(\"Unknown job: \" & job.JobName)";
+Debug.ShouldStop(16777216);
+branch.mostCurrent.__c.runVoidMethod ("LogImpl","03342660",RemoteObject.concat(RemoteObject.createImmutable("Unknown job: "),_job.getField(true,"_jobname" /*RemoteObject*/ )),0);
  break; }
 }
 ;
  Debug.CheckDeviceExceptions();
 } 
        catch (Exception e286) {
-			BA.rdebugUtils.runVoidMethod("setLastException",branch.processBA, e286.toString()); BA.debugLineNum = 475;BA.debugLine="ToastMessageShow(\"Error parsing data\", True)";
-Debug.ShouldStop(67108864);
+			BA.rdebugUtils.runVoidMethod("setLastException",branch.processBA, e286.toString()); BA.debugLineNum = 477;BA.debugLine="ToastMessageShow(\"Error parsing data\", True)";
+Debug.ShouldStop(268435456);
 branch.mostCurrent.__c.runVoidMethod ("ToastMessageShow",(Object)(BA.ObjectToCharSequence("Error parsing data")),(Object)(branch.mostCurrent.__c.getField(true,"True")));
  };
  }else {
- BA.debugLineNum = 478;BA.debugLine="ToastMessageShow(\"Error: \" & job.ErrorMessage, T";
-Debug.ShouldStop(536870912);
+ BA.debugLineNum = 480;BA.debugLine="ToastMessageShow(\"Error: \" & job.ErrorMessage, T";
+Debug.ShouldStop(-2147483648);
 branch.mostCurrent.__c.runVoidMethod ("ToastMessageShow",(Object)(BA.ObjectToCharSequence(RemoteObject.concat(RemoteObject.createImmutable("Error: "),_job.getField(true,"_errormessage" /*RemoteObject*/ )))),(Object)(branch.mostCurrent.__c.getField(true,"True")));
  };
- BA.debugLineNum = 481;BA.debugLine="job.Release";
-Debug.ShouldStop(1);
+ BA.debugLineNum = 483;BA.debugLine="job.Release";
+Debug.ShouldStop(4);
 _job.runClassMethod (b4a.example.httpjob.class, "_release" /*RemoteObject*/ );
- BA.debugLineNum = 482;BA.debugLine="End Sub";
-Debug.ShouldStop(2);
+ BA.debugLineNum = 484;BA.debugLine="End Sub";
+Debug.ShouldStop(8);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -1365,27 +1365,27 @@ finally {
 		}}
 public static RemoteObject  _label17_click() throws Exception{
 try {
-		Debug.PushSubsStack("Label17_Click (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,536);
+		Debug.PushSubsStack("Label17_Click (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,538);
 if (RapidSub.canDelegate("label17_click")) { return b4a.example.branch.remoteMe.runUserSub(false, "branch","label17_click");}
 RemoteObject _clickedlabel = RemoteObject.declareNull("anywheresoftware.b4a.objects.LabelWrapper");
 RemoteObject _selectedcompany = RemoteObject.createImmutable("");
- BA.debugLineNum = 536;BA.debugLine="Private Sub Label17_Click";
-Debug.ShouldStop(8388608);
- BA.debugLineNum = 537;BA.debugLine="Dim clickedLabel As Label = Sender";
-Debug.ShouldStop(16777216);
+ BA.debugLineNum = 538;BA.debugLine="Private Sub Label17_Click";
+Debug.ShouldStop(33554432);
+ BA.debugLineNum = 539;BA.debugLine="Dim clickedLabel As Label = Sender";
+Debug.ShouldStop(67108864);
 _clickedlabel = RemoteObject.createNew ("anywheresoftware.b4a.objects.LabelWrapper");
 _clickedlabel = RemoteObject.declareNull("anywheresoftware.b4a.AbsObjectWrapper").runMethod(false, "ConvertToWrapper", RemoteObject.createNew("anywheresoftware.b4a.objects.LabelWrapper"), branch.mostCurrent.__c.runMethod(false,"Sender",branch.mostCurrent.activityBA));Debug.locals.put("clickedLabel", _clickedlabel);Debug.locals.put("clickedLabel", _clickedlabel);
- BA.debugLineNum = 538;BA.debugLine="Dim selectedCompany As String = clickedLabel.Tag";
-Debug.ShouldStop(33554432);
-_selectedcompany = BA.ObjectToString(_clickedlabel.runMethod(false,"getTag"));Debug.locals.put("selectedCompany", _selectedcompany);Debug.locals.put("selectedCompany", _selectedcompany);
- BA.debugLineNum = 539;BA.debugLine="branch_selected = selectedCompany";
-Debug.ShouldStop(67108864);
-branch._branch_selected = _selectedcompany;
- BA.debugLineNum = 540;BA.debugLine="StartActivity(\"Device\")";
+ BA.debugLineNum = 540;BA.debugLine="Dim selectedCompany As String = clickedLabel.Tag";
 Debug.ShouldStop(134217728);
-branch.mostCurrent.__c.runVoidMethod ("StartActivity",branch.processBA,(Object)((RemoteObject.createImmutable("Device"))));
- BA.debugLineNum = 541;BA.debugLine="End Sub";
+_selectedcompany = BA.ObjectToString(_clickedlabel.runMethod(false,"getTag"));Debug.locals.put("selectedCompany", _selectedcompany);Debug.locals.put("selectedCompany", _selectedcompany);
+ BA.debugLineNum = 541;BA.debugLine="branch_selected = selectedCompany";
 Debug.ShouldStop(268435456);
+branch._branch_selected = _selectedcompany;
+ BA.debugLineNum = 542;BA.debugLine="StartActivity(\"Device\")";
+Debug.ShouldStop(536870912);
+branch.mostCurrent.__c.runVoidMethod ("StartActivity",branch.processBA,(Object)((RemoteObject.createImmutable("Device"))));
+ BA.debugLineNum = 543;BA.debugLine="End Sub";
+Debug.ShouldStop(1073741824);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -1425,9 +1425,6 @@ _job1.runClassMethod (b4a.example.httpjob.class, "_initialize" /*RemoteObject*/ 
  BA.debugLineNum = 138;BA.debugLine="Job1.Download(PHPURL)";
 Debug.ShouldStop(512);
 _job1.runClassMethod (b4a.example.httpjob.class, "_download" /*RemoteObject*/ ,(Object)(branch.mostCurrent._phpurl));
- BA.debugLineNum = 139;BA.debugLine="ProgressDialogShow(\"Loading Data...\")";
-Debug.ShouldStop(1024);
-branch.mostCurrent.__c.runVoidMethod ("ProgressDialogShow",branch.mostCurrent.activityBA,(Object)(BA.ObjectToCharSequence(RemoteObject.createImmutable("Loading Data..."))));
  BA.debugLineNum = 140;BA.debugLine="End Sub";
 Debug.ShouldStop(2048);
 return RemoteObject.createImmutable("");
@@ -1440,14 +1437,12 @@ finally {
 		}}
 public static RemoteObject  _loadcompanydata1() throws Exception{
 try {
-		Debug.PushSubsStack("LoadCompanyData1 (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,118);
+		Debug.PushSubsStack("LoadCompanyData1 (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,119);
 if (RapidSub.canDelegate("loadcompanydata1")) { return b4a.example.branch.remoteMe.runUserSub(false, "branch","loadcompanydata1");}
 RemoteObject _job1 = RemoteObject.declareNull("b4a.example.httpjob");
- BA.debugLineNum = 118;BA.debugLine="Sub LoadCompanyData1";
-Debug.ShouldStop(2097152);
- BA.debugLineNum = 119;BA.debugLine="Try";
+ BA.debugLineNum = 119;BA.debugLine="Sub LoadCompanyData1";
 Debug.ShouldStop(4194304);
-try { BA.debugLineNum = 120;BA.debugLine="Dim Job1 As HttpJob";
+ BA.debugLineNum = 120;BA.debugLine="Dim Job1 As HttpJob";
 Debug.ShouldStop(8388608);
 _job1 = RemoteObject.createNew ("b4a.example.httpjob");Debug.locals.put("Job1", _job1);
  BA.debugLineNum = 121;BA.debugLine="Job1.Initialize(\"GetBranches\", Me)";
@@ -1456,18 +1451,18 @@ _job1.runClassMethod (b4a.example.httpjob.class, "_initialize" /*RemoteObject*/ 
  BA.debugLineNum = 122;BA.debugLine="PHPURL1 = $\"https://192.168.8.117/Company/fetch.";
 Debug.ShouldStop(33554432);
 branch.mostCurrent._phpurl1 = (RemoteObject.concat(RemoteObject.createImmutable("https://192.168.8.117/Company/fetch.php?action=get_company_list&page="),branch.mostCurrent.__c.runMethod(true,"SmartStringFormatter",(Object)(BA.ObjectToString("")),(Object)((branch._currentpage))),RemoteObject.createImmutable("")));
- BA.debugLineNum = 123;BA.debugLine="Job1.Download(PHPURL1)";
+ BA.debugLineNum = 123;BA.debugLine="Log(PHPURL1)";
 Debug.ShouldStop(67108864);
-_job1.runClassMethod (b4a.example.httpjob.class, "_download" /*RemoteObject*/ ,(Object)(branch.mostCurrent._phpurl1));
- BA.debugLineNum = 124;BA.debugLine="ProgressDialogShow(\"Loading Data...\")";
+branch.mostCurrent.__c.runVoidMethod ("LogImpl","03145732",branch.mostCurrent._phpurl1,0);
+ BA.debugLineNum = 124;BA.debugLine="Job1.Download(PHPURL1)";
 Debug.ShouldStop(134217728);
-branch.mostCurrent.__c.runVoidMethod ("ProgressDialogShow",branch.mostCurrent.activityBA,(Object)(BA.ObjectToCharSequence(RemoteObject.createImmutable("Loading Data..."))));
- Debug.CheckDeviceExceptions();
-} 
-       catch (Exception e8) {
-			BA.rdebugUtils.runVoidMethod("setLastException",branch.processBA, e8.toString()); BA.debugLineNum = 126;BA.debugLine="Log(LastException.Message)";
+_job1.runClassMethod (b4a.example.httpjob.class, "_download" /*RemoteObject*/ ,(Object)(branch.mostCurrent._phpurl1));
+ BA.debugLineNum = 125;BA.debugLine="If barGraphInitialized = False Then";
+Debug.ShouldStop(268435456);
+if (RemoteObject.solveBoolean("=",branch._bargraphinitialized,branch.mostCurrent.__c.getField(true,"False"))) { 
+ BA.debugLineNum = 126;BA.debugLine="ProgressDialogShow(\"Loading Data...\")";
 Debug.ShouldStop(536870912);
-branch.mostCurrent.__c.runVoidMethod ("LogImpl","03145736",branch.mostCurrent.__c.runMethod(false,"LastException",branch.mostCurrent.activityBA).runMethod(true,"getMessage"),0);
+branch.mostCurrent.__c.runVoidMethod ("ProgressDialogShow",branch.mostCurrent.activityBA,(Object)(BA.ObjectToCharSequence(RemoteObject.createImmutable("Loading Data..."))));
  };
  BA.debugLineNum = 128;BA.debugLine="End Sub";
 Debug.ShouldStop(-2147483648);
@@ -1481,21 +1476,21 @@ finally {
 		}}
 public static RemoteObject  _nxtbtn_click() throws Exception{
 try {
-		Debug.PushSubsStack("nxtBtn_Click (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,544);
+		Debug.PushSubsStack("nxtBtn_Click (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,546);
 if (RapidSub.canDelegate("nxtbtn_click")) { return b4a.example.branch.remoteMe.runUserSub(false, "branch","nxtbtn_click");}
- BA.debugLineNum = 544;BA.debugLine="Sub nxtBtn_Click";
-Debug.ShouldStop(-2147483648);
- BA.debugLineNum = 545;BA.debugLine="currentPage = currentPage + 1";
-Debug.ShouldStop(1);
-branch._currentpage = RemoteObject.solve(new RemoteObject[] {branch._currentpage,RemoteObject.createImmutable(1)}, "+",1, 1);
- BA.debugLineNum = 546;BA.debugLine="Log(currentPage)";
+ BA.debugLineNum = 546;BA.debugLine="Sub nxtBtn_Click";
 Debug.ShouldStop(2);
-branch.mostCurrent.__c.runVoidMethod ("LogImpl","04128770",BA.NumberToString(branch._currentpage),0);
- BA.debugLineNum = 547;BA.debugLine="FetchNewPageData";
+ BA.debugLineNum = 547;BA.debugLine="currentPage = currentPage + 1";
 Debug.ShouldStop(4);
-_fetchnewpagedata();
- BA.debugLineNum = 548;BA.debugLine="End Sub";
+branch._currentpage = RemoteObject.solve(new RemoteObject[] {branch._currentpage,RemoteObject.createImmutable(1)}, "+",1, 1);
+ BA.debugLineNum = 548;BA.debugLine="Log(currentPage)";
 Debug.ShouldStop(8);
+branch.mostCurrent.__c.runVoidMethod ("LogImpl","04128770",BA.NumberToString(branch._currentpage),0);
+ BA.debugLineNum = 549;BA.debugLine="FetchNewPageData";
+Debug.ShouldStop(16);
+_fetchnewpagedata();
+ BA.debugLineNum = 550;BA.debugLine="End Sub";
+Debug.ShouldStop(32);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -1517,28 +1512,28 @@ return RemoteObject.createImmutable("");
 }
 public static RemoteObject  _responsivelabel(RemoteObject _label) throws Exception{
 try {
-		Debug.PushSubsStack("responsiveLabel (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,518);
+		Debug.PushSubsStack("responsiveLabel (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,520);
 if (RapidSub.canDelegate("responsivelabel")) { return b4a.example.branch.remoteMe.runUserSub(false, "branch","responsivelabel", _label);}
 RemoteObject _charwidth = RemoteObject.createImmutable(0);
 RemoteObject _padding = RemoteObject.createImmutable(0);
 RemoteObject _homewidth = RemoteObject.createImmutable(0);
 Debug.locals.put("label", _label);
- BA.debugLineNum = 518;BA.debugLine="Sub responsiveLabel(label As Label) As Int";
-Debug.ShouldStop(32);
- BA.debugLineNum = 519;BA.debugLine="Dim charWidth As Int = 10dip";
-Debug.ShouldStop(64);
-_charwidth = branch.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 10)));Debug.locals.put("charWidth", _charwidth);Debug.locals.put("charWidth", _charwidth);
- BA.debugLineNum = 520;BA.debugLine="Dim padding As Int = 10dip";
+ BA.debugLineNum = 520;BA.debugLine="Sub responsiveLabel(label As Label) As Int";
 Debug.ShouldStop(128);
-_padding = branch.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 10)));Debug.locals.put("padding", _padding);Debug.locals.put("padding", _padding);
- BA.debugLineNum = 521;BA.debugLine="Dim homeWidth As Int = (label.Text.Length * charW";
+ BA.debugLineNum = 521;BA.debugLine="Dim charWidth As Int = 10dip";
 Debug.ShouldStop(256);
-_homewidth = RemoteObject.solve(new RemoteObject[] {(RemoteObject.solve(new RemoteObject[] {_label.runMethod(true,"getText").runMethod(true,"length"),_charwidth}, "*",0, 1)),_padding}, "+",1, 1);Debug.locals.put("homeWidth", _homewidth);Debug.locals.put("homeWidth", _homewidth);
- BA.debugLineNum = 522;BA.debugLine="Return homeWidth";
+_charwidth = branch.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 10)));Debug.locals.put("charWidth", _charwidth);Debug.locals.put("charWidth", _charwidth);
+ BA.debugLineNum = 522;BA.debugLine="Dim padding As Int = 10dip";
 Debug.ShouldStop(512);
-if (true) return _homewidth;
- BA.debugLineNum = 523;BA.debugLine="End Sub";
+_padding = branch.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 10)));Debug.locals.put("padding", _padding);Debug.locals.put("padding", _padding);
+ BA.debugLineNum = 523;BA.debugLine="Dim homeWidth As Int = (label.Text.Length * charW";
 Debug.ShouldStop(1024);
+_homewidth = RemoteObject.solve(new RemoteObject[] {(RemoteObject.solve(new RemoteObject[] {_label.runMethod(true,"getText").runMethod(true,"length"),_charwidth}, "*",0, 1)),_padding}, "+",1, 1);Debug.locals.put("homeWidth", _homewidth);Debug.locals.put("homeWidth", _homewidth);
+ BA.debugLineNum = 524;BA.debugLine="Return homeWidth";
+Debug.ShouldStop(2048);
+Debug.CheckDeviceExceptions();if (true) return _homewidth;
+ BA.debugLineNum = 525;BA.debugLine="End Sub";
+Debug.ShouldStop(4096);
 return RemoteObject.createImmutable(0);
 }
 catch (Exception e) {
@@ -1549,27 +1544,27 @@ finally {
 		}}
 public static RemoteObject  _totaltarget_click() throws Exception{
 try {
-		Debug.PushSubsStack("totalTarget_Click (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,501);
+		Debug.PushSubsStack("totalTarget_Click (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,503);
 if (RapidSub.canDelegate("totaltarget_click")) { return b4a.example.branch.remoteMe.runUserSub(false, "branch","totaltarget_click");}
 RemoteObject _target_id_btn = RemoteObject.declareNull("anywheresoftware.b4a.objects.LabelWrapper");
 RemoteObject _target_id = RemoteObject.createImmutable("");
- BA.debugLineNum = 501;BA.debugLine="Sub totalTarget_Click";
-Debug.ShouldStop(1048576);
- BA.debugLineNum = 502;BA.debugLine="popupPanel.Visible = True";
-Debug.ShouldStop(2097152);
-branch.mostCurrent._popuppanel.runMethod(true,"setVisible",branch.mostCurrent.__c.getField(true,"True"));
- BA.debugLineNum = 503;BA.debugLine="Dim target_id_btn As Label = Sender";
+ BA.debugLineNum = 503;BA.debugLine="Sub totalTarget_Click";
 Debug.ShouldStop(4194304);
+ BA.debugLineNum = 504;BA.debugLine="popupPanel.Visible = True";
+Debug.ShouldStop(8388608);
+branch.mostCurrent._popuppanel.runMethod(true,"setVisible",branch.mostCurrent.__c.getField(true,"True"));
+ BA.debugLineNum = 505;BA.debugLine="Dim target_id_btn As Label = Sender";
+Debug.ShouldStop(16777216);
 _target_id_btn = RemoteObject.createNew ("anywheresoftware.b4a.objects.LabelWrapper");
 _target_id_btn = RemoteObject.declareNull("anywheresoftware.b4a.AbsObjectWrapper").runMethod(false, "ConvertToWrapper", RemoteObject.createNew("anywheresoftware.b4a.objects.LabelWrapper"), branch.mostCurrent.__c.runMethod(false,"Sender",branch.mostCurrent.activityBA));Debug.locals.put("target_id_btn", _target_id_btn);Debug.locals.put("target_id_btn", _target_id_btn);
- BA.debugLineNum = 504;BA.debugLine="Dim target_id As String = target_id_btn.Tag";
-Debug.ShouldStop(8388608);
-_target_id = BA.ObjectToString(_target_id_btn.runMethod(false,"getTag"));Debug.locals.put("target_id", _target_id);Debug.locals.put("target_id", _target_id);
- BA.debugLineNum = 505;BA.debugLine="target_id_display.Text = target_id";
-Debug.ShouldStop(16777216);
-branch.mostCurrent._target_id_display.runMethod(true,"setText",BA.ObjectToCharSequence(_target_id));
- BA.debugLineNum = 506;BA.debugLine="End Sub";
+ BA.debugLineNum = 506;BA.debugLine="Dim target_id As String = target_id_btn.Tag";
 Debug.ShouldStop(33554432);
+_target_id = BA.ObjectToString(_target_id_btn.runMethod(false,"getTag"));Debug.locals.put("target_id", _target_id);Debug.locals.put("target_id", _target_id);
+ BA.debugLineNum = 507;BA.debugLine="target_id_display.Text = target_id";
+Debug.ShouldStop(67108864);
+branch.mostCurrent._target_id_display.runMethod(true,"setText",BA.ObjectToCharSequence(_target_id));
+ BA.debugLineNum = 508;BA.debugLine="End Sub";
+Debug.ShouldStop(134217728);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -1580,24 +1575,24 @@ finally {
 		}}
 public static RemoteObject  _totaltargettitle_click() throws Exception{
 try {
-		Debug.PushSubsStack("totalTargetTitle_Click (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,508);
+		Debug.PushSubsStack("totalTargetTitle_Click (branch) ","branch",5,branch.mostCurrent.activityBA,branch.mostCurrent,510);
 if (RapidSub.canDelegate("totaltargettitle_click")) { return b4a.example.branch.remoteMe.runUserSub(false, "branch","totaltargettitle_click");}
 RemoteObject _target_id_btn = RemoteObject.declareNull("anywheresoftware.b4a.objects.LabelWrapper");
 RemoteObject _target_id = RemoteObject.createImmutable("");
- BA.debugLineNum = 508;BA.debugLine="Sub totalTargetTitle_Click";
-Debug.ShouldStop(134217728);
- BA.debugLineNum = 509;BA.debugLine="popupPanel.Visible = True";
-Debug.ShouldStop(268435456);
-branch.mostCurrent._popuppanel.runMethod(true,"setVisible",branch.mostCurrent.__c.getField(true,"True"));
- BA.debugLineNum = 510;BA.debugLine="Dim target_id_btn As Label = Sender";
+ BA.debugLineNum = 510;BA.debugLine="Sub totalTargetTitle_Click";
 Debug.ShouldStop(536870912);
+ BA.debugLineNum = 511;BA.debugLine="popupPanel.Visible = True";
+Debug.ShouldStop(1073741824);
+branch.mostCurrent._popuppanel.runMethod(true,"setVisible",branch.mostCurrent.__c.getField(true,"True"));
+ BA.debugLineNum = 512;BA.debugLine="Dim target_id_btn As Label = Sender";
+Debug.ShouldStop(-2147483648);
 _target_id_btn = RemoteObject.createNew ("anywheresoftware.b4a.objects.LabelWrapper");
 _target_id_btn = RemoteObject.declareNull("anywheresoftware.b4a.AbsObjectWrapper").runMethod(false, "ConvertToWrapper", RemoteObject.createNew("anywheresoftware.b4a.objects.LabelWrapper"), branch.mostCurrent.__c.runMethod(false,"Sender",branch.mostCurrent.activityBA));Debug.locals.put("target_id_btn", _target_id_btn);Debug.locals.put("target_id_btn", _target_id_btn);
- BA.debugLineNum = 511;BA.debugLine="Dim target_id As String = target_id_btn.Tag";
-Debug.ShouldStop(1073741824);
+ BA.debugLineNum = 513;BA.debugLine="Dim target_id As String = target_id_btn.Tag";
+Debug.ShouldStop(1);
 _target_id = BA.ObjectToString(_target_id_btn.runMethod(false,"getTag"));Debug.locals.put("target_id", _target_id);Debug.locals.put("target_id", _target_id);
- BA.debugLineNum = 512;BA.debugLine="End Sub";
-Debug.ShouldStop(-2147483648);
+ BA.debugLineNum = 514;BA.debugLine="End Sub";
+Debug.ShouldStop(2);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {

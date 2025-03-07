@@ -242,8 +242,8 @@ __ref._checkboxes /*anywheresoftware.b4a.objects.CompoundButtonWrapper.CheckBoxW
 };
  };
 RDebugUtils.currentLine=2424895;
- //BA.debugLineNum = 2424895;BA.debugLine="btnBack.Text = \"<\"";
-__ref._btnback /*anywheresoftware.b4a.objects.ButtonWrapper*/ .setText(BA.ObjectToCharSequence("<"));
+ //BA.debugLineNum = 2424895;BA.debugLine="btnBack.Text = \"Back\"";
+__ref._btnback /*anywheresoftware.b4a.objects.ButtonWrapper*/ .setText(BA.ObjectToCharSequence("Back"));
 RDebugUtils.currentLine=2424896;
  //BA.debugLineNum = 2424896;BA.debugLine="btnBack.TextSize = 14";
 __ref._btnback /*anywheresoftware.b4a.objects.ButtonWrapper*/ .setTextSize((float) (14));
@@ -263,8 +263,8 @@ RDebugUtils.currentLine=2424901;
  //BA.debugLineNum = 2424901;BA.debugLine="btnBack.Background = cdBack";
 __ref._btnback /*anywheresoftware.b4a.objects.ButtonWrapper*/ .setBackground((android.graphics.drawable.Drawable)(_cdback.getObject()));
 RDebugUtils.currentLine=2424904;
- //BA.debugLineNum = 2424904;BA.debugLine="btnNext.Text = \">\"";
-__ref._btnnext /*anywheresoftware.b4a.objects.ButtonWrapper*/ .setText(BA.ObjectToCharSequence(">"));
+ //BA.debugLineNum = 2424904;BA.debugLine="btnNext.Text = \"Next\"";
+__ref._btnnext /*anywheresoftware.b4a.objects.ButtonWrapper*/ .setText(BA.ObjectToCharSequence("Next"));
 RDebugUtils.currentLine=2424905;
  //BA.debugLineNum = 2424905;BA.debugLine="btnNext.TextSize = 14";
 __ref._btnnext /*anywheresoftware.b4a.objects.ButtonWrapper*/ .setTextSize((float) (14));
@@ -489,7 +489,7 @@ int _numlabels = 0;
 int _labelvalue = 0;
 int _labelypos = 0;
 RDebugUtils.currentLine=2490368;
- //BA.debugLineNum = 2490368;BA.debugLine="Sub DrawGraph(Active As Activity, panel As Panel,";
+ //BA.debugLineNum = 2490368;BA.debugLine="Public Sub DrawGraph(Active As Activity, panel As";
 RDebugUtils.currentLine=2490369;
  //BA.debugLineNum = 2490369;BA.debugLine="Try";
 try {RDebugUtils.currentLine=2490370;
@@ -733,26 +733,20 @@ RDebugUtils.currentLine=2490464;
 _cv.DrawText(ba,__ref._formatnumberwithlabel /*String*/ (null,_labelvalue),(float) (_alignleftcenter-__c.DipToCurrent((int) (10))),(float) (_labelypos+_aligntopcenter+__c.DipToCurrent((int) (5))),__c.Typeface.MONOSPACE,(float) (10),__c.Colors.Black,BA.getEnumFromString(android.graphics.Paint.Align.class,"RIGHT"));
  }
 };
-RDebugUtils.currentLine=2490466;
- //BA.debugLineNum = 2490466;BA.debugLine="btnBack.Enabled = currentPage > 1";
-__ref._btnback /*anywheresoftware.b4a.objects.ButtonWrapper*/ .setEnabled(__ref._currentpage /*int*/ >1);
-RDebugUtils.currentLine=2490467;
- //BA.debugLineNum = 2490467;BA.debugLine="btnNext.Enabled = (currentPage * itemsPerPage) <";
-__ref._btnnext /*anywheresoftware.b4a.objects.ButtonWrapper*/ .setEnabled((__ref._currentpage /*int*/ *__ref._itemsperpage /*int*/ )<_sale1.length);
 RDebugUtils.currentLine=2490469;
  //BA.debugLineNum = 2490469;BA.debugLine="panel.AddView(btnBack, alignLeftCenter, activity";
-_panel.AddView((android.view.View)(__ref._btnback /*anywheresoftware.b4a.objects.ButtonWrapper*/ .getObject()),_alignleftcenter,(int) (_activitypanel.getHeight()+_aligntopcenter+__c.DipToCurrent((int) (50))),__c.DipToCurrent((int) (50)),__c.DipToCurrent((int) (40)));
+_panel.AddView((android.view.View)(__ref._btnback /*anywheresoftware.b4a.objects.ButtonWrapper*/ .getObject()),_alignleftcenter,(int) (_activitypanel.getHeight()+_aligntopcenter+__c.DipToCurrent((int) (50))),__c.DipToCurrent((int) (100)),__c.DipToCurrent((int) (40)));
 RDebugUtils.currentLine=2490470;
- //BA.debugLineNum = 2490470;BA.debugLine="panel.AddView(btnNext, panel.Width - alignLeftCe";
-_panel.AddView((android.view.View)(__ref._btnnext /*anywheresoftware.b4a.objects.ButtonWrapper*/ .getObject()),(int) (_panel.getWidth()-_alignleftcenter-__c.DipToCurrent((int) (15))),(int) (_activitypanel.getHeight()+_aligntopcenter+__c.DipToCurrent((int) (50))),__c.DipToCurrent((int) (50)),__c.DipToCurrent((int) (40)));
+ //BA.debugLineNum = 2490470;BA.debugLine="panel.AddView(btnNext, activityPanel.Width - ali";
+_panel.AddView((android.view.View)(__ref._btnnext /*anywheresoftware.b4a.objects.ButtonWrapper*/ .getObject()),(int) (_activitypanel.getWidth()-_alignleftcenter),(int) (_activitypanel.getHeight()+_aligntopcenter+__c.DipToCurrent((int) (50))),__c.DipToCurrent((int) (100)),__c.DipToCurrent((int) (40)));
  } 
-       catch (Exception e87) {
-			ba.setLastException(e87);RDebugUtils.currentLine=2490473;
- //BA.debugLineNum = 2490473;BA.debugLine="Log(LastException)";
-__c.LogImpl("02490473",BA.ObjectToString(__c.LastException(ba)),0);
+       catch (Exception e85) {
+			ba.setLastException(e85);RDebugUtils.currentLine=2490474;
+ //BA.debugLineNum = 2490474;BA.debugLine="Log(LastException)";
+__c.LogImpl("02490474",BA.ObjectToString(__c.LastException(ba)),0);
  };
-RDebugUtils.currentLine=2490475;
- //BA.debugLineNum = 2490475;BA.debugLine="End Sub";
+RDebugUtils.currentLine=2490476;
+ //BA.debugLineNum = 2490476;BA.debugLine="End Sub";
 return "";
 }
 public String  _formatnumberwithsuffix(b4a.example.bargraph __ref,int _number) throws Exception{

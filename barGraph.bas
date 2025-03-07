@@ -90,7 +90,7 @@ Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2(
 
 	' Initialize buttons here, not in DrawGraph
 	'btnBack.Initialize("btnBack")
-	btnBack.Text = "<"
+	btnBack.Text = "Back"
 	btnBack.TextSize = 14
 	btnBack.Typeface = Typeface.MONOSPACE
 	btnBack.TextColor = Colors.White
@@ -99,7 +99,7 @@ Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2(
 	btnBack.Background = cdBack
 
 	'btnNext.Initialize("btnNext")
-	btnNext.Text = ">"
+	btnNext.Text = "Next"
 	btnNext.TextSize = 14
 	btnNext.Typeface = Typeface.MONOSPACE
 	btnNext.TextColor = Colors.White
@@ -110,7 +110,7 @@ Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2(
 	DrawGraph(Active, panel, sale1, sale2, sale3, product, maxSales, TitleString)
 End Sub
 
-Sub DrawGraph(Active As Activity, panel As Panel, sale1() As Int, sale2() As Int, sale3() As Int, product() As String, maxSales As Int, TitleString As String)
+Public Sub DrawGraph(Active As Activity, panel As Panel, sale1() As Int, sale2() As Int, sale3() As Int, product() As String, maxSales As Int, TitleString As String)
 	Try
 		panel.Invalidate
 		panel.RemoveAllViews
@@ -208,12 +208,13 @@ Sub DrawGraph(Active As Activity, panel As Panel, sale1() As Int, sale2() As Int
 			Dim labelYPos As Int = activityPanel.Height - ((labelValue / maxSale) * activityPanel.Height)
 			cv.DrawText(FormatNumberWithLabel(labelValue), alignLeftCenter - 10dip, labelYPos + alignTopCenter + 5dip, Typeface.MONOSPACE, 10, Colors.Black, "RIGHT")
 		Next
-		btnBack.Enabled = currentPage > 1
-		btnNext.Enabled = (currentPage * itemsPerPage) < sale1.Length
+		'btnBack.Enabled = currentPage > 1
+		'btnNext.Enabled = (currentPage * itemsPerPage) < sale1.Length
 		' Add buttons to panel without reinitializing
-		panel.AddView(btnBack, alignLeftCenter, activityPanel.Height + alignTopCenter + 50dip, 50dip, 40dip)
-		panel.AddView(btnNext, panel.Width - alignLeftCenter - 15dip , activityPanel.Height + alignTopCenter + 50dip, 50dip, 40dip)
-    	
+		panel.AddView(btnBack, alignLeftCenter, activityPanel.Height + alignTopCenter + 50dip, 100dip, 40dip)
+		panel.AddView(btnNext, activityPanel.Width - alignLeftCenter , activityPanel.Height + alignTopCenter + 50dip, 100dip, 40dip)
+    
+
 	Catch
 		Log(LastException)
 	End Try

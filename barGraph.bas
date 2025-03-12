@@ -106,7 +106,7 @@ Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2(
 	Dim cdNext As ColorDrawable
 	cdNext.Initialize2(Colors.RGB(185, 46, 52), 10dip, 2dip, Colors.Black)
 	btnNext.Background = cdNext
-
+	
 	DrawGraph(Active, panel, sale1, sale2, sale3, product, maxSales, TitleString)
 End Sub
 
@@ -206,13 +206,22 @@ Public Sub DrawGraph(Active As Activity, panel As Panel, sale1() As Int, sale2()
 		For i = 0 To numLabels
 			Dim labelValue As Int = Round((maxSale / numLabels) * i)
 			Dim labelYPos As Int = activityPanel.Height - ((labelValue / maxSale) * activityPanel.Height)
-			cv.DrawText(FormatNumberWithLabel(labelValue), alignLeftCenter - 10dip, labelYPos + alignTopCenter + 5dip, Typeface.MONOSPACE, 10, Colors.Black, "RIGHT")
+			
+			Dim yAxisLabel As Label
+			yAxisLabel.Initialize("")
+			yAxisLabel.Text = FormatNumberWithLabel(labelValue)
+			yAxisLabel.TextSize = 10
+			yAxisLabel.Typeface = Typeface.MONOSPACE
+			yAxisLabel.TextColor = Colors.Black
+			yAxisLabel.Gravity = Gravity.RIGHT
+			' Position the label to the left of the graph, aligned with the y-axis value
+			panel.AddView(yAxisLabel, alignLeftCenter - 40dip, labelYPos + alignTopCenter - 5dip, 30dip, 15dip)
 		Next
-		'btnBack.Enabled = currentPage > 1
-		'btnNext.Enabled = (currentPage * itemsPerPage) < sale1.Length
+		btnBack.Enabled = currentPage > 1
+		btnNext.Enabled = (currentPage * itemsPerPage) < sale1.Length
 		' Add buttons to panel without reinitializing
 		panel.AddView(btnBack, alignLeftCenter, activityPanel.Height + alignTopCenter + 50dip, 100dip, 40dip)
-       		panel.AddView(btnNext, activityPanel.Width - alignLeftCenter , activityPanel.Height + alignTopCenter + 50dip, 100dip, 40dip)
+       	panel.AddView(btnNext, activityPanel.Width - alignLeftCenter , activityPanel.Height + alignTopCenter + 50dip, 100dip, 40dip)
     
 
 	Catch

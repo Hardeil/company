@@ -3,9 +3,11 @@ File1=arrow-right-solid.svg
 File2=arrows-removebg-preview.png
 File3=Branch.bal
 File4=cyduck.jpg
-File5=Device.bal
-File6=icons8-arrow-48.png
-File7=Layout.bal
+File5=dashboard.png
+File6=Device.bal
+File7=icons8-arrow-48.png
+File8=Layout.bal
+File9=stock.png
 FileGroup1=Default Group
 FileGroup2=Default Group
 FileGroup3=Default Group
@@ -13,6 +15,8 @@ FileGroup4=Default Group
 FileGroup5=Default Group
 FileGroup6=Default Group
 FileGroup7=Default Group
+FileGroup8=Default Group
+FileGroup9=Default Group
 Group=Default Group
 Library1=core
 Library2=json
@@ -29,7 +33,7 @@ Module2=Branch
 Module3=CheckBargraph
 Module4=Device
 Module5=Starter
-NumberOfFiles=7
+NumberOfFiles=9
 NumberOfLibraries=9
 NumberOfModules=5
 Version=13.1
@@ -59,7 +63,7 @@ End Sub
 Sub Globals
 	'These global variables will be redeclared each time the activity is created.
 	Private ScrollView1 As ScrollView
-	Dim PHPURL As String = "https://192.168.8.117/Company/fetch.php?action=get_company_list&page=1"
+	Dim PHPURL As String = "https://192.168.8.117/Company/company.php?action=get_company_list&page=1"
 	Dim TableDetails As List
 	'Private navigate As Button
 	Private Button1 As Button
@@ -71,6 +75,7 @@ Sub Globals
 	Private Panel2 As Panel
 	Dim barGraph As barGraph
 	Dim barGraph1 As barGraph
+	Dim purchasePanel As Panel
 	Dim barPanel As Panel
 	Dim activityPanel As Panel
 	Dim saleNxtBtn As Button
@@ -79,14 +84,14 @@ Sub Globals
 	Dim purchBackBtn As Button
 	Public legend() As String = Array As String("Sales1", "Sales2", "Sales3")
 	Dim height As Int = 0
-	Dim purchasePanel As Panel
+
 	
 End Sub
 
 
 Sub Activity_Create(FirstTime As Boolean)
 	Activity.LoadLayout("Layout")
-	Panel1.Color = Colors.ARGB(255, 290, 290, 290)
+	Panel1.Color = Colors.Black
 	Label1.Text = Label1.Text.ToUpperCase
 	Label1.Typeface = Typeface.MONOSPACE
 	ScrollView1.Panel.Color = Colors.ARGB(255, 241, 241, 241)
@@ -100,10 +105,10 @@ Sub Activity_Create(FirstTime As Boolean)
 
 	Panel2.Background = gradient
 	LoadCompanyData
-	
+
 	barPanel.Initialize("")
 	
-	purchasePanel.Initialize("")
+	
 End Sub
 Sub LoadCompanyData
 	Try
@@ -156,19 +161,32 @@ Sub JobDone(job As HttpJob)
 							Dim total_count As Int = record.Get("total_count")
 							Dim total_pos As Int = record.Get("totalDevices")
 
+							Dim dashPanel As Panel
+							dashPanel.Initialize("")
+							ScrollView1.Panel.AddView(dashPanel, 5dip, Panel2.Height, 200dip, 40dip)
+							'AdjustFontSizeToHeight(dashLabel,2)
 							
-							Dim dashLabel As Label
+							Dim myImage As Bitmap
+							myImage = LoadBitmap(File.DirAssets, "dashboard.png")
+		
+							Dim imgView As ImageView
+							imgView.Initialize("")
+							imgView.Gravity = Gravity.FILL
+							imgView.Bitmap = myImage
+							dashPanel.AddView(imgView, 0dip, 12.5dip, 15dip, dashPanel.Height - 25dip)
+								
+							Dim dashLabel As Label 
 							dashLabel.Initialize("")
 							dashLabel.Text = "Dashboard"
 							dashLabel.TextColor = Colors.ARGB(50,156,0,0)
 							dashLabel.Gravity = Gravity.CENTER_VERTICAL
 							dashLabel.Typeface = Typeface.MONOSPACE
-							ScrollView1.Panel.AddView(dashLabel, 5dip, Panel2.Height,  Activity.Width, 40dip)
+							dashPanel.AddView(dashLabel, imgView.Width+5dip, 0dip, dashPanel.Width, dashPanel.Height)
 							AdjustFontSizeToHeight(dashLabel,2)
-						
+							
 							Dim companyPanel As Panel
 							companyPanel.Initialize("Panel")
-							ScrollView1.Panel.AddView(companyPanel, 5dip,dashLabel.Height,  Activity.Width-10dip, height)
+							ScrollView1.Panel.AddView(companyPanel, 5dip,dashPanel.Height,  Activity.Width-10dip, height)
 							
 							
 							mainPanelWidth = companyPanel.Width / rowNum
@@ -201,7 +219,7 @@ Sub JobDone(job As HttpJob)
 								Dim imgView As ImageView
 								imgView.Initialize("")
 								imgView.Gravity = Gravity.FILL
-								imgView.Bitmap = resizedImage
+								imgView.Bitmap = myImage
 								PanelTitle.AddView(imgView, PanelTitle.Width - 5%x, 5dip, 5%x, PanelTitle.Height - 10dip)
 							Else
 								Log("Error loading image")
@@ -209,7 +227,7 @@ Sub JobDone(job As HttpJob)
 					
 							Dim panelWidth As Int = Panel.Width /3
 							Dim padding As Int = 10dip
-						
+							Dim labelheight As Int = panelHeight - PanelTitle.Height
 							panelWidth = Panel.Width /2
 					 		
 							Dim totalStore As Label
@@ -293,7 +311,7 @@ Sub JobDone(job As HttpJob)
 				
 						' Apply border styling
 						Dim cd As ColorDrawable
-						cd.Initialize2(Colors.White, 0dip, 1dip, Colors.Black)
+						cd.Initialize2(Colors.White, 0dip, 0dip, Colors.Black)
 						Panel.Background = cd
 						count = count + 1
 					Next
@@ -333,14 +351,27 @@ Sub JobDone(job As HttpJob)
 					'barGraph.changePage(Activity,"Branch")
 					saleNxtBtn.Initialize("nxtBtn")
 					saleBackBtn.Initialize("backbtn")
-	
+					
+					Dim totalSalePanel As Panel
+					totalSalePanel.Initialize("")
+					ScrollView1.Panel.AddView(totalSalePanel,5dip,Panel2.Height+companyPanel.Height-28dip,Activity.Width,40dip)
+					
+					Dim myImage As Bitmap
+					myImage = LoadBitmap(File.DirAssets, "stock.png")
+		
+					Dim imgView As ImageView
+					imgView.Initialize("")
+					imgView.Gravity = Gravity.FILL
+					imgView.Bitmap = myImage
+					totalSalePanel.AddView(imgView, 0dip, 12.5dip, 15dip, totalSalePanel.Height - 25dip)
+					
 					Dim totalSaleLabel As Label
 					totalSaleLabel.Initialize("")
-					totalSaleLabel.Text = "Total Sale"
-					totalSaleLabel.TextColor = Colors.ARGB(150,156,0,0)
+					totalSaleLabel.Text = "Total Sales"
+					totalSaleLabel.TextColor = Colors.Black
 					totalSaleLabel.Gravity = Gravity.CENTER_VERTICAL
 					totalSaleLabel.Typeface = Typeface.MONOSPACE
-					ScrollView1.Panel.AddView(totalSaleLabel,5dip,Panel2.Height+companyPanel.Height-28dip,Activity.Width,40dip)
+					totalSalePanel.AddView(totalSaleLabel,imgView.Width+5dip,0dip,Activity.Width,40dip)
 					AdjustFontSizeToHeight(totalSaleLabel,2)
 						
 					Dim shadowPanel As Panel
@@ -350,17 +381,29 @@ Sub JobDone(job As HttpJob)
 					
 					ScrollView1.Panel.AddView(barPanel,25dip,totalSaleLabel.Height+Panel2.Height+companyPanel.Height - 30dip,Activity.Width-50dip,450dip)
 					barPanel.Color = Colors.White
-					barPanel.Elevation = 10000dip
-					barGraph.Initialize(Activity,barPanel,sales,sales1,sales2,companyName,legend,maxSale,"Total Sale Per Company",comId,"Branch",saleNxtBtn,saleBackBtn)
+					barGraph.Initialize(Activity,barPanel,sales,sales1,sales2,companyName,legend,maxSale,"Sales Per Company",comId,"Branch",saleNxtBtn,saleBackBtn)
 					legend = Array As String("Purchase1","Purchase2","Purchase3")
+					
+					Dim totalPurchasePanel As Panel
+					totalPurchasePanel.Initialize("")
+					ScrollView1.Panel.AddView(totalPurchasePanel,5dip,barPanel.Height + Panel2.Height+companyPanel.Height+15dip,Activity.Width,40dip)
+					
+					Dim myImage As Bitmap
+					myImage = LoadBitmap(File.DirAssets, "stock.png")
+		
+					Dim imgView As ImageView
+					imgView.Initialize("")
+					imgView.Gravity = Gravity.FILL
+					imgView.Bitmap = myImage
+					totalPurchasePanel.AddView(imgView, 0dip, 12.5dip, 15dip, totalPurchasePanel.Height - 25dip)
 					
 					Dim totalPurchaseLabel As Label
 					totalPurchaseLabel.Initialize("")
-					totalPurchaseLabel.Text = "Total Purchase"
-					totalPurchaseLabel.TextColor = Colors.ARGB(150,156,0,0)
+					totalPurchaseLabel.Text = "Total Purchases"
+					totalPurchaseLabel.TextColor =Colors.Black
 					totalPurchaseLabel.Gravity = Gravity.CENTER_VERTICAL
 					totalPurchaseLabel.Typeface = Typeface.MONOSPACE
-					ScrollView1.Panel.AddView(totalPurchaseLabel,5dip,barPanel.Height + Panel2.Height+companyPanel.Height+15dip,Activity.Width,40dip)
+					totalPurchasePanel.AddView(totalPurchaseLabel,imgView.Width + 5dip,0dip,Activity.Width,totalPurchasePanel.Height)
 					AdjustFontSizeToHeight(totalPurchaseLabel,2)
 					
 					Dim shadowPurchPanel As Panel
@@ -368,12 +411,12 @@ Sub JobDone(job As HttpJob)
 					shadowPurchPanel.Color = Colors.ARGB(50, 138, 138, 138)
 					ScrollView1.Panel.AddView(shadowPurchPanel, 25dip + 5dip,totalSaleLabel.Height+Panel2.Height+companyPanel.Height+barPanel.Height+totalPurchaseLabel.Height- 30dip+5dip, Activity.Width - 50dip, 450dip)
 					
-					
-					ScrollView1.Panel.AddView(purchasePanel,25dip,totalSaleLabel.Height+Panel2.Height+companyPanel.Height+barPanel.Height+totalPurchaseLabel.Height- 30dip,Activity.Width-50dip,450dip)
-					'ScrollView1.Panel.AddView(purchasePanel,25dip,barPanel.top+barPanel.Height+Panel2.Height+20dip - 100dip,Activity.Width-50dip,0dip)
+					purchasePanel.Initialize("")
+					ScrollView1.Panel.AddView(purchasePanel,25dip, totalSaleLabel.Height+Panel2.Height+companyPanel.Height+barPanel.Height+totalPurchaseLabel.Height- 30dip,Activity.Width-50dip,450dip)
 					purchNxtBtn.Initialize("nxtBtn")
 					purchBackBtn.Initialize("backbtn")
-					barGraph1.Initialize(Activity, purchasePanel, purchase, purchase1, purchase2, companyName,legend,maxSale,"Total Purchase Per Company",comId,"Branch",purchNxtBtn,purchBackBtn)
+					barGraph1.Initialize(Activity, purchasePanel, purchase, purchase1, purchase2, companyName,legend,maxSale,"Purchases Per Company",comId,"Branch",purchNxtBtn,purchBackBtn)
+					Log($"maxSale:${maxSale}"$)
 					purchasePanel.Color = Colors.White
 					ScrollView1.Panel.Height = totalSaleLabel.Height+Panel2.Height+companyPanel.Height+barPanel.Height+totalPurchaseLabel.Height + purchasePanel.Height
 				Case "UpdateData"

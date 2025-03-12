@@ -17,8 +17,8 @@ End Sub
 
 Sub Globals
 	Private ScrollView1 As ScrollView
-	Dim PHPURL As String = "https://192.168.8.117/Company/fetch.php?action=get_branch&company_id=" & Starter.company_selected
-	Dim PHPURL1 As String = "https://192.168.8.117/Company/fetch.php?action=get_company_list&page=1"
+	Dim PHPURL As String = "https://192.168.8.117/Company/branch.php?action=get_branch&company_id=" & Starter.company_selected
+	Dim PHPURL1 As String = "https://192.168.8.117/Company/company.php?action=get_company_list&page=1"
 	Dim TableDetails As List
 	Private LabelTitle As Label
 	Dim titleFontSize As Int = 4.5%y
@@ -125,7 +125,7 @@ End Sub
 Sub LoadCompanyData1
 		Dim Job1 As HttpJob
 		Job1.Initialize("GetBranches", Me)
-		PHPURL1 = $"https://192.168.8.117/Company/fetch.php?action=get_company_list&page=${currentPage}"$
+		PHPURL1 = $"https://192.168.8.117/Company/company.php?action=get_company_list&page=${currentPage}"$
 		Log(PHPURL1)
 		Job1.Download(PHPURL1)
 		If barGraphInitialized = False Then
@@ -139,7 +139,7 @@ Sub LoadCompanyData
 	totalTarget.RemoveView
 	Panel.Initialize("")
 	Panel.RemoveAllViews
-	PHPURL = "https://192.168.8.117/Company/fetch.php?action=get_branch&company_id=" & Starter.company_selected
+	PHPURL = "https://192.168.8.117/Company/branch.php?action=get_branch&company_id=" & Starter.company_selected
 	Job1.Initialize("GetData", Me)
 	Job1.Download(PHPURL)
 	'ProgressDialogShow("Loading Data...")

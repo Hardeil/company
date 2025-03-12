@@ -317,7 +317,7 @@ _loadcompanydata();
  }else {
  BA.debugLineNum = 499;BA.debugLine="Log(\"Invalid input values\")";
 Debug.ShouldStop(262144);
-branch.mostCurrent.__c.runVoidMethod ("LogImpl","63670024",RemoteObject.createImmutable("Invalid input values"),0);
+branch.mostCurrent.__c.runVoidMethod ("LogImpl","36094856",RemoteObject.createImmutable("Invalid input values"),0);
  };
  BA.debugLineNum = 501;BA.debugLine="End Sub";
 Debug.ShouldStop(1048576);
@@ -710,7 +710,7 @@ _panel2.runVoidMethod ("AddView",(Object)((_imgview.getObject())),(Object)(Remot
  }else {
  BA.debugLineNum = 229;BA.debugLine="Log(\"Error loading image\")";
 Debug.ShouldStop(16);
-branch.mostCurrent.__c.runVoidMethod ("LogImpl","63539024",RemoteObject.createImmutable("Error loading image"),0);
+branch.mostCurrent.__c.runVoidMethod ("LogImpl","35963856",RemoteObject.createImmutable("Error loading image"),0);
  };
  BA.debugLineNum = 232;BA.debugLine="Dim panelWidth As Int = Panel.Width / 3";
 Debug.ShouldStop(128);
@@ -1324,7 +1324,7 @@ branch.mostCurrent._backbtn.runMethod(true,"setEnabled",BA.ObjectToBoolean(Remot
  }else {
  BA.debugLineNum = 467;BA.debugLine="Log($\"Company: ${name} has no branches inf";
 Debug.ShouldStop(262144);
-branch.mostCurrent.__c.runVoidMethod ("LogImpl","63539262",(RemoteObject.concat(RemoteObject.createImmutable("Company: "),branch.mostCurrent.__c.runMethod(true,"SmartStringFormatter",(Object)(BA.ObjectToString("")),(Object)((_name))),RemoteObject.createImmutable(" has no branches information."))),0);
+branch.mostCurrent.__c.runVoidMethod ("LogImpl","35964094",(RemoteObject.concat(RemoteObject.createImmutable("Company: "),branch.mostCurrent.__c.runMethod(true,"SmartStringFormatter",(Object)(BA.ObjectToString("")),(Object)((_name))),RemoteObject.createImmutable(" has no branches information."))),0);
  };
  };
  }
@@ -1334,7 +1334,7 @@ branch.mostCurrent.__c.runVoidMethod ("LogImpl","63539262",(RemoteObject.concat(
 default: {
  BA.debugLineNum = 473;BA.debugLine="Log(\"Unknown job: \" & job.JobName)";
 Debug.ShouldStop(16777216);
-branch.mostCurrent.__c.runVoidMethod ("LogImpl","63539268",RemoteObject.concat(RemoteObject.createImmutable("Unknown job: "),_job.getField(true,"_jobname" /*RemoteObject*/ )),0);
+branch.mostCurrent.__c.runVoidMethod ("LogImpl","35964100",RemoteObject.concat(RemoteObject.createImmutable("Unknown job: "),_job.getField(true,"_jobname" /*RemoteObject*/ )),0);
  break; }
 }
 ;
@@ -1453,7 +1453,7 @@ Debug.ShouldStop(33554432);
 branch.mostCurrent._phpurl1 = (RemoteObject.concat(RemoteObject.createImmutable("https://192.168.8.117/Company/company.php?action=get_company_list&page="),branch.mostCurrent.__c.runMethod(true,"SmartStringFormatter",(Object)(BA.ObjectToString("")),(Object)((branch._currentpage))),RemoteObject.createImmutable("")));
  BA.debugLineNum = 123;BA.debugLine="Log(PHPURL1)";
 Debug.ShouldStop(67108864);
-branch.mostCurrent.__c.runVoidMethod ("LogImpl","63342340",branch.mostCurrent._phpurl1,0);
+branch.mostCurrent.__c.runVoidMethod ("LogImpl","35767172",branch.mostCurrent._phpurl1,0);
  BA.debugLineNum = 124;BA.debugLine="Job1.Download(PHPURL1)";
 Debug.ShouldStop(134217728);
 _job1.runClassMethod (b4a.example.httpjob.class, "_download" /*RemoteObject*/ ,(Object)(branch.mostCurrent._phpurl1));
@@ -1485,7 +1485,7 @@ Debug.ShouldStop(4);
 branch._currentpage = RemoteObject.solve(new RemoteObject[] {branch._currentpage,RemoteObject.createImmutable(1)}, "+",1, 1);
  BA.debugLineNum = 548;BA.debugLine="Log(currentPage)";
 Debug.ShouldStop(8);
-branch.mostCurrent.__c.runVoidMethod ("LogImpl","64259842",BA.NumberToString(branch._currentpage),0);
+branch.mostCurrent.__c.runVoidMethod ("LogImpl","36684674",BA.NumberToString(branch._currentpage),0);
  BA.debugLineNum = 549;BA.debugLine="FetchNewPageData";
 Debug.ShouldStop(16);
 _fetchnewpagedata();

@@ -64,7 +64,7 @@ __ref.runClassMethod (b4a.example.bargraph.class, "_updategraph" /*RemoteObject*
  }else {
  BA.debugLineNum = 285;BA.debugLine="Log(\"Error: Sender is not a CheckBox\")";
 Debug.ShouldStop(268435456);
-bargraph.__c.runVoidMethod ("LogImpl","63080210",RemoteObject.createImmutable("Error: Sender is not a CheckBox"),0);
+bargraph.__c.runVoidMethod ("LogImpl","35505042",RemoteObject.createImmutable("Error: Sender is not a CheckBox"),0);
  };
  BA.debugLineNum = 287;BA.debugLine="End Sub";
 Debug.ShouldStop(1073741824);
@@ -457,7 +457,7 @@ _panel.runVoidMethod ("AddView",(Object)((__ref.getField(false,"_btnnext" /*Remo
        catch (Exception e94) {
 			BA.rdebugUtils.runVoidMethod("setLastException",__ref.getField(false, "ba"), e94.toString()); BA.debugLineNum = 222;BA.debugLine="Log(LastException)";
 Debug.ShouldStop(536870912);
-bargraph.__c.runVoidMethod ("LogImpl","62621555",BA.ObjectToString(bargraph.__c.runMethod(false,"LastException",__ref.getField(false, "ba"))),0);
+bargraph.__c.runVoidMethod ("LogImpl","35046387",BA.ObjectToString(bargraph.__c.runMethod(false,"LastException",__ref.getField(false, "ba"))),0);
  };
  BA.debugLineNum = 224;BA.debugLine="End Sub";
 Debug.ShouldStop(-2147483648);
@@ -593,7 +593,7 @@ Debug.ShouldStop(16777216);
 if (RemoteObject.solveBoolean("=",_active.runMethod(true,"IsInitialized"),bargraph.__c.getField(true,"False"))) { 
  BA.debugLineNum = 26;BA.debugLine="Log(\"Error: Activity is not initialized\")";
 Debug.ShouldStop(33554432);
-bargraph.__c.runVoidMethod ("LogImpl","62555906",RemoteObject.createImmutable("Error: Activity is not initialized"),0);
+bargraph.__c.runVoidMethod ("LogImpl","34980738",RemoteObject.createImmutable("Error: Activity is not initialized"),0);
  BA.debugLineNum = 27;BA.debugLine="Return";
 Debug.ShouldStop(67108864);
 if (true) return RemoteObject.createImmutable("");
@@ -818,7 +818,7 @@ Debug.ShouldStop(65536);
 _selectedcompany = BA.numberCast(int.class, _clickedlabel.runMethod(false,"getTag"));Debug.locals.put("selectedCompany", _selectedcompany);Debug.locals.put("selectedCompany", _selectedcompany);
  BA.debugLineNum = 242;BA.debugLine="Log(\"Selected Company ID: \" & selectedCompany)";
 Debug.ShouldStop(131072);
-bargraph.__c.runVoidMethod ("LogImpl","62883587",RemoteObject.concat(RemoteObject.createImmutable("Selected Company ID: "),_selectedcompany),0);
+bargraph.__c.runVoidMethod ("LogImpl","35308419",RemoteObject.concat(RemoteObject.createImmutable("Selected Company ID: "),_selectedcompany),0);
  BA.debugLineNum = 243;BA.debugLine="Starter.company_selected = selectedCompany";
 Debug.ShouldStop(262144);
 bargraph._starter._company_selected /*RemoteObject*/  = BA.NumberToString(_selectedcompany);

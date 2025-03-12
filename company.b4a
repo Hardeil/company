@@ -63,7 +63,7 @@ End Sub
 Sub Globals
 	'These global variables will be redeclared each time the activity is created.
 	Private ScrollView1 As ScrollView
-	Dim PHPURL As String = "https://192.168.8.117/Company/company.php?action=get_company_list&page=1"
+	Dim PHPURL As String = "https://192.168.8.117/Company/Controller/company.php?action=get_company_list&page=1"
 	Dim TableDetails As List
 	'Private navigate As Button
 	Private Button1 As Button
@@ -84,8 +84,9 @@ Sub Globals
 	Dim purchBackBtn As Button
 	Public legend() As String = Array As String("Sales1", "Sales2", "Sales3")
 	Dim height As Int = 0
-
-	
+	Dim companyPanel As Panel
+	Dim totalGraphDataHeight As Int = 0
+	Dim totalGetDataHeight As Int = 0
 End Sub
 
 
@@ -105,7 +106,7 @@ Sub Activity_Create(FirstTime As Boolean)
 
 	Panel2.Background = gradient
 	LoadCompanyData
-
+	LoadGraphData
 	barPanel.Initialize("")
 	
 	
@@ -114,6 +115,17 @@ Sub LoadCompanyData
 	Try
 		Dim Job1 As HttpJob
 		Job1.Initialize("GetData", Me)
+		Job1.Download(PHPURL)
+		ProgressDialogShow("Loading Data...")
+	Catch
+		Log(LastException.Message)
+	End Try
+	
+End Sub
+Sub LoadGraphData
+	Try
+		Dim Job1 As HttpJob
+		Job1.Initialize("getDataGraph", Me)
 		Job1.Download(PHPURL)
 		ProgressDialogShow("Loading Data...")
 	Catch
@@ -184,7 +196,7 @@ Sub JobDone(job As HttpJob)
 							dashPanel.AddView(dashLabel, imgView.Width+5dip, 0dip, dashPanel.Width, dashPanel.Height)
 							AdjustFontSizeToHeight(dashLabel,2)
 							
-							Dim companyPanel As Panel
+							
 							companyPanel.Initialize("Panel")
 							ScrollView1.Panel.AddView(companyPanel, 5dip,dashPanel.Height,  Activity.Width-10dip, height)
 							
@@ -269,45 +281,6 @@ Sub JobDone(job As HttpJob)
 							totalPosLabel.Typeface = Typeface.MONOSPACE
 							totalPosLabel.Text = totalPosLabel.Text.ToUpperCase
 							Panel.AddView(totalPosLabel,panelWidth,totalPos.top+padding+20dip,panelWidth,labelheight)
-							
-						For i = 0 To salesArray.Size - 1
-							
-							Dim record As Map = salesArray.Get(i)
-							Dim currentComId As String = record.Get("comId")
-		    
-						' Check if the current company's comId matches the target comId
-							If currentComId = 1 Then
-
-								' Check if the company has branches
-								If record.ContainsKey("branches") Then
-									Dim branches As List = record.Get("branches")
-									Dim totalBranches As Int = branches.Size
-			            
-									' Initialize arrays for the current company's branches
-									Dim branchNames(totalBranches) As String
-									Dim branchSales1(totalBranches) As Int
-									Dim branchSales2(totalBranches) As Int
-									Dim branchSales3(totalBranches) As Int
-
-									' Populate the arrays with branch details
-									For j = 0 To totalBranches - 1
-													Dim branchMap As Map = branches.Get(j)
-													branchNames(j) = branchMap.GetDefault("branch_name","").As(String)
-													branchSales1(j) = branchMap.GetDefault("sales1",0)
-													branchSales2(j) = branchMap.GetDefault("sales2",0)
-													branchSales3(j) = branchMap.GetDefault("sales3",0)
-						
-									Next
-												
-												Dim legend() As String = Array As String("Sales1","Sales2","Sales3")
-												'barGraph1.Initialize(Activity, purchasePanel, branchSales1, branchSales2, branchSales3, branchNames,legend,19000,"Total Purchase of the Company",branchSales1,"Branch")
-					
-								Else
-									Log($"Company: ${name} has no branches information."$)
-								End If
-							End If
-						
-						Next
 				
 						' Apply border styling
 						Dim cd As ColorDrawable
@@ -316,6 +289,17 @@ Sub JobDone(job As HttpJob)
 						count = count + 1
 					Next
 					' Initialize arrays dynamically based on data size
+					totalGetDataHeight = Panel2.Height+companyPanel.Height
+				Case "getDataGraph"
+					Dim salesArray As List = parser.NextArray
+					' Parse the root object
+					' Get the list of branches
+			
+					If salesArray.Size = 0 Then
+						ToastMessageShow("No data received", True)
+						Return
+					End If
+					
 					Dim totalCompanies As Int = salesArray.Size
 					Dim sales(totalCompanies) As Int
 					Dim comId(totalCompanies) As Int
@@ -325,7 +309,7 @@ Sub JobDone(job As HttpJob)
 					Dim purchase1(totalCompanies) As Int
 					Dim purchase2(totalCompanies) As Int
 					Dim companyName(totalCompanies) As String
-					Dim max_value(totalCompanies) As Int 
+					Dim max_value(totalCompanies) As Int
 					Dim maxSale As Int=0
 					
 					For i = 0 To totalCompanies - 1
@@ -340,7 +324,8 @@ Sub JobDone(job As HttpJob)
 						purchase2(i) = record.GetDefault("purchase_", 0)
 						max_value(i) = record.GetDefault("max_value", 0)
 						maxSale = Max(maxSale, max_value(i))
-					Next	
+						Log(companyName(i))
+					Next
 			
 					barPanel.RemoveAllViews
 					barPanel.Invalidate ' Force redraw
@@ -418,16 +403,19 @@ Sub JobDone(job As HttpJob)
 					barGraph1.Initialize(Activity, purchasePanel, purchase, purchase1, purchase2, companyName,legend,maxSale,"Purchases Per Company",comId,"Branch",purchNxtBtn,purchBackBtn)
 					Log($"maxSale:${maxSale}"$)
 					purchasePanel.Color = Colors.White
-					ScrollView1.Panel.Height = totalSaleLabel.Height+Panel2.Height+companyPanel.Height+barPanel.Height+totalPurchaseLabel.Height + purchasePanel.Height
+					totalGraphDataHeight = totalSaleLabel.Height+barPanel.Height+totalPurchaseLabel.Height + purchasePanel.Height
 				Case "UpdateData"
 					ToastMessageShow("Data updated successfully", False)
 					LoadCompanyData
 				Case Else
 					Log("Unknown job: " & job.JobName)
 			End Select
+			'ScrollView1.Panel.Height = totalSaleLabel.Height+Panel2.Height+companyPanel.Height+barPanel.Height+totalPurchaseLabel.Height + purchasePanel.Height
+			
 		Catch
 			ToastMessageShow("Error parsing sales data", True)
 		End Try
+		ScrollView1.Panel.Height = totalGraphDataHeight + totalGetDataHeight
 	Else
 		ToastMessageShow("Error: " & job.ErrorMessage, True)
 	End If

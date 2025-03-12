@@ -16,6 +16,6 @@ ModuleClosedNodes2=
 ModuleClosedNodes3=
 ModuleClosedNodes4=
 ModuleClosedNodes5=1
-NavigationStack=Main,Activity_Create,67,4,Main,Globals,25,4,Main,JobDone,117,6,Branch,Globals,13,2,Branch,LoadCompanyData1,121,1,Branch,LoadCompanyData,135,1,barGraph,Class_Globals,0,0,barGraph,chkChange_CheckedChange,282,0,barGraph,Initialize,102,4,barGraph,DrawGraph,217,3
+NavigationStack=barGraph,chkChange_CheckedChange,282,0,barGraph,Initialize,102,4,barGraph,DrawGraph,217,3,Main,Activity_Pause,305,0,Main,LoadCompanyData,83,0,Main,LoadGraphData,83,0,Main,Activity_Create,67,0,Branch,Globals,35,0,Main,Globals,48,4,Main,JobDone,377,6
 SelectedBuild=0
 VisibleModules=3,4,5,1,2

@@ -6,47 +6,51 @@ bargraph
 httpjob
 1
 httpjob
-main,activity_create,1,0,52,72
+main,activity_create,1,0,53,73
 ,label1,,panel1,,panel2,,scrollview1,,barpanel,,phpurl
 ,label1,,panel1,,panel2,,scrollview1
-,loadcompanydata,httpjob,initialize,httpjob,download,httpjob,addscheme
-main,loadcompanydata,0,0,73,83
+,loadcompanydata,,loadgraphdata,httpjob,initialize,httpjob,download,httpjob,addscheme
+main,loadcompanydata,0,0,74,84
 ,phpurl
 
 httpjob,initialize,httpjob,download,httpjob,addscheme
-main,activity_pause,0,0,408,410
+main,loadgraphdata,0,0,85,95
+,phpurl
+
+httpjob,initialize,httpjob,download,httpjob,addscheme
+main,activity_pause,0,0,396,398
 
 
 
-main,activity_resume,0,0,404,406
+main,activity_resume,0,0,392,394
 
 
 
-main,adjustfontsizetoheight,0,0,429,432
+main,adjustfontsizetoheight,0,0,417,420
 
 
 ,getdevicedensity
-main,getdevicedensity,0,0,434,439
+main,getdevicedensity,0,0,422,427
 
 
 
-main,getmapvalueordefault,0,0,396,402
+main,getmapvalueordefault,0,0,384,390
 
 
 
-main,globals,0,1,23,49
-,phpurl,,primaryfontsize,,secondaryfontsize,,legend,,height
-,phpurl,,primaryfontsize,,secondaryfontsize,,legend,,height
+main,globals,0,1,23,50
+,phpurl,,primaryfontsize,,secondaryfontsize,,legend,,height,,totalgraphdataheight,,totalgetdataheight
+,phpurl,,primaryfontsize,,secondaryfontsize,,legend,,height,,totalgraphdataheight,,totalgetdataheight
 
-main,jobdone,1,0,84,395
-,height,,scrollview1,,panel2,,primaryfontsize,,secondaryfontsize,,legend,,barpanel,,salenxtbtn,,salebackbtn,,bargraph,,purchasepanel,,purchnxtbtn,,purchbackbtn,,bargraph1,httputils2service,tempfolder,,phpurl
-,height,,legend
+main,jobdone,1,1,96,383
+,height,,scrollview1,,panel2,,companypanel,,primaryfontsize,,secondaryfontsize,,totalgetdataheight,,barpanel,,legend,,salenxtbtn,,salebackbtn,,bargraph,,purchasepanel,,purchnxtbtn,,purchbackbtn,,bargraph1,,totalgraphdataheight,httputils2service,tempfolder,,phpurl
+,height,,totalgetdataheight,,legend,,totalgraphdataheight
 httpjob,getstring,,adjustfontsizetoheight,bargraph,initialize,,loadcompanydata,httpjob,release,httpjob,getstring2,,getdevicedensity,bargraph,drawgraph,bargraph,formatnumberwithsuffix,bargraph,formatnumberwithlabel,httpjob,initialize,httpjob,download,httpjob,addscheme
-main,label17_click,0,0,413,421
+main,label17_click,0,0,401,409
 starter,company_selected
 starter,company_selected
 
-main,nxtbtn_click,0,0,425,427
+main,nxtbtn_click,0,0,413,415
 
 
 
@@ -162,7 +166,7 @@ httpjob,putstring,0,0,75,77
 
 
 ,putbytes,,addscheme
-bargraph,initialize,1,1,24,105
+bargraph,initialize,1,0,24,105
 
 
 ,drawgraph,,formatnumberwithsuffix,,formatnumberwithlabel
@@ -178,7 +182,7 @@ bargraph,class_globals,0,0,1,22
 
 
 
-bargraph,drawgraph,0,1,107,224
+bargraph,drawgraph,0,0,107,224
 
 
 ,formatnumberwithsuffix,,formatnumberwithlabel
@@ -314,11 +318,11 @@ branch,responsivelabel,0,0,520,525
 
 
 
-branch,loadcompanydata,0,1,130,140
+branch,loadcompanydata,0,0,130,140
 ,totaltarget,,panel,,phpurl,starter,company_selected
 ,phpurl
 httpjob,initialize,httpjob,download,httpjob,addscheme
-branch,loadcompanydata1,0,1,119,128
+branch,loadcompanydata1,0,0,119,128
 ,phpurl1,,currentpage,,bargraphinitialized
 ,phpurl1
 httpjob,initialize,httpjob,download,httpjob,addscheme

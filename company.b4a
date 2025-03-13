@@ -57,35 +57,52 @@ End Sub
 Sub Globals
 	'These global variables will be redeclared each time the activity is created.
 	Private ScrollView1 As ScrollView
-	Dim PHPURL As String = "https://192.168.8.117/Company/fetch.php?action=get_company_list&page=1"
+	Dim PHPURL As String = "https://192.168.8.117/Company/controller/company.php?action=get_company_list&page=1"
+	
 	Dim TableDetails As List
 	'Private navigate As Button
 	Private Button1 As Button
 	Private navigate As Label
-	Dim titleFontSize As Int = 4.5%y
-	Dim primaryFontSize As Int = 1.6%y
+	Dim primaryFontSize As Int = 1.4%y
 	Dim secondaryFontSize As Int = 1%y
 	Private Panel1 As Panel
 	Private Label1 As Label
 	Private Panel2 As Panel
 	Dim barGraph As barGraph
 	Dim barGraph1 As barGraph
+	Dim purchasePanel As Panel
 	Dim barPanel As Panel
 	Dim activityPanel As Panel
-	Dim nxtBtn As Button
-	Dim backbtn As Button
+	Dim saleNxtBtn As Button
+	Dim saleBackBtn As Button
+	Dim purchNxtBtn As Button
+	Dim purchBackBtn As Button
+	Dim sortBtn1 As RadioButton
+	Public defBtn As RadioButton
+	Public sortBtn2 As RadioButton
+	Public sales1btn As RadioButton
+	Public sales2btn As RadioButton
+	Public sales3btn As RadioButton
 	Public legend() As String = Array As String("Sales1", "Sales2", "Sales3")
-	
-	Dim purchasePanel As Panel
+	Dim height As Int = 0
+	Dim companyPanel As Panel
+	Dim totalGraphDataHeight As Int = 0
+	Dim totalGetDataHeight As Int = 0
+	Dim sortDefaultValue As String = ""
+	Dim salesData1 As Int = 1
+	Dim currentPage As Int = 1
+	Dim barGraphInitialized As Boolean = False
+	Dim PHPURLCompany As String = $"https://192.168.8.117/Company/controller/company.php?action=get_company_list&page=${currentPage}&company_sales=${salesData1}&company_type=${sortDefaultValue}"$
 	
 End Sub
 
 
 Sub Activity_Create(FirstTime As Boolean)
 	Activity.LoadLayout("Layout")
+	Panel1.Color = Colors.Black
 	Label1.Text = Label1.Text.ToUpperCase
 	Label1.Typeface = Typeface.MONOSPACE
-	ScrollView1.Panel.Color = Colors.ARGB(255, 251, 251, 251)
+	ScrollView1.Panel.Color = Colors.ARGB(255, 241, 241, 241)
 	Dim gradient As GradientDrawable
 	gradient.Initialize("RIGHT_LEFT", Array As Int(Colors.RGB(225, 218, 218), Colors.RGB(189, 202, 217)))
 
@@ -96,12 +113,10 @@ Sub Activity_Create(FirstTime As Boolean)
 
 	Panel2.Background = gradient
 	LoadCompanyData
-	
+	LoadGraphData
 	barPanel.Initialize("")
-	Panel1.AddView(barPanel,25dip,Panel2.Height+20dip,Activity.Width-50dip,450dip)
 	
-	purchasePanel.Initialize("")
-	Panel1.AddView(purchasePanel,25dip,barPanel.top+barPanel.Height+Panel2.Height+20dip - 100dip,Activity.Width-50dip,0dip)
+	
 End Sub
 Sub LoadCompanyData
 	Try
@@ -114,16 +129,175 @@ Sub LoadCompanyData
 	End Try
 	
 End Sub
+
+Sub LoadGraphData
+	Try
+		'If currentPage < 1 Then currentPage = 1
+		PHPURLCompany = $"https://192.168.8.117/Company/controller/company.php?action=get_company_list&page=${currentPage}&company_sales=${salesData1}&company_type=${sortDefaultValue}"$
+		'Log("URL: " & PHPURLCompany)
+		Dim Job1 As HttpJob
+		Job1.Initialize("GetCompany", Me)
+		Job1.Download(PHPURLCompany)
+		ProgressDialogShow("Loading Graph Data...")
+	Catch
+		Log("LoadGraphData Error: " & LastException.Message)
+		ToastMessageShow("Error initiating graph load: " & LastException.Message, True)
+	End Try
+End Sub
+
+
 Sub JobDone(job As HttpJob)
 	ProgressDialogHide
 	If job.Success = True Then
 		Try
+			
 			Dim parser As JSONParser
 			parser.Initialize(job.GetString)
+			
+			
 			Select Case job.JobName
 				Case "GetData"
-				
 					Dim scrollHeight As Int = 0
+					Dim salesArray As List = parser.NextArray
+					If salesArray.Size = 0 Then
+						ToastMessageShow("No data received", True)
+						Return
+					End If
+					Dim padding As Int = 10dip
+					Dim count As Int = 0 ' Track panel count
+					Dim rowNum As Int = 3
+					Dim mainPanelWidth As Int = 0
+					Dim panelHeight As Int = 150dip ' Adjust height as needed
+					height = panelHeight - 70dip
+					' Loop through fetched company data
+					For Each record As Map In salesArray
+						If count Mod 3 = 0 Then
+							height = height + panelHeight
+						End If
+						Dim col As Int = count Mod 3  ' Column position (0, 1, or 2)
+						Dim row As Int = Floor(count / 3)
+						Dim name As String = record.Get("company_name")
+						Dim company_id As Int = record.Get("comId")
+						Dim total_count As Int = record.Get("total_count")
+						Dim total_pos As Int = record.Get("totalDevices")
+						Dim dashPanel As Panel
+						dashPanel.Initialize("")
+						ScrollView1.Panel.AddView(dashPanel, 5dip, Panel2.Height, 200dip, 40dip)
+						'AdjustFontSizeToHeight(dashLabel,2)
+							
+						'Dim myImage As Bitmap
+						'	myImage = LoadBitmap(File.DirAssets, "dashboard.png")
+		
+						'Dim imgView As ImageView
+						'imgView.Initialize("")
+						'imgView.Gravity = Gravity.FILL
+						'imgView.Bitmap = myImage
+						'dashPanel.AddView(imgView, 0dip, 12.5dip, 15dip, dashPanel.Height - 25dip)
+								
+						Dim dashLabel As Label
+						dashLabel.Initialize("")
+						dashLabel.Text = "Dashboard"
+						dashLabel.TextColor = Colors.ARGB(50,156,0,0)
+						dashLabel.Gravity = Gravity.CENTER_VERTICAL
+						dashLabel.Typeface = Typeface.MONOSPACE
+						'dashPanel.AddView(dashLabel, imgView.Width+5dip, 0dip, dashPanel.Width, dashPanel.Height)
+					'	AdjustFontSizeToHeight(dashLabel,2)
+							
+							
+						companyPanel.Initialize("Panel")
+						ScrollView1.Panel.AddView(companyPanel, 5dip,dashPanel.Height,  Activity.Width-10dip, height)
+							
+							
+						mainPanelWidth = companyPanel.Width / rowNum
+						Dim Panel As Panel
+						Panel.Initialize("")
+						companyPanel.AddView(Panel, col * (mainPanelWidth+5dip), Panel2.Height + (row * (panelHeight + 10dip)), mainPanelWidth-10dip, panelHeight)
+								
+						Dim PanelTitle As Panel
+						PanelTitle.Initialize("Panel2")
+						PanelTitle.Color = Colors.Black
+						PanelTitle.Tag = name
+						Panel.AddView(PanelTitle, 0, 0, Panel.Width, panelHeight-120dip)
+
+						' Label for the company name
+						Dim Label17 As Label
+						Label17.Initialize("Label17")
+						Label17.Text = name.ToUpperCase
+						Label17.Tag = company_id
+						Label17.TextSize = 18
+						Label17.TextColor = Colors.White
+						Label17.Gravity = Gravity.CENTER_VERTICAL
+						Label17.Typeface = Typeface.MONOSPACE
+						PanelTitle.AddView(Label17, 5dip, 0dip, PanelTitle.Width, PanelTitle.Height)
+					'	AdjustFontSizeToHeight(Label17,2)
+							
+						'		Dim myImage As Bitmap
+						'	myImage = LoadBitmap(File.DirAssets, "arrows-removebg-preview.png")
+						'	If myImage.IsInitialized Then
+						''		Dim resizedImage As Bitmap = myImage.Resize(DipToCurrent(4.5%x), myImage.Height * DipToCurrent(2%y) / myImage.Width, True)
+						'		Dim imgView As ImageView
+						'		imgView.Initialize("")
+						'		imgView.Gravity = Gravity.FILL
+						'		imgView.Bitmap = myImage
+						'		PanelTitle.AddView(imgView, PanelTitle.Width - 5%x, 5dip, 5%x, PanelTitle.Height - 10dip)
+						'	Else
+						'	Log("Error loading image")
+						'End If
+					
+						Dim panelWidth As Int = Panel.Width /3
+						Dim padding As Int = 10dip
+						Dim labelheight As Int = panelHeight - PanelTitle.Height
+						panelWidth = Panel.Width /2
+					 		
+						Dim totalStore As Label
+						totalStore.Initialize("")
+						totalStore.Text = total_count
+						totalStore.TextColor = Colors.Black
+						totalStore.TextSize = primaryFontSize
+						totalStore.Gravity = Gravity.CENTER
+						totalStore.Typeface = Typeface.SERIF
+						Panel.AddView(totalStore,0,PanelTitle.Height,panelWidth,labelheight-30dip)
+						AdjustFontSizeToHeight(totalStore,1.3)
+							
+						Dim totalStoreLabel As Label
+						totalStoreLabel.Initialize("")
+						totalStoreLabel.Text = " Total Store"
+						totalStoreLabel.TextColor = Colors.Gray
+						totalStoreLabel.TextSize = secondaryFontSize
+						totalStoreLabel.Gravity = Gravity.CENTER
+						totalStoreLabel.Typeface = Typeface.MONOSPACE
+						totalStoreLabel.Text = totalStoreLabel.Text.ToUpperCase
+						Panel.AddView(totalStoreLabel,0,totalStore.top+padding+20dip,panelWidth,labelheight)
+					
+						Dim totalPos As Label
+						totalPos.Initialize("")
+						totalPos.Text = total_pos
+						totalPos.TextColor = Colors.Black
+						totalPos.TextSize = primaryFontSize
+						totalPos.Gravity = Gravity.CENTER
+						totalPos.Typeface = Typeface.SERIF
+						Panel.AddView(totalPos,panelWidth,PanelTitle.Height,panelWidth,labelheight-30dip)
+						AdjustFontSizeToHeight(totalPos,1.3)
+							
+						Dim totalPosLabel As Label
+						totalPosLabel.Initialize("")
+						totalPosLabel.Text = " Total Pos"
+						totalPosLabel.TextColor = Colors.Gray
+						totalPosLabel.TextSize = secondaryFontSize
+						totalPosLabel.Gravity = Gravity.CENTER
+						totalPosLabel.Typeface = Typeface.MONOSPACE
+						totalPosLabel.Text = totalPosLabel.Text.ToUpperCase
+						Panel.AddView(totalPosLabel,panelWidth,totalPos.top+padding+20dip,panelWidth,labelheight)
+				
+						' Apply border styling
+						Dim cd As ColorDrawable
+						cd.Initialize2(Colors.White, 0dip, 0dip, Colors.Black)
+						Panel.Background = cd
+						count = count + 1
+					Next
+					' Initialize arrays dynamically based on data size
+					totalGetDataHeight = Panel2.Height+companyPanel.Height
+				Case "GetCompany"
 					Dim salesArray As List = parser.NextArray
 					' Parse the root object
 					' Get the list of branches
@@ -133,168 +307,6 @@ Sub JobDone(job As HttpJob)
 						Return
 					End If
 					
-					' Grid Layout Settings
-					Dim numColumns As Int = 2 ' Adjust based on preference
-					Dim pnlWidth As Int = Activity.Width - 100dip
-					Dim pnlHeight As Int = 280dip
-					Dim padding As Int = 10dip
-					Dim leftPosition As Int = 50dip
-					Dim topPosition As Int = 77dip
-					Dim count As Int = 0 ' Track panel count
-					If Activity.Width >= 1340 Then
-						pnlWidth = 490dip
-						pnlHeight = 300dip
-						padding = 10dip
-						leftPosition = 10dip
-					End If
-					' Loop through fetched company data
-					For Each record As Map In salesArray
-						Dim name As String = record.Get("company_name")
-						Dim company_id As Int = record.Get("comId")
-						Dim total_count As Int = record.Get("total_count")
-						Dim total_pos As Int = record.Get("totalDevices")
-						
-						' Create a new Panel dynamically
-						Dim Panel As Panel
-						Panel.Initialize("Panel")
-						'ScrollView1.Panel.AddView(Panel, leftPosition, topPosition, pnlWidth, pnlHeight)
-						Panel.Color = Colors.Black
-
-						' Add a sub-panel (Panel2) for the title
-						Dim Panel2 As Panel
-						Panel2.Initialize("Panel2")
-						Panel2.Color = Colors.Black
-						Panel2.Tag = name
-						Panel2.SendToBack
-						'Panel.AddView(Panel2, 0, 0, Panel.Width, 6%y)
-
-						' Label for the company name
-						Dim Label17 As Label
-						Label17.Initialize("Label17")
-						Label17.Text = name
-						Label17.Tag = company_id
-						Label17.TextSize = 18
-						Label17.TextColor = Colors.White
-						Label17.Gravity = Gravity.CENTER_VERTICAL
-						Label17.Typeface = Typeface.MONOSPACE
-						'Panel2.AddView(Label17, 10dip, 0dip, Panel2.Width, Panel2.Height)
-				
-						Dim myImage As Bitmap
-						myImage = LoadBitmap(File.DirAssets, "arrows-removebg-preview.png")
-						If myImage.IsInitialized Then
-							Dim resizedImage As Bitmap = myImage.Resize(DipToCurrent(4.5%x), myImage.Height * DipToCurrent(2%y) / myImage.Width, True)
-							Dim imgView As ImageView
-							imgView.Initialize("")
-							imgView.Bitmap = resizedImage
-							'Panel2.AddView(imgView, Panel2.Width - 8%x, 0dip, 10%x, Panel2.Height)
-						Else
-							Log("Error loading image")
-						End If
-				
-						Dim panelWidth As Int = Panel.Width /3
-						Dim padding As Int = 10dip
-						Dim labelheight As Int = 35dip
-				
-				
-						panelWidth = Panel.Width /2
-				 
-						Dim totalStore As Label
-						totalStore.Initialize("")
-						totalStore.Text = total_count
-						totalStore.TextColor = Colors.Black
-						totalStore.TextSize = primaryFontSize
-						totalStore.Gravity = Gravity.CENTER
-						totalStore.Typeface = Typeface.SERIF
-						'Panel.AddView(totalStore,0,Label17.Height+padding+160dip,panelWidth,labelheight)
-				
-						Dim totalStoreLabel As Label
-						totalStoreLabel.Initialize("")
-						totalStoreLabel.Text = " Total Store"
-						totalStoreLabel.TextColor = Colors.Gray
-						totalStoreLabel.TextSize = secondaryFontSize
-						totalStoreLabel.Gravity = Gravity.CENTER
-						totalStoreLabel.Typeface = Typeface.MONOSPACE
-						totalStoreLabel.Text = totalStoreLabel.Text.ToUpperCase
-						'Panel.AddView(totalStoreLabel,0,totalStore.top+padding+20dip,panelWidth,labelheight)
-				
-						Dim totalPos As Label
-						totalPos.Initialize("")
-						totalPos.Text = total_pos
-						totalPos.TextColor = Colors.Black
-						totalPos.TextSize = primaryFontSize
-						totalPos.Gravity = Gravity.CENTER
-						totalPos.Typeface = Typeface.SERIF
-						'Panel.AddView(totalPos,panelWidth,totalStoreLabel.Height+padding+160dip,panelWidth,labelheight)
-				
-						Dim totalPosLabel As Label
-						totalPosLabel.Initialize("")
-						totalPosLabel.Text = " Total Pos"
-						totalPosLabel.TextColor = Colors.Gray
-						totalPosLabel.TextSize = secondaryFontSize
-						totalPosLabel.Gravity = Gravity.CENTER
-						totalPosLabel.Typeface = Typeface.MONOSPACE
-						totalPosLabel.Text = totalPosLabel.Text.ToUpperCase
-		
-					For i = 0 To salesArray.Size - 1
-						
-					Dim record As Map = salesArray.Get(i)
-					Dim currentComId As String = record.Get("comId")
-    
-					' Check if the current company's comId matches the target comId
-					If currentComId = 1 Then
-
-						' Check if the company has branches
-						If record.ContainsKey("branches") Then
-							Dim branches As List = record.Get("branches")
-							Dim totalBranches As Int = branches.Size
-	            
-							' Initialize arrays for the current company's branches
-							Dim branchNames(totalBranches) As String
-							Dim branchSales1(totalBranches) As Int
-							Dim branchSales2(totalBranches) As Int
-							Dim branchSales3(totalBranches) As Int
-
-							' Populate the arrays with branch details
-							For j = 0 To totalBranches - 1
-											Dim branchMap As Map = branches.Get(j)
-											branchNames(j) = branchMap.GetDefault("branch_name","").As(String)
-											branchSales1(j) = branchMap.GetDefault("sales1",0)
-											branchSales2(j) = branchMap.GetDefault("sales2",0)
-											branchSales3(j) = branchMap.GetDefault("sales3",0)
-				
-										Next
-										
-										Dim legend() As String = Array As String("Sales1","Sales2","Sales3")
-										'barGraph1.Initialize(Activity, purchasePanel, branchSales1, branchSales2, branchSales3, branchNames,legend,19000,"Total Purchase of the Company",branchSales1,"Branch")
-			
-						Else
-							Log($"Company: ${name} has no branches information."$)
-						End If
-					End If
-					Next
-				
-						If Activity.Width >= 1340 Then
-							count = count + 1
-							If count Mod numColumns = 0 Then
-								' Move to the next row
-								leftPosition = 10dip
-								topPosition = topPosition + pnlHeight + padding
-							Else
-								' Move to the next column
-								leftPosition = leftPosition + pnlWidth + padding
-							End If
-							scrollHeight = scrollHeight + 175dip
-						Else
-							topPosition = topPosition + pnlHeight + padding
-							scrollHeight = scrollHeight + 300dip + padding
-						End If
-				
-						' Apply border styling
-						Dim cd As ColorDrawable
-						cd.Initialize2(Colors.White, 0dip, 1dip, Colors.Black)
-						Panel.Background = cd
-					Next
-					' Initialize arrays dynamically based on data size
 					Dim totalCompanies As Int = salesArray.Size
 					Dim sales(totalCompanies) As Int
 					Dim comId(totalCompanies) As Int
@@ -304,7 +316,7 @@ Sub JobDone(job As HttpJob)
 					Dim purchase1(totalCompanies) As Int
 					Dim purchase2(totalCompanies) As Int
 					Dim companyName(totalCompanies) As String
-					Dim max_value(totalCompanies) As Int 
+					Dim max_value(totalCompanies) As Int
 					Dim maxSale As Int=0
 					
 					For i = 0 To totalCompanies - 1
@@ -319,29 +331,114 @@ Sub JobDone(job As HttpJob)
 						purchase2(i) = record.GetDefault("purchase_", 0)
 						max_value(i) = record.GetDefault("max_value", 0)
 						maxSale = Max(maxSale, max_value(i))
-					Next	
+						Log(companyName(i) & sales(i))
+					Next
 			
-					barPanel.RemoveAllViews
-					barPanel.Invalidate ' Force redraw
-				
 					Activity.Initialize("")
 
 					Dim legend() As String = Array As String("Sales1","Sales2","Sales3")
 					'barGraph.changePage(Activity,"Branch")
-					nxtBtn.Initialize("nxtBtn")
-					backbtn.Initialize("backbtn")
-					barGraph.Initialize(Activity,barPanel,sales,sales1,sales2,companyName,legend,maxSale,"Total Sale of the Company",comId,"Branch",nxtBtn,backbtn)
-					'legend = Array As String("Purchase1","Purchase2","Purchase3")
-					'barGraph1.Initialize(Activity, purchasePanel, purchase, purchase1, purchase2, companyName,legend,maxSale,"Total Purchase of the Company")
+						If barGraphInitialized = False Then
+					saleNxtBtn.Initialize("nxtBtn")
+					saleBackBtn.Initialize("backbtn")
+					sortBtn1.Initialize("sortBtn1")
+					sortBtn2.Initialize("sortBtn2")
+					defBtn.Initialize("defBtn")
+					sales1btn.Initialize("sales1btn")
+					sales2btn.Initialize("sales2btn")
+					sales3btn.Initialize("sales3btn")
+					Dim totalSalePanel As Panel
+					totalSalePanel.Initialize("")
+					ScrollView1.Panel.AddView(totalSalePanel,5dip,Panel2.Height+companyPanel.Height-28dip,Activity.Width,40dip)
+					
+					
+					Dim totalSaleLabel As Label
+					totalSaleLabel.Initialize("")
+					totalSaleLabel.Text = "Total Sales"
+					totalSaleLabel.TextColor = Colors.Black
+					totalSaleLabel.Gravity = Gravity.CENTER_VERTICAL
+					totalSaleLabel.Typeface = Typeface.MONOSPACE
+					'	totalSalePanel.AddView(totalSaleLabel,imgView.Width+5dip,0dip,Activity.Width,40dip)
+				'	AdjustFontSizeToHeight(totalSaleLabel,2)
+						
+				
+					ScrollView1.Panel.AddView(barPanel,25dip,totalSaleLabel.Height+Panel2.Height+companyPanel.Height - 30dip,Activity.Width-50dip,450dip)
+					barPanel.Color = Colors.White
+					
+					barPanel.RemoveAllViews
+					barPanel.Invalidate ' Force a redraw
+				
+					'barGraph.Initialize(Activity,barPanel,sales,sales1,sales2,companyName,legend,maxSale,"Sales Per Company",comId,"Branch",saleNxtBtn,saleBackBtn)
+					barGraph.Initialize(Activity,barPanel,sales,sales1,sales2,companyName,legend,maxSale,"Total Sale of the Company",comId,"Branch",saleNxtBtn,saleBackBtn,sortBtn1,sortBtn2,defBtn,sales1btn,sales2btn,sales3btn)
+					legend = Array As String("Purchase1","Purchase2","Purchase3")
+					
+			'	Dim totalPurchasePanel As Panel
+				'	totalPurchasePanel.Initialize("")
+				'	ScrollView1.Panel.AddView(totalPurchasePanel,5dip,barPanel.Height + Panel2.Height+companyPanel.Height+15dip,Activity.Width,40dip)
+					
+					'	Dim myImage As Bitmap
+					'	myImage = LoadBitmap(File.DirAssets, "stock.png")
+		
+					'Dim imgView As ImageView
+					'imgView.Initialize("")
+					'imgView.Gravity = Gravity.FILL
+					'	imgView.Bitmap = myImage
+					'	totalPurchasePanel.AddView(imgView, 0dip, 12.5dip, 15dip, totalPurchasePanel.Height - 25dip)
+					
+					Dim totalPurchaseLabel As Label
+					totalPurchaseLabel.Initialize("")
+					totalPurchaseLabel.Text = "Total Purchases"
+					totalPurchaseLabel.TextColor =Colors.Black
+					totalPurchaseLabel.Gravity = Gravity.CENTER_VERTICAL
+					totalPurchaseLabel.Typeface = Typeface.MONOSPACE
+				'		totalPurchasePanel.AddView(totalPurchaseLabel,imgView.Width + 5dip,0dip,Activity.Width,totalPurchasePanel.Height)
+				'	AdjustFontSizeToHeight(totalPurchaseLabel,2)
+					
+					Dim shadowPurchPanel As Panel
+					shadowPurchPanel.Initialize("")
+					shadowPurchPanel.Color = Colors.ARGB(50, 138, 138, 138)
+					ScrollView1.Panel.AddView(shadowPurchPanel, 25dip + 5dip,totalSaleLabel.Height+Panel2.Height+companyPanel.Height+barPanel.Height+totalPurchaseLabel.Height- 30dip+5dip, Activity.Width - 50dip, 450dip)
+					
+					purchasePanel.Initialize("")
+					purchasePanel.Color = Colors.White
+					ScrollView1.Panel.AddView(purchasePanel,25dip, totalSaleLabel.Height+Panel2.Height+companyPanel.Height+barPanel.Height+totalPurchaseLabel.Height- 30dip,Activity.Width-50dip,450dip)
+					purchNxtBtn.Initialize("nxtBtn")
+					purchBackBtn.Initialize("backbtn")
+					sortBtn1.Initialize("sortBtn1")
+					sortBtn2.Initialize("sortBtn2")
+					defBtn.Initialize("defBtn")
+					sales1btn.Initialize("sales1btn")
+					sales2btn.Initialize("sales2btn")
+					sales3btn.Initialize("sales3btn")
+					'barGraph1.Initialize(Activity, purchasePanel, purchase, purchase1, purchase2, companyName,legend,maxSale,"Purchases Per Company",comId,"Branch",purchNxtBtn,purchBackBtn)
+					barGraph1.Initialize(Activity, purchasePanel, purchase, purchase1, purchase2, companyName,legend,maxSale,"Total Purchase Per Company",comId,"Branch",purchNxtBtn,purchBackBtn,sortBtn1,sortBtn2,defBtn,sales1btn,sales2btn,sales3btn)
+					Log($"maxSale:${maxSale}"$)
+					'
+			'		totalGraphDataHeight = totalSaleLabel.Height+barPanel.Height+totalPurchaseLabel.Height + purchasePanel.Height
+						barGraphInitialized = True
+						ProgressDialogHide
+						Else
+						barGraph.sale_1 = sales
+						barGraph.sale_2 = sales1
+						barGraph.sale_3 = sales2
+						barGraph.product1 = companyName
+						barGraph.comId1 = sales ' Assuming comId1 should match sales1 for simplicity
+						barGraph.UpdateGraph
+					barGraph.SetCurrentPage(currentPage) ' Update page
+					End If
 				Case "UpdateData"
 					ToastMessageShow("Data updated successfully", False)
 					LoadCompanyData
 				Case Else
 					Log("Unknown job: " & job.JobName)
 			End Select
+			'ScrollView1.Panel.Height = totalSaleLabel.Height+Panel2.Height+companyPanel.Height+barPanel.Height+totalPurchaseLabel.Height + purchasePanel.Height
+			
 		Catch
 			ToastMessageShow("Error parsing sales data", True)
 		End Try
+		'	ScrollView1.Panel.Height = totalGraphDataHeight + totalGetDataHeight
+		ScrollView1.Panel.Height = 1400dip
 	Else
 		ToastMessageShow("Error: " & job.ErrorMessage, True)
 	End If
@@ -378,4 +475,71 @@ End Sub
 
 Sub nxtBtn_Click
 	Log("sad")
+End Sub
+
+Sub sortBtn2_Click
+	Dim chk As RadioButton = Sender
+	Dim index As String = chk.Tag
+	
+	sortDefaultValue = index.ToLowerCase
+	Log($"sort value: ${sortDefaultValue}"$)
+	LoadGraphData
+	Log("descending")
+End Sub
+Sub defBtn_Click
+	Log("Default")
+End Sub
+
+Sub sortBtn1_Click
+	Dim chk As RadioButton = Sender
+	Dim index As String = chk.Tag
+	
+	sortDefaultValue = index.ToLowerCase
+	Log($"sort value: ${sortDefaultValue}"$)
+	LoadGraphData
+End Sub
+
+Sub sales1btn_Click
+	Dim btn As Button = Sender
+	Dim index As String = btn.Tag
+	salesData1 = index.ToLowerCase
+	If sortDefaultValue="asc" Or sortDefaultValue="desc" Then
+	
+	LoadGraphData
+	End If
+	Log(sortDefaultValue)
+	Log(" sales 1 Button clicked: " & index)
+End Sub
+
+Sub sales2btn_Click
+	Dim btn As Button = Sender
+	Dim index As String = btn.Tag
+	salesData1 = index.ToLowerCase
+	If sortDefaultValue="asc" Or sortDefaultValue="desc" Then
+		LoadGraphData
+	End If
+	Log(sortDefaultValue)
+	Log(" sales 2 Button clicked: " & index)
+End Sub
+Sub sales3btn_Click
+	Dim btn As Button = Sender
+	Dim index As String = btn.Tag
+	salesData1 = index.ToLowerCase
+	If sortDefaultValue="asc" Or sortDefaultValue="desc" Then
+		'LoadGraphData
+	End If
+	Log(sortDefaultValue)
+	Log(" sales 3 Button clicked: " & index)
+End Sub
+
+Sub AdjustFontSizeToHeight(lbl As Label,fontNum As Float)
+	Dim fontSize As Float = lbl.Height * fontNum / GetDeviceDensity ' 70% of height
+	lbl.TextSize = fontSize
+End Sub
+
+Sub GetDeviceDensity As Float
+	Dim pixelWidth As Int = 100%x ' Screen width in pixels
+	Dim dipWidth As Int = 100dip  ' 100 DIPs in pixels
+	Dim Dense As Float = pixelWidth / dipWidth
+	Return Dense
 End Sub

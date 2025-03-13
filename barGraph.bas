@@ -9,6 +9,12 @@ Sub Class_Globals
 	Public checkedSales() As Boolean
 	Dim color() As Int = Array As Int(Colors.RGB(255, 0, 0), Colors.RGB(200, 20, 20), Colors.RGB(100, 10, 10))
 	Dim legendPanel As Panel
+	Dim sortPanels As Panel
+	Dim radioPanel As Panel
+	Dim salesPanels As Panel
+	Dim radioLabelSalesTitles As Label
+	Dim radioLabelSortTitles As Label
+	Dim radioLabelLegendTitles As Label
 	Dim Active1 As Activity
 	Dim panel_l As Panel
 	Dim sale_1() As Int
@@ -23,11 +29,17 @@ Sub Class_Globals
 	Private itemsPerPage As Int = 5
 	Public btnNext As Button
 	Public btnBack As Button
+	Public sortBtn1 As RadioButton
+	Public sortBtn2 As RadioButton
+	Public defBtn As RadioButton
+	Public sales1 As RadioButton
+	Public sales2 As RadioButton
+	Public sales3 As RadioButton
 	Dim layout As String = ""
 	Private isFirstInit As Boolean = True
 End Sub
 
-Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2() As Int, sale3() As Int, product() As String, legend() As String, maxSales As Int, TitleString As String, comId() As Int, layout1 As String,NextBtn As Button,Backbtn As Button)
+Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2() As Int, sale3() As Int, product() As String, legend() As String, maxSales As Int, TitleString As String, comId() As Int, layout1 As String,NextBtn As Button,Backbtn As Button,sortBtn As RadioButton,BtnSort2 As RadioButton,Defaultbtn As RadioButton,Sales1btn As RadioButton,Sales2btn As RadioButton,Sales3btn As RadioButton)
 	If Active.IsInitialized = False Then
 		Log("Error: Activity is not initialized")
 		Return
@@ -45,14 +57,48 @@ Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2(
 	layout = layout1
 	btnNext = NextBtn
 	btnBack = Backbtn
+	sortBtn1 = sortBtn
+	sortBtn2 = BtnSort2
+	defBtn = Defaultbtn
+	sales1 = Sales1btn
+	sales2 = Sales2btn
+	sales3 = Sales3btn
+
 	If sale1.Length <> product.Length Or sale2.Length <> product.Length Or sale3.Length <> product.Length Then
 		Return
 	End If
     
 	legendPanel.Initialize("")
-	legendPanel.Width = panel.Width
+	legendPanel.Width = panel.Width/2
 	legendPanel.Height = 30dip
     
+	sortPanels.Initialize("")
+	sortPanels.Width = panel.Width/2
+	sortPanels.Height = 30dip
+	
+	salesPanels.Initialize("")
+	salesPanels.Width = panel.Width / 2 ' Half of the main panel width
+	salesPanels.Height = 30dip ' Height remains the same
+	
+	radioPanel.Initialize("")
+	radioPanel.Width = panel.Width/2
+	radioPanel.Height = 30dip
+	
+	radioLabelSalesTitles.Initialize("radioLabelSalesTitles")
+	radioLabelLegendTitles.Initialize("radioLabelLegendTitles")
+	radioLabelSortTitles.Initialize("radioLabelSortTitles")
+	
+	radioPanel.Color = Colors.Transparent ' Keep it transparent
+	Dim borderPanel As Panel
+	borderPanel.Initialize("")
+	borderPanel.Color = Colors.Black ' Border color
+	panel.AddView(borderPanel, radioPanel.Left, radioPanel.Top, radioPanel.Width, radioPanel.Height)
+	panel.AddView(radioPanel, radioPanel.Left + 1dip, radioPanel.Top + 1dip, radioPanel.Width - 2dip, radioPanel.Height - 2dip) ' Inside border
+
+	
+	'panel.Color = Colors.Cyan
+	
+	
 	Dim legendWidth As Int = legendPanel.Width / legend.Length
 	checkBoxes = Array As CheckBox()
 	checkedSales = Array As Boolean()
@@ -107,6 +153,71 @@ Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2(
 	cdNext.Initialize2(Colors.RGB(185, 46, 52), 10dip, 2dip, Colors.Black)
 	btnNext.Background = cdNext
 
+	Dim radioButtons() As RadioButton = Array As RadioButton(sortBtn1, sortBtn2, defBtn)
+	Dim radioTexts() As String = Array As String("ASC", "DESC", "DEFAULT")
+
+	If sortPanels.Width = 0 Then
+		sortPanels.Width = panel.Width / 2 ' Default width to half of the panel
+	End If
+
+	Dim totalButtons As Int = radioButtons.Length
+	Dim buttonWidth As Int = (sortPanels.Width - (totalButtons * 5dip)) / totalButtons ' Adjust width based on panel size
+	Dim spacing As Int = 5dip ' Small gap between buttons
+
+	For i = 0 To totalButtons - 1
+		radioButtons(i).Text = radioTexts(i)
+		radioButtons(i).TextSize = 10
+		radioButtons(i).Tag = radioTexts(i)
+		radioButtons(i).Typeface = Typeface.MONOSPACE
+		radioButtons(i).TextColor = Colors.Black
+
+		Dim cdNext As ColorDrawable
+		cdNext.Initialize2(Colors.RGB(128, 128, 128), 10dip, 2dip, Colors.Black)
+
+		' Position buttons dynamically to fit inside sortPanels
+		sortPanels.AddView(radioButtons(i), (i * (buttonWidth + spacing)), 10dip, buttonWidth, 20dip)
+	Next
+
+	Dim salesLabels() As RadioButton = Array As RadioButton(sales1, sales2, sales3)
+	Dim salesTexts() As String = Array As String("1", "2", "3") ' Example values
+
+	Dim totalLabels As Int = salesLabels.Length
+	Dim labelWidth As Int = (salesPanels.Width - (totalLabels * 5dip)) / totalLabels ' Adjust width to fit all labels
+	Dim spacing As Int = 5dip ' Small spacing between labels
+
+	For i = 0 To totalLabels - 1
+		salesLabels(i).Text = "Sales" & (i + 1)
+		salesLabels(i).TextSize = 10
+		salesLabels(i).Tag = salesTexts(i)
+		salesLabels(i).Typeface = Typeface.MONOSPACE
+		salesLabels(i).TextColor = Colors.Black
+
+		Dim cdBack As ColorDrawable
+		cdBack.Initialize2(Colors.RGB(128, 128, 128), 10dip, 2dip, Colors.Black)
+		'salesLabels(i).Color = Colors.White
+
+		' Add label dynamically with calculated width
+		salesPanels.AddView(salesLabels(i), (i * (labelWidth + spacing)), 10dip, labelWidth, 20dip)
+	Next
+	
+
+	radioLabelSalesTitles.Text = "Base on"
+	radioLabelSalesTitles.TextSize = 12
+	radioLabelSalesTitles.Typeface = Typeface.MONOSPACE
+	radioLabelSalesTitles.TextColor = Colors.Black
+	
+	radioLabelSortTitles.Text = "Sort By"
+	radioLabelSortTitles.TextSize = 12
+	radioLabelSortTitles.Typeface = Typeface.MONOSPACE
+	radioLabelSortTitles.TextColor = Colors.Black
+	
+
+	radioLabelLegendTitles.Text = "Shown"
+	radioLabelLegendTitles.TextSize = 12
+	radioLabelLegendTitles.Typeface = Typeface.MONOSPACE
+	radioLabelLegendTitles.TextColor = Colors.Black
+	
+	
 	DrawGraph(Active, panel, sale1, sale2, sale3, product, maxSales, TitleString)
 End Sub
 
@@ -119,7 +230,35 @@ Public Sub DrawGraph(Active As Activity, panel As Panel, sale1() As Int, sale2()
 			panel.Width = 800dip
 		End If
 		
-		panel.AddView(legendPanel, 0, 0, panel.Width, 30dip)
+	
+
+		Dim halfWidth As Int = panel.Width / 2
+		salesPanels.Width = halfWidth ' Make salesPanels take half of the screen width
+		salesPanels.Height = 30dip
+		sortPanels.Width = halfWidth
+		sortPanels.Height = 30dip
+	
+		panel.AddView(legendPanel, halfWidth, 20dip, halfWidth, 35dip)
+		
+		Dim radioLabelWidth As Int = halfWidth  
+		Dim radioLabelHeight As Int = 35dip  
+		Dim radioLabelX As Int = (panel.Width - radioLabelWidth) / 2+170dip
+		Dim radioLabelY As Int = 5dip
+		
+		radioLabelSalesTitles.Visible = sale1.Length >= 5
+		radioLabelSortTitles.Visible = sale1.Length >= 5
+		
+		panel.AddView(radioLabelLegendTitles, halfWidth+47dip, radioLabelY, radioLabelWidth, radioLabelHeight)
+
+		If sale1.Length >=5 Then
+			panel.AddView(radioLabelSalesTitles, 0, radioLabelY, radioLabelWidth, radioLabelHeight)
+			panel.AddView(radioLabelSortTitles, 0, radioLabelY+48dip, radioLabelWidth, radioLabelHeight)
+			panel.AddView(salesPanels, 0dip, 20dip, halfWidth, 35dip)
+			panel.AddView(sortPanels, 0dip, 60dip, halfWidth, 38dip)
+			
+		End If
+
+
 		
 		Dim activityPanel As Panel
 		activityPanel.Initialize("activityPanel")
@@ -141,9 +280,9 @@ Public Sub DrawGraph(Active As Activity, panel As Panel, sale1() As Int, sale2()
 		Title.Typeface = Typeface.MONOSPACE
 		Title.Gravity = Gravity.CENTER
 		Title.TextColor = Colors.Black
-		panel.AddView(Title, 0, alignTopCenter / 2, panel.Width, 30dip)
+		panel.AddView(Title, 0, alignTopCenter / 2 +55dip, panel.Width, 30dip)
     
-		panel.AddView(activityPanel, alignLeftCenter, alignTopCenter, activityPanel.Width, activityPanel.Height)
+		panel.AddView(activityPanel, alignLeftCenter, alignTopCenter+47dip, activityPanel.Width, activityPanel.Height)
 
 		Dim graphCanvas As Canvas
 		graphCanvas.Initialize(activityPanel)
@@ -197,23 +336,36 @@ Public Sub DrawGraph(Active As Activity, panel As Panel, sale1() As Int, sale2()
 			productLabel.Tag = comId1(i)
 			productLabel.TextColor = Colors.Black
 			productLabel.Gravity = Gravity.CENTER
-			Dim productLabelY As Int = activityPanel.Height + alignTopCenter + 10dip
+			Dim productLabelY As Int = activityPanel.Height + alignTopCenter + 30dip
 			Dim productLabelX As Int = alignLeftCenter
-			panel.AddView(productLabel, xPos + productLabelX, productLabelY, 100dip, 30dip)
+			panel.AddView(productLabel, xPos + productLabelX, productLabelY+20, 100dip, 30dip)
 		Next
     
 		Dim numLabels As Int = 10
 		For i = 0 To numLabels
 			Dim labelValue As Int = Round((maxSale / numLabels) * i)
 			Dim labelYPos As Int = activityPanel.Height - ((labelValue / maxSale) * activityPanel.Height)
-			cv.DrawText(FormatNumberWithLabel(labelValue), alignLeftCenter - 10dip, labelYPos + alignTopCenter + 5dip, Typeface.MONOSPACE, 10, Colors.Black, "RIGHT")
+			cv.DrawText(FormatNumberWithLabel(labelValue), alignLeftCenter - 10dip, labelYPos + alignTopCenter + 48dip, Typeface.MONOSPACE, 10, Colors.Black, "RIGHT")
 		Next
 		'btnBack.Enabled = currentPage > 1
 		'btnNext.Enabled = (currentPage * itemsPerPage) < sale1.Length
 		' Add buttons to panel without reinitializing
-		panel.AddView(btnBack, alignLeftCenter, activityPanel.Height + alignTopCenter + 50dip, 100dip, 40dip)
-       		panel.AddView(btnNext, activityPanel.Width - alignLeftCenter , activityPanel.Height + alignTopCenter + 50dip, 100dip, 40dip)
-    
+		
+		
+		Dim buttonWidth As Int = 100dip
+		Dim buttonHeight As Int = 40dip
+		Dim buttonSpacing As Int = 25dip ' Adjust as needed
+
+		Dim graphBottom As Int = activityPanel.Top + activityPanel.Height
+		Dim buttonY As Int = graphBottom + buttonSpacing ' Position buttons below the graph
+
+		Dim btnBackX As Int = (panel.Width / 2) - buttonWidth - 100dip ' Left side
+		Dim btnNextX As Int = (panel.Width / 2) + 100dip ' Right side
+
+		panel.AddView(btnBack, btnBackX, buttonY, buttonWidth, buttonHeight)
+		panel.AddView(btnNext, btnNextX, buttonY, buttonWidth, buttonHeight)
+
+
 
 	Catch
 		Log(LastException)

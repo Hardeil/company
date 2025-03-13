@@ -17,8 +17,8 @@ End Sub
 
 Sub Globals
 	Private ScrollView1 As ScrollView
-	Dim PHPURL As String = "https://192.168.8.117/Company/fetch.php?action=get_branch&company_id=" & Starter.company_selected
-	Dim PHPURL1 As String = "https://192.168.8.117/Company/fetch.php?action=get_company_list&page=1"
+	Dim PHPURL As String = "https://192.168.8.117/Company/controller/branch.php?action=get_branch&company_id=" & Starter.company_selected
+	Dim PHPURL1 As String = "https://192.168.8.117/Company/controller/company.php?action=get_company_list&page=1"
 	Dim TableDetails As List
 	Private LabelTitle As Label
 	Dim titleFontSize As Int = 4.5%y
@@ -42,6 +42,15 @@ Sub Globals
 	Dim barGraphInitialized As Boolean = False
 	Private Panel4 As Panel
 	Dim scrollViewPanel4 As ScrollView
+	Dim sortBtn1 As RadioButton
+	Public defBtn As RadioButton
+	Public sortBtn2 As RadioButton
+	Public salesBtn1 As RadioButton
+	Public salesBtn2 As RadioButton
+	Public salesBtn3 As RadioButton
+	Dim salesData1 As Int
+	Dim salesDataDefault As Int = 1
+	Dim sortDefaultValue As String
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
@@ -112,26 +121,28 @@ Sub Activity_Create(FirstTime As Boolean)
 	popupPanelBackground.AddView(edit_button, 25dip, 200dip, 80%x - 40dip, 100dip)
     
 	purchasePanel.Initialize("")
-	Panel4.AddView(purchasePanel, 0, 0dip, Activity.Width, 430dip)
+	Panel4.AddView(purchasePanel, 0, 0dip, Activity.Width, 470dip)
 
 	scrollViewPanel4.Initialize(Panel4.Height - purchasePanel.Height)
 	Panel4.AddView(scrollViewPanel4,0,purchasePanel.Height,Panel4.Width,Panel4.Height - purchasePanel.Height)
 	
 	LoadCompanyData
-	LoadCompanyData1
+	LoadCompanyDataBranch
 End Sub
 
 
-Sub LoadCompanyData1
+Sub LoadCompanyDataBranch
+	Try
 		Dim Job1 As HttpJob
 		Job1.Initialize("GetBranches", Me)
-		PHPURL1 = $"https://192.168.8.117/Company/fetch.php?action=get_company_list&page=${currentPage}"$
-		Log(PHPURL1)
+		PHPURL1 = $"https://192.168.8.117/Company/controller/company.php?action=get_company_list&page=${currentPage}&sales=${salesData1}&sales_type=${sortDefaultValue}"$
 		Job1.Download(PHPURL1)
-		If barGraphInitialized = False Then
-			ProgressDialogShow("Loading Data...")
-		End If
+		'ProgressDialogShow("Loading Data...")
+	Catch
+		Log(LastException.Message)
+	End Try
 End Sub
+
 
 Sub LoadCompanyData
 	Dim Job1 As HttpJob
@@ -139,14 +150,14 @@ Sub LoadCompanyData
 	totalTarget.RemoveView
 	Panel.Initialize("")
 	Panel.RemoveAllViews
-	PHPURL = "https://192.168.8.117/Company/fetch.php?action=get_branch&company_id=" & Starter.company_selected
+	PHPURL = "https://192.168.8.117/Company/controller/branch.php?action=get_branch&company_id=" & Starter.company_selected
 	Job1.Initialize("GetData", Me)
 	Job1.Download(PHPURL)
 	'ProgressDialogShow("Loading Data...")
 End Sub
 
 Sub UpdateData_Remote(target_id As Int, new_value As Int)
-	Dim PHPURL As String = $"https://192.168.8.141/Company/fetch.php?action=target_update&id=${target_id}&value=${new_value}"$
+	Dim PHPURL As String = $"https://192.168.8.141/Company/controller/company.php?action=target_update&id=${target_id}&value=${new_value}"$
 	Dim job As HttpJob
 	job.Initialize("UpdateData", Me)
 	job.Download(PHPURL)
@@ -449,11 +460,18 @@ Sub JobDone(job As HttpJob)
                                 
 								purchasePanel.RemoveAllViews
 								Dim legend() As String = Array As String("Sales1", "Sales2", "Sales3")
+							
 								
 								If barGraphInitialized = False Then
 									nxtBtn.Initialize("nxtBtn")
 									backbtn.Initialize("backbtn")
-									barGraph.Initialize(Activity, purchasePanel, branchSales1, branchSales2, branchSales3, branchNames, legend, 19000, "Sla", branchSales1, "Branch", nxtBtn, backbtn)
+									sortBtn1.Initialize("sortBtn1")
+									sortBtn2.Initialize("sortBtn2")
+									defBtn.Initialize("defBtn")
+									salesBtn1.Initialize("salesBtn1")
+									salesBtn2.Initialize("salesBtn2")
+									salesBtn3.Initialize("salesBtn3")
+									barGraph.Initialize(Activity, purchasePanel, branchSales1, branchSales2, branchSales3, branchNames, legend, 10000, "Sales Per Branch", branchSales1, "Branch",nxtBtn,backbtn,sortBtn1,sortBtn2,defBtn,salesBtn1,salesBtn2,salesBtn3)
 									barGraphInitialized = True
 									ProgressDialogHide
 								Else
@@ -476,7 +494,7 @@ Sub JobDone(job As HttpJob)
 					Next
 
 				Case Else
-					Log("Unknown job: " & job.JobName)
+				Log("Unknown job: " & job.JobName)
 			End Select
             
 		Catch
@@ -491,7 +509,7 @@ End Sub
 
 
 Sub FetchNewPageData
-	LoadCompanyData1 ' Fetch new data for the current page
+	LoadCompanyDataBranch ' Fetch new data for the current page
 End Sub
 
 Sub edit_button_Click
@@ -558,4 +576,73 @@ End Sub
 Sub backbtn_Click
 	currentPage = currentPage - 1
 	FetchNewPageData
+End Sub
+
+
+Sub defBtn_Click
+	Dim btn As Button = Sender ' Get the button that was clicked
+	Dim index As String = btn.Tag
+	sortDefaultValue = ""
+	LoadCompanyData
+	Log(index)
+	Log("(default)")
+
+	
+	'Activity.Finish
+	'StartActivity(Me)
+End Sub
+
+
+Sub sortBtn2_Click
+	Dim chk As RadioButton = Sender
+	Dim index As String = chk.Tag
+	sortDefaultValue = index.ToLowerCase
+	LoadCompanyDataBranch
+	Log($"sort value: ${sortDefaultValue}"$)
+End Sub
+
+
+
+Sub sortBtn1_Click
+	Dim chk As RadioButton = Sender
+	Dim index As String = chk.Tag
+	
+	sortDefaultValue = index.ToLowerCase
+	Log($"sort value: ${sortDefaultValue}"$)
+	LoadCompanyDataBranch
+End Sub
+
+Sub salesBtn1_Click
+	Dim btn As Button = Sender
+	Dim index As String = btn.Tag
+	salesData1 = index.ToLowerCase
+	If sortDefaultValue="asc" Or sortDefaultValue="desc" Then
+		LoadCompanyDataBranch
+	End If
+	Log(sortDefaultValue)
+	Log(" sales 1 Button clicked: " & index)
+End Sub
+
+Sub salesBtn2_Click
+	Dim btn As Button = Sender ' Get the button that was clicked
+	Dim index As String = btn.Tag
+	salesData1 = index.ToLowerCase
+	If sortDefaultValue="asc" Or sortDefaultValue="desc" Then
+		LoadCompanyDataBranch
+	End If
+	Log(sortDefaultValue)
+	Log(index)
+	Log("(Sale2)")
+End Sub
+Sub salesBtn3_Click
+	Dim btn As Button = Sender ' Get the button that was clicked
+	Dim index As String = btn.Tag
+	salesData1 = index.ToLowerCase
+	If sortDefaultValue="asc" Or sortDefaultValue="desc" Then
+		LoadCompanyDataBranch
+	End If
+	Log(sortDefaultValue)
+	'LoadCompanyData1
+	Log(index)
+	Log("(Sale3)")
 End Sub

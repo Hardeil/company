@@ -139,7 +139,12 @@ End Sub
 Sub LoadGraphData
 	Try
 		'If currentPage < 1 Then currentPage = 1
+<<<<<<< HEAD
 		PHPURLCompany = $"https://192.168.8.117/Company/controller/company.php?action=get_company_list&page=${currentPage}&company_sales=${salesData1}&sort_type=${sortDefaultValue}"$
+=======
+		'PHPURLCompany = $"https://192.168.8.117/Company/controller/company.php?action=get_company_list&page=${currentPage}&company_sales=${salesData1}&company_type=${sortDefaultValue}"$
+		PHPURLCompany = $"https://192.168.8.117/Company/controller/company.php?action=get_company_list&page=1&company_sales=1&company_type="$
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 		'Log("URL: " & PHPURLCompany)
 		Dim Job1 As HttpJob
 		Job1.Initialize("GetCompany", Me)
@@ -334,8 +339,8 @@ Sub JobDone(job As HttpJob)
 						sales2(i) = record.GetDefault("sales_3", 0)
 						purchase(i) = record.GetDefault("purchase_1", 0)
 						purchase1(i) = record.GetDefault("purchase_2", 0)
-						purchase2(i) = record.GetDefault("purchase_", 0)
-						max_value(i) = record.GetDefault("max_value", 0)
+						purchase2(i) = record.GetDefault("purchase_3", 0)
+						max_value(i) = record.GetDefault("max_sales", 0)
 						maxSale = Max(maxSale, max_value(i))
 						Log(companyName(i) & sales(i))
 					Next
@@ -443,7 +448,7 @@ Sub JobDone(job As HttpJob)
 		Catch
 			ToastMessageShow("Error parsing sales data", True)
 		End Try
-		'	ScrollView1.Panel.Height = totalGraphDataHeight + totalGetDataHeight
+		''	ScrollView1.Panel.Height = totalGraphDataHeight + totalGetDataHeight
 		ScrollView1.Panel.Height = 1400dip
 	Else
 		ToastMessageShow("Error: " & job.ErrorMessage, True)

@@ -8,7 +8,11 @@ public class device_subs_0 {
 
 public static RemoteObject  _activity_create(RemoteObject _firsttime) throws Exception{
 try {
+<<<<<<< HEAD
 		Debug.PushSubsStack("Activity_Create (device) ","device",3,device.mostCurrent.activityBA,device.mostCurrent,34);
+=======
+		Debug.PushSubsStack("Activity_Create (device) ","device",4,device.mostCurrent.activityBA,device.mostCurrent,33);
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 if (RapidSub.canDelegate("activity_create")) { return b4a.example.device.remoteMe.runUserSub(false, "device","activity_create", _firsttime);}
 RemoteObject _tablelabel = RemoteObject.declareNull("anywheresoftware.b4a.objects.PanelWrapper");
 RemoteObject _idlabel = RemoteObject.declareNull("anywheresoftware.b4a.objects.LabelWrapper");
@@ -285,7 +289,11 @@ finally {
 		}}
 public static RemoteObject  _activity_pause(RemoteObject _userclosed) throws Exception{
 try {
+<<<<<<< HEAD
 		Debug.PushSubsStack("Activity_Pause (device) ","device",3,device.mostCurrent.activityBA,device.mostCurrent,357);
+=======
+		Debug.PushSubsStack("Activity_Pause (device) ","device",4,device.mostCurrent.activityBA,device.mostCurrent,356);
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 if (RapidSub.canDelegate("activity_pause")) { return b4a.example.device.remoteMe.runUserSub(false, "device","activity_pause", _userclosed);}
 Debug.locals.put("UserClosed", _userclosed);
  BA.debugLineNum = 357;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
@@ -302,7 +310,11 @@ finally {
 		}}
 public static RemoteObject  _activity_resume() throws Exception{
 try {
+<<<<<<< HEAD
 		Debug.PushSubsStack("Activity_Resume (device) ","device",3,device.mostCurrent.activityBA,device.mostCurrent,354);
+=======
+		Debug.PushSubsStack("Activity_Resume (device) ","device",4,device.mostCurrent.activityBA,device.mostCurrent,353);
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 if (RapidSub.canDelegate("activity_resume")) { return b4a.example.device.remoteMe.runUserSub(false, "device","activity_resume");}
  BA.debugLineNum = 354;BA.debugLine="Sub Activity_Resume";
 Debug.ShouldStop(2);
@@ -318,7 +330,11 @@ finally {
 		}}
 public static RemoteObject  _backbtn_click() throws Exception{
 try {
+<<<<<<< HEAD
 		Debug.PushSubsStack("backBtn_Click (device) ","device",3,device.mostCurrent.activityBA,device.mostCurrent,163);
+=======
+		Debug.PushSubsStack("backBtn_Click (device) ","device",4,device.mostCurrent.activityBA,device.mostCurrent,162);
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 if (RapidSub.canDelegate("backbtn_click")) { return b4a.example.device.remoteMe.runUserSub(false, "device","backbtn_click");}
  BA.debugLineNum = 163;BA.debugLine="Private Sub backBtn_Click";
 Debug.ShouldStop(4);
@@ -353,7 +369,11 @@ finally {
 		}}
 public static RemoteObject  _branch_click() throws Exception{
 try {
+<<<<<<< HEAD
 		Debug.PushSubsStack("branch_Click (device) ","device",3,device.mostCurrent.activityBA,device.mostCurrent,363);
+=======
+		Debug.PushSubsStack("branch_Click (device) ","device",4,device.mostCurrent.activityBA,device.mostCurrent,362);
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 if (RapidSub.canDelegate("branch_click")) { return b4a.example.device.remoteMe.runUserSub(false, "device","branch_click");}
  BA.debugLineNum = 363;BA.debugLine="Private Sub branch_Click";
 Debug.ShouldStop(1024);
@@ -420,7 +440,11 @@ return RemoteObject.createImmutable("");
 }
 public static RemoteObject  _home_click() throws Exception{
 try {
+<<<<<<< HEAD
 		Debug.PushSubsStack("home_Click (device) ","device",3,device.mostCurrent.activityBA,device.mostCurrent,359);
+=======
+		Debug.PushSubsStack("home_Click (device) ","device",4,device.mostCurrent.activityBA,device.mostCurrent,358);
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 if (RapidSub.canDelegate("home_click")) { return b4a.example.device.remoteMe.runUserSub(false, "device","home_click");}
  BA.debugLineNum = 359;BA.debugLine="Private Sub home_Click";
 Debug.ShouldStop(64);
@@ -442,7 +466,11 @@ finally {
 		}}
 public static RemoteObject  _jobdone(RemoteObject _job) throws Exception{
 try {
+<<<<<<< HEAD
 		Debug.PushSubsStack("JobDone (device) ","device",3,device.mostCurrent.activityBA,device.mostCurrent,183);
+=======
+		Debug.PushSubsStack("JobDone (device) ","device",4,device.mostCurrent.activityBA,device.mostCurrent,182);
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 if (RapidSub.canDelegate("jobdone")) { return b4a.example.device.remoteMe.runUserSub(false, "device","jobdone", _job);}
 RemoteObject _parser = RemoteObject.declareNull("anywheresoftware.b4a.objects.collections.JSONParser");
 RemoteObject _ypos = RemoteObject.createImmutable(0);
@@ -894,12 +922,24 @@ finally {
 		}}
 public static RemoteObject  _loadcompanydata() throws Exception{
 try {
+<<<<<<< HEAD
 		Debug.PushSubsStack("LoadCompanyData (device) ","device",3,device.mostCurrent.activityBA,device.mostCurrent,155);
+=======
+		Debug.PushSubsStack("LoadCompanyData (device) ","device",4,device.mostCurrent.activityBA,device.mostCurrent,154);
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 if (RapidSub.canDelegate("loadcompanydata")) { return b4a.example.device.remoteMe.runUserSub(false, "device","loadcompanydata");}
 RemoteObject _job1 = RemoteObject.declareNull("b4a.example.httpjob");
  BA.debugLineNum = 155;BA.debugLine="Sub LoadCompanyData";
 Debug.ShouldStop(67108864);
+<<<<<<< HEAD
  BA.debugLineNum = 157;BA.debugLine="Log(PHPURL)";
+=======
+device.mostCurrent._phpurl = RemoteObject.concat(RemoteObject.createImmutable("https://192.168.8.117/Company/fetch.php?action=get_device&id="),device.mostCurrent._branch._branch_selected /*RemoteObject*/ ,RemoteObject.createImmutable("&page="),device._pageno,RemoteObject.createImmutable("&limit="),device._limit);
+ BA.debugLineNum = 156;BA.debugLine="Log(PHPURL)";
+Debug.ShouldStop(134217728);
+device.mostCurrent.__c.runVoidMethod ("LogImpl","06750210",device.mostCurrent._phpurl,0);
+ BA.debugLineNum = 157;BA.debugLine="Dim Job1 As HttpJob";
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 Debug.ShouldStop(268435456);
 device.mostCurrent.__c.runVoidMethod ("LogImpl","63670018",device.mostCurrent._phpurl,0);
  BA.debugLineNum = 158;BA.debugLine="Dim Job1 As HttpJob";
@@ -923,7 +963,11 @@ finally {
 		}}
 public static RemoteObject  _nxtlabel_click() throws Exception{
 try {
+<<<<<<< HEAD
 		Debug.PushSubsStack("nxtLabel_Click (device) ","device",3,device.mostCurrent.activityBA,device.mostCurrent,174);
+=======
+		Debug.PushSubsStack("nxtLabel_Click (device) ","device",4,device.mostCurrent.activityBA,device.mostCurrent,173);
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 if (RapidSub.canDelegate("nxtlabel_click")) { return b4a.example.device.remoteMe.runUserSub(false, "device","nxtlabel_click");}
  BA.debugLineNum = 174;BA.debugLine="Private Sub nxtLabel_Click";
 Debug.ShouldStop(8192);
@@ -961,7 +1005,11 @@ return RemoteObject.createImmutable("");
 }
 public static RemoteObject  _responsivelabel(RemoteObject _label) throws Exception{
 try {
+<<<<<<< HEAD
 		Debug.PushSubsStack("responsiveLabel (device) ","device",3,device.mostCurrent.activityBA,device.mostCurrent,148);
+=======
+		Debug.PushSubsStack("responsiveLabel (device) ","device",4,device.mostCurrent.activityBA,device.mostCurrent,147);
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 if (RapidSub.canDelegate("responsivelabel")) { return b4a.example.device.remoteMe.runUserSub(false, "device","responsivelabel", _label);}
 RemoteObject _charwidth = RemoteObject.createImmutable(0);
 RemoteObject _padding = RemoteObject.createImmutable(0);

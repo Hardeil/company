@@ -505,30 +505,36 @@ RDebugUtils.currentModule="main";
 if (Debug.shouldDelegate(mostCurrent.activityBA, "loadcompanydata", false))
 	 {return ((String) Debug.delegate(mostCurrent.activityBA, "loadcompanydata", null));}
 b4a.example.httpjob _job1 = null;
-RDebugUtils.currentLine=196608;
- //BA.debugLineNum = 196608;BA.debugLine="Sub LoadCompanyData";
-RDebugUtils.currentLine=196609;
- //BA.debugLineNum = 196609;BA.debugLine="Try";
-try {RDebugUtils.currentLine=196610;
- //BA.debugLineNum = 196610;BA.debugLine="Dim Job1 As HttpJob";
+RDebugUtils.currentLine=5570560;
+ //BA.debugLineNum = 5570560;BA.debugLine="Sub LoadCompanyData";
+RDebugUtils.currentLine=5570561;
+ //BA.debugLineNum = 5570561;BA.debugLine="Try";
+try {RDebugUtils.currentLine=5570562;
+ //BA.debugLineNum = 5570562;BA.debugLine="Dim Job1 As HttpJob";
 _job1 = new b4a.example.httpjob();
-RDebugUtils.currentLine=196611;
- //BA.debugLineNum = 196611;BA.debugLine="Job1.Initialize(\"GetData\", Me)";
+RDebugUtils.currentLine=5570563;
+ //BA.debugLineNum = 5570563;BA.debugLine="Job1.Initialize(\"GetData\", Me)";
 _job1._initialize /*String*/ (null,processBA,"GetData",main.getObject());
-RDebugUtils.currentLine=196612;
- //BA.debugLineNum = 196612;BA.debugLine="Job1.Download(PHPURL)";
+RDebugUtils.currentLine=5570564;
+ //BA.debugLineNum = 5570564;BA.debugLine="Job1.Download(PHPURL)";
 _job1._download /*String*/ (null,mostCurrent._phpurl);
-RDebugUtils.currentLine=196613;
- //BA.debugLineNum = 196613;BA.debugLine="ProgressDialogShow(\"Loading Data...\")";
+RDebugUtils.currentLine=5570565;
+ //BA.debugLineNum = 5570565;BA.debugLine="ProgressDialogShow(\"Loading Data...\")";
 anywheresoftware.b4a.keywords.Common.ProgressDialogShow(mostCurrent.activityBA,BA.ObjectToCharSequence("Loading Data..."));
  } 
        catch (Exception e7) {
+<<<<<<< HEAD
 			processBA.setLastException(e7);RDebugUtils.currentLine=196615;
  //BA.debugLineNum = 196615;BA.debugLine="Log(LastException.Message)";
 anywheresoftware.b4a.keywords.Common.LogImpl("6196615",anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
+=======
+			processBA.setLastException(e7);RDebugUtils.currentLine=5570567;
+ //BA.debugLineNum = 5570567;BA.debugLine="Log(LastException.Message)";
+anywheresoftware.b4a.keywords.Common.LogImpl("05570567",anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
  };
-RDebugUtils.currentLine=196618;
- //BA.debugLineNum = 196618;BA.debugLine="End Sub";
+RDebugUtils.currentLine=5570570;
+ //BA.debugLineNum = 5570570;BA.debugLine="End Sub";
 return "";
 }
 public static String  _loadgraphdata() throws Exception{
@@ -536,6 +542,7 @@ RDebugUtils.currentModule="main";
 if (Debug.shouldDelegate(mostCurrent.activityBA, "loadgraphdata", false))
 	 {return ((String) Debug.delegate(mostCurrent.activityBA, "loadgraphdata", null));}
 b4a.example.httpjob _job1 = null;
+<<<<<<< HEAD
 RDebugUtils.currentLine=262144;
  //BA.debugLineNum = 262144;BA.debugLine="Sub LoadGraphData";
 RDebugUtils.currentLine=262145;
@@ -545,45 +552,64 @@ try {RDebugUtils.currentLine=262147;
 mostCurrent._phpurlcompany = ("https://192.168.8.117/Company/controller/company.php?action=get_company_list&page="+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(_currentpage))+"&company_sales="+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(_salesdata1))+"&sort_type="+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(mostCurrent._sortdefaultvalue))+"");
 RDebugUtils.currentLine=262149;
  //BA.debugLineNum = 262149;BA.debugLine="Dim Job1 As HttpJob";
+=======
+RDebugUtils.currentLine=5636096;
+ //BA.debugLineNum = 5636096;BA.debugLine="Sub LoadGraphData";
+RDebugUtils.currentLine=5636097;
+ //BA.debugLineNum = 5636097;BA.debugLine="Try";
+try {RDebugUtils.currentLine=5636100;
+ //BA.debugLineNum = 5636100;BA.debugLine="PHPURLCompany = $\"https://192.168.8.117/Company/";
+mostCurrent._phpurlcompany = ("https://192.168.8.117/Company/controller/company.php?action=get_company_list&page=1&company_sales=1&company_type=");
+RDebugUtils.currentLine=5636102;
+ //BA.debugLineNum = 5636102;BA.debugLine="Dim Job1 As HttpJob";
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 _job1 = new b4a.example.httpjob();
-RDebugUtils.currentLine=262150;
- //BA.debugLineNum = 262150;BA.debugLine="Job1.Initialize(\"GetCompany\", Me)";
+RDebugUtils.currentLine=5636103;
+ //BA.debugLineNum = 5636103;BA.debugLine="Job1.Initialize(\"GetCompany\", Me)";
 _job1._initialize /*String*/ (null,processBA,"GetCompany",main.getObject());
-RDebugUtils.currentLine=262151;
- //BA.debugLineNum = 262151;BA.debugLine="Job1.Download(PHPURLCompany)";
+RDebugUtils.currentLine=5636104;
+ //BA.debugLineNum = 5636104;BA.debugLine="Job1.Download(PHPURLCompany)";
 _job1._download /*String*/ (null,mostCurrent._phpurlcompany);
-RDebugUtils.currentLine=262152;
- //BA.debugLineNum = 262152;BA.debugLine="ProgressDialogShow(\"Loading Graph Data...\")";
+RDebugUtils.currentLine=5636105;
+ //BA.debugLineNum = 5636105;BA.debugLine="ProgressDialogShow(\"Loading Graph Data...\")";
 anywheresoftware.b4a.keywords.Common.ProgressDialogShow(mostCurrent.activityBA,BA.ObjectToCharSequence("Loading Graph Data..."));
  } 
        catch (Exception e8) {
+<<<<<<< HEAD
 			processBA.setLastException(e8);RDebugUtils.currentLine=262154;
  //BA.debugLineNum = 262154;BA.debugLine="Log(\"LoadGraphData Error: \" & LastException.Mess";
 anywheresoftware.b4a.keywords.Common.LogImpl("6262154","LoadGraphData Error: "+anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
 RDebugUtils.currentLine=262155;
  //BA.debugLineNum = 262155;BA.debugLine="ToastMessageShow(\"Error initiating graph load: \"";
+=======
+			processBA.setLastException(e8);RDebugUtils.currentLine=5636107;
+ //BA.debugLineNum = 5636107;BA.debugLine="Log(\"LoadGraphData Error: \" & LastException.Mess";
+anywheresoftware.b4a.keywords.Common.LogImpl("05636107","LoadGraphData Error: "+anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
+RDebugUtils.currentLine=5636108;
+ //BA.debugLineNum = 5636108;BA.debugLine="ToastMessageShow(\"Error initiating graph load: \"";
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Error initiating graph load: "+anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage()),anywheresoftware.b4a.keywords.Common.True);
  };
-RDebugUtils.currentLine=262157;
- //BA.debugLineNum = 262157;BA.debugLine="End Sub";
+RDebugUtils.currentLine=5636110;
+ //BA.debugLineNum = 5636110;BA.debugLine="End Sub";
 return "";
 }
 public static String  _activity_pause(boolean _userclosed) throws Exception{
 RDebugUtils.currentModule="main";
-RDebugUtils.currentLine=524288;
- //BA.debugLineNum = 524288;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
-RDebugUtils.currentLine=524290;
- //BA.debugLineNum = 524290;BA.debugLine="End Sub";
+RDebugUtils.currentLine=262144;
+ //BA.debugLineNum = 262144;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
+RDebugUtils.currentLine=262146;
+ //BA.debugLineNum = 262146;BA.debugLine="End Sub";
 return "";
 }
 public static String  _activity_resume() throws Exception{
 RDebugUtils.currentModule="main";
 if (Debug.shouldDelegate(mostCurrent.activityBA, "activity_resume", false))
 	 {return ((String) Debug.delegate(mostCurrent.activityBA, "activity_resume", null));}
-RDebugUtils.currentLine=458752;
- //BA.debugLineNum = 458752;BA.debugLine="Sub Activity_Resume";
-RDebugUtils.currentLine=458754;
- //BA.debugLineNum = 458754;BA.debugLine="End Sub";
+RDebugUtils.currentLine=196608;
+ //BA.debugLineNum = 196608;BA.debugLine="Sub Activity_Resume";
+RDebugUtils.currentLine=196610;
+ //BA.debugLineNum = 196610;BA.debugLine="End Sub";
 return "";
 }
 public static String  _adjustfontsizetoheight(anywheresoftware.b4a.objects.LabelWrapper _lbl,float _fontnum) throws Exception{
@@ -591,16 +617,16 @@ RDebugUtils.currentModule="main";
 if (Debug.shouldDelegate(mostCurrent.activityBA, "adjustfontsizetoheight", false))
 	 {return ((String) Debug.delegate(mostCurrent.activityBA, "adjustfontsizetoheight", new Object[] {_lbl,_fontnum}));}
 float _fontsize = 0f;
-RDebugUtils.currentLine=1114112;
- //BA.debugLineNum = 1114112;BA.debugLine="Sub AdjustFontSizeToHeight(lbl As Label,fontNum As";
-RDebugUtils.currentLine=1114113;
- //BA.debugLineNum = 1114113;BA.debugLine="Dim fontSize As Float = lbl.Height * fontNum / Ge";
+RDebugUtils.currentLine=6356992;
+ //BA.debugLineNum = 6356992;BA.debugLine="Sub AdjustFontSizeToHeight(lbl As Label,fontNum As";
+RDebugUtils.currentLine=6356993;
+ //BA.debugLineNum = 6356993;BA.debugLine="Dim fontSize As Float = lbl.Height * fontNum / Ge";
 _fontsize = (float) (_lbl.getHeight()*_fontnum/(double)_getdevicedensity());
-RDebugUtils.currentLine=1114114;
- //BA.debugLineNum = 1114114;BA.debugLine="lbl.TextSize = fontSize";
+RDebugUtils.currentLine=6356994;
+ //BA.debugLineNum = 6356994;BA.debugLine="lbl.TextSize = fontSize";
 _lbl.setTextSize(_fontsize);
-RDebugUtils.currentLine=1114115;
- //BA.debugLineNum = 1114115;BA.debugLine="End Sub";
+RDebugUtils.currentLine=6356995;
+ //BA.debugLineNum = 6356995;BA.debugLine="End Sub";
 return "";
 }
 public static float  _getdevicedensity() throws Exception{
@@ -610,28 +636,29 @@ if (Debug.shouldDelegate(mostCurrent.activityBA, "getdevicedensity", false))
 int _pixelwidth = 0;
 int _dipwidth = 0;
 float _dense = 0f;
-RDebugUtils.currentLine=1179648;
- //BA.debugLineNum = 1179648;BA.debugLine="Sub GetDeviceDensity As Float";
-RDebugUtils.currentLine=1179649;
- //BA.debugLineNum = 1179649;BA.debugLine="Dim pixelWidth As Int = 100%x ' Screen width in p";
+RDebugUtils.currentLine=6422528;
+ //BA.debugLineNum = 6422528;BA.debugLine="Sub GetDeviceDensity As Float";
+RDebugUtils.currentLine=6422529;
+ //BA.debugLineNum = 6422529;BA.debugLine="Dim pixelWidth As Int = 100%x ' Screen width in p";
 _pixelwidth = anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA);
-RDebugUtils.currentLine=1179650;
- //BA.debugLineNum = 1179650;BA.debugLine="Dim dipWidth As Int = 100dip  ' 100 DIPs in pixel";
+RDebugUtils.currentLine=6422530;
+ //BA.debugLineNum = 6422530;BA.debugLine="Dim dipWidth As Int = 100dip  ' 100 DIPs in pixel";
 _dipwidth = anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (100));
-RDebugUtils.currentLine=1179651;
- //BA.debugLineNum = 1179651;BA.debugLine="Dim Dense As Float = pixelWidth / dipWidth";
+RDebugUtils.currentLine=6422531;
+ //BA.debugLineNum = 6422531;BA.debugLine="Dim Dense As Float = pixelWidth / dipWidth";
 _dense = (float) (_pixelwidth/(double)_dipwidth);
-RDebugUtils.currentLine=1179652;
- //BA.debugLineNum = 1179652;BA.debugLine="Return Dense";
+RDebugUtils.currentLine=6422532;
+ //BA.debugLineNum = 6422532;BA.debugLine="Return Dense";
 if (true) return _dense;
-RDebugUtils.currentLine=1179653;
- //BA.debugLineNum = 1179653;BA.debugLine="End Sub";
+RDebugUtils.currentLine=6422533;
+ //BA.debugLineNum = 6422533;BA.debugLine="End Sub";
 return 0f;
 }
 public static String  _defbtn_click() throws Exception{
 RDebugUtils.currentModule="main";
 if (Debug.shouldDelegate(mostCurrent.activityBA, "defbtn_click", false))
 	 {return ((String) Debug.delegate(mostCurrent.activityBA, "defbtn_click", null));}
+<<<<<<< HEAD
 RDebugUtils.currentLine=786432;
  //BA.debugLineNum = 786432;BA.debugLine="Sub defBtn_Click";
 RDebugUtils.currentLine=786433;
@@ -639,27 +666,36 @@ RDebugUtils.currentLine=786433;
 anywheresoftware.b4a.keywords.Common.LogImpl("6786433","Default",0);
 RDebugUtils.currentLine=786434;
  //BA.debugLineNum = 786434;BA.debugLine="End Sub";
+=======
+RDebugUtils.currentLine=6029312;
+ //BA.debugLineNum = 6029312;BA.debugLine="Sub defBtn_Click";
+RDebugUtils.currentLine=6029313;
+ //BA.debugLineNum = 6029313;BA.debugLine="Log(\"Default\")";
+anywheresoftware.b4a.keywords.Common.LogImpl("06029313","Default",0);
+RDebugUtils.currentLine=6029314;
+ //BA.debugLineNum = 6029314;BA.debugLine="End Sub";
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 return "";
 }
 public static Object  _getmapvalueordefault(anywheresoftware.b4a.objects.collections.Map _m,String _key,Object _defaultvalue) throws Exception{
 RDebugUtils.currentModule="main";
 if (Debug.shouldDelegate(mostCurrent.activityBA, "getmapvalueordefault", false))
 	 {return ((Object) Debug.delegate(mostCurrent.activityBA, "getmapvalueordefault", new Object[] {_m,_key,_defaultvalue}));}
-RDebugUtils.currentLine=393216;
- //BA.debugLineNum = 393216;BA.debugLine="Sub GetMapValueOrDefault(m As Map, Key As String,";
-RDebugUtils.currentLine=393217;
- //BA.debugLineNum = 393217;BA.debugLine="If m.ContainsKey(Key) Then";
+RDebugUtils.currentLine=5767168;
+ //BA.debugLineNum = 5767168;BA.debugLine="Sub GetMapValueOrDefault(m As Map, Key As String,";
+RDebugUtils.currentLine=5767169;
+ //BA.debugLineNum = 5767169;BA.debugLine="If m.ContainsKey(Key) Then";
 if (_m.ContainsKey((Object)(_key))) { 
-RDebugUtils.currentLine=393218;
- //BA.debugLineNum = 393218;BA.debugLine="Return m.Get(Key)";
+RDebugUtils.currentLine=5767170;
+ //BA.debugLineNum = 5767170;BA.debugLine="Return m.Get(Key)";
 if (true) return _m.Get((Object)(_key));
  }else {
-RDebugUtils.currentLine=393220;
- //BA.debugLineNum = 393220;BA.debugLine="Return DefaultValue";
+RDebugUtils.currentLine=5767172;
+ //BA.debugLineNum = 5767172;BA.debugLine="Return DefaultValue";
 if (true) return _defaultvalue;
  };
-RDebugUtils.currentLine=393222;
- //BA.debugLineNum = 393222;BA.debugLine="End Sub";
+RDebugUtils.currentLine=5767174;
+ //BA.debugLineNum = 5767174;BA.debugLine="End Sub";
 return null;
 }
 public static String  _jobdone(b4a.example.httpjob _job) throws Exception{
@@ -709,63 +745,63 @@ anywheresoftware.b4a.objects.PanelWrapper _totalsalepanel = null;
 anywheresoftware.b4a.objects.LabelWrapper _totalsalelabel = null;
 anywheresoftware.b4a.objects.LabelWrapper _totalpurchaselabel = null;
 anywheresoftware.b4a.objects.PanelWrapper _shadowpurchpanel = null;
-RDebugUtils.currentLine=327680;
- //BA.debugLineNum = 327680;BA.debugLine="Sub JobDone(job As HttpJob)";
-RDebugUtils.currentLine=327681;
- //BA.debugLineNum = 327681;BA.debugLine="ProgressDialogHide";
+RDebugUtils.currentLine=5701632;
+ //BA.debugLineNum = 5701632;BA.debugLine="Sub JobDone(job As HttpJob)";
+RDebugUtils.currentLine=5701633;
+ //BA.debugLineNum = 5701633;BA.debugLine="ProgressDialogHide";
 anywheresoftware.b4a.keywords.Common.ProgressDialogHide();
-RDebugUtils.currentLine=327682;
- //BA.debugLineNum = 327682;BA.debugLine="If job.Success = True Then";
+RDebugUtils.currentLine=5701634;
+ //BA.debugLineNum = 5701634;BA.debugLine="If job.Success = True Then";
 if (_job._success /*boolean*/ ==anywheresoftware.b4a.keywords.Common.True) { 
-RDebugUtils.currentLine=327683;
- //BA.debugLineNum = 327683;BA.debugLine="Try";
-try {RDebugUtils.currentLine=327685;
- //BA.debugLineNum = 327685;BA.debugLine="Dim parser As JSONParser";
+RDebugUtils.currentLine=5701635;
+ //BA.debugLineNum = 5701635;BA.debugLine="Try";
+try {RDebugUtils.currentLine=5701637;
+ //BA.debugLineNum = 5701637;BA.debugLine="Dim parser As JSONParser";
 _parser = new anywheresoftware.b4a.objects.collections.JSONParser();
-RDebugUtils.currentLine=327686;
- //BA.debugLineNum = 327686;BA.debugLine="parser.Initialize(job.GetString)";
+RDebugUtils.currentLine=5701638;
+ //BA.debugLineNum = 5701638;BA.debugLine="parser.Initialize(job.GetString)";
 _parser.Initialize(_job._getstring /*String*/ (null));
-RDebugUtils.currentLine=327689;
- //BA.debugLineNum = 327689;BA.debugLine="Select Case job.JobName";
+RDebugUtils.currentLine=5701641;
+ //BA.debugLineNum = 5701641;BA.debugLine="Select Case job.JobName";
 switch (BA.switchObjectToInt(_job._jobname /*String*/ ,"GetData","GetCompany","UpdateData")) {
 case 0: {
-RDebugUtils.currentLine=327691;
- //BA.debugLineNum = 327691;BA.debugLine="Dim scrollHeight As Int = 0";
+RDebugUtils.currentLine=5701643;
+ //BA.debugLineNum = 5701643;BA.debugLine="Dim scrollHeight As Int = 0";
 _scrollheight = (int) (0);
-RDebugUtils.currentLine=327692;
- //BA.debugLineNum = 327692;BA.debugLine="Dim salesArray As List = parser.NextArray";
+RDebugUtils.currentLine=5701644;
+ //BA.debugLineNum = 5701644;BA.debugLine="Dim salesArray As List = parser.NextArray";
 _salesarray = new anywheresoftware.b4a.objects.collections.List();
 _salesarray = _parser.NextArray();
-RDebugUtils.currentLine=327693;
- //BA.debugLineNum = 327693;BA.debugLine="If salesArray.Size = 0 Then";
+RDebugUtils.currentLine=5701645;
+ //BA.debugLineNum = 5701645;BA.debugLine="If salesArray.Size = 0 Then";
 if (_salesarray.getSize()==0) { 
-RDebugUtils.currentLine=327694;
- //BA.debugLineNum = 327694;BA.debugLine="ToastMessageShow(\"No data received\", True)";
+RDebugUtils.currentLine=5701646;
+ //BA.debugLineNum = 5701646;BA.debugLine="ToastMessageShow(\"No data received\", True)";
 anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("No data received"),anywheresoftware.b4a.keywords.Common.True);
-RDebugUtils.currentLine=327695;
- //BA.debugLineNum = 327695;BA.debugLine="Return";
+RDebugUtils.currentLine=5701647;
+ //BA.debugLineNum = 5701647;BA.debugLine="Return";
 if (true) return "";
  };
-RDebugUtils.currentLine=327697;
- //BA.debugLineNum = 327697;BA.debugLine="Dim padding As Int = 10dip";
+RDebugUtils.currentLine=5701649;
+ //BA.debugLineNum = 5701649;BA.debugLine="Dim padding As Int = 10dip";
 _padding = anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (10));
-RDebugUtils.currentLine=327698;
- //BA.debugLineNum = 327698;BA.debugLine="Dim count As Int = 0 ' Track panel count";
+RDebugUtils.currentLine=5701650;
+ //BA.debugLineNum = 5701650;BA.debugLine="Dim count As Int = 0 ' Track panel count";
 _count = (int) (0);
-RDebugUtils.currentLine=327699;
- //BA.debugLineNum = 327699;BA.debugLine="Dim rowNum As Int = 3";
+RDebugUtils.currentLine=5701651;
+ //BA.debugLineNum = 5701651;BA.debugLine="Dim rowNum As Int = 3";
 _rownum = (int) (3);
-RDebugUtils.currentLine=327700;
- //BA.debugLineNum = 327700;BA.debugLine="Dim mainPanelWidth As Int = 0";
+RDebugUtils.currentLine=5701652;
+ //BA.debugLineNum = 5701652;BA.debugLine="Dim mainPanelWidth As Int = 0";
 _mainpanelwidth = (int) (0);
-RDebugUtils.currentLine=327701;
- //BA.debugLineNum = 327701;BA.debugLine="Dim panelHeight As Int = 150dip ' Adjust heig";
+RDebugUtils.currentLine=5701653;
+ //BA.debugLineNum = 5701653;BA.debugLine="Dim panelHeight As Int = 150dip ' Adjust heig";
 _panelheight = anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (150));
-RDebugUtils.currentLine=327702;
- //BA.debugLineNum = 327702;BA.debugLine="height = panelHeight - 70dip";
+RDebugUtils.currentLine=5701654;
+ //BA.debugLineNum = 5701654;BA.debugLine="height = panelHeight - 70dip";
 _height = (int) (_panelheight-anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (70)));
-RDebugUtils.currentLine=327704;
- //BA.debugLineNum = 327704;BA.debugLine="For Each record As Map In salesArray";
+RDebugUtils.currentLine=5701656;
+ //BA.debugLineNum = 5701656;BA.debugLine="For Each record As Map In salesArray";
 _record = new anywheresoftware.b4a.objects.collections.Map();
 {
 final anywheresoftware.b4a.BA.IterableList group20 = _salesarray;
@@ -774,500 +810,572 @@ final int groupLen20 = group20.getSize()
 ;
 for (; index20 < groupLen20;index20++){
 _record = (anywheresoftware.b4a.objects.collections.Map) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.collections.Map(), (java.util.Map)(group20.Get(index20)));
-RDebugUtils.currentLine=327705;
- //BA.debugLineNum = 327705;BA.debugLine="If count Mod 3 = 0 Then";
+RDebugUtils.currentLine=5701657;
+ //BA.debugLineNum = 5701657;BA.debugLine="If count Mod 3 = 0 Then";
 if (_count%3==0) { 
-RDebugUtils.currentLine=327706;
- //BA.debugLineNum = 327706;BA.debugLine="height = height + panelHeight";
+RDebugUtils.currentLine=5701658;
+ //BA.debugLineNum = 5701658;BA.debugLine="height = height + panelHeight";
 _height = (int) (_height+_panelheight);
  };
-RDebugUtils.currentLine=327708;
- //BA.debugLineNum = 327708;BA.debugLine="Dim col As Int = count Mod 3  ' Column posit";
+RDebugUtils.currentLine=5701660;
+ //BA.debugLineNum = 5701660;BA.debugLine="Dim col As Int = count Mod 3  ' Column posit";
 _col = (int) (_count%3);
-RDebugUtils.currentLine=327709;
- //BA.debugLineNum = 327709;BA.debugLine="Dim row As Int = Floor(count / 3)";
+RDebugUtils.currentLine=5701661;
+ //BA.debugLineNum = 5701661;BA.debugLine="Dim row As Int = Floor(count / 3)";
 _row = (int) (anywheresoftware.b4a.keywords.Common.Floor(_count/(double)3));
-RDebugUtils.currentLine=327710;
- //BA.debugLineNum = 327710;BA.debugLine="Dim name As String = record.Get(\"company_nam";
+RDebugUtils.currentLine=5701662;
+ //BA.debugLineNum = 5701662;BA.debugLine="Dim name As String = record.Get(\"company_nam";
 _name = BA.ObjectToString(_record.Get((Object)("company_name")));
+<<<<<<< HEAD
 RDebugUtils.currentLine=327711;
  //BA.debugLineNum = 327711;BA.debugLine="Dim company_id As Int = record.Get(\"company_";
 _company_id = (int)(BA.ObjectToNumber(_record.Get((Object)("company_id"))));
 RDebugUtils.currentLine=327712;
  //BA.debugLineNum = 327712;BA.debugLine="Dim total_count As Int = record.Get(\"total_c";
+=======
+RDebugUtils.currentLine=5701663;
+ //BA.debugLineNum = 5701663;BA.debugLine="Dim company_id As Int = record.Get(\"company_";
+_company_id = (int)(BA.ObjectToNumber(_record.Get((Object)("company_id"))));
+RDebugUtils.currentLine=5701664;
+ //BA.debugLineNum = 5701664;BA.debugLine="Dim total_count As Int = record.Get(\"total_c";
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 _total_count = (int)(BA.ObjectToNumber(_record.Get((Object)("total_count"))));
-RDebugUtils.currentLine=327713;
- //BA.debugLineNum = 327713;BA.debugLine="Dim total_pos As Int = record.Get(\"totalDevi";
+RDebugUtils.currentLine=5701665;
+ //BA.debugLineNum = 5701665;BA.debugLine="Dim total_pos As Int = record.Get(\"totalDevi";
 _total_pos = (int)(BA.ObjectToNumber(_record.Get((Object)("totalDevices"))));
-RDebugUtils.currentLine=327714;
- //BA.debugLineNum = 327714;BA.debugLine="Dim dashPanel As Panel";
+RDebugUtils.currentLine=5701666;
+ //BA.debugLineNum = 5701666;BA.debugLine="Dim dashPanel As Panel";
 _dashpanel = new anywheresoftware.b4a.objects.PanelWrapper();
-RDebugUtils.currentLine=327715;
- //BA.debugLineNum = 327715;BA.debugLine="dashPanel.Initialize(\"\")";
+RDebugUtils.currentLine=5701667;
+ //BA.debugLineNum = 5701667;BA.debugLine="dashPanel.Initialize(\"\")";
 _dashpanel.Initialize(mostCurrent.activityBA,"");
-RDebugUtils.currentLine=327716;
- //BA.debugLineNum = 327716;BA.debugLine="ScrollView1.Panel.AddView(dashPanel, 5dip, P";
+RDebugUtils.currentLine=5701668;
+ //BA.debugLineNum = 5701668;BA.debugLine="ScrollView1.Panel.AddView(dashPanel, 5dip, P";
 mostCurrent._scrollview1.getPanel().AddView((android.view.View)(_dashpanel.getObject()),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (5)),mostCurrent._panel2.getHeight(),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (200)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (40)));
-RDebugUtils.currentLine=327728;
- //BA.debugLineNum = 327728;BA.debugLine="Dim dashLabel As Label";
+RDebugUtils.currentLine=5701680;
+ //BA.debugLineNum = 5701680;BA.debugLine="Dim dashLabel As Label";
 _dashlabel = new anywheresoftware.b4a.objects.LabelWrapper();
-RDebugUtils.currentLine=327729;
- //BA.debugLineNum = 327729;BA.debugLine="dashLabel.Initialize(\"\")";
+RDebugUtils.currentLine=5701681;
+ //BA.debugLineNum = 5701681;BA.debugLine="dashLabel.Initialize(\"\")";
 _dashlabel.Initialize(mostCurrent.activityBA,"");
-RDebugUtils.currentLine=327730;
- //BA.debugLineNum = 327730;BA.debugLine="dashLabel.Text = \"Dashboard\"";
+RDebugUtils.currentLine=5701682;
+ //BA.debugLineNum = 5701682;BA.debugLine="dashLabel.Text = \"Dashboard\"";
 _dashlabel.setText(BA.ObjectToCharSequence("Dashboard"));
-RDebugUtils.currentLine=327731;
- //BA.debugLineNum = 327731;BA.debugLine="dashLabel.TextColor = Colors.ARGB(50,156,0,0";
+RDebugUtils.currentLine=5701683;
+ //BA.debugLineNum = 5701683;BA.debugLine="dashLabel.TextColor = Colors.ARGB(50,156,0,0";
 _dashlabel.setTextColor(anywheresoftware.b4a.keywords.Common.Colors.ARGB((int) (50),(int) (156),(int) (0),(int) (0)));
-RDebugUtils.currentLine=327732;
- //BA.debugLineNum = 327732;BA.debugLine="dashLabel.Gravity = Gravity.CENTER_VERTICAL";
+RDebugUtils.currentLine=5701684;
+ //BA.debugLineNum = 5701684;BA.debugLine="dashLabel.Gravity = Gravity.CENTER_VERTICAL";
 _dashlabel.setGravity(anywheresoftware.b4a.keywords.Common.Gravity.CENTER_VERTICAL);
-RDebugUtils.currentLine=327733;
- //BA.debugLineNum = 327733;BA.debugLine="dashLabel.Typeface = Typeface.MONOSPACE";
+RDebugUtils.currentLine=5701685;
+ //BA.debugLineNum = 5701685;BA.debugLine="dashLabel.Typeface = Typeface.MONOSPACE";
 _dashlabel.setTypeface(anywheresoftware.b4a.keywords.Common.Typeface.MONOSPACE);
-RDebugUtils.currentLine=327738;
- //BA.debugLineNum = 327738;BA.debugLine="companyPanel.Initialize(\"Panel\")";
+RDebugUtils.currentLine=5701690;
+ //BA.debugLineNum = 5701690;BA.debugLine="companyPanel.Initialize(\"Panel\")";
 mostCurrent._companypanel.Initialize(mostCurrent.activityBA,"Panel");
-RDebugUtils.currentLine=327739;
- //BA.debugLineNum = 327739;BA.debugLine="ScrollView1.Panel.AddView(companyPanel, 5dip";
+RDebugUtils.currentLine=5701691;
+ //BA.debugLineNum = 5701691;BA.debugLine="ScrollView1.Panel.AddView(companyPanel, 5dip";
 mostCurrent._scrollview1.getPanel().AddView((android.view.View)(mostCurrent._companypanel.getObject()),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (5)),_dashpanel.getHeight(),(int) (mostCurrent._activity.getWidth()-anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (10))),_height);
-RDebugUtils.currentLine=327742;
- //BA.debugLineNum = 327742;BA.debugLine="mainPanelWidth = companyPanel.Width / rowNum";
+RDebugUtils.currentLine=5701694;
+ //BA.debugLineNum = 5701694;BA.debugLine="mainPanelWidth = companyPanel.Width / rowNum";
 _mainpanelwidth = (int) (mostCurrent._companypanel.getWidth()/(double)_rownum);
-RDebugUtils.currentLine=327743;
- //BA.debugLineNum = 327743;BA.debugLine="Dim Panel As Panel";
+RDebugUtils.currentLine=5701695;
+ //BA.debugLineNum = 5701695;BA.debugLine="Dim Panel As Panel";
 _panel = new anywheresoftware.b4a.objects.PanelWrapper();
-RDebugUtils.currentLine=327744;
- //BA.debugLineNum = 327744;BA.debugLine="Panel.Initialize(\"\")";
+RDebugUtils.currentLine=5701696;
+ //BA.debugLineNum = 5701696;BA.debugLine="Panel.Initialize(\"\")";
 _panel.Initialize(mostCurrent.activityBA,"");
-RDebugUtils.currentLine=327745;
- //BA.debugLineNum = 327745;BA.debugLine="companyPanel.AddView(Panel, col * (mainPanel";
+RDebugUtils.currentLine=5701697;
+ //BA.debugLineNum = 5701697;BA.debugLine="companyPanel.AddView(Panel, col * (mainPanel";
 mostCurrent._companypanel.AddView((android.view.View)(_panel.getObject()),(int) (_col*(_mainpanelwidth+anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (5)))),(int) (mostCurrent._panel2.getHeight()+(_row*(_panelheight+anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (10))))),(int) (_mainpanelwidth-anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (10))),_panelheight);
-RDebugUtils.currentLine=327747;
- //BA.debugLineNum = 327747;BA.debugLine="Dim PanelTitle As Panel";
+RDebugUtils.currentLine=5701699;
+ //BA.debugLineNum = 5701699;BA.debugLine="Dim PanelTitle As Panel";
 _paneltitle = new anywheresoftware.b4a.objects.PanelWrapper();
-RDebugUtils.currentLine=327748;
- //BA.debugLineNum = 327748;BA.debugLine="PanelTitle.Initialize(\"Panel2\")";
+RDebugUtils.currentLine=5701700;
+ //BA.debugLineNum = 5701700;BA.debugLine="PanelTitle.Initialize(\"Panel2\")";
 _paneltitle.Initialize(mostCurrent.activityBA,"Panel2");
-RDebugUtils.currentLine=327749;
- //BA.debugLineNum = 327749;BA.debugLine="PanelTitle.Color = Colors.Black";
+RDebugUtils.currentLine=5701701;
+ //BA.debugLineNum = 5701701;BA.debugLine="PanelTitle.Color = Colors.Black";
 _paneltitle.setColor(anywheresoftware.b4a.keywords.Common.Colors.Black);
-RDebugUtils.currentLine=327750;
- //BA.debugLineNum = 327750;BA.debugLine="PanelTitle.Tag = name";
+RDebugUtils.currentLine=5701702;
+ //BA.debugLineNum = 5701702;BA.debugLine="PanelTitle.Tag = name";
 _paneltitle.setTag((Object)(_name));
-RDebugUtils.currentLine=327751;
- //BA.debugLineNum = 327751;BA.debugLine="Panel.AddView(PanelTitle, 0, 0, Panel.Width,";
+RDebugUtils.currentLine=5701703;
+ //BA.debugLineNum = 5701703;BA.debugLine="Panel.AddView(PanelTitle, 0, 0, Panel.Width,";
 _panel.AddView((android.view.View)(_paneltitle.getObject()),(int) (0),(int) (0),_panel.getWidth(),(int) (_panelheight-anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (120))));
-RDebugUtils.currentLine=327754;
- //BA.debugLineNum = 327754;BA.debugLine="Dim Label17 As Label";
+RDebugUtils.currentLine=5701706;
+ //BA.debugLineNum = 5701706;BA.debugLine="Dim Label17 As Label";
 _label17 = new anywheresoftware.b4a.objects.LabelWrapper();
-RDebugUtils.currentLine=327755;
- //BA.debugLineNum = 327755;BA.debugLine="Label17.Initialize(\"Label17\")";
+RDebugUtils.currentLine=5701707;
+ //BA.debugLineNum = 5701707;BA.debugLine="Label17.Initialize(\"Label17\")";
 _label17.Initialize(mostCurrent.activityBA,"Label17");
-RDebugUtils.currentLine=327756;
- //BA.debugLineNum = 327756;BA.debugLine="Label17.Text = name.ToUpperCase";
+RDebugUtils.currentLine=5701708;
+ //BA.debugLineNum = 5701708;BA.debugLine="Label17.Text = name.ToUpperCase";
 _label17.setText(BA.ObjectToCharSequence(_name.toUpperCase()));
-RDebugUtils.currentLine=327757;
- //BA.debugLineNum = 327757;BA.debugLine="Label17.Tag = company_id";
+RDebugUtils.currentLine=5701709;
+ //BA.debugLineNum = 5701709;BA.debugLine="Label17.Tag = company_id";
 _label17.setTag((Object)(_company_id));
-RDebugUtils.currentLine=327758;
- //BA.debugLineNum = 327758;BA.debugLine="Label17.TextSize = 18";
+RDebugUtils.currentLine=5701710;
+ //BA.debugLineNum = 5701710;BA.debugLine="Label17.TextSize = 18";
 _label17.setTextSize((float) (18));
-RDebugUtils.currentLine=327759;
- //BA.debugLineNum = 327759;BA.debugLine="Label17.TextColor = Colors.White";
+RDebugUtils.currentLine=5701711;
+ //BA.debugLineNum = 5701711;BA.debugLine="Label17.TextColor = Colors.White";
 _label17.setTextColor(anywheresoftware.b4a.keywords.Common.Colors.White);
-RDebugUtils.currentLine=327760;
- //BA.debugLineNum = 327760;BA.debugLine="Label17.Gravity = Gravity.CENTER_VERTICAL";
+RDebugUtils.currentLine=5701712;
+ //BA.debugLineNum = 5701712;BA.debugLine="Label17.Gravity = Gravity.CENTER_VERTICAL";
 _label17.setGravity(anywheresoftware.b4a.keywords.Common.Gravity.CENTER_VERTICAL);
-RDebugUtils.currentLine=327761;
- //BA.debugLineNum = 327761;BA.debugLine="Label17.Typeface = Typeface.MONOSPACE";
+RDebugUtils.currentLine=5701713;
+ //BA.debugLineNum = 5701713;BA.debugLine="Label17.Typeface = Typeface.MONOSPACE";
 _label17.setTypeface(anywheresoftware.b4a.keywords.Common.Typeface.MONOSPACE);
-RDebugUtils.currentLine=327762;
- //BA.debugLineNum = 327762;BA.debugLine="PanelTitle.AddView(Label17, 5dip, 0dip, Pane";
+RDebugUtils.currentLine=5701714;
+ //BA.debugLineNum = 5701714;BA.debugLine="PanelTitle.AddView(Label17, 5dip, 0dip, Pane";
 _paneltitle.AddView((android.view.View)(_label17.getObject()),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (5)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (0)),_paneltitle.getWidth(),_paneltitle.getHeight());
-RDebugUtils.currentLine=327778;
- //BA.debugLineNum = 327778;BA.debugLine="Dim panelWidth As Int = Panel.Width /3";
+RDebugUtils.currentLine=5701730;
+ //BA.debugLineNum = 5701730;BA.debugLine="Dim panelWidth As Int = Panel.Width /3";
 _panelwidth = (int) (_panel.getWidth()/(double)3);
-RDebugUtils.currentLine=327779;
- //BA.debugLineNum = 327779;BA.debugLine="Dim padding As Int = 10dip";
+RDebugUtils.currentLine=5701731;
+ //BA.debugLineNum = 5701731;BA.debugLine="Dim padding As Int = 10dip";
 _padding = anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (10));
-RDebugUtils.currentLine=327780;
- //BA.debugLineNum = 327780;BA.debugLine="Dim labelheight As Int = panelHeight - Panel";
+RDebugUtils.currentLine=5701732;
+ //BA.debugLineNum = 5701732;BA.debugLine="Dim labelheight As Int = panelHeight - Panel";
 _labelheight = (int) (_panelheight-_paneltitle.getHeight());
-RDebugUtils.currentLine=327781;
- //BA.debugLineNum = 327781;BA.debugLine="panelWidth = Panel.Width /2";
+RDebugUtils.currentLine=5701733;
+ //BA.debugLineNum = 5701733;BA.debugLine="panelWidth = Panel.Width /2";
 _panelwidth = (int) (_panel.getWidth()/(double)2);
-RDebugUtils.currentLine=327783;
- //BA.debugLineNum = 327783;BA.debugLine="Dim totalStore As Label";
+RDebugUtils.currentLine=5701735;
+ //BA.debugLineNum = 5701735;BA.debugLine="Dim totalStore As Label";
 _totalstore = new anywheresoftware.b4a.objects.LabelWrapper();
-RDebugUtils.currentLine=327784;
- //BA.debugLineNum = 327784;BA.debugLine="totalStore.Initialize(\"\")";
+RDebugUtils.currentLine=5701736;
+ //BA.debugLineNum = 5701736;BA.debugLine="totalStore.Initialize(\"\")";
 _totalstore.Initialize(mostCurrent.activityBA,"");
-RDebugUtils.currentLine=327785;
- //BA.debugLineNum = 327785;BA.debugLine="totalStore.Text = total_count";
+RDebugUtils.currentLine=5701737;
+ //BA.debugLineNum = 5701737;BA.debugLine="totalStore.Text = total_count";
 _totalstore.setText(BA.ObjectToCharSequence(_total_count));
-RDebugUtils.currentLine=327786;
- //BA.debugLineNum = 327786;BA.debugLine="totalStore.TextColor = Colors.Black";
+RDebugUtils.currentLine=5701738;
+ //BA.debugLineNum = 5701738;BA.debugLine="totalStore.TextColor = Colors.Black";
 _totalstore.setTextColor(anywheresoftware.b4a.keywords.Common.Colors.Black);
-RDebugUtils.currentLine=327787;
- //BA.debugLineNum = 327787;BA.debugLine="totalStore.TextSize = primaryFontSize";
+RDebugUtils.currentLine=5701739;
+ //BA.debugLineNum = 5701739;BA.debugLine="totalStore.TextSize = primaryFontSize";
 _totalstore.setTextSize((float) (_primaryfontsize));
-RDebugUtils.currentLine=327788;
- //BA.debugLineNum = 327788;BA.debugLine="totalStore.Gravity = Gravity.CENTER";
+RDebugUtils.currentLine=5701740;
+ //BA.debugLineNum = 5701740;BA.debugLine="totalStore.Gravity = Gravity.CENTER";
 _totalstore.setGravity(anywheresoftware.b4a.keywords.Common.Gravity.CENTER);
-RDebugUtils.currentLine=327789;
- //BA.debugLineNum = 327789;BA.debugLine="totalStore.Typeface = Typeface.SERIF";
+RDebugUtils.currentLine=5701741;
+ //BA.debugLineNum = 5701741;BA.debugLine="totalStore.Typeface = Typeface.SERIF";
 _totalstore.setTypeface(anywheresoftware.b4a.keywords.Common.Typeface.SERIF);
-RDebugUtils.currentLine=327790;
- //BA.debugLineNum = 327790;BA.debugLine="Panel.AddView(totalStore,0,PanelTitle.Height";
+RDebugUtils.currentLine=5701742;
+ //BA.debugLineNum = 5701742;BA.debugLine="Panel.AddView(totalStore,0,PanelTitle.Height";
 _panel.AddView((android.view.View)(_totalstore.getObject()),(int) (0),_paneltitle.getHeight(),_panelwidth,(int) (_labelheight-anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (30))));
-RDebugUtils.currentLine=327791;
- //BA.debugLineNum = 327791;BA.debugLine="AdjustFontSizeToHeight(totalStore,1.3)";
+RDebugUtils.currentLine=5701743;
+ //BA.debugLineNum = 5701743;BA.debugLine="AdjustFontSizeToHeight(totalStore,1.3)";
 _adjustfontsizetoheight(_totalstore,(float) (1.3));
-RDebugUtils.currentLine=327793;
- //BA.debugLineNum = 327793;BA.debugLine="Dim totalStoreLabel As Label";
+RDebugUtils.currentLine=5701745;
+ //BA.debugLineNum = 5701745;BA.debugLine="Dim totalStoreLabel As Label";
 _totalstorelabel = new anywheresoftware.b4a.objects.LabelWrapper();
-RDebugUtils.currentLine=327794;
- //BA.debugLineNum = 327794;BA.debugLine="totalStoreLabel.Initialize(\"\")";
+RDebugUtils.currentLine=5701746;
+ //BA.debugLineNum = 5701746;BA.debugLine="totalStoreLabel.Initialize(\"\")";
 _totalstorelabel.Initialize(mostCurrent.activityBA,"");
-RDebugUtils.currentLine=327795;
- //BA.debugLineNum = 327795;BA.debugLine="totalStoreLabel.Text = \" Total Store\"";
+RDebugUtils.currentLine=5701747;
+ //BA.debugLineNum = 5701747;BA.debugLine="totalStoreLabel.Text = \" Total Store\"";
 _totalstorelabel.setText(BA.ObjectToCharSequence(" Total Store"));
-RDebugUtils.currentLine=327796;
- //BA.debugLineNum = 327796;BA.debugLine="totalStoreLabel.TextColor = Colors.Gray";
+RDebugUtils.currentLine=5701748;
+ //BA.debugLineNum = 5701748;BA.debugLine="totalStoreLabel.TextColor = Colors.Gray";
 _totalstorelabel.setTextColor(anywheresoftware.b4a.keywords.Common.Colors.Gray);
-RDebugUtils.currentLine=327797;
- //BA.debugLineNum = 327797;BA.debugLine="totalStoreLabel.TextSize = secondaryFontSize";
+RDebugUtils.currentLine=5701749;
+ //BA.debugLineNum = 5701749;BA.debugLine="totalStoreLabel.TextSize = secondaryFontSize";
 _totalstorelabel.setTextSize((float) (_secondaryfontsize));
-RDebugUtils.currentLine=327798;
- //BA.debugLineNum = 327798;BA.debugLine="totalStoreLabel.Gravity = Gravity.CENTER";
+RDebugUtils.currentLine=5701750;
+ //BA.debugLineNum = 5701750;BA.debugLine="totalStoreLabel.Gravity = Gravity.CENTER";
 _totalstorelabel.setGravity(anywheresoftware.b4a.keywords.Common.Gravity.CENTER);
-RDebugUtils.currentLine=327799;
- //BA.debugLineNum = 327799;BA.debugLine="totalStoreLabel.Typeface = Typeface.MONOSPAC";
+RDebugUtils.currentLine=5701751;
+ //BA.debugLineNum = 5701751;BA.debugLine="totalStoreLabel.Typeface = Typeface.MONOSPAC";
 _totalstorelabel.setTypeface(anywheresoftware.b4a.keywords.Common.Typeface.MONOSPACE);
-RDebugUtils.currentLine=327800;
- //BA.debugLineNum = 327800;BA.debugLine="totalStoreLabel.Text = totalStoreLabel.Text.";
+RDebugUtils.currentLine=5701752;
+ //BA.debugLineNum = 5701752;BA.debugLine="totalStoreLabel.Text = totalStoreLabel.Text.";
 _totalstorelabel.setText(BA.ObjectToCharSequence(_totalstorelabel.getText().toUpperCase()));
-RDebugUtils.currentLine=327801;
- //BA.debugLineNum = 327801;BA.debugLine="Panel.AddView(totalStoreLabel,0,totalStore.t";
+RDebugUtils.currentLine=5701753;
+ //BA.debugLineNum = 5701753;BA.debugLine="Panel.AddView(totalStoreLabel,0,totalStore.t";
 _panel.AddView((android.view.View)(_totalstorelabel.getObject()),(int) (0),(int) (_totalstore.getTop()+_padding+anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (20))),_panelwidth,_labelheight);
-RDebugUtils.currentLine=327803;
- //BA.debugLineNum = 327803;BA.debugLine="Dim totalPos As Label";
+RDebugUtils.currentLine=5701755;
+ //BA.debugLineNum = 5701755;BA.debugLine="Dim totalPos As Label";
 _totalpos = new anywheresoftware.b4a.objects.LabelWrapper();
-RDebugUtils.currentLine=327804;
- //BA.debugLineNum = 327804;BA.debugLine="totalPos.Initialize(\"\")";
+RDebugUtils.currentLine=5701756;
+ //BA.debugLineNum = 5701756;BA.debugLine="totalPos.Initialize(\"\")";
 _totalpos.Initialize(mostCurrent.activityBA,"");
-RDebugUtils.currentLine=327805;
- //BA.debugLineNum = 327805;BA.debugLine="totalPos.Text = total_pos";
+RDebugUtils.currentLine=5701757;
+ //BA.debugLineNum = 5701757;BA.debugLine="totalPos.Text = total_pos";
 _totalpos.setText(BA.ObjectToCharSequence(_total_pos));
-RDebugUtils.currentLine=327806;
- //BA.debugLineNum = 327806;BA.debugLine="totalPos.TextColor = Colors.Black";
+RDebugUtils.currentLine=5701758;
+ //BA.debugLineNum = 5701758;BA.debugLine="totalPos.TextColor = Colors.Black";
 _totalpos.setTextColor(anywheresoftware.b4a.keywords.Common.Colors.Black);
-RDebugUtils.currentLine=327807;
- //BA.debugLineNum = 327807;BA.debugLine="totalPos.TextSize = primaryFontSize";
+RDebugUtils.currentLine=5701759;
+ //BA.debugLineNum = 5701759;BA.debugLine="totalPos.TextSize = primaryFontSize";
 _totalpos.setTextSize((float) (_primaryfontsize));
-RDebugUtils.currentLine=327808;
- //BA.debugLineNum = 327808;BA.debugLine="totalPos.Gravity = Gravity.CENTER";
+RDebugUtils.currentLine=5701760;
+ //BA.debugLineNum = 5701760;BA.debugLine="totalPos.Gravity = Gravity.CENTER";
 _totalpos.setGravity(anywheresoftware.b4a.keywords.Common.Gravity.CENTER);
-RDebugUtils.currentLine=327809;
- //BA.debugLineNum = 327809;BA.debugLine="totalPos.Typeface = Typeface.SERIF";
+RDebugUtils.currentLine=5701761;
+ //BA.debugLineNum = 5701761;BA.debugLine="totalPos.Typeface = Typeface.SERIF";
 _totalpos.setTypeface(anywheresoftware.b4a.keywords.Common.Typeface.SERIF);
+<<<<<<< HEAD
 RDebugUtils.currentLine=327810;
  //BA.debugLineNum = 327810;BA.debugLine="Panel.AddView(totalPos,panelWidth,PanelTitle.";
+=======
+RDebugUtils.currentLine=5701762;
+ //BA.debugLineNum = 5701762;BA.debugLine="Panel.AddView(totalPos,panelWidth,PanelTitle";
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 _panel.AddView((android.view.View)(_totalpos.getObject()),_panelwidth,_paneltitle.getHeight(),_panelwidth,(int) (_labelheight-anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (30))));
-RDebugUtils.currentLine=327811;
- //BA.debugLineNum = 327811;BA.debugLine="AdjustFontSizeToHeight(totalPos,1.3)";
+RDebugUtils.currentLine=5701763;
+ //BA.debugLineNum = 5701763;BA.debugLine="AdjustFontSizeToHeight(totalPos,1.3)";
 _adjustfontsizetoheight(_totalpos,(float) (1.3));
-RDebugUtils.currentLine=327813;
- //BA.debugLineNum = 327813;BA.debugLine="Dim totalPosLabel As Label";
+RDebugUtils.currentLine=5701765;
+ //BA.debugLineNum = 5701765;BA.debugLine="Dim totalPosLabel As Label";
 _totalposlabel = new anywheresoftware.b4a.objects.LabelWrapper();
-RDebugUtils.currentLine=327814;
- //BA.debugLineNum = 327814;BA.debugLine="totalPosLabel.Initialize(\"\")";
+RDebugUtils.currentLine=5701766;
+ //BA.debugLineNum = 5701766;BA.debugLine="totalPosLabel.Initialize(\"\")";
 _totalposlabel.Initialize(mostCurrent.activityBA,"");
-RDebugUtils.currentLine=327815;
- //BA.debugLineNum = 327815;BA.debugLine="totalPosLabel.Text = \" Total Pos\"";
+RDebugUtils.currentLine=5701767;
+ //BA.debugLineNum = 5701767;BA.debugLine="totalPosLabel.Text = \" Total Pos\"";
 _totalposlabel.setText(BA.ObjectToCharSequence(" Total Pos"));
-RDebugUtils.currentLine=327816;
- //BA.debugLineNum = 327816;BA.debugLine="totalPosLabel.TextColor = Colors.Gray";
+RDebugUtils.currentLine=5701768;
+ //BA.debugLineNum = 5701768;BA.debugLine="totalPosLabel.TextColor = Colors.Gray";
 _totalposlabel.setTextColor(anywheresoftware.b4a.keywords.Common.Colors.Gray);
-RDebugUtils.currentLine=327817;
- //BA.debugLineNum = 327817;BA.debugLine="totalPosLabel.TextSize = secondaryFontSize";
+RDebugUtils.currentLine=5701769;
+ //BA.debugLineNum = 5701769;BA.debugLine="totalPosLabel.TextSize = secondaryFontSize";
 _totalposlabel.setTextSize((float) (_secondaryfontsize));
-RDebugUtils.currentLine=327818;
- //BA.debugLineNum = 327818;BA.debugLine="totalPosLabel.Gravity = Gravity.CENTER";
+RDebugUtils.currentLine=5701770;
+ //BA.debugLineNum = 5701770;BA.debugLine="totalPosLabel.Gravity = Gravity.CENTER";
 _totalposlabel.setGravity(anywheresoftware.b4a.keywords.Common.Gravity.CENTER);
-RDebugUtils.currentLine=327819;
- //BA.debugLineNum = 327819;BA.debugLine="totalPosLabel.Typeface = Typeface.MONOSPACE";
+RDebugUtils.currentLine=5701771;
+ //BA.debugLineNum = 5701771;BA.debugLine="totalPosLabel.Typeface = Typeface.MONOSPACE";
 _totalposlabel.setTypeface(anywheresoftware.b4a.keywords.Common.Typeface.MONOSPACE);
-RDebugUtils.currentLine=327820;
- //BA.debugLineNum = 327820;BA.debugLine="totalPosLabel.Text = totalPosLabel.Text.ToUp";
+RDebugUtils.currentLine=5701772;
+ //BA.debugLineNum = 5701772;BA.debugLine="totalPosLabel.Text = totalPosLabel.Text.ToUp";
 _totalposlabel.setText(BA.ObjectToCharSequence(_totalposlabel.getText().toUpperCase()));
-RDebugUtils.currentLine=327821;
- //BA.debugLineNum = 327821;BA.debugLine="Panel.AddView(totalPosLabel,panelWidth,total";
+RDebugUtils.currentLine=5701773;
+ //BA.debugLineNum = 5701773;BA.debugLine="Panel.AddView(totalPosLabel,panelWidth,total";
 _panel.AddView((android.view.View)(_totalposlabel.getObject()),_panelwidth,(int) (_totalpos.getTop()+_padding+anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (20))),_panelwidth,_labelheight);
-RDebugUtils.currentLine=327824;
- //BA.debugLineNum = 327824;BA.debugLine="Dim cd As ColorDrawable";
+RDebugUtils.currentLine=5701776;
+ //BA.debugLineNum = 5701776;BA.debugLine="Dim cd As ColorDrawable";
 _cd = new anywheresoftware.b4a.objects.drawable.ColorDrawable();
-RDebugUtils.currentLine=327825;
- //BA.debugLineNum = 327825;BA.debugLine="cd.Initialize2(Colors.White, 0dip, 0dip, Col";
+RDebugUtils.currentLine=5701777;
+ //BA.debugLineNum = 5701777;BA.debugLine="cd.Initialize2(Colors.White, 0dip, 0dip, Col";
 _cd.Initialize2(anywheresoftware.b4a.keywords.Common.Colors.White,anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (0)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (0)),anywheresoftware.b4a.keywords.Common.Colors.Black);
-RDebugUtils.currentLine=327826;
- //BA.debugLineNum = 327826;BA.debugLine="Panel.Background = cd";
+RDebugUtils.currentLine=5701778;
+ //BA.debugLineNum = 5701778;BA.debugLine="Panel.Background = cd";
 _panel.setBackground((android.graphics.drawable.Drawable)(_cd.getObject()));
-RDebugUtils.currentLine=327827;
- //BA.debugLineNum = 327827;BA.debugLine="count = count + 1";
+RDebugUtils.currentLine=5701779;
+ //BA.debugLineNum = 5701779;BA.debugLine="count = count + 1";
 _count = (int) (_count+1);
  }
 };
-RDebugUtils.currentLine=327830;
- //BA.debugLineNum = 327830;BA.debugLine="totalGetDataHeight = Panel2.Height+companyPan";
+RDebugUtils.currentLine=5701782;
+ //BA.debugLineNum = 5701782;BA.debugLine="totalGetDataHeight = Panel2.Height+companyPan";
 _totalgetdataheight = (int) (mostCurrent._panel2.getHeight()+mostCurrent._companypanel.getHeight());
  break; }
 case 1: {
-RDebugUtils.currentLine=327832;
- //BA.debugLineNum = 327832;BA.debugLine="Dim salesArray As List = parser.NextArray";
+RDebugUtils.currentLine=5701784;
+ //BA.debugLineNum = 5701784;BA.debugLine="Dim salesArray As List = parser.NextArray";
 _salesarray = new anywheresoftware.b4a.objects.collections.List();
 _salesarray = _parser.NextArray();
-RDebugUtils.currentLine=327836;
- //BA.debugLineNum = 327836;BA.debugLine="If salesArray.Size = 0 Then";
+RDebugUtils.currentLine=5701788;
+ //BA.debugLineNum = 5701788;BA.debugLine="If salesArray.Size = 0 Then";
 if (_salesarray.getSize()==0) { 
-RDebugUtils.currentLine=327837;
- //BA.debugLineNum = 327837;BA.debugLine="ToastMessageShow(\"No data received\", True)";
+RDebugUtils.currentLine=5701789;
+ //BA.debugLineNum = 5701789;BA.debugLine="ToastMessageShow(\"No data received\", True)";
 anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("No data received"),anywheresoftware.b4a.keywords.Common.True);
-RDebugUtils.currentLine=327838;
- //BA.debugLineNum = 327838;BA.debugLine="Return";
+RDebugUtils.currentLine=5701790;
+ //BA.debugLineNum = 5701790;BA.debugLine="Return";
 if (true) return "";
  };
-RDebugUtils.currentLine=327841;
- //BA.debugLineNum = 327841;BA.debugLine="Dim totalCompanies As Int = salesArray.Size";
+RDebugUtils.currentLine=5701793;
+ //BA.debugLineNum = 5701793;BA.debugLine="Dim totalCompanies As Int = salesArray.Size";
 _totalcompanies = _salesarray.getSize();
-RDebugUtils.currentLine=327842;
- //BA.debugLineNum = 327842;BA.debugLine="Dim sales(totalCompanies) As Int";
+RDebugUtils.currentLine=5701794;
+ //BA.debugLineNum = 5701794;BA.debugLine="Dim sales(totalCompanies) As Int";
 _sales = new int[_totalcompanies];
 ;
-RDebugUtils.currentLine=327843;
- //BA.debugLineNum = 327843;BA.debugLine="Dim comId(totalCompanies) As Int";
+RDebugUtils.currentLine=5701795;
+ //BA.debugLineNum = 5701795;BA.debugLine="Dim comId(totalCompanies) As Int";
 _comid = new int[_totalcompanies];
 ;
-RDebugUtils.currentLine=327844;
- //BA.debugLineNum = 327844;BA.debugLine="Dim sales1(totalCompanies) As Int";
+RDebugUtils.currentLine=5701796;
+ //BA.debugLineNum = 5701796;BA.debugLine="Dim sales1(totalCompanies) As Int";
 _sales1 = new int[_totalcompanies];
 ;
-RDebugUtils.currentLine=327845;
- //BA.debugLineNum = 327845;BA.debugLine="Dim sales2(totalCompanies) As Int";
+RDebugUtils.currentLine=5701797;
+ //BA.debugLineNum = 5701797;BA.debugLine="Dim sales2(totalCompanies) As Int";
 _sales2 = new int[_totalcompanies];
 ;
-RDebugUtils.currentLine=327846;
- //BA.debugLineNum = 327846;BA.debugLine="Dim purchase(totalCompanies) As Int";
+RDebugUtils.currentLine=5701798;
+ //BA.debugLineNum = 5701798;BA.debugLine="Dim purchase(totalCompanies) As Int";
 _purchase = new int[_totalcompanies];
 ;
-RDebugUtils.currentLine=327847;
- //BA.debugLineNum = 327847;BA.debugLine="Dim purchase1(totalCompanies) As Int";
+RDebugUtils.currentLine=5701799;
+ //BA.debugLineNum = 5701799;BA.debugLine="Dim purchase1(totalCompanies) As Int";
 _purchase1 = new int[_totalcompanies];
 ;
-RDebugUtils.currentLine=327848;
- //BA.debugLineNum = 327848;BA.debugLine="Dim purchase2(totalCompanies) As Int";
+RDebugUtils.currentLine=5701800;
+ //BA.debugLineNum = 5701800;BA.debugLine="Dim purchase2(totalCompanies) As Int";
 _purchase2 = new int[_totalcompanies];
 ;
-RDebugUtils.currentLine=327849;
- //BA.debugLineNum = 327849;BA.debugLine="Dim companyName(totalCompanies) As String";
+RDebugUtils.currentLine=5701801;
+ //BA.debugLineNum = 5701801;BA.debugLine="Dim companyName(totalCompanies) As String";
 _companyname = new String[_totalcompanies];
 java.util.Arrays.fill(_companyname,"");
-RDebugUtils.currentLine=327850;
- //BA.debugLineNum = 327850;BA.debugLine="Dim max_value(totalCompanies) As Int";
+RDebugUtils.currentLine=5701802;
+ //BA.debugLineNum = 5701802;BA.debugLine="Dim max_value(totalCompanies) As Int";
 _max_value = new int[_totalcompanies];
 ;
-RDebugUtils.currentLine=327851;
- //BA.debugLineNum = 327851;BA.debugLine="Dim maxSale As Int=0";
+RDebugUtils.currentLine=5701803;
+ //BA.debugLineNum = 5701803;BA.debugLine="Dim maxSale As Int=0";
 _maxsale = (int) (0);
-RDebugUtils.currentLine=327853;
- //BA.debugLineNum = 327853;BA.debugLine="For i = 0 To totalCompanies - 1";
+RDebugUtils.currentLine=5701805;
+ //BA.debugLineNum = 5701805;BA.debugLine="For i = 0 To totalCompanies - 1";
 {
 final int step122 = 1;
 final int limit122 = (int) (_totalcompanies-1);
 _i = (int) (0) ;
 for (;_i <= limit122 ;_i = _i + step122 ) {
-RDebugUtils.currentLine=327854;
- //BA.debugLineNum = 327854;BA.debugLine="Dim record As Map = salesArray.Get(i)";
+RDebugUtils.currentLine=5701806;
+ //BA.debugLineNum = 5701806;BA.debugLine="Dim record As Map = salesArray.Get(i)";
 _record = new anywheresoftware.b4a.objects.collections.Map();
 _record = (anywheresoftware.b4a.objects.collections.Map) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.collections.Map(), (java.util.Map)(_salesarray.Get(_i)));
-RDebugUtils.currentLine=327855;
- //BA.debugLineNum = 327855;BA.debugLine="companyName(i) = record.GetDefault(\"company_";
+RDebugUtils.currentLine=5701807;
+ //BA.debugLineNum = 5701807;BA.debugLine="companyName(i) = record.GetDefault(\"company_";
 _companyname[_i] = BA.ObjectToString(_record.GetDefault((Object)("company_name"),(Object)("Unknown")));
+<<<<<<< HEAD
 RDebugUtils.currentLine=327856;
  //BA.debugLineNum = 327856;BA.debugLine="comId(i) = record.GetDefault(\"company_id\", 0";
 _comid[_i] = (int)(BA.ObjectToNumber(_record.GetDefault((Object)("company_id"),(Object)(0))));
 RDebugUtils.currentLine=327857;
  //BA.debugLineNum = 327857;BA.debugLine="sales(i) = record.GetDefault(\"sales_1\", 0)";
+=======
+RDebugUtils.currentLine=5701808;
+ //BA.debugLineNum = 5701808;BA.debugLine="comId(i) = record.GetDefault(\"comId\", 0)";
+_comid[_i] = (int)(BA.ObjectToNumber(_record.GetDefault((Object)("comId"),(Object)(0))));
+RDebugUtils.currentLine=5701809;
+ //BA.debugLineNum = 5701809;BA.debugLine="sales(i) = record.GetDefault(\"sales_1\", 0)";
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 _sales[_i] = (int)(BA.ObjectToNumber(_record.GetDefault((Object)("sales_1"),(Object)(0))));
-RDebugUtils.currentLine=327858;
- //BA.debugLineNum = 327858;BA.debugLine="sales1(i) = record.GetDefault(\"sales_2\", 0)";
+RDebugUtils.currentLine=5701810;
+ //BA.debugLineNum = 5701810;BA.debugLine="sales1(i) = record.GetDefault(\"sales_2\", 0)";
 _sales1[_i] = (int)(BA.ObjectToNumber(_record.GetDefault((Object)("sales_2"),(Object)(0))));
-RDebugUtils.currentLine=327859;
- //BA.debugLineNum = 327859;BA.debugLine="sales2(i) = record.GetDefault(\"sales_3\", 0)";
+RDebugUtils.currentLine=5701811;
+ //BA.debugLineNum = 5701811;BA.debugLine="sales2(i) = record.GetDefault(\"sales_3\", 0)";
 _sales2[_i] = (int)(BA.ObjectToNumber(_record.GetDefault((Object)("sales_3"),(Object)(0))));
-RDebugUtils.currentLine=327860;
- //BA.debugLineNum = 327860;BA.debugLine="purchase(i) = record.GetDefault(\"purchase_1\"";
+RDebugUtils.currentLine=5701812;
+ //BA.debugLineNum = 5701812;BA.debugLine="purchase(i) = record.GetDefault(\"purchase_1\"";
 _purchase[_i] = (int)(BA.ObjectToNumber(_record.GetDefault((Object)("purchase_1"),(Object)(0))));
-RDebugUtils.currentLine=327861;
- //BA.debugLineNum = 327861;BA.debugLine="purchase1(i) = record.GetDefault(\"purchase_2";
+RDebugUtils.currentLine=5701813;
+ //BA.debugLineNum = 5701813;BA.debugLine="purchase1(i) = record.GetDefault(\"purchase_2";
 _purchase1[_i] = (int)(BA.ObjectToNumber(_record.GetDefault((Object)("purchase_2"),(Object)(0))));
-RDebugUtils.currentLine=327862;
- //BA.debugLineNum = 327862;BA.debugLine="purchase2(i) = record.GetDefault(\"purchase_\"";
-_purchase2[_i] = (int)(BA.ObjectToNumber(_record.GetDefault((Object)("purchase_"),(Object)(0))));
-RDebugUtils.currentLine=327863;
- //BA.debugLineNum = 327863;BA.debugLine="max_value(i) = record.GetDefault(\"max_value\"";
-_max_value[_i] = (int)(BA.ObjectToNumber(_record.GetDefault((Object)("max_value"),(Object)(0))));
-RDebugUtils.currentLine=327864;
- //BA.debugLineNum = 327864;BA.debugLine="maxSale = Max(maxSale, max_value(i))";
+RDebugUtils.currentLine=5701814;
+ //BA.debugLineNum = 5701814;BA.debugLine="purchase2(i) = record.GetDefault(\"purchase_3";
+_purchase2[_i] = (int)(BA.ObjectToNumber(_record.GetDefault((Object)("purchase_3"),(Object)(0))));
+RDebugUtils.currentLine=5701815;
+ //BA.debugLineNum = 5701815;BA.debugLine="max_value(i) = record.GetDefault(\"max_sales\"";
+_max_value[_i] = (int)(BA.ObjectToNumber(_record.GetDefault((Object)("max_sales"),(Object)(0))));
+RDebugUtils.currentLine=5701816;
+ //BA.debugLineNum = 5701816;BA.debugLine="maxSale = Max(maxSale, max_value(i))";
 _maxsale = (int) (anywheresoftware.b4a.keywords.Common.Max(_maxsale,_max_value[_i]));
+<<<<<<< HEAD
 RDebugUtils.currentLine=327865;
  //BA.debugLineNum = 327865;BA.debugLine="Log(companyName(i) & sales(i))";
 anywheresoftware.b4a.keywords.Common.LogImpl("6327865",_companyname[_i]+BA.NumberToString(_sales[_i]),0);
+=======
+RDebugUtils.currentLine=5701817;
+ //BA.debugLineNum = 5701817;BA.debugLine="Log(companyName(i) & sales(i))";
+anywheresoftware.b4a.keywords.Common.LogImpl("05701817",_companyname[_i]+BA.NumberToString(_sales[_i]),0);
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
  }
 };
-RDebugUtils.currentLine=327868;
- //BA.debugLineNum = 327868;BA.debugLine="Activity.Initialize(\"\")";
+RDebugUtils.currentLine=5701820;
+ //BA.debugLineNum = 5701820;BA.debugLine="Activity.Initialize(\"\")";
 mostCurrent._activity.Initialize(mostCurrent.activityBA,"");
-RDebugUtils.currentLine=327870;
- //BA.debugLineNum = 327870;BA.debugLine="Dim legend() As String = Array As String(\"Sal";
+RDebugUtils.currentLine=5701822;
+ //BA.debugLineNum = 5701822;BA.debugLine="Dim legend() As String = Array As String(\"Sal";
 mostCurrent._legend = new String[]{"Sales1","Sales2","Sales3"};
-RDebugUtils.currentLine=327872;
- //BA.debugLineNum = 327872;BA.debugLine="If barGraphInitialized = False Then";
+RDebugUtils.currentLine=5701824;
+ //BA.debugLineNum = 5701824;BA.debugLine="If barGraphInitialized = False Then";
 if (_bargraphinitialized==anywheresoftware.b4a.keywords.Common.False) { 
-RDebugUtils.currentLine=327873;
- //BA.debugLineNum = 327873;BA.debugLine="saleNxtBtn.Initialize(\"nxtBtn\")";
+RDebugUtils.currentLine=5701825;
+ //BA.debugLineNum = 5701825;BA.debugLine="saleNxtBtn.Initialize(\"nxtBtn\")";
 mostCurrent._salenxtbtn.Initialize(mostCurrent.activityBA,"nxtBtn");
-RDebugUtils.currentLine=327874;
- //BA.debugLineNum = 327874;BA.debugLine="saleBackBtn.Initialize(\"backbtn\")";
+RDebugUtils.currentLine=5701826;
+ //BA.debugLineNum = 5701826;BA.debugLine="saleBackBtn.Initialize(\"backbtn\")";
 mostCurrent._salebackbtn.Initialize(mostCurrent.activityBA,"backbtn");
-RDebugUtils.currentLine=327875;
- //BA.debugLineNum = 327875;BA.debugLine="sortBtn1.Initialize(\"sortBtn1\")";
+RDebugUtils.currentLine=5701827;
+ //BA.debugLineNum = 5701827;BA.debugLine="sortBtn1.Initialize(\"sortBtn1\")";
 mostCurrent._sortbtn1.Initialize(mostCurrent.activityBA,"sortBtn1");
-RDebugUtils.currentLine=327876;
- //BA.debugLineNum = 327876;BA.debugLine="sortBtn2.Initialize(\"sortBtn2\")";
+RDebugUtils.currentLine=5701828;
+ //BA.debugLineNum = 5701828;BA.debugLine="sortBtn2.Initialize(\"sortBtn2\")";
 mostCurrent._sortbtn2.Initialize(mostCurrent.activityBA,"sortBtn2");
-RDebugUtils.currentLine=327877;
- //BA.debugLineNum = 327877;BA.debugLine="defBtn.Initialize(\"defBtn\")";
+RDebugUtils.currentLine=5701829;
+ //BA.debugLineNum = 5701829;BA.debugLine="defBtn.Initialize(\"defBtn\")";
 mostCurrent._defbtn.Initialize(mostCurrent.activityBA,"defBtn");
-RDebugUtils.currentLine=327878;
- //BA.debugLineNum = 327878;BA.debugLine="sales1btn.Initialize(\"sales1btn\")";
+RDebugUtils.currentLine=5701830;
+ //BA.debugLineNum = 5701830;BA.debugLine="sales1btn.Initialize(\"sales1btn\")";
 mostCurrent._sales1btn.Initialize(mostCurrent.activityBA,"sales1btn");
-RDebugUtils.currentLine=327879;
- //BA.debugLineNum = 327879;BA.debugLine="sales2btn.Initialize(\"sales2btn\")";
+RDebugUtils.currentLine=5701831;
+ //BA.debugLineNum = 5701831;BA.debugLine="sales2btn.Initialize(\"sales2btn\")";
 mostCurrent._sales2btn.Initialize(mostCurrent.activityBA,"sales2btn");
-RDebugUtils.currentLine=327880;
- //BA.debugLineNum = 327880;BA.debugLine="sales3btn.Initialize(\"sales3btn\")";
+RDebugUtils.currentLine=5701832;
+ //BA.debugLineNum = 5701832;BA.debugLine="sales3btn.Initialize(\"sales3btn\")";
 mostCurrent._sales3btn.Initialize(mostCurrent.activityBA,"sales3btn");
-RDebugUtils.currentLine=327881;
- //BA.debugLineNum = 327881;BA.debugLine="Dim totalSalePanel As Panel";
+RDebugUtils.currentLine=5701833;
+ //BA.debugLineNum = 5701833;BA.debugLine="Dim totalSalePanel As Panel";
 _totalsalepanel = new anywheresoftware.b4a.objects.PanelWrapper();
-RDebugUtils.currentLine=327882;
- //BA.debugLineNum = 327882;BA.debugLine="totalSalePanel.Initialize(\"\")";
+RDebugUtils.currentLine=5701834;
+ //BA.debugLineNum = 5701834;BA.debugLine="totalSalePanel.Initialize(\"\")";
 _totalsalepanel.Initialize(mostCurrent.activityBA,"");
+<<<<<<< HEAD
 RDebugUtils.currentLine=327883;
  //BA.debugLineNum = 327883;BA.debugLine="ScrollView1.Panel.AddView(totalSalePanel,5di";
+=======
+RDebugUtils.currentLine=5701835;
+ //BA.debugLineNum = 5701835;BA.debugLine="ScrollView1.Panel.AddView(totalSalePanel,5dip";
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 mostCurrent._scrollview1.getPanel().AddView((android.view.View)(_totalsalepanel.getObject()),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (5)),(int) (mostCurrent._panel2.getHeight()+mostCurrent._companypanel.getHeight()-anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (28))),mostCurrent._activity.getWidth(),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (40)));
-RDebugUtils.currentLine=327886;
- //BA.debugLineNum = 327886;BA.debugLine="Dim totalSaleLabel As Label";
+RDebugUtils.currentLine=5701838;
+ //BA.debugLineNum = 5701838;BA.debugLine="Dim totalSaleLabel As Label";
 _totalsalelabel = new anywheresoftware.b4a.objects.LabelWrapper();
-RDebugUtils.currentLine=327887;
- //BA.debugLineNum = 327887;BA.debugLine="totalSaleLabel.Initialize(\"\")";
+RDebugUtils.currentLine=5701839;
+ //BA.debugLineNum = 5701839;BA.debugLine="totalSaleLabel.Initialize(\"\")";
 _totalsalelabel.Initialize(mostCurrent.activityBA,"");
-RDebugUtils.currentLine=327888;
- //BA.debugLineNum = 327888;BA.debugLine="totalSaleLabel.Text = \"Total Sales\"";
+RDebugUtils.currentLine=5701840;
+ //BA.debugLineNum = 5701840;BA.debugLine="totalSaleLabel.Text = \"Total Sales\"";
 _totalsalelabel.setText(BA.ObjectToCharSequence("Total Sales"));
-RDebugUtils.currentLine=327889;
- //BA.debugLineNum = 327889;BA.debugLine="totalSaleLabel.TextColor = Colors.Black";
+RDebugUtils.currentLine=5701841;
+ //BA.debugLineNum = 5701841;BA.debugLine="totalSaleLabel.TextColor = Colors.Black";
 _totalsalelabel.setTextColor(anywheresoftware.b4a.keywords.Common.Colors.Black);
+<<<<<<< HEAD
 RDebugUtils.currentLine=327890;
  //BA.debugLineNum = 327890;BA.debugLine="totalSaleLabel.Gravity = Gravity.CENTER_VERT";
+=======
+RDebugUtils.currentLine=5701842;
+ //BA.debugLineNum = 5701842;BA.debugLine="totalSaleLabel.Gravity = Gravity.CENTER_VERTI";
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 _totalsalelabel.setGravity(anywheresoftware.b4a.keywords.Common.Gravity.CENTER_VERTICAL);
-RDebugUtils.currentLine=327891;
- //BA.debugLineNum = 327891;BA.debugLine="totalSaleLabel.Typeface = Typeface.MONOSPACE";
+RDebugUtils.currentLine=5701843;
+ //BA.debugLineNum = 5701843;BA.debugLine="totalSaleLabel.Typeface = Typeface.MONOSPACE";
 _totalsalelabel.setTypeface(anywheresoftware.b4a.keywords.Common.Typeface.MONOSPACE);
+<<<<<<< HEAD
 RDebugUtils.currentLine=327896;
  //BA.debugLineNum = 327896;BA.debugLine="ScrollView1.Panel.AddView(barPanel,25dip,tot";
+=======
+RDebugUtils.currentLine=5701848;
+ //BA.debugLineNum = 5701848;BA.debugLine="ScrollView1.Panel.AddView(barPanel,25dip,tota";
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 mostCurrent._scrollview1.getPanel().AddView((android.view.View)(mostCurrent._barpanel.getObject()),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (25)),(int) (_totalsalelabel.getHeight()+mostCurrent._panel2.getHeight()+mostCurrent._companypanel.getHeight()-anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (30))),(int) (mostCurrent._activity.getWidth()-anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (50))),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (450)));
-RDebugUtils.currentLine=327897;
- //BA.debugLineNum = 327897;BA.debugLine="barPanel.Color = Colors.White";
+RDebugUtils.currentLine=5701849;
+ //BA.debugLineNum = 5701849;BA.debugLine="barPanel.Color = Colors.White";
 mostCurrent._barpanel.setColor(anywheresoftware.b4a.keywords.Common.Colors.White);
-RDebugUtils.currentLine=327899;
- //BA.debugLineNum = 327899;BA.debugLine="barPanel.RemoveAllViews";
+RDebugUtils.currentLine=5701851;
+ //BA.debugLineNum = 5701851;BA.debugLine="barPanel.RemoveAllViews";
 mostCurrent._barpanel.RemoveAllViews();
-RDebugUtils.currentLine=327900;
- //BA.debugLineNum = 327900;BA.debugLine="barPanel.Invalidate ' Force a redraw";
+RDebugUtils.currentLine=5701852;
+ //BA.debugLineNum = 5701852;BA.debugLine="barPanel.Invalidate ' Force a redraw";
 mostCurrent._barpanel.Invalidate();
+<<<<<<< HEAD
 RDebugUtils.currentLine=327903;
  //BA.debugLineNum = 327903;BA.debugLine="barGraph.Initialize(Activity,barPanel,sales,";
 mostCurrent._bargraph._initialize /*String*/ (null,mostCurrent.activityBA,mostCurrent._activity,mostCurrent._barpanel,_sales,_sales1,_sales2,_companyname,mostCurrent._legend,_maxsale,"Total Sale of the Company",_comid,"Branch",mostCurrent._salenxtbtn,mostCurrent._salebackbtn,mostCurrent._sortbtn1,mostCurrent._sortbtn2,mostCurrent._defbtn,mostCurrent._sales1btn,mostCurrent._sales2btn,mostCurrent._sales3btn);
 RDebugUtils.currentLine=327904;
  //BA.debugLineNum = 327904;BA.debugLine="legend = Array As String(\"Purchase1\",\"Purcha";
+=======
+RDebugUtils.currentLine=5701855;
+ //BA.debugLineNum = 5701855;BA.debugLine="barGraph.Initialize(Activity,barPanel,sales,s";
+mostCurrent._bargraph._initialize /*String*/ (null,mostCurrent.activityBA,mostCurrent._activity,mostCurrent._barpanel,_sales,_sales1,_sales2,_companyname,mostCurrent._legend,_maxsale,"Total Sale of the Company",_comid,"Branch",mostCurrent._salenxtbtn,mostCurrent._salebackbtn,mostCurrent._sortbtn1,mostCurrent._sortbtn2,mostCurrent._defbtn,mostCurrent._sales1btn,mostCurrent._sales2btn,mostCurrent._sales3btn);
+RDebugUtils.currentLine=5701856;
+ //BA.debugLineNum = 5701856;BA.debugLine="legend = Array As String(\"Purchase1\",\"Purchas";
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 mostCurrent._legend = new String[]{"Purchase1","Purchase2","Purchase3"};
-RDebugUtils.currentLine=327919;
- //BA.debugLineNum = 327919;BA.debugLine="Dim totalPurchaseLabel As Label";
+RDebugUtils.currentLine=5701871;
+ //BA.debugLineNum = 5701871;BA.debugLine="Dim totalPurchaseLabel As Label";
 _totalpurchaselabel = new anywheresoftware.b4a.objects.LabelWrapper();
-RDebugUtils.currentLine=327920;
- //BA.debugLineNum = 327920;BA.debugLine="totalPurchaseLabel.Initialize(\"\")";
+RDebugUtils.currentLine=5701872;
+ //BA.debugLineNum = 5701872;BA.debugLine="totalPurchaseLabel.Initialize(\"\")";
 _totalpurchaselabel.Initialize(mostCurrent.activityBA,"");
-RDebugUtils.currentLine=327921;
- //BA.debugLineNum = 327921;BA.debugLine="totalPurchaseLabel.Text = \"Total Purchases\"";
+RDebugUtils.currentLine=5701873;
+ //BA.debugLineNum = 5701873;BA.debugLine="totalPurchaseLabel.Text = \"Total Purchases\"";
 _totalpurchaselabel.setText(BA.ObjectToCharSequence("Total Purchases"));
-RDebugUtils.currentLine=327922;
- //BA.debugLineNum = 327922;BA.debugLine="totalPurchaseLabel.TextColor =Colors.Black";
+RDebugUtils.currentLine=5701874;
+ //BA.debugLineNum = 5701874;BA.debugLine="totalPurchaseLabel.TextColor =Colors.Black";
 _totalpurchaselabel.setTextColor(anywheresoftware.b4a.keywords.Common.Colors.Black);
+<<<<<<< HEAD
 RDebugUtils.currentLine=327923;
  //BA.debugLineNum = 327923;BA.debugLine="totalPurchaseLabel.Gravity = Gravity.CENTER_";
 _totalpurchaselabel.setGravity(anywheresoftware.b4a.keywords.Common.Gravity.CENTER_VERTICAL);
 RDebugUtils.currentLine=327924;
  //BA.debugLineNum = 327924;BA.debugLine="totalPurchaseLabel.Typeface = Typeface.MONOS";
+=======
+RDebugUtils.currentLine=5701875;
+ //BA.debugLineNum = 5701875;BA.debugLine="totalPurchaseLabel.Gravity = Gravity.CENTER_V";
+_totalpurchaselabel.setGravity(anywheresoftware.b4a.keywords.Common.Gravity.CENTER_VERTICAL);
+RDebugUtils.currentLine=5701876;
+ //BA.debugLineNum = 5701876;BA.debugLine="totalPurchaseLabel.Typeface = Typeface.MONOSP";
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 _totalpurchaselabel.setTypeface(anywheresoftware.b4a.keywords.Common.Typeface.MONOSPACE);
-RDebugUtils.currentLine=327928;
- //BA.debugLineNum = 327928;BA.debugLine="Dim shadowPurchPanel As Panel";
+RDebugUtils.currentLine=5701880;
+ //BA.debugLineNum = 5701880;BA.debugLine="Dim shadowPurchPanel As Panel";
 _shadowpurchpanel = new anywheresoftware.b4a.objects.PanelWrapper();
-RDebugUtils.currentLine=327929;
- //BA.debugLineNum = 327929;BA.debugLine="shadowPurchPanel.Initialize(\"\")";
+RDebugUtils.currentLine=5701881;
+ //BA.debugLineNum = 5701881;BA.debugLine="shadowPurchPanel.Initialize(\"\")";
 _shadowpurchpanel.Initialize(mostCurrent.activityBA,"");
+<<<<<<< HEAD
 RDebugUtils.currentLine=327930;
  //BA.debugLineNum = 327930;BA.debugLine="shadowPurchPanel.Color = Colors.ARGB(50, 138";
 _shadowpurchpanel.setColor(anywheresoftware.b4a.keywords.Common.Colors.ARGB((int) (50),(int) (138),(int) (138),(int) (138)));
 RDebugUtils.currentLine=327931;
  //BA.debugLineNum = 327931;BA.debugLine="ScrollView1.Panel.AddView(shadowPurchPanel,";
+=======
+RDebugUtils.currentLine=5701882;
+ //BA.debugLineNum = 5701882;BA.debugLine="shadowPurchPanel.Color = Colors.ARGB(50, 138,";
+_shadowpurchpanel.setColor(anywheresoftware.b4a.keywords.Common.Colors.ARGB((int) (50),(int) (138),(int) (138),(int) (138)));
+RDebugUtils.currentLine=5701883;
+ //BA.debugLineNum = 5701883;BA.debugLine="ScrollView1.Panel.AddView(shadowPurchPanel, 2";
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 mostCurrent._scrollview1.getPanel().AddView((android.view.View)(_shadowpurchpanel.getObject()),(int) (anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (25))+anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (5))),(int) (_totalsalelabel.getHeight()+mostCurrent._panel2.getHeight()+mostCurrent._companypanel.getHeight()+mostCurrent._barpanel.getHeight()+_totalpurchaselabel.getHeight()-anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (30))+anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (5))),(int) (mostCurrent._activity.getWidth()-anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (50))),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (450)));
-RDebugUtils.currentLine=327933;
- //BA.debugLineNum = 327933;BA.debugLine="purchasePanel.Initialize(\"\")";
+RDebugUtils.currentLine=5701885;
+ //BA.debugLineNum = 5701885;BA.debugLine="purchasePanel.Initialize(\"\")";
 mostCurrent._purchasepanel.Initialize(mostCurrent.activityBA,"");
-RDebugUtils.currentLine=327934;
- //BA.debugLineNum = 327934;BA.debugLine="purchasePanel.Color = Colors.White";
+RDebugUtils.currentLine=5701886;
+ //BA.debugLineNum = 5701886;BA.debugLine="purchasePanel.Color = Colors.White";
 mostCurrent._purchasepanel.setColor(anywheresoftware.b4a.keywords.Common.Colors.White);
+<<<<<<< HEAD
 RDebugUtils.currentLine=327935;
  //BA.debugLineNum = 327935;BA.debugLine="ScrollView1.Panel.AddView(purchasePanel,25di";
+=======
+RDebugUtils.currentLine=5701887;
+ //BA.debugLineNum = 5701887;BA.debugLine="ScrollView1.Panel.AddView(purchasePanel,25dip";
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 mostCurrent._scrollview1.getPanel().AddView((android.view.View)(mostCurrent._purchasepanel.getObject()),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (25)),(int) (_totalsalelabel.getHeight()+mostCurrent._panel2.getHeight()+mostCurrent._companypanel.getHeight()+mostCurrent._barpanel.getHeight()+_totalpurchaselabel.getHeight()-anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (30))),(int) (mostCurrent._activity.getWidth()-anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (50))),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (450)));
-RDebugUtils.currentLine=327936;
- //BA.debugLineNum = 327936;BA.debugLine="purchNxtBtn.Initialize(\"nxtBtn\")";
+RDebugUtils.currentLine=5701888;
+ //BA.debugLineNum = 5701888;BA.debugLine="purchNxtBtn.Initialize(\"nxtBtn\")";
 mostCurrent._purchnxtbtn.Initialize(mostCurrent.activityBA,"nxtBtn");
-RDebugUtils.currentLine=327937;
- //BA.debugLineNum = 327937;BA.debugLine="purchBackBtn.Initialize(\"backbtn\")";
+RDebugUtils.currentLine=5701889;
+ //BA.debugLineNum = 5701889;BA.debugLine="purchBackBtn.Initialize(\"backbtn\")";
 mostCurrent._purchbackbtn.Initialize(mostCurrent.activityBA,"backbtn");
-RDebugUtils.currentLine=327938;
- //BA.debugLineNum = 327938;BA.debugLine="sortBtn1.Initialize(\"sortBtn1\")";
+RDebugUtils.currentLine=5701890;
+ //BA.debugLineNum = 5701890;BA.debugLine="sortBtn1.Initialize(\"sortBtn1\")";
 mostCurrent._sortbtn1.Initialize(mostCurrent.activityBA,"sortBtn1");
-RDebugUtils.currentLine=327939;
- //BA.debugLineNum = 327939;BA.debugLine="sortBtn2.Initialize(\"sortBtn2\")";
+RDebugUtils.currentLine=5701891;
+ //BA.debugLineNum = 5701891;BA.debugLine="sortBtn2.Initialize(\"sortBtn2\")";
 mostCurrent._sortbtn2.Initialize(mostCurrent.activityBA,"sortBtn2");
-RDebugUtils.currentLine=327940;
- //BA.debugLineNum = 327940;BA.debugLine="defBtn.Initialize(\"defBtn\")";
+RDebugUtils.currentLine=5701892;
+ //BA.debugLineNum = 5701892;BA.debugLine="defBtn.Initialize(\"defBtn\")";
 mostCurrent._defbtn.Initialize(mostCurrent.activityBA,"defBtn");
-RDebugUtils.currentLine=327941;
- //BA.debugLineNum = 327941;BA.debugLine="sales1btn.Initialize(\"sales1btn\")";
+RDebugUtils.currentLine=5701893;
+ //BA.debugLineNum = 5701893;BA.debugLine="sales1btn.Initialize(\"sales1btn\")";
 mostCurrent._sales1btn.Initialize(mostCurrent.activityBA,"sales1btn");
-RDebugUtils.currentLine=327942;
- //BA.debugLineNum = 327942;BA.debugLine="sales2btn.Initialize(\"sales2btn\")";
+RDebugUtils.currentLine=5701894;
+ //BA.debugLineNum = 5701894;BA.debugLine="sales2btn.Initialize(\"sales2btn\")";
 mostCurrent._sales2btn.Initialize(mostCurrent.activityBA,"sales2btn");
-RDebugUtils.currentLine=327943;
- //BA.debugLineNum = 327943;BA.debugLine="sales3btn.Initialize(\"sales3btn\")";
+RDebugUtils.currentLine=5701895;
+ //BA.debugLineNum = 5701895;BA.debugLine="sales3btn.Initialize(\"sales3btn\")";
 mostCurrent._sales3btn.Initialize(mostCurrent.activityBA,"sales3btn");
+<<<<<<< HEAD
 RDebugUtils.currentLine=327945;
  //BA.debugLineNum = 327945;BA.debugLine="barGraph1.Initialize(Activity, purchasePanel";
 mostCurrent._bargraph1._initialize /*String*/ (null,mostCurrent.activityBA,mostCurrent._activity,mostCurrent._purchasepanel,_purchase,_purchase1,_purchase2,_companyname,mostCurrent._legend,_maxsale,"Total Purchase Per Company",_comid,"Branch",mostCurrent._purchnxtbtn,mostCurrent._purchbackbtn,mostCurrent._sortbtn1,mostCurrent._sortbtn2,mostCurrent._defbtn,mostCurrent._sales1btn,mostCurrent._sales2btn,mostCurrent._sales3btn);
@@ -1276,68 +1384,89 @@ RDebugUtils.currentLine=327946;
 anywheresoftware.b4a.keywords.Common.LogImpl("6327946",("maxSale:"+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(_maxsale))+""),0);
 RDebugUtils.currentLine=327949;
  //BA.debugLineNum = 327949;BA.debugLine="barGraphInitialized = True";
+=======
+RDebugUtils.currentLine=5701897;
+ //BA.debugLineNum = 5701897;BA.debugLine="barGraph1.Initialize(Activity, purchasePanel,";
+mostCurrent._bargraph1._initialize /*String*/ (null,mostCurrent.activityBA,mostCurrent._activity,mostCurrent._purchasepanel,_purchase,_purchase1,_purchase2,_companyname,mostCurrent._legend,_maxsale,"Total Purchase Per Company",_comid,"Branch",mostCurrent._purchnxtbtn,mostCurrent._purchbackbtn,mostCurrent._sortbtn1,mostCurrent._sortbtn2,mostCurrent._defbtn,mostCurrent._sales1btn,mostCurrent._sales2btn,mostCurrent._sales3btn);
+RDebugUtils.currentLine=5701898;
+ //BA.debugLineNum = 5701898;BA.debugLine="Log($\"maxSale:${maxSale}\"$)";
+anywheresoftware.b4a.keywords.Common.LogImpl("05701898",("maxSale:"+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(_maxsale))+""),0);
+RDebugUtils.currentLine=5701901;
+ //BA.debugLineNum = 5701901;BA.debugLine="barGraphInitialized = True";
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 _bargraphinitialized = anywheresoftware.b4a.keywords.Common.True;
-RDebugUtils.currentLine=327950;
- //BA.debugLineNum = 327950;BA.debugLine="ProgressDialogHide";
+RDebugUtils.currentLine=5701902;
+ //BA.debugLineNum = 5701902;BA.debugLine="ProgressDialogHide";
 anywheresoftware.b4a.keywords.Common.ProgressDialogHide();
  }else {
-RDebugUtils.currentLine=327952;
- //BA.debugLineNum = 327952;BA.debugLine="barGraph.sale_1 = sales";
+RDebugUtils.currentLine=5701904;
+ //BA.debugLineNum = 5701904;BA.debugLine="barGraph.sale_1 = sales";
 mostCurrent._bargraph._sale_1 /*int[]*/  = _sales;
-RDebugUtils.currentLine=327953;
- //BA.debugLineNum = 327953;BA.debugLine="barGraph.sale_2 = sales1";
+RDebugUtils.currentLine=5701905;
+ //BA.debugLineNum = 5701905;BA.debugLine="barGraph.sale_2 = sales1";
 mostCurrent._bargraph._sale_2 /*int[]*/  = _sales1;
-RDebugUtils.currentLine=327954;
- //BA.debugLineNum = 327954;BA.debugLine="barGraph.sale_3 = sales2";
+RDebugUtils.currentLine=5701906;
+ //BA.debugLineNum = 5701906;BA.debugLine="barGraph.sale_3 = sales2";
 mostCurrent._bargraph._sale_3 /*int[]*/  = _sales2;
-RDebugUtils.currentLine=327955;
- //BA.debugLineNum = 327955;BA.debugLine="barGraph.product1 = companyName";
+RDebugUtils.currentLine=5701907;
+ //BA.debugLineNum = 5701907;BA.debugLine="barGraph.product1 = companyName";
 mostCurrent._bargraph._product1 /*String[]*/  = _companyname;
-RDebugUtils.currentLine=327956;
- //BA.debugLineNum = 327956;BA.debugLine="barGraph.comId1 = sales ' Assuming comId1 sh";
+RDebugUtils.currentLine=5701908;
+ //BA.debugLineNum = 5701908;BA.debugLine="barGraph.comId1 = sales ' Assuming comId1 sh";
 mostCurrent._bargraph._comid1 /*int[]*/  = _sales;
-RDebugUtils.currentLine=327957;
- //BA.debugLineNum = 327957;BA.debugLine="barGraph.UpdateGraph";
+RDebugUtils.currentLine=5701909;
+ //BA.debugLineNum = 5701909;BA.debugLine="barGraph.UpdateGraph";
 mostCurrent._bargraph._updategraph /*String*/ (null);
+<<<<<<< HEAD
 RDebugUtils.currentLine=327958;
  //BA.debugLineNum = 327958;BA.debugLine="barGraph.SetCurrentPage(currentPage) ' Updat";
+=======
+RDebugUtils.currentLine=5701910;
+ //BA.debugLineNum = 5701910;BA.debugLine="barGraph.SetCurrentPage(currentPage) ' Update";
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 mostCurrent._bargraph._setcurrentpage /*String*/ (null,_currentpage);
  };
  break; }
 case 2: {
-RDebugUtils.currentLine=327961;
- //BA.debugLineNum = 327961;BA.debugLine="ToastMessageShow(\"Data updated successfully\",";
+RDebugUtils.currentLine=5701913;
+ //BA.debugLineNum = 5701913;BA.debugLine="ToastMessageShow(\"Data updated successfully\",";
 anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Data updated successfully"),anywheresoftware.b4a.keywords.Common.False);
-RDebugUtils.currentLine=327962;
- //BA.debugLineNum = 327962;BA.debugLine="LoadCompanyData";
+RDebugUtils.currentLine=5701914;
+ //BA.debugLineNum = 5701914;BA.debugLine="LoadCompanyData";
 _loadcompanydata();
  break; }
 default: {
+<<<<<<< HEAD
 RDebugUtils.currentLine=327964;
  //BA.debugLineNum = 327964;BA.debugLine="Log(\"Unknown job: \" & job.JobName)";
 anywheresoftware.b4a.keywords.Common.LogImpl("6327964","Unknown job: "+_job._jobname /*String*/ ,0);
+=======
+RDebugUtils.currentLine=5701916;
+ //BA.debugLineNum = 5701916;BA.debugLine="Log(\"Unknown job: \" & job.JobName)";
+anywheresoftware.b4a.keywords.Common.LogImpl("05701916","Unknown job: "+_job._jobname /*String*/ ,0);
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
  break; }
 }
 ;
  } 
        catch (Exception e203) {
-			processBA.setLastException(e203);RDebugUtils.currentLine=327969;
- //BA.debugLineNum = 327969;BA.debugLine="ToastMessageShow(\"Error parsing sales data\", Tr";
+			processBA.setLastException(e203);RDebugUtils.currentLine=5701921;
+ //BA.debugLineNum = 5701921;BA.debugLine="ToastMessageShow(\"Error parsing sales data\", Tr";
 anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Error parsing sales data"),anywheresoftware.b4a.keywords.Common.True);
  };
-RDebugUtils.currentLine=327972;
- //BA.debugLineNum = 327972;BA.debugLine="ScrollView1.Panel.Height = 1400dip";
+RDebugUtils.currentLine=5701924;
+ //BA.debugLineNum = 5701924;BA.debugLine="ScrollView1.Panel.Height = 1400dip";
 mostCurrent._scrollview1.getPanel().setHeight(anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (1400)));
  }else {
-RDebugUtils.currentLine=327974;
- //BA.debugLineNum = 327974;BA.debugLine="ToastMessageShow(\"Error: \" & job.ErrorMessage, T";
+RDebugUtils.currentLine=5701926;
+ //BA.debugLineNum = 5701926;BA.debugLine="ToastMessageShow(\"Error: \" & job.ErrorMessage, T";
 anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Error: "+_job._errormessage /*String*/ ),anywheresoftware.b4a.keywords.Common.True);
  };
-RDebugUtils.currentLine=327976;
- //BA.debugLineNum = 327976;BA.debugLine="job.Release";
+RDebugUtils.currentLine=5701928;
+ //BA.debugLineNum = 5701928;BA.debugLine="job.Release";
 _job._release /*String*/ (null);
-RDebugUtils.currentLine=327977;
- //BA.debugLineNum = 327977;BA.debugLine="End Sub";
+RDebugUtils.currentLine=5701929;
+ //BA.debugLineNum = 5701929;BA.debugLine="End Sub";
 return "";
 }
 public static String  _label17_click() throws Exception{
@@ -1346,29 +1475,30 @@ if (Debug.shouldDelegate(mostCurrent.activityBA, "label17_click", false))
 	 {return ((String) Debug.delegate(mostCurrent.activityBA, "label17_click", null));}
 anywheresoftware.b4a.objects.LabelWrapper _clickedlabel = null;
 String _selectedcompany = "";
-RDebugUtils.currentLine=589824;
- //BA.debugLineNum = 589824;BA.debugLine="Private Sub Label17_Click";
-RDebugUtils.currentLine=589825;
- //BA.debugLineNum = 589825;BA.debugLine="Dim clickedLabel As Label = Sender ' Get the clic";
+RDebugUtils.currentLine=5832704;
+ //BA.debugLineNum = 5832704;BA.debugLine="Private Sub Label17_Click";
+RDebugUtils.currentLine=5832705;
+ //BA.debugLineNum = 5832705;BA.debugLine="Dim clickedLabel As Label = Sender ' Get the clic";
 _clickedlabel = new anywheresoftware.b4a.objects.LabelWrapper();
 _clickedlabel = (anywheresoftware.b4a.objects.LabelWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.LabelWrapper(), (android.widget.TextView)(anywheresoftware.b4a.keywords.Common.Sender(mostCurrent.activityBA)));
-RDebugUtils.currentLine=589826;
- //BA.debugLineNum = 589826;BA.debugLine="Dim selectedCompany As String = clickedLabel.Tag";
+RDebugUtils.currentLine=5832706;
+ //BA.debugLineNum = 5832706;BA.debugLine="Dim selectedCompany As String = clickedLabel.Tag";
 _selectedcompany = BA.ObjectToString(_clickedlabel.getTag());
-RDebugUtils.currentLine=589828;
- //BA.debugLineNum = 589828;BA.debugLine="Starter.company_selected = selectedCompany";
+RDebugUtils.currentLine=5832708;
+ //BA.debugLineNum = 5832708;BA.debugLine="Starter.company_selected = selectedCompany";
 mostCurrent._starter._company_selected /*String*/  = _selectedcompany;
-RDebugUtils.currentLine=589831;
- //BA.debugLineNum = 589831;BA.debugLine="StartActivity(\"Branch\")";
+RDebugUtils.currentLine=5832711;
+ //BA.debugLineNum = 5832711;BA.debugLine="StartActivity(\"Branch\")";
 anywheresoftware.b4a.keywords.Common.StartActivity(processBA,(Object)("Branch"));
-RDebugUtils.currentLine=589832;
- //BA.debugLineNum = 589832;BA.debugLine="End Sub";
+RDebugUtils.currentLine=5832712;
+ //BA.debugLineNum = 5832712;BA.debugLine="End Sub";
 return "";
 }
 public static String  _nxtbtn_click() throws Exception{
 RDebugUtils.currentModule="main";
 if (Debug.shouldDelegate(mostCurrent.activityBA, "nxtbtn_click", false))
 	 {return ((String) Debug.delegate(mostCurrent.activityBA, "nxtbtn_click", null));}
+<<<<<<< HEAD
 RDebugUtils.currentLine=655360;
  //BA.debugLineNum = 655360;BA.debugLine="Sub nxtBtn_Click";
 RDebugUtils.currentLine=655361;
@@ -1376,6 +1506,15 @@ RDebugUtils.currentLine=655361;
 anywheresoftware.b4a.keywords.Common.LogImpl("6655361","sad",0);
 RDebugUtils.currentLine=655362;
  //BA.debugLineNum = 655362;BA.debugLine="End Sub";
+=======
+RDebugUtils.currentLine=5898240;
+ //BA.debugLineNum = 5898240;BA.debugLine="Sub nxtBtn_Click";
+RDebugUtils.currentLine=5898241;
+ //BA.debugLineNum = 5898241;BA.debugLine="Log(\"sad\")";
+anywheresoftware.b4a.keywords.Common.LogImpl("05898241","sad",0);
+RDebugUtils.currentLine=5898242;
+ //BA.debugLineNum = 5898242;BA.debugLine="End Sub";
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 return "";
 }
 public static String  _sales1btn_click() throws Exception{
@@ -1384,25 +1523,26 @@ if (Debug.shouldDelegate(mostCurrent.activityBA, "sales1btn_click", false))
 	 {return ((String) Debug.delegate(mostCurrent.activityBA, "sales1btn_click", null));}
 anywheresoftware.b4a.objects.ButtonWrapper _btn = null;
 String _index = "";
-RDebugUtils.currentLine=917504;
- //BA.debugLineNum = 917504;BA.debugLine="Sub sales1btn_Click";
-RDebugUtils.currentLine=917505;
- //BA.debugLineNum = 917505;BA.debugLine="Dim btn As Button = Sender";
+RDebugUtils.currentLine=6160384;
+ //BA.debugLineNum = 6160384;BA.debugLine="Sub sales1btn_Click";
+RDebugUtils.currentLine=6160385;
+ //BA.debugLineNum = 6160385;BA.debugLine="Dim btn As Button = Sender";
 _btn = new anywheresoftware.b4a.objects.ButtonWrapper();
 _btn = (anywheresoftware.b4a.objects.ButtonWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.ButtonWrapper(), (android.widget.Button)(anywheresoftware.b4a.keywords.Common.Sender(mostCurrent.activityBA)));
-RDebugUtils.currentLine=917506;
- //BA.debugLineNum = 917506;BA.debugLine="Dim index As String = btn.Tag";
+RDebugUtils.currentLine=6160386;
+ //BA.debugLineNum = 6160386;BA.debugLine="Dim index As String = btn.Tag";
 _index = BA.ObjectToString(_btn.getTag());
-RDebugUtils.currentLine=917507;
- //BA.debugLineNum = 917507;BA.debugLine="salesData1 = index.ToLowerCase";
+RDebugUtils.currentLine=6160387;
+ //BA.debugLineNum = 6160387;BA.debugLine="salesData1 = index.ToLowerCase";
 _salesdata1 = (int)(Double.parseDouble(_index.toLowerCase()));
-RDebugUtils.currentLine=917508;
- //BA.debugLineNum = 917508;BA.debugLine="If sortDefaultValue=\"asc\" Or sortDefaultValue=\"de";
+RDebugUtils.currentLine=6160388;
+ //BA.debugLineNum = 6160388;BA.debugLine="If sortDefaultValue=\"asc\" Or sortDefaultValue=\"de";
 if ((mostCurrent._sortdefaultvalue).equals("asc") || (mostCurrent._sortdefaultvalue).equals("desc")) { 
-RDebugUtils.currentLine=917510;
- //BA.debugLineNum = 917510;BA.debugLine="LoadGraphData";
+RDebugUtils.currentLine=6160390;
+ //BA.debugLineNum = 6160390;BA.debugLine="LoadGraphData";
 _loadgraphdata();
  };
+<<<<<<< HEAD
 RDebugUtils.currentLine=917512;
  //BA.debugLineNum = 917512;BA.debugLine="Log(sortDefaultValue)";
 anywheresoftware.b4a.keywords.Common.LogImpl("6917512",mostCurrent._sortdefaultvalue,0);
@@ -1411,6 +1551,16 @@ RDebugUtils.currentLine=917513;
 anywheresoftware.b4a.keywords.Common.LogImpl("6917513"," sales 1 Button clicked: "+_index,0);
 RDebugUtils.currentLine=917514;
  //BA.debugLineNum = 917514;BA.debugLine="End Sub";
+=======
+RDebugUtils.currentLine=6160392;
+ //BA.debugLineNum = 6160392;BA.debugLine="Log(sortDefaultValue)";
+anywheresoftware.b4a.keywords.Common.LogImpl("06160392",mostCurrent._sortdefaultvalue,0);
+RDebugUtils.currentLine=6160393;
+ //BA.debugLineNum = 6160393;BA.debugLine="Log(\" sales 1 Button clicked: \" & index)";
+anywheresoftware.b4a.keywords.Common.LogImpl("06160393"," sales 1 Button clicked: "+_index,0);
+RDebugUtils.currentLine=6160394;
+ //BA.debugLineNum = 6160394;BA.debugLine="End Sub";
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 return "";
 }
 public static String  _sales2btn_click() throws Exception{
@@ -1419,25 +1569,26 @@ if (Debug.shouldDelegate(mostCurrent.activityBA, "sales2btn_click", false))
 	 {return ((String) Debug.delegate(mostCurrent.activityBA, "sales2btn_click", null));}
 anywheresoftware.b4a.objects.ButtonWrapper _btn = null;
 String _index = "";
-RDebugUtils.currentLine=983040;
- //BA.debugLineNum = 983040;BA.debugLine="Sub sales2btn_Click";
-RDebugUtils.currentLine=983041;
- //BA.debugLineNum = 983041;BA.debugLine="Dim btn As Button = Sender";
+RDebugUtils.currentLine=6225920;
+ //BA.debugLineNum = 6225920;BA.debugLine="Sub sales2btn_Click";
+RDebugUtils.currentLine=6225921;
+ //BA.debugLineNum = 6225921;BA.debugLine="Dim btn As Button = Sender";
 _btn = new anywheresoftware.b4a.objects.ButtonWrapper();
 _btn = (anywheresoftware.b4a.objects.ButtonWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.ButtonWrapper(), (android.widget.Button)(anywheresoftware.b4a.keywords.Common.Sender(mostCurrent.activityBA)));
-RDebugUtils.currentLine=983042;
- //BA.debugLineNum = 983042;BA.debugLine="Dim index As String = btn.Tag";
+RDebugUtils.currentLine=6225922;
+ //BA.debugLineNum = 6225922;BA.debugLine="Dim index As String = btn.Tag";
 _index = BA.ObjectToString(_btn.getTag());
-RDebugUtils.currentLine=983043;
- //BA.debugLineNum = 983043;BA.debugLine="salesData1 = index.ToLowerCase";
+RDebugUtils.currentLine=6225923;
+ //BA.debugLineNum = 6225923;BA.debugLine="salesData1 = index.ToLowerCase";
 _salesdata1 = (int)(Double.parseDouble(_index.toLowerCase()));
-RDebugUtils.currentLine=983044;
- //BA.debugLineNum = 983044;BA.debugLine="If sortDefaultValue=\"asc\" Or sortDefaultValue=\"de";
+RDebugUtils.currentLine=6225924;
+ //BA.debugLineNum = 6225924;BA.debugLine="If sortDefaultValue=\"asc\" Or sortDefaultValue=\"de";
 if ((mostCurrent._sortdefaultvalue).equals("asc") || (mostCurrent._sortdefaultvalue).equals("desc")) { 
-RDebugUtils.currentLine=983045;
- //BA.debugLineNum = 983045;BA.debugLine="LoadGraphData";
+RDebugUtils.currentLine=6225925;
+ //BA.debugLineNum = 6225925;BA.debugLine="LoadGraphData";
 _loadgraphdata();
  };
+<<<<<<< HEAD
 RDebugUtils.currentLine=983047;
  //BA.debugLineNum = 983047;BA.debugLine="Log(sortDefaultValue)";
 anywheresoftware.b4a.keywords.Common.LogImpl("6983047",mostCurrent._sortdefaultvalue,0);
@@ -1446,6 +1597,16 @@ RDebugUtils.currentLine=983048;
 anywheresoftware.b4a.keywords.Common.LogImpl("6983048"," sales 2 Button clicked: "+_index,0);
 RDebugUtils.currentLine=983049;
  //BA.debugLineNum = 983049;BA.debugLine="End Sub";
+=======
+RDebugUtils.currentLine=6225927;
+ //BA.debugLineNum = 6225927;BA.debugLine="Log(sortDefaultValue)";
+anywheresoftware.b4a.keywords.Common.LogImpl("06225927",mostCurrent._sortdefaultvalue,0);
+RDebugUtils.currentLine=6225928;
+ //BA.debugLineNum = 6225928;BA.debugLine="Log(\" sales 2 Button clicked: \" & index)";
+anywheresoftware.b4a.keywords.Common.LogImpl("06225928"," sales 2 Button clicked: "+_index,0);
+RDebugUtils.currentLine=6225929;
+ //BA.debugLineNum = 6225929;BA.debugLine="End Sub";
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 return "";
 }
 public static String  _sales3btn_click() throws Exception{
@@ -1454,22 +1615,23 @@ if (Debug.shouldDelegate(mostCurrent.activityBA, "sales3btn_click", false))
 	 {return ((String) Debug.delegate(mostCurrent.activityBA, "sales3btn_click", null));}
 anywheresoftware.b4a.objects.ButtonWrapper _btn = null;
 String _index = "";
-RDebugUtils.currentLine=1048576;
- //BA.debugLineNum = 1048576;BA.debugLine="Sub sales3btn_Click";
-RDebugUtils.currentLine=1048577;
- //BA.debugLineNum = 1048577;BA.debugLine="Dim btn As Button = Sender";
+RDebugUtils.currentLine=6291456;
+ //BA.debugLineNum = 6291456;BA.debugLine="Sub sales3btn_Click";
+RDebugUtils.currentLine=6291457;
+ //BA.debugLineNum = 6291457;BA.debugLine="Dim btn As Button = Sender";
 _btn = new anywheresoftware.b4a.objects.ButtonWrapper();
 _btn = (anywheresoftware.b4a.objects.ButtonWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.ButtonWrapper(), (android.widget.Button)(anywheresoftware.b4a.keywords.Common.Sender(mostCurrent.activityBA)));
-RDebugUtils.currentLine=1048578;
- //BA.debugLineNum = 1048578;BA.debugLine="Dim index As String = btn.Tag";
+RDebugUtils.currentLine=6291458;
+ //BA.debugLineNum = 6291458;BA.debugLine="Dim index As String = btn.Tag";
 _index = BA.ObjectToString(_btn.getTag());
-RDebugUtils.currentLine=1048579;
- //BA.debugLineNum = 1048579;BA.debugLine="salesData1 = index.ToLowerCase";
+RDebugUtils.currentLine=6291459;
+ //BA.debugLineNum = 6291459;BA.debugLine="salesData1 = index.ToLowerCase";
 _salesdata1 = (int)(Double.parseDouble(_index.toLowerCase()));
-RDebugUtils.currentLine=1048580;
- //BA.debugLineNum = 1048580;BA.debugLine="If sortDefaultValue=\"asc\" Or sortDefaultValue=\"de";
+RDebugUtils.currentLine=6291460;
+ //BA.debugLineNum = 6291460;BA.debugLine="If sortDefaultValue=\"asc\" Or sortDefaultValue=\"de";
 if ((mostCurrent._sortdefaultvalue).equals("asc") || (mostCurrent._sortdefaultvalue).equals("desc")) { 
  };
+<<<<<<< HEAD
 RDebugUtils.currentLine=1048583;
  //BA.debugLineNum = 1048583;BA.debugLine="Log(sortDefaultValue)";
 anywheresoftware.b4a.keywords.Common.LogImpl("61048583",mostCurrent._sortdefaultvalue,0);
@@ -1478,6 +1640,16 @@ RDebugUtils.currentLine=1048584;
 anywheresoftware.b4a.keywords.Common.LogImpl("61048584"," sales 3 Button clicked: "+_index,0);
 RDebugUtils.currentLine=1048585;
  //BA.debugLineNum = 1048585;BA.debugLine="End Sub";
+=======
+RDebugUtils.currentLine=6291463;
+ //BA.debugLineNum = 6291463;BA.debugLine="Log(sortDefaultValue)";
+anywheresoftware.b4a.keywords.Common.LogImpl("06291463",mostCurrent._sortdefaultvalue,0);
+RDebugUtils.currentLine=6291464;
+ //BA.debugLineNum = 6291464;BA.debugLine="Log(\" sales 3 Button clicked: \" & index)";
+anywheresoftware.b4a.keywords.Common.LogImpl("06291464"," sales 3 Button clicked: "+_index,0);
+RDebugUtils.currentLine=6291465;
+ //BA.debugLineNum = 6291465;BA.debugLine="End Sub";
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 return "";
 }
 public static String  _sortbtn1_click() throws Exception{
@@ -1486,26 +1658,34 @@ if (Debug.shouldDelegate(mostCurrent.activityBA, "sortbtn1_click", false))
 	 {return ((String) Debug.delegate(mostCurrent.activityBA, "sortbtn1_click", null));}
 anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper _chk = null;
 String _index = "";
-RDebugUtils.currentLine=851968;
- //BA.debugLineNum = 851968;BA.debugLine="Sub sortBtn1_Click";
-RDebugUtils.currentLine=851969;
- //BA.debugLineNum = 851969;BA.debugLine="Dim chk As RadioButton = Sender";
+RDebugUtils.currentLine=6094848;
+ //BA.debugLineNum = 6094848;BA.debugLine="Sub sortBtn1_Click";
+RDebugUtils.currentLine=6094849;
+ //BA.debugLineNum = 6094849;BA.debugLine="Dim chk As RadioButton = Sender";
 _chk = new anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper();
 _chk = (anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper(), (android.widget.RadioButton)(anywheresoftware.b4a.keywords.Common.Sender(mostCurrent.activityBA)));
-RDebugUtils.currentLine=851970;
- //BA.debugLineNum = 851970;BA.debugLine="Dim index As String = chk.Tag";
+RDebugUtils.currentLine=6094850;
+ //BA.debugLineNum = 6094850;BA.debugLine="Dim index As String = chk.Tag";
 _index = BA.ObjectToString(_chk.getTag());
-RDebugUtils.currentLine=851972;
- //BA.debugLineNum = 851972;BA.debugLine="sortDefaultValue = index.ToLowerCase";
+RDebugUtils.currentLine=6094852;
+ //BA.debugLineNum = 6094852;BA.debugLine="sortDefaultValue = index.ToLowerCase";
 mostCurrent._sortdefaultvalue = _index.toLowerCase();
+<<<<<<< HEAD
 RDebugUtils.currentLine=851973;
  //BA.debugLineNum = 851973;BA.debugLine="Log($\"sort value: ${sortDefaultValue}\"$)";
 anywheresoftware.b4a.keywords.Common.LogImpl("6851973",("sort value: "+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(mostCurrent._sortdefaultvalue))+""),0);
 RDebugUtils.currentLine=851974;
  //BA.debugLineNum = 851974;BA.debugLine="LoadGraphData";
+=======
+RDebugUtils.currentLine=6094853;
+ //BA.debugLineNum = 6094853;BA.debugLine="Log($\"sort value: ${sortDefaultValue}\"$)";
+anywheresoftware.b4a.keywords.Common.LogImpl("06094853",("sort value: "+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(mostCurrent._sortdefaultvalue))+""),0);
+RDebugUtils.currentLine=6094854;
+ //BA.debugLineNum = 6094854;BA.debugLine="LoadGraphData";
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 _loadgraphdata();
-RDebugUtils.currentLine=851975;
- //BA.debugLineNum = 851975;BA.debugLine="End Sub";
+RDebugUtils.currentLine=6094855;
+ //BA.debugLineNum = 6094855;BA.debugLine="End Sub";
 return "";
 }
 public static String  _sortbtn2_click() throws Exception{
@@ -1514,18 +1694,19 @@ if (Debug.shouldDelegate(mostCurrent.activityBA, "sortbtn2_click", false))
 	 {return ((String) Debug.delegate(mostCurrent.activityBA, "sortbtn2_click", null));}
 anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper _chk = null;
 String _index = "";
-RDebugUtils.currentLine=720896;
- //BA.debugLineNum = 720896;BA.debugLine="Sub sortBtn2_Click";
-RDebugUtils.currentLine=720897;
- //BA.debugLineNum = 720897;BA.debugLine="Dim chk As RadioButton = Sender";
+RDebugUtils.currentLine=5963776;
+ //BA.debugLineNum = 5963776;BA.debugLine="Sub sortBtn2_Click";
+RDebugUtils.currentLine=5963777;
+ //BA.debugLineNum = 5963777;BA.debugLine="Dim chk As RadioButton = Sender";
 _chk = new anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper();
 _chk = (anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper(), (android.widget.RadioButton)(anywheresoftware.b4a.keywords.Common.Sender(mostCurrent.activityBA)));
-RDebugUtils.currentLine=720898;
- //BA.debugLineNum = 720898;BA.debugLine="Dim index As String = chk.Tag";
+RDebugUtils.currentLine=5963778;
+ //BA.debugLineNum = 5963778;BA.debugLine="Dim index As String = chk.Tag";
 _index = BA.ObjectToString(_chk.getTag());
-RDebugUtils.currentLine=720900;
- //BA.debugLineNum = 720900;BA.debugLine="sortDefaultValue = index.ToLowerCase";
+RDebugUtils.currentLine=5963780;
+ //BA.debugLineNum = 5963780;BA.debugLine="sortDefaultValue = index.ToLowerCase";
 mostCurrent._sortdefaultvalue = _index.toLowerCase();
+<<<<<<< HEAD
 RDebugUtils.currentLine=720901;
  //BA.debugLineNum = 720901;BA.debugLine="Log($\"sort value: ${sortDefaultValue}\"$)";
 anywheresoftware.b4a.keywords.Common.LogImpl("6720901",("sort value: "+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(mostCurrent._sortdefaultvalue))+""),0);
@@ -1537,6 +1718,19 @@ RDebugUtils.currentLine=720903;
 anywheresoftware.b4a.keywords.Common.LogImpl("6720903","descending",0);
 RDebugUtils.currentLine=720904;
  //BA.debugLineNum = 720904;BA.debugLine="End Sub";
+=======
+RDebugUtils.currentLine=5963781;
+ //BA.debugLineNum = 5963781;BA.debugLine="Log($\"sort value: ${sortDefaultValue}\"$)";
+anywheresoftware.b4a.keywords.Common.LogImpl("05963781",("sort value: "+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(mostCurrent._sortdefaultvalue))+""),0);
+RDebugUtils.currentLine=5963782;
+ //BA.debugLineNum = 5963782;BA.debugLine="LoadGraphData";
+_loadgraphdata();
+RDebugUtils.currentLine=5963783;
+ //BA.debugLineNum = 5963783;BA.debugLine="Log(\"descending\")";
+anywheresoftware.b4a.keywords.Common.LogImpl("05963783","descending",0);
+RDebugUtils.currentLine=5963784;
+ //BA.debugLineNum = 5963784;BA.debugLine="End Sub";
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 return "";
 }
 }

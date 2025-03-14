@@ -1,44 +1,49 @@
 b4a.example
 0
 3
-checkbargraph
 bargraph
+checkbargraph
 httpjob
 1
 httpjob
 main,activity_create,1,0,66,86
-,label1,,panel1,,panel2,,scrollview1,,barpanel,,phpurl,,phpurlcompany,,currentpage,,salesdata1,,sortdefaultvalue
+,label1,,panel1,,panel2,,scrollview1,,barpanel,,phpurl,,phpurlcompany
 ,label1,,panel1,,panel2,,scrollview1,,phpurlcompany
 ,loadcompanydata,,loadgraphdata,httpjob,initialize,httpjob,download,httpjob,addscheme
 main,loadcompanydata,0,0,87,97
 ,phpurl
 
 httpjob,initialize,httpjob,download,httpjob,addscheme
+<<<<<<< HEAD
 main,loadgraphdata,0,0,99,112
 ,phpurlcompany,,currentpage,,salesdata1,,sortdefaultvalue
+=======
+main,loadgraphdata,0,0,99,113
+,phpurlcompany
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 ,phpurlcompany
 httpjob,initialize,httpjob,download,httpjob,addscheme
-main,activity_pause,0,0,425,427
+main,activity_pause,0,0,426,428
 
 
 
-main,activity_resume,0,0,421,423
+main,activity_resume,0,0,422,424
 
 
 
-main,adjustfontsizetoheight,0,0,501,504
+main,adjustfontsizetoheight,0,0,502,505
 
 
 ,getdevicedensity
-main,getdevicedensity,0,0,506,511
+main,getdevicedensity,0,0,507,512
 
 
 
-main,defbtn_click,0,0,455,457
+main,defbtn_click,0,0,456,458
 
 
 
-main,getmapvalueordefault,0,0,413,419
+main,getmapvalueordefault,0,0,414,420
 
 
 
@@ -46,15 +51,19 @@ main,globals,0,1,23,63
 ,phpurl,,primaryfontsize,,secondaryfontsize,,legend,,height,,totalgraphdataheight,,totalgetdataheight,,sortdefaultvalue,,salesdata1,,currentpage,,bargraphinitialized,,phpurlcompany
 ,phpurl,,primaryfontsize,,secondaryfontsize,,legend,,height,,totalgraphdataheight,,totalgetdataheight,,sortdefaultvalue,,salesdata1,,currentpage,,bargraphinitialized,,phpurlcompany
 
+<<<<<<< HEAD
 main,jobdone,1,1,115,412
+=======
+main,jobdone,1,1,116,413
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 ,height,,scrollview1,,panel2,,companypanel,,primaryfontsize,,secondaryfontsize,,totalgetdataheight,,legend,,bargraphinitialized,,salenxtbtn,,salebackbtn,,sortbtn1,,sortbtn2,,defbtn,,sales1btn,,sales2btn,,sales3btn,,barpanel,,bargraph,,purchasepanel,,purchnxtbtn,,purchbackbtn,,bargraph1,,currentpage,httputils2service,tempfolder,,phpurl
 ,height,,totalgetdataheight,,legend,,bargraphinitialized
 httpjob,getstring,,adjustfontsizetoheight,bargraph,initialize,bargraph,updategraph,bargraph,setcurrentpage,,loadcompanydata,httpjob,release,httpjob,getstring2,,getdevicedensity,bargraph,drawgraph,bargraph,formatnumberwithsuffix,bargraph,formatnumberwithlabel,httpjob,initialize,httpjob,download,httpjob,addscheme
-main,label17_click,0,0,430,438
+main,label17_click,0,0,431,439
 starter,company_selected
 starter,company_selected
 
-main,nxtbtn_click,0,0,442,444
+main,nxtbtn_click,0,0,443,445
 
 
 
@@ -62,24 +71,38 @@ main,process_globals,0,1,15,21
 
 
 
+<<<<<<< HEAD
 main,sales1btn_click,0,0,468,478
 ,salesdata1,,sortdefaultvalue,,phpurlcompany,,currentpage
 ,salesdata1,,phpurlcompany
 ,loadgraphdata,httpjob,initialize,httpjob,download,httpjob,addscheme
 main,sales2btn_click,0,0,480,489
 ,salesdata1,,sortdefaultvalue,,phpurlcompany,,currentpage
+=======
+main,sales1btn_click,0,0,469,479
+,salesdata1,,sortdefaultvalue,,phpurlcompany
 ,salesdata1,,phpurlcompany
 ,loadgraphdata,httpjob,initialize,httpjob,download,httpjob,addscheme
-main,sales3btn_click,0,0,490,499
+main,sales2btn_click,0,0,481,490
+,salesdata1,,sortdefaultvalue,,phpurlcompany
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
+,salesdata1,,phpurlcompany
+,loadgraphdata,httpjob,initialize,httpjob,download,httpjob,addscheme
+main,sales3btn_click,0,0,491,500
 ,salesdata1,,sortdefaultvalue
 ,salesdata1
 
+<<<<<<< HEAD
 main,sortbtn1_click,0,0,459,466
 ,sortdefaultvalue,,phpurlcompany,,currentpage,,salesdata1
+=======
+main,sortbtn1_click,0,0,460,467
+,sortdefaultvalue,,phpurlcompany
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 ,sortdefaultvalue,,phpurlcompany
 ,loadgraphdata,httpjob,initialize,httpjob,download,httpjob,addscheme
-main,sortbtn2_click,0,0,446,454
-,sortdefaultvalue,,phpurlcompany,,currentpage,,salesdata1
+main,sortbtn2_click,0,0,447,455
+,sortdefaultvalue,,phpurlcompany
 ,sortdefaultvalue,,phpurlcompany
 ,loadgraphdata,httpjob,initialize,httpjob,download,httpjob,addscheme
 httpjob,getstring,0,0,291,293
@@ -190,6 +213,7 @@ httpjob,putstring,0,0,75,77
 
 
 ,putbytes,,addscheme
+<<<<<<< HEAD
 bargraph,initialize,1,0,36,215
 
 
@@ -203,13 +227,29 @@ bargraph,setcurrentpage,0,0,384,387
 
 ,updategraph,,drawgraph,,formatnumberwithsuffix,,formatnumberwithlabel
 bargraph,chkchange_checkedchange,1,0,417,437
+=======
+bargraph,initialize,1,1,38,212
+
+
+
+bargraph,updategraph,0,0,414,416
+
+
+,drawgraph,,formatnumberwithsuffix,,formatnumberwithlabel
+bargraph,setcurrentpage,0,0,422,425
 
 
 ,updategraph,,drawgraph,,formatnumberwithsuffix,,formatnumberwithlabel
-bargraph,class_globals,0,0,1,34
+bargraph,chkchange_checkedchange,1,0,455,475
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
+
+
+,updategraph,,drawgraph,,formatnumberwithsuffix,,formatnumberwithlabel
+bargraph,class_globals,0,0,1,36
 
 
 
+<<<<<<< HEAD
 bargraph,drawgraph,0,0,217,374
 
 
@@ -227,6 +267,25 @@ bargraph,getcurrentpage,0,0,380,382
 
 
 bargraph,productlabel_click,0,0,389,396
+=======
+bargraph,drawgraph,0,1,214,412
+
+
+,formatnumberwithsuffix,,formatnumberwithlabel
+bargraph,formatnumberwithsuffix,0,0,436,444
+
+
+
+bargraph,formatnumberwithlabel,0,0,446,454
+
+
+
+bargraph,getcurrentpage,0,0,418,420
+
+
+
+bargraph,productlabel_click,0,0,427,434
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 starter,company_selected
 starter,company_selected
 

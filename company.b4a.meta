@@ -16,6 +16,10 @@ ModuleClosedNodes2=
 ModuleClosedNodes3=
 ModuleClosedNodes4=
 ModuleClosedNodes5=1
+<<<<<<< HEAD
 NavigationStack=Main,GetDeviceDensity,496,0,Main,Process_Globals,2,0,Main,sales3btn_Click,490,0,Main,AdjustFontSizeToHeight,500,0,Branch,GetDeviceDensity,496,0,CheckBargraph,Initialize,71,0,Main,Globals,60,0,Main,LoadGraphData,102,6,barGraph,Class_Globals,0,0,Main,JobDone,245,6
+=======
+NavigationStack=Main,LoadGraphData,102,0,Device,responsiveLabel,151,0,Branch,JobDone,467,0,barGraph,productLabel_Click,396,0,barGraph,GetCurrentPage,390,0,CheckBargraph,Class_Globals,0,0,barGraph,Class_Globals,0,6,barGraph,DrawGraph,404,6,barGraph,Initialize,60,6,Main,JobDone,407,0
+>>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
 SelectedBuild=0
-VisibleModules=2,3,4,5,1
+VisibleModules=1,2,3,4,5

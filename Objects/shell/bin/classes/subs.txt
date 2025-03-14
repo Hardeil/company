@@ -18,43 +18,43 @@ main,loadgraphdata,0,0,99,113
 ,phpurlcompany
 ,phpurlcompany
 httpjob,initialize,httpjob,download,httpjob,addscheme
-main,activity_pause,0,0,426,428
+main,activity_pause,0,0,437,439
 
 
 
-main,activity_resume,0,0,422,424
+main,activity_resume,0,0,433,435
 
 
 
-main,adjustfontsizetoheight,0,0,502,505
+main,adjustfontsizetoheight,0,0,513,516
 
 
 ,getdevicedensity
-main,getdevicedensity,0,0,507,512
+main,getdevicedensity,0,0,517,522
 
 
 
-main,defbtn_click,0,0,456,458
+main,defbtn_click,0,0,467,469
 
 
 
-main,getmapvalueordefault,0,0,414,420
+main,getmapvalueordefault,0,0,425,431
 
 
 
 main,globals,0,1,23,63
-,phpurl,,primaryfontsize,,secondaryfontsize,,legend,,height,,totalgraphdataheight,,totalgetdataheight,,sortdefaultvalue,,salesdata1,,currentpage,,bargraphinitialized,,phpurlcompany
-,phpurl,,primaryfontsize,,secondaryfontsize,,legend,,height,,totalgraphdataheight,,totalgetdataheight,,sortdefaultvalue,,salesdata1,,currentpage,,bargraphinitialized,,phpurlcompany
+,phpurl,,primaryfontsize,,secondaryfontsize,,legend,,height,,totalgraphdataheight,,totalgetdataheight,,sortdefaultvalue,,salesdata1,,currentpage,,bargraphinitialized,,phpurlcompany,,calculatedsize
+,phpurl,,primaryfontsize,,secondaryfontsize,,legend,,height,,totalgraphdataheight,,totalgetdataheight,,sortdefaultvalue,,salesdata1,,currentpage,,bargraphinitialized,,phpurlcompany,,calculatedsize
 
-main,jobdone,1,1,116,413
-,height,,scrollview1,,panel2,,companypanel,,primaryfontsize,,secondaryfontsize,,totalgetdataheight,,legend,,bargraphinitialized,,salenxtbtn,,salebackbtn,,sortbtn1,,sortbtn2,,defbtn,,sales1btn,,sales2btn,,sales3btn,,barpanel,,bargraph,,purchasepanel,,purchnxtbtn,,purchbackbtn,,bargraph1,,currentpage,httputils2service,tempfolder,,phpurl
-,height,,totalgetdataheight,,legend,,bargraphinitialized
+main,jobdone,1,1,116,424
+,height,,scrollview1,,panel2,,calculatedsize,,companypanel,,primaryfontsize,,secondaryfontsize,,totalgetdataheight,,legend,,bargraphinitialized,,salenxtbtn,,salebackbtn,,sortbtn1,,sortbtn2,,defbtn,,sales1btn,,sales2btn,,sales3btn,,barpanel,,bargraph,,purchasepanel,,purchnxtbtn,,purchbackbtn,,bargraph1,,totalgraphdataheight,,currentpage,httputils2service,tempfolder,,phpurl
+,height,,calculatedsize,,totalgetdataheight,,legend,,totalgraphdataheight,,bargraphinitialized
 httpjob,getstring,,adjustfontsizetoheight,bargraph,initialize,bargraph,updategraph,bargraph,setcurrentpage,,loadcompanydata,httpjob,release,httpjob,getstring2,,getdevicedensity,bargraph,drawgraph,bargraph,formatnumberwithsuffix,bargraph,formatnumberwithlabel,httpjob,initialize,httpjob,download,httpjob,addscheme
-main,label17_click,0,0,431,439
+main,label17_click,0,0,442,450
 starter,company_selected
 starter,company_selected
 
-main,nxtbtn_click,0,0,443,445
+main,nxtbtn_click,0,0,454,456
 
 
 
@@ -62,23 +62,23 @@ main,process_globals,0,1,15,21
 
 
 
-main,sales1btn_click,0,0,469,479
+main,sales1btn_click,0,0,480,490
 ,salesdata1,,sortdefaultvalue,,phpurlcompany
 ,salesdata1,,phpurlcompany
 ,loadgraphdata,httpjob,initialize,httpjob,download,httpjob,addscheme
-main,sales2btn_click,0,0,481,490
+main,sales2btn_click,0,0,492,501
 ,salesdata1,,sortdefaultvalue,,phpurlcompany
 ,salesdata1,,phpurlcompany
 ,loadgraphdata,httpjob,initialize,httpjob,download,httpjob,addscheme
-main,sales3btn_click,0,0,491,500
+main,sales3btn_click,0,0,502,511
 ,salesdata1,,sortdefaultvalue
 ,salesdata1
 
-main,sortbtn1_click,0,0,460,467
+main,sortbtn1_click,0,0,471,478
 ,sortdefaultvalue,,phpurlcompany
 ,sortdefaultvalue,,phpurlcompany
 ,loadgraphdata,httpjob,initialize,httpjob,download,httpjob,addscheme
-main,sortbtn2_click,0,0,447,455
+main,sortbtn2_click,0,0,458,466
 ,sortdefaultvalue,,phpurlcompany
 ,sortdefaultvalue,,phpurlcompany
 ,loadgraphdata,httpjob,initialize,httpjob,download,httpjob,addscheme
@@ -190,7 +190,7 @@ httpjob,putstring,0,0,75,77
 
 
 ,putbytes,,addscheme
-bargraph,initialize,1,1,38,212
+bargraph,initialize,1,0,38,212
 
 
 
@@ -210,7 +210,7 @@ bargraph,class_globals,0,0,1,36
 
 
 
-bargraph,drawgraph,0,1,214,412
+bargraph,drawgraph,0,0,214,412
 
 
 ,formatnumberwithsuffix,,formatnumberwithlabel

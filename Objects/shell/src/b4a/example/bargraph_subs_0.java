@@ -64,7 +64,7 @@ __ref.runClassMethod (b4a.example.bargraph.class, "_updategraph" /*RemoteObject*
  }else {
  BA.debugLineNum = 473;BA.debugLine="Log(\"Error: Sender is not a CheckBox\")";
 Debug.ShouldStop(16777216);
-bargraph.__c.runVoidMethod ("LogImpl","0917522",RemoteObject.createImmutable("Error: Sender is not a CheckBox"),0);
+bargraph.__c.runVoidMethod ("LogImpl","41835026",RemoteObject.createImmutable("Error: Sender is not a CheckBox"),0);
  };
  BA.debugLineNum = 475;BA.debugLine="End Sub";
 Debug.ShouldStop(67108864);
@@ -554,7 +554,7 @@ Debug.ShouldStop(-2147483648);
 _btnmainpanel.runVoidMethod ("Initialize",__ref.getField(false, "ba"),(Object)(RemoteObject.createImmutable("")));
  BA.debugLineNum = 353;BA.debugLine="Log($\"alignTopCenter:${alignTopCenter}\"$)";
 Debug.ShouldStop(1);
-bargraph.__c.runVoidMethod ("LogImpl","0458891",(RemoteObject.concat(RemoteObject.createImmutable("alignTopCenter:"),bargraph.__c.runMethod(true,"SmartStringFormatter",(Object)(BA.ObjectToString("")),(Object)((_aligntopcenter))),RemoteObject.createImmutable(""))),0);
+bargraph.__c.runVoidMethod ("LogImpl","41376395",(RemoteObject.concat(RemoteObject.createImmutable("alignTopCenter:"),bargraph.__c.runMethod(true,"SmartStringFormatter",(Object)(BA.ObjectToString("")),(Object)((_aligntopcenter))),RemoteObject.createImmutable(""))),0);
  BA.debugLineNum = 354;BA.debugLine="panel.AddView(btnMainPanel,alignLeftCenter,panel";
 Debug.ShouldStop(2);
 _panel.runVoidMethod ("AddView",(Object)((_btnmainpanel.getObject())),(Object)(_alignleftcenter),(Object)(BA.numberCast(int.class, RemoteObject.solve(new RemoteObject[] {_panel.runMethod(true,"getHeight"),(RemoteObject.solve(new RemoteObject[] {(RemoteObject.solve(new RemoteObject[] {_aligntopcenter,RemoteObject.createImmutable(2)}, "/",0, 0)),bargraph.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 20)))}, "+",1, 0))}, "-",1, 0))),(Object)(_activitypanel.runMethod(true,"getWidth")),(Object)(bargraph.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 50)))));
@@ -682,7 +682,7 @@ _showhidebtn.runMethod(false,"setBackground",(_cdback.getObject()));
        catch (Exception e154) {
 			BA.rdebugUtils.runVoidMethod("setLastException",__ref.getField(false, "ba"), e154.toString()); BA.debugLineNum = 410;BA.debugLine="Log(LastException)";
 Debug.ShouldStop(33554432);
-bargraph.__c.runVoidMethod ("LogImpl","0458948",BA.ObjectToString(bargraph.__c.runMethod(false,"LastException",__ref.getField(false, "ba"))),0);
+bargraph.__c.runVoidMethod ("LogImpl","41376452",BA.ObjectToString(bargraph.__c.runMethod(false,"LastException",__ref.getField(false, "ba"))),0);
  };
  BA.debugLineNum = 412;BA.debugLine="End Sub";
 Debug.ShouldStop(134217728);
@@ -836,7 +836,7 @@ Debug.ShouldStop(64);
 if (RemoteObject.solveBoolean("=",_active.runMethod(true,"IsInitialized"),bargraph.__c.getField(true,"False"))) { 
  BA.debugLineNum = 40;BA.debugLine="Log(\"Error: Activity is not initialized\")";
 Debug.ShouldStop(128);
-bargraph.__c.runVoidMethod ("LogImpl","0393218",RemoteObject.createImmutable("Error: Activity is not initialized"),0);
+bargraph.__c.runVoidMethod ("LogImpl","41310722",RemoteObject.createImmutable("Error: Activity is not initialized"),0);
  BA.debugLineNum = 41;BA.debugLine="Return";
 Debug.ShouldStop(256);
 if (true) return RemoteObject.createImmutable("");
@@ -1270,7 +1270,7 @@ Debug.ShouldStop(4096);
 _selectedcompany = BA.numberCast(int.class, _clickedlabel.runMethod(false,"getTag"));Debug.locals.put("selectedCompany", _selectedcompany);Debug.locals.put("selectedCompany", _selectedcompany);
  BA.debugLineNum = 430;BA.debugLine="Log(\"Selected Company ID: \" & selectedCompany)";
 Debug.ShouldStop(8192);
-bargraph.__c.runVoidMethod ("LogImpl","0720899",RemoteObject.concat(RemoteObject.createImmutable("Selected Company ID: "),_selectedcompany),0);
+bargraph.__c.runVoidMethod ("LogImpl","41638403",RemoteObject.concat(RemoteObject.createImmutable("Selected Company ID: "),_selectedcompany),0);
  BA.debugLineNum = 431;BA.debugLine="Starter.company_selected = selectedCompany";
 Debug.ShouldStop(16384);
 bargraph._starter._company_selected /*RemoteObject*/  = BA.NumberToString(_selectedcompany);

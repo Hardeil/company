@@ -1,18 +1,24 @@
 ﻿Build1=Default,b4a.example,HU2_ACCEPTALL
 File1=arrow-right-solid.svg
+File10=store.PNG
 File2=arrows-removebg-preview.png
 File3=Branch.bal
 File4=cyduck.jpg
-File5=Device.bal
-File6=icons8-arrow-48.png
-File7=Layout.bal
+File5=dashboard.png
+File6=Device.bal
+File7=icons8-arrow-48.png
+File8=Layout.bal
+File9=stock.png
 FileGroup1=Default Group
+FileGroup10=Default Group
 FileGroup2=Default Group
 FileGroup3=Default Group
 FileGroup4=Default Group
 FileGroup5=Default Group
 FileGroup6=Default Group
 FileGroup7=Default Group
+FileGroup8=Default Group
+FileGroup9=Default Group
 Group=Default Group
 Library1=core
 Library2=json
@@ -27,7 +33,7 @@ Module2=Branch
 Module3=CheckBargraph
 Module4=Device
 Module5=Starter
-NumberOfFiles=7
+NumberOfFiles=10
 NumberOfLibraries=7
 NumberOfModules=5
 Version=13.1
@@ -93,7 +99,7 @@ Sub Globals
 	Dim currentPage As Int = 1
 	Dim barGraphInitialized As Boolean = False
 	Dim PHPURLCompany As String = $"https://192.168.8.117/Company/controller/company.php?action=get_company_list&page=${currentPage}&company_sales=${salesData1}&company_type=${sortDefaultValue}"$
-	
+	Dim calculatedSize As Float = 0
 End Sub
 
 
@@ -186,14 +192,14 @@ Sub JobDone(job As HttpJob)
 						ScrollView1.Panel.AddView(dashPanel, 5dip, Panel2.Height, 200dip, 40dip)
 						'AdjustFontSizeToHeight(dashLabel,2)
 							
-						'Dim myImage As Bitmap
-						'	myImage = LoadBitmap(File.DirAssets, "dashboard.png")
+						Dim myImage As Bitmap
+						myImage = LoadBitmap(File.DirAssets, "dashboard.png")
 		
-						'Dim imgView As ImageView
-						'imgView.Initialize("")
-						'imgView.Gravity = Gravity.FILL
-						'imgView.Bitmap = myImage
-						'dashPanel.AddView(imgView, 0dip, 12.5dip, 15dip, dashPanel.Height - 25dip)
+						Dim imgView As ImageView
+						imgView.Initialize("")
+						imgView.Gravity = Gravity.FILL
+						imgView.Bitmap = myImage
+						dashPanel.AddView(imgView, 0dip, 12.5dip, 15dip, dashPanel.Height - 25dip)
 								
 						Dim dashLabel As Label
 						dashLabel.Initialize("")
@@ -201,8 +207,9 @@ Sub JobDone(job As HttpJob)
 						dashLabel.TextColor = Colors.ARGB(50,156,0,0)
 						dashLabel.Gravity = Gravity.CENTER_VERTICAL
 						dashLabel.Typeface = Typeface.MONOSPACE
-						'dashPanel.AddView(dashLabel, imgView.Width+5dip, 0dip, dashPanel.Width, dashPanel.Height)
-					'	AdjustFontSizeToHeight(dashLabel,2)
+						dashPanel.AddView(dashLabel, imgView.Width+5dip, 0dip, dashPanel.Width, dashPanel.Height)
+						calculatedSize = AdjustFontSizeToHeight(dashLabel, 2)
+						dashLabel.TextSize = calculatedSize
 							
 							
 						companyPanel.Initialize("Panel")
@@ -232,18 +239,18 @@ Sub JobDone(job As HttpJob)
 						PanelTitle.AddView(Label17, 5dip, 0dip, PanelTitle.Width, PanelTitle.Height)
 					'	AdjustFontSizeToHeight(Label17,2)
 							
-						'		Dim myImage As Bitmap
-						'	myImage = LoadBitmap(File.DirAssets, "arrows-removebg-preview.png")
-						'	If myImage.IsInitialized Then
-						''		Dim resizedImage As Bitmap = myImage.Resize(DipToCurrent(4.5%x), myImage.Height * DipToCurrent(2%y) / myImage.Width, True)
-						'		Dim imgView As ImageView
-						'		imgView.Initialize("")
-						'		imgView.Gravity = Gravity.FILL
-						'		imgView.Bitmap = myImage
-						'		PanelTitle.AddView(imgView, PanelTitle.Width - 5%x, 5dip, 5%x, PanelTitle.Height - 10dip)
-						'	Else
-						'	Log("Error loading image")
-						'End If
+							Dim myImage As Bitmap
+							myImage = LoadBitmap(File.DirAssets, "arrows-removebg-preview.png")
+							If myImage.IsInitialized Then
+								Dim resizedImage As Bitmap = myImage.Resize(DipToCurrent(4.5%x), myImage.Height * DipToCurrent(2%y) / myImage.Width, True)
+								Dim imgView As ImageView
+								imgView.Initialize("")
+								imgView.Gravity = Gravity.FILL
+								imgView.Bitmap = myImage
+								PanelTitle.AddView(imgView, PanelTitle.Width - 5%x, 5dip, 5%x, PanelTitle.Height - 10dip)
+							Else
+							Log("Error loading image")
+						End If
 					
 						Dim panelWidth As Int = Panel.Width /3
 						Dim padding As Int = 10dip
@@ -258,7 +265,7 @@ Sub JobDone(job As HttpJob)
 						totalStore.Gravity = Gravity.CENTER
 						totalStore.Typeface = Typeface.SERIF
 						Panel.AddView(totalStore,0,PanelTitle.Height,panelWidth,labelheight-30dip)
-						AdjustFontSizeToHeight(totalStore,1.3)
+						'AdjustFontSizeToHeight(totalStore,1.3)
 							
 						Dim totalStoreLabel As Label
 						totalStoreLabel.Initialize("")
@@ -278,7 +285,7 @@ Sub JobDone(job As HttpJob)
 						totalPos.Gravity = Gravity.CENTER
 						totalPos.Typeface = Typeface.SERIF
 						Panel.AddView(totalPos,panelWidth,PanelTitle.Height,panelWidth,labelheight-30dip)
-						AdjustFontSizeToHeight(totalPos,1.3)
+						'AdjustFontSizeToHeight(totalPos,1.3)
 							
 						Dim totalPosLabel As Label
 						totalPosLabel.Initialize("")
@@ -352,6 +359,16 @@ Sub JobDone(job As HttpJob)
 					totalSalePanel.Initialize("")
 					ScrollView1.Panel.AddView(totalSalePanel,5dip,Panel2.Height+companyPanel.Height-28dip,Activity.Width,40dip)
 					
+					Dim myImage As Bitmap
+					myImage = LoadBitmap(File.DirAssets, "stock.png")
+		
+					Dim imgView As ImageView
+					imgView.Initialize("")
+					imgView.Gravity = Gravity.FILL
+					imgView.Bitmap = myImage
+					imgView.Bitmap = myImage
+					totalSalePanel.AddView(imgView, 0dip, 12.5dip, 15dip, totalSalePanel.Height - 25dip)
+						
 					
 					Dim totalSaleLabel As Label
 					totalSaleLabel.Initialize("")
@@ -359,8 +376,8 @@ Sub JobDone(job As HttpJob)
 					totalSaleLabel.TextColor = Colors.Black
 					totalSaleLabel.Gravity = Gravity.CENTER_VERTICAL
 					totalSaleLabel.Typeface = Typeface.MONOSPACE
-					'	totalSalePanel.AddView(totalSaleLabel,imgView.Width+5dip,0dip,Activity.Width,40dip)
-				'	AdjustFontSizeToHeight(totalSaleLabel,2)
+					totalSalePanel.AddView(totalSaleLabel,imgView.Width+5dip,0dip,Activity.Width,40dip)
+				 	AdjustFontSizeToHeight(totalSaleLabel,2)
 						
 				
 					ScrollView1.Panel.AddView(barPanel,25dip,totalSaleLabel.Height+Panel2.Height+companyPanel.Height - 30dip,Activity.Width-50dip,450dip)
@@ -373,18 +390,18 @@ Sub JobDone(job As HttpJob)
 					barGraph.Initialize(Activity,barPanel,sales,sales1,sales2,companyName,legend,maxSale,"Total Sale of the Company",comId,"Branch",saleNxtBtn,saleBackBtn,sortBtn1,sortBtn2,defBtn,sales1btn,sales2btn,sales3btn)
 					legend = Array As String("Purchase1","Purchase2","Purchase3")
 					
-			'	Dim totalPurchasePanel As Panel
-				'	totalPurchasePanel.Initialize("")
-				'	ScrollView1.Panel.AddView(totalPurchasePanel,5dip,barPanel.Height + Panel2.Height+companyPanel.Height+15dip,Activity.Width,40dip)
+					Dim totalPurchasePanel As Panel
+					totalPurchasePanel.Initialize("")
+					ScrollView1.Panel.AddView(totalPurchasePanel,5dip,barPanel.Height + Panel2.Height+companyPanel.Height+15dip,Activity.Width,40dip)
 					
-					'	Dim myImage As Bitmap
-					'	myImage = LoadBitmap(File.DirAssets, "stock.png")
+					Dim myImage As Bitmap
+					myImage = LoadBitmap(File.DirAssets, "stock.png")
 		
-					'Dim imgView As ImageView
-					'imgView.Initialize("")
-					'imgView.Gravity = Gravity.FILL
-					'	imgView.Bitmap = myImage
-					'	totalPurchasePanel.AddView(imgView, 0dip, 12.5dip, 15dip, totalPurchasePanel.Height - 25dip)
+					Dim imgView As ImageView
+					imgView.Initialize("")
+					imgView.Gravity = Gravity.FILL
+					imgView.Bitmap = myImage
+					totalPurchasePanel.AddView(imgView, 0dip, 12.5dip, 15dip, totalPurchasePanel.Height - 25dip)
 					
 					Dim totalPurchaseLabel As Label
 					totalPurchaseLabel.Initialize("")
@@ -392,7 +409,7 @@ Sub JobDone(job As HttpJob)
 					totalPurchaseLabel.TextColor =Colors.Black
 					totalPurchaseLabel.Gravity = Gravity.CENTER_VERTICAL
 					totalPurchaseLabel.Typeface = Typeface.MONOSPACE
-				'		totalPurchasePanel.AddView(totalPurchaseLabel,imgView.Width + 5dip,0dip,Activity.Width,totalPurchasePanel.Height)
+					totalPurchasePanel.AddView(totalPurchaseLabel,imgView.Width + 5dip,0dip,Activity.Width,totalPurchasePanel.Height)
 				'	AdjustFontSizeToHeight(totalPurchaseLabel,2)
 					
 					Dim shadowPurchPanel As Panel
@@ -403,8 +420,8 @@ Sub JobDone(job As HttpJob)
 					purchasePanel.Initialize("")
 					purchasePanel.Color = Colors.White
 					ScrollView1.Panel.AddView(purchasePanel,25dip, totalSaleLabel.Height+Panel2.Height+companyPanel.Height+barPanel.Height+totalPurchaseLabel.Height- 30dip,Activity.Width-50dip,450dip)
-					purchNxtBtn.Initialize("nxtBtn")
-					purchBackBtn.Initialize("backbtn")
+					purchNxtBtn.Initialize("")
+					purchBackBtn.Initialize("")
 					sortBtn1.Initialize("sortBtn1")
 					sortBtn2.Initialize("sortBtn2")
 					defBtn.Initialize("defBtn")
@@ -415,7 +432,7 @@ Sub JobDone(job As HttpJob)
 					barGraph1.Initialize(Activity, purchasePanel, purchase, purchase1, purchase2, companyName,legend,maxSale,"Total Purchase Per Company",comId,"Branch",purchNxtBtn,purchBackBtn,sortBtn1,sortBtn2,defBtn,sales1btn,sales2btn,sales3btn)
 					Log($"maxSale:${maxSale}"$)
 					'
-			'		totalGraphDataHeight = totalSaleLabel.Height+barPanel.Height+totalPurchaseLabel.Height + purchasePanel.Height
+					totalGraphDataHeight = totalSaleLabel.Height+barPanel.Height+totalPurchaseLabel.Height + purchasePanel.Height
 						barGraphInitialized = True
 						ProgressDialogHide
 						Else
@@ -438,8 +455,8 @@ Sub JobDone(job As HttpJob)
 		Catch
 			ToastMessageShow("Error parsing sales data", True)
 		End Try
-		''	ScrollView1.Panel.Height = totalGraphDataHeight + totalGetDataHeight
-		ScrollView1.Panel.Height = 1400dip
+		ScrollView1.Panel.Height = totalGraphDataHeight + totalGetDataHeight
+		'ScrollView1.Panel.Height = 1400dip
 	Else
 		ToastMessageShow("Error: " & job.ErrorMessage, True)
 	End If
@@ -533,11 +550,10 @@ Sub sales3btn_Click
 	Log(" sales 3 Button clicked: " & index)
 End Sub
 
-Sub AdjustFontSizeToHeight(lbl As Label,fontNum As Float)
-	Dim fontSize As Float = lbl.Height * fontNum / GetDeviceDensity ' 70% of height
-	lbl.TextSize = fontSize
+Sub AdjustFontSizeToHeight(lbl As Label, fontScaleFactor As Float) As Float
+	Dim fontSize As Float = lbl.Height * fontScaleFactor / GetDeviceDensity
+	Return fontSize
 End Sub
-
 Sub GetDeviceDensity As Float
 	Dim pixelWidth As Int = 100%x ' Screen width in pixels
 	Dim dipWidth As Int = 100dip  ' 100 DIPs in pixels

@@ -904,7 +904,7 @@ Debug.ShouldStop(67108864);
 device.mostCurrent._phpurl = RemoteObject.concat(RemoteObject.createImmutable("https://192.168.8.117/Company/fetch.php?action=get_device&id="),device.mostCurrent._branch._branch_selected /*RemoteObject*/ ,RemoteObject.createImmutable("&page="),device._pageno,RemoteObject.createImmutable("&limit="),device._limit);
  BA.debugLineNum = 156;BA.debugLine="Log(PHPURL)";
 Debug.ShouldStop(134217728);
-device.mostCurrent.__c.runVoidMethod ("LogImpl","06750210",device.mostCurrent._phpurl,0);
+device.mostCurrent.__c.runVoidMethod ("LogImpl","44325378",device.mostCurrent._phpurl,0);
  BA.debugLineNum = 157;BA.debugLine="Dim Job1 As HttpJob";
 Debug.ShouldStop(268435456);
 _job1 = RemoteObject.createNew ("b4a.example.httpjob");Debug.locals.put("Job1", _job1);

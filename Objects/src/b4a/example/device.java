@@ -672,12 +672,9 @@ if (Debug.shouldDelegate(mostCurrent.activityBA, "loadcompanydata", false))
 b4a.example.httpjob _job1 = null;
 RDebugUtils.currentLine=3670016;
  //BA.debugLineNum = 3670016;BA.debugLine="Sub LoadCompanyData";
-RDebugUtils.currentLine=3670017;
- //BA.debugLineNum = 3670017;BA.debugLine="PHPURL = \"https://192.168.8.117/Company/fetch.php";
-mostCurrent._phpurl = "https://192.168.8.117/Company/fetch.php?action=get_device&id="+mostCurrent._branch._branch_selected /*String*/ +"&page="+BA.NumberToString(_pageno)+"&limit="+BA.NumberToString(_limit);
 RDebugUtils.currentLine=3670018;
  //BA.debugLineNum = 3670018;BA.debugLine="Log(PHPURL)";
-anywheresoftware.b4a.keywords.Common.LogImpl("53670018",mostCurrent._phpurl,0);
+anywheresoftware.b4a.keywords.Common.LogImpl("63670018",mostCurrent._phpurl,0);
 RDebugUtils.currentLine=3670019;
  //BA.debugLineNum = 3670019;BA.debugLine="Dim Job1 As HttpJob";
 _job1 = new b4a.example.httpjob();

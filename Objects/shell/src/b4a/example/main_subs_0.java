@@ -71,26 +71,10 @@ finally {
 		}}
 public static RemoteObject  _activity_pause(RemoteObject _userclosed) throws Exception{
 try {
-		Debug.PushSubsStack("Activity_Pause (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,437);
+		Debug.PushSubsStack("Activity_Pause (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,433);
 if (RapidSub.canDelegate("activity_pause")) { return b4a.example.main.remoteMe.runUserSub(false, "main","activity_pause", _userclosed);}
 Debug.locals.put("UserClosed", _userclosed);
- BA.debugLineNum = 437;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
-Debug.ShouldStop(1048576);
- BA.debugLineNum = 439;BA.debugLine="End Sub";
-Debug.ShouldStop(4194304);
-return RemoteObject.createImmutable("");
-}
-catch (Exception e) {
-			throw Debug.ErrorCaught(e);
-		} 
-finally {
-			Debug.PopSubsStack();
-		}}
-public static RemoteObject  _activity_resume() throws Exception{
-try {
-		Debug.PushSubsStack("Activity_Resume (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,433);
-if (RapidSub.canDelegate("activity_resume")) { return b4a.example.main.remoteMe.runUserSub(false, "main","activity_resume");}
- BA.debugLineNum = 433;BA.debugLine="Sub Activity_Resume";
+ BA.debugLineNum = 433;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
 Debug.ShouldStop(65536);
  BA.debugLineNum = 435;BA.debugLine="End Sub";
 Debug.ShouldStop(262144);
@@ -102,23 +86,39 @@ catch (Exception e) {
 finally {
 			Debug.PopSubsStack();
 		}}
+public static RemoteObject  _activity_resume() throws Exception{
+try {
+		Debug.PushSubsStack("Activity_Resume (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,429);
+if (RapidSub.canDelegate("activity_resume")) { return b4a.example.main.remoteMe.runUserSub(false, "main","activity_resume");}
+ BA.debugLineNum = 429;BA.debugLine="Sub Activity_Resume";
+Debug.ShouldStop(4096);
+ BA.debugLineNum = 431;BA.debugLine="End Sub";
+Debug.ShouldStop(16384);
+return RemoteObject.createImmutable("");
+}
+catch (Exception e) {
+			throw Debug.ErrorCaught(e);
+		} 
+finally {
+			Debug.PopSubsStack();
+		}}
 public static RemoteObject  _adjustfontsizetoheight(RemoteObject _lbl,RemoteObject _fontscalefactor) throws Exception{
 try {
-		Debug.PushSubsStack("AdjustFontSizeToHeight (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,513);
+		Debug.PushSubsStack("AdjustFontSizeToHeight (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,507);
 if (RapidSub.canDelegate("adjustfontsizetoheight")) { return b4a.example.main.remoteMe.runUserSub(false, "main","adjustfontsizetoheight", _lbl, _fontscalefactor);}
 RemoteObject _fontsize = RemoteObject.createImmutable(0f);
 Debug.locals.put("lbl", _lbl);
 Debug.locals.put("fontScaleFactor", _fontscalefactor);
- BA.debugLineNum = 513;BA.debugLine="Sub AdjustFontSizeToHeight(lbl As Label, fontScale";
-Debug.ShouldStop(1);
- BA.debugLineNum = 514;BA.debugLine="Dim fontSize As Float = lbl.Height * fontScaleFac";
-Debug.ShouldStop(2);
+ BA.debugLineNum = 507;BA.debugLine="Sub AdjustFontSizeToHeight(lbl As Label, fontScale";
+Debug.ShouldStop(67108864);
+ BA.debugLineNum = 508;BA.debugLine="Dim fontSize As Float = lbl.Height * fontScaleFac";
+Debug.ShouldStop(134217728);
 _fontsize = BA.numberCast(float.class, RemoteObject.solve(new RemoteObject[] {_lbl.runMethod(true,"getHeight"),_fontscalefactor,_getdevicedensity()}, "*/",0, 0));Debug.locals.put("fontSize", _fontsize);Debug.locals.put("fontSize", _fontsize);
- BA.debugLineNum = 515;BA.debugLine="Return fontSize";
-Debug.ShouldStop(4);
-if (true) return _fontsize;
- BA.debugLineNum = 516;BA.debugLine="End Sub";
-Debug.ShouldStop(8);
+ BA.debugLineNum = 509;BA.debugLine="Return fontSize";
+Debug.ShouldStop(268435456);
+Debug.CheckDeviceExceptions();if (true) return _fontsize;
+ BA.debugLineNum = 510;BA.debugLine="End Sub";
+Debug.ShouldStop(536870912);
 return RemoteObject.createImmutable(0f);
 }
 catch (Exception e) {
@@ -129,15 +129,15 @@ finally {
 		}}
 public static RemoteObject  _defbtn_click() throws Exception{
 try {
-		Debug.PushSubsStack("defBtn_Click (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,467);
+		Debug.PushSubsStack("defBtn_Click (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,461);
 if (RapidSub.canDelegate("defbtn_click")) { return b4a.example.main.remoteMe.runUserSub(false, "main","defbtn_click");}
- BA.debugLineNum = 467;BA.debugLine="Sub defBtn_Click";
-Debug.ShouldStop(262144);
- BA.debugLineNum = 468;BA.debugLine="Log(\"Default\")";
-Debug.ShouldStop(524288);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","4786433",RemoteObject.createImmutable("Default"),0);
- BA.debugLineNum = 469;BA.debugLine="End Sub";
-Debug.ShouldStop(1048576);
+ BA.debugLineNum = 461;BA.debugLine="Sub defBtn_Click";
+Debug.ShouldStop(4096);
+ BA.debugLineNum = 462;BA.debugLine="Log(\"Default\")";
+Debug.ShouldStop(8192);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","5786433",RemoteObject.createImmutable("Default"),0);
+ BA.debugLineNum = 463;BA.debugLine="End Sub";
+Debug.ShouldStop(16384);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -148,27 +148,27 @@ finally {
 		}}
 public static RemoteObject  _getdevicedensity() throws Exception{
 try {
-		Debug.PushSubsStack("GetDeviceDensity (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,517);
+		Debug.PushSubsStack("GetDeviceDensity (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,511);
 if (RapidSub.canDelegate("getdevicedensity")) { return b4a.example.main.remoteMe.runUserSub(false, "main","getdevicedensity");}
 RemoteObject _pixelwidth = RemoteObject.createImmutable(0);
 RemoteObject _dipwidth = RemoteObject.createImmutable(0);
 RemoteObject _dense = RemoteObject.createImmutable(0f);
- BA.debugLineNum = 517;BA.debugLine="Sub GetDeviceDensity As Float";
-Debug.ShouldStop(16);
- BA.debugLineNum = 518;BA.debugLine="Dim pixelWidth As Int = 100%x ' Screen width in p";
-Debug.ShouldStop(32);
+ BA.debugLineNum = 511;BA.debugLine="Sub GetDeviceDensity As Float";
+Debug.ShouldStop(1073741824);
+ BA.debugLineNum = 512;BA.debugLine="Dim pixelWidth As Int = 100%x ' Screen width in p";
+Debug.ShouldStop(-2147483648);
 _pixelwidth = main.mostCurrent.__c.runMethod(true,"PerXToCurrent",(Object)(BA.numberCast(float.class, 100)),main.mostCurrent.activityBA);Debug.locals.put("pixelWidth", _pixelwidth);Debug.locals.put("pixelWidth", _pixelwidth);
- BA.debugLineNum = 519;BA.debugLine="Dim dipWidth As Int = 100dip  ' 100 DIPs in pixel";
-Debug.ShouldStop(64);
+ BA.debugLineNum = 513;BA.debugLine="Dim dipWidth As Int = 100dip  ' 100 DIPs in pixel";
+Debug.ShouldStop(1);
 _dipwidth = main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 100)));Debug.locals.put("dipWidth", _dipwidth);Debug.locals.put("dipWidth", _dipwidth);
- BA.debugLineNum = 520;BA.debugLine="Dim Dense As Float = pixelWidth / dipWidth";
-Debug.ShouldStop(128);
+ BA.debugLineNum = 514;BA.debugLine="Dim Dense As Float = pixelWidth / dipWidth";
+Debug.ShouldStop(2);
 _dense = BA.numberCast(float.class, RemoteObject.solve(new RemoteObject[] {_pixelwidth,_dipwidth}, "/",0, 0));Debug.locals.put("Dense", _dense);Debug.locals.put("Dense", _dense);
- BA.debugLineNum = 521;BA.debugLine="Return Dense";
-Debug.ShouldStop(256);
-if (true) return _dense;
- BA.debugLineNum = 522;BA.debugLine="End Sub";
-Debug.ShouldStop(512);
+ BA.debugLineNum = 515;BA.debugLine="Return Dense";
+Debug.ShouldStop(4);
+Debug.CheckDeviceExceptions();if (true) return _dense;
+ BA.debugLineNum = 516;BA.debugLine="End Sub";
+Debug.ShouldStop(8);
 return RemoteObject.createImmutable(0f);
 }
 catch (Exception e) {
@@ -179,26 +179,26 @@ finally {
 		}}
 public static RemoteObject  _getmapvalueordefault(RemoteObject _m,RemoteObject _key,RemoteObject _defaultvalue) throws Exception{
 try {
-		Debug.PushSubsStack("GetMapValueOrDefault (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,425);
+		Debug.PushSubsStack("GetMapValueOrDefault (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,421);
 if (RapidSub.canDelegate("getmapvalueordefault")) { return b4a.example.main.remoteMe.runUserSub(false, "main","getmapvalueordefault", _m, _key, _defaultvalue);}
 Debug.locals.put("m", _m);
 Debug.locals.put("Key", _key);
 Debug.locals.put("DefaultValue", _defaultvalue);
- BA.debugLineNum = 425;BA.debugLine="Sub GetMapValueOrDefault(m As Map, Key As String,";
-Debug.ShouldStop(256);
- BA.debugLineNum = 426;BA.debugLine="If m.ContainsKey(Key) Then";
-Debug.ShouldStop(512);
+ BA.debugLineNum = 421;BA.debugLine="Sub GetMapValueOrDefault(m As Map, Key As String,";
+Debug.ShouldStop(16);
+ BA.debugLineNum = 422;BA.debugLine="If m.ContainsKey(Key) Then";
+Debug.ShouldStop(32);
 if (_m.runMethod(true,"ContainsKey",(Object)((_key))).<Boolean>get().booleanValue()) { 
- BA.debugLineNum = 427;BA.debugLine="Return m.Get(Key)";
-Debug.ShouldStop(1024);
-if (true) return _m.runMethod(false,"Get",(Object)((_key)));
+ BA.debugLineNum = 423;BA.debugLine="Return m.Get(Key)";
+Debug.ShouldStop(64);
+Debug.CheckDeviceExceptions();if (true) return _m.runMethod(false,"Get",(Object)((_key)));
  }else {
- BA.debugLineNum = 429;BA.debugLine="Return DefaultValue";
-Debug.ShouldStop(4096);
-if (true) return _defaultvalue;
+ BA.debugLineNum = 425;BA.debugLine="Return DefaultValue";
+Debug.ShouldStop(256);
+Debug.CheckDeviceExceptions();if (true) return _defaultvalue;
  };
- BA.debugLineNum = 431;BA.debugLine="End Sub";
-Debug.ShouldStop(16384);
+ BA.debugLineNum = 427;BA.debugLine="End Sub";
+Debug.ShouldStop(1024);
 return RemoteObject.createImmutable(null);
 }
 catch (Exception e) {
@@ -575,7 +575,7 @@ _paneltitle.runVoidMethod ("AddView",(Object)((_imgview.getObject())),(Object)(R
  }else {
  BA.debugLineNum = 212;BA.debugLine="Log(\"Error loading image\")";
 Debug.ShouldStop(524288);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","4327776",RemoteObject.createImmutable("Error loading image"),0);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","5327776",RemoteObject.createImmutable("Error loading image"),0);
  };
  BA.debugLineNum = 215;BA.debugLine="Dim panelWidth As Int = Panel.Width /3";
 Debug.ShouldStop(4194304);
@@ -802,7 +802,7 @@ Debug.ShouldStop(4096);
 _maxsale = BA.numberCast(int.class, main.mostCurrent.__c.runMethod(true,"Max",(Object)(BA.numberCast(double.class, _maxsale)),(Object)(BA.numberCast(double.class, _max_value.getArrayElement(true,BA.numberCast(int.class, _i))))));Debug.locals.put("maxSale", _maxsale);
  BA.debugLineNum = 302;BA.debugLine="Log(companyName(i) & sales(i))";
 Debug.ShouldStop(8192);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","4327866",RemoteObject.concat(_companyname.getArrayElement(true,BA.numberCast(int.class, _i)),_sales.getArrayElement(true,BA.numberCast(int.class, _i))),0);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","5327866",RemoteObject.concat(_companyname.getArrayElement(true,BA.numberCast(int.class, _i)),_sales.getArrayElement(true,BA.numberCast(int.class, _i))),0);
  }
 }Debug.locals.put("i", _i);
 ;
@@ -845,13 +845,13 @@ _totalsalepanel = RemoteObject.createNew ("anywheresoftware.b4a.objects.PanelWra
  BA.debugLineNum = 319;BA.debugLine="totalSalePanel.Initialize(\"\")";
 Debug.ShouldStop(1073741824);
 _totalsalepanel.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("")));
- BA.debugLineNum = 320;BA.debugLine="ScrollView1.Panel.AddView(totalSalePanel,5dip";
+ BA.debugLineNum = 320;BA.debugLine="ScrollView1.Panel.AddView(totalSalePanel,5di";
 Debug.ShouldStop(-2147483648);
 main.mostCurrent._scrollview1.runMethod(false,"getPanel").runVoidMethod ("AddView",(Object)((_totalsalepanel.getObject())),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 5)))),(Object)(RemoteObject.solve(new RemoteObject[] {main.mostCurrent._panel2.runMethod(true,"getHeight"),main.mostCurrent._companypanel.runMethod(true,"getHeight"),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 28)))}, "+-",2, 1)),(Object)(main.mostCurrent._activity.runMethod(true,"getWidth")),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 40)))));
  BA.debugLineNum = 322;BA.debugLine="Dim myImage As Bitmap";
 Debug.ShouldStop(2);
 _myimage = RemoteObject.createNew ("anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper");Debug.locals.put("myImage", _myimage);
- BA.debugLineNum = 323;BA.debugLine="myImage = LoadBitmap(File.DirAssets, \"stock.p";
+ BA.debugLineNum = 323;BA.debugLine="myImage = LoadBitmap(File.DirAssets, \"stock.";
 Debug.ShouldStop(4);
 _myimage = main.mostCurrent.__c.runMethod(false,"LoadBitmap",(Object)(main.mostCurrent.__c.getField(false,"File").runMethod(true,"getDirAssets")),(Object)(RemoteObject.createImmutable("stock.png")));Debug.locals.put("myImage", _myimage);
  BA.debugLineNum = 325;BA.debugLine="Dim imgView As ImageView";
@@ -869,221 +869,218 @@ _imgview.runMethod(false,"setBitmap",(_myimage.getObject()));
  BA.debugLineNum = 329;BA.debugLine="imgView.Bitmap = myImage";
 Debug.ShouldStop(256);
 _imgview.runMethod(false,"setBitmap",(_myimage.getObject()));
- BA.debugLineNum = 330;BA.debugLine="totalSalePanel.AddView(imgView, 0dip, 12.5dip";
+ BA.debugLineNum = 330;BA.debugLine="totalSalePanel.AddView(imgView, 0dip, 12.5di";
 Debug.ShouldStop(512);
 _totalsalepanel.runVoidMethod ("AddView",(Object)((_imgview.getObject())),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 0)))),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 12.5)))),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 15)))),(Object)(RemoteObject.solve(new RemoteObject[] {_totalsalepanel.runMethod(true,"getHeight"),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 25)))}, "-",1, 1)));
- BA.debugLineNum = 333;BA.debugLine="Dim totalSaleLabel As Label";
-Debug.ShouldStop(4096);
+ BA.debugLineNum = 332;BA.debugLine="Dim totalSaleLabel As Label";
+Debug.ShouldStop(2048);
 _totalsalelabel = RemoteObject.createNew ("anywheresoftware.b4a.objects.LabelWrapper");Debug.locals.put("totalSaleLabel", _totalsalelabel);
- BA.debugLineNum = 334;BA.debugLine="totalSaleLabel.Initialize(\"\")";
-Debug.ShouldStop(8192);
-_totalsalelabel.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("")));
- BA.debugLineNum = 335;BA.debugLine="totalSaleLabel.Text = \"Total Sales\"";
-Debug.ShouldStop(16384);
-_totalsalelabel.runMethod(true,"setText",BA.ObjectToCharSequence("Total Sales"));
- BA.debugLineNum = 336;BA.debugLine="totalSaleLabel.TextColor = Colors.Black";
-Debug.ShouldStop(32768);
-_totalsalelabel.runMethod(true,"setTextColor",main.mostCurrent.__c.getField(false,"Colors").getField(true,"Black"));
- BA.debugLineNum = 337;BA.debugLine="totalSaleLabel.Gravity = Gravity.CENTER_VERTI";
-Debug.ShouldStop(65536);
-_totalsalelabel.runMethod(true,"setGravity",main.mostCurrent.__c.getField(false,"Gravity").getField(true,"CENTER_VERTICAL"));
- BA.debugLineNum = 338;BA.debugLine="totalSaleLabel.Typeface = Typeface.MONOSPACE";
-Debug.ShouldStop(131072);
-_totalsalelabel.runMethod(false,"setTypeface",main.mostCurrent.__c.getField(false,"Typeface").getField(false,"MONOSPACE"));
- BA.debugLineNum = 339;BA.debugLine="totalSalePanel.AddView(totalSaleLabel,imgView";
-Debug.ShouldStop(262144);
-_totalsalepanel.runVoidMethod ("AddView",(Object)((_totalsalelabel.getObject())),(Object)(RemoteObject.solve(new RemoteObject[] {_imgview.runMethod(true,"getWidth"),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 5)))}, "+",1, 1)),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 0)))),(Object)(main.mostCurrent._activity.runMethod(true,"getWidth")),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 40)))));
- BA.debugLineNum = 340;BA.debugLine="AdjustFontSizeToHeight(totalSaleLabel,2)";
-Debug.ShouldStop(524288);
-_adjustfontsizetoheight(_totalsalelabel,BA.numberCast(float.class, 2));
- BA.debugLineNum = 343;BA.debugLine="ScrollView1.Panel.AddView(barPanel,25dip,tota";
-Debug.ShouldStop(4194304);
-main.mostCurrent._scrollview1.runMethod(false,"getPanel").runVoidMethod ("AddView",(Object)((main.mostCurrent._barpanel.getObject())),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 25)))),(Object)(RemoteObject.solve(new RemoteObject[] {_totalsalelabel.runMethod(true,"getHeight"),main.mostCurrent._panel2.runMethod(true,"getHeight"),main.mostCurrent._companypanel.runMethod(true,"getHeight"),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 30)))}, "++-",3, 1)),(Object)(RemoteObject.solve(new RemoteObject[] {main.mostCurrent._activity.runMethod(true,"getWidth"),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 50)))}, "-",1, 1)),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 450)))));
- BA.debugLineNum = 344;BA.debugLine="barPanel.Color = Colors.White";
-Debug.ShouldStop(8388608);
-main.mostCurrent._barpanel.runVoidMethod ("setColor",main.mostCurrent.__c.getField(false,"Colors").getField(true,"White"));
- BA.debugLineNum = 346;BA.debugLine="barPanel.RemoveAllViews";
-Debug.ShouldStop(33554432);
-main.mostCurrent._barpanel.runVoidMethod ("RemoveAllViews");
- BA.debugLineNum = 347;BA.debugLine="barPanel.Invalidate ' Force a redraw";
-Debug.ShouldStop(67108864);
-main.mostCurrent._barpanel.runVoidMethod ("Invalidate");
- BA.debugLineNum = 350;BA.debugLine="barGraph.Initialize(Activity,barPanel,sales,s";
-Debug.ShouldStop(536870912);
-main.mostCurrent._bargraph.runClassMethod (b4a.example.bargraph.class, "_initialize" /*RemoteObject*/ ,main.mostCurrent.activityBA,(Object)(main.mostCurrent._activity),(Object)(main.mostCurrent._barpanel),(Object)(_sales),(Object)(_sales1),(Object)(_sales2),(Object)(_companyname),(Object)(main.mostCurrent._legend),(Object)(_maxsale),(Object)(BA.ObjectToString("Total Sale of the Company")),(Object)(_comid),(Object)(BA.ObjectToString("Branch")),(Object)(main.mostCurrent._salenxtbtn),(Object)(main.mostCurrent._salebackbtn),(Object)(main.mostCurrent._sortbtn1),(Object)(main.mostCurrent._sortbtn2),(Object)(main.mostCurrent._defbtn),(Object)(main.mostCurrent._sales1btn),(Object)(main.mostCurrent._sales2btn),(Object)(main.mostCurrent._sales3btn));
- BA.debugLineNum = 351;BA.debugLine="legend = Array As String(\"Purchase1\",\"Purchas";
-Debug.ShouldStop(1073741824);
-main.mostCurrent._legend = RemoteObject.createNewArray("String",new int[] {3},new Object[] {BA.ObjectToString("Purchase1"),BA.ObjectToString("Purchase2"),RemoteObject.createImmutable("Purchase3")});
- BA.debugLineNum = 353;BA.debugLine="Dim totalPurchasePanel As Panel";
-Debug.ShouldStop(1);
-_totalpurchasepanel = RemoteObject.createNew ("anywheresoftware.b4a.objects.PanelWrapper");Debug.locals.put("totalPurchasePanel", _totalpurchasepanel);
- BA.debugLineNum = 354;BA.debugLine="totalPurchasePanel.Initialize(\"\")";
-Debug.ShouldStop(2);
-_totalpurchasepanel.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("")));
- BA.debugLineNum = 355;BA.debugLine="ScrollView1.Panel.AddView(totalPurchasePanel,";
-Debug.ShouldStop(4);
-main.mostCurrent._scrollview1.runMethod(false,"getPanel").runVoidMethod ("AddView",(Object)((_totalpurchasepanel.getObject())),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 5)))),(Object)(RemoteObject.solve(new RemoteObject[] {main.mostCurrent._barpanel.runMethod(true,"getHeight"),main.mostCurrent._panel2.runMethod(true,"getHeight"),main.mostCurrent._companypanel.runMethod(true,"getHeight"),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 15)))}, "+++",3, 1)),(Object)(main.mostCurrent._activity.runMethod(true,"getWidth")),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 40)))));
- BA.debugLineNum = 357;BA.debugLine="Dim myImage As Bitmap";
-Debug.ShouldStop(16);
-_myimage = RemoteObject.createNew ("anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper");Debug.locals.put("myImage", _myimage);
- BA.debugLineNum = 358;BA.debugLine="myImage = LoadBitmap(File.DirAssets, \"stock.p";
-Debug.ShouldStop(32);
-_myimage = main.mostCurrent.__c.runMethod(false,"LoadBitmap",(Object)(main.mostCurrent.__c.getField(false,"File").runMethod(true,"getDirAssets")),(Object)(RemoteObject.createImmutable("stock.png")));Debug.locals.put("myImage", _myimage);
- BA.debugLineNum = 360;BA.debugLine="Dim imgView As ImageView";
-Debug.ShouldStop(128);
-_imgview = RemoteObject.createNew ("anywheresoftware.b4a.objects.ImageViewWrapper");Debug.locals.put("imgView", _imgview);
- BA.debugLineNum = 361;BA.debugLine="imgView.Initialize(\"\")";
-Debug.ShouldStop(256);
-_imgview.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("")));
- BA.debugLineNum = 362;BA.debugLine="imgView.Gravity = Gravity.FILL";
-Debug.ShouldStop(512);
-_imgview.runMethod(true,"setGravity",main.mostCurrent.__c.getField(false,"Gravity").getField(true,"FILL"));
- BA.debugLineNum = 363;BA.debugLine="imgView.Bitmap = myImage";
-Debug.ShouldStop(1024);
-_imgview.runMethod(false,"setBitmap",(_myimage.getObject()));
- BA.debugLineNum = 364;BA.debugLine="totalPurchasePanel.AddView(imgView, 0dip, 12.";
-Debug.ShouldStop(2048);
-_totalpurchasepanel.runVoidMethod ("AddView",(Object)((_imgview.getObject())),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 0)))),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 12.5)))),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 15)))),(Object)(RemoteObject.solve(new RemoteObject[] {_totalpurchasepanel.runMethod(true,"getHeight"),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 25)))}, "-",1, 1)));
- BA.debugLineNum = 366;BA.debugLine="Dim totalPurchaseLabel As Label";
-Debug.ShouldStop(8192);
-_totalpurchaselabel = RemoteObject.createNew ("anywheresoftware.b4a.objects.LabelWrapper");Debug.locals.put("totalPurchaseLabel", _totalpurchaselabel);
- BA.debugLineNum = 367;BA.debugLine="totalPurchaseLabel.Initialize(\"\")";
-Debug.ShouldStop(16384);
-_totalpurchaselabel.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("")));
- BA.debugLineNum = 368;BA.debugLine="totalPurchaseLabel.Text = \"Total Purchases\"";
-Debug.ShouldStop(32768);
-_totalpurchaselabel.runMethod(true,"setText",BA.ObjectToCharSequence("Total Purchases"));
- BA.debugLineNum = 369;BA.debugLine="totalPurchaseLabel.TextColor =Colors.Black";
-Debug.ShouldStop(65536);
-_totalpurchaselabel.runMethod(true,"setTextColor",main.mostCurrent.__c.getField(false,"Colors").getField(true,"Black"));
- BA.debugLineNum = 370;BA.debugLine="totalPurchaseLabel.Gravity = Gravity.CENTER_V";
-Debug.ShouldStop(131072);
-_totalpurchaselabel.runMethod(true,"setGravity",main.mostCurrent.__c.getField(false,"Gravity").getField(true,"CENTER_VERTICAL"));
- BA.debugLineNum = 371;BA.debugLine="totalPurchaseLabel.Typeface = Typeface.MONOSP";
-Debug.ShouldStop(262144);
-_totalpurchaselabel.runMethod(false,"setTypeface",main.mostCurrent.__c.getField(false,"Typeface").getField(false,"MONOSPACE"));
- BA.debugLineNum = 372;BA.debugLine="totalPurchasePanel.AddView(totalPurchaseLabel";
-Debug.ShouldStop(524288);
-_totalpurchasepanel.runVoidMethod ("AddView",(Object)((_totalpurchaselabel.getObject())),(Object)(RemoteObject.solve(new RemoteObject[] {_imgview.runMethod(true,"getWidth"),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 5)))}, "+",1, 1)),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 0)))),(Object)(main.mostCurrent._activity.runMethod(true,"getWidth")),(Object)(_totalpurchasepanel.runMethod(true,"getHeight")));
- BA.debugLineNum = 375;BA.debugLine="Dim shadowPurchPanel As Panel";
-Debug.ShouldStop(4194304);
-_shadowpurchpanel = RemoteObject.createNew ("anywheresoftware.b4a.objects.PanelWrapper");Debug.locals.put("shadowPurchPanel", _shadowpurchpanel);
- BA.debugLineNum = 376;BA.debugLine="shadowPurchPanel.Initialize(\"\")";
-Debug.ShouldStop(8388608);
-_shadowpurchpanel.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("")));
- BA.debugLineNum = 377;BA.debugLine="shadowPurchPanel.Color = Colors.ARGB(50, 138,";
-Debug.ShouldStop(16777216);
-_shadowpurchpanel.runVoidMethod ("setColor",main.mostCurrent.__c.getField(false,"Colors").runMethod(true,"ARGB",(Object)(BA.numberCast(int.class, 50)),(Object)(BA.numberCast(int.class, 138)),(Object)(BA.numberCast(int.class, 138)),(Object)(BA.numberCast(int.class, 138))));
- BA.debugLineNum = 378;BA.debugLine="ScrollView1.Panel.AddView(shadowPurchPanel, 2";
-Debug.ShouldStop(33554432);
-main.mostCurrent._scrollview1.runMethod(false,"getPanel").runVoidMethod ("AddView",(Object)((_shadowpurchpanel.getObject())),(Object)(RemoteObject.solve(new RemoteObject[] {main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 25))),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 5)))}, "+",1, 1)),(Object)(RemoteObject.solve(new RemoteObject[] {_totalsalelabel.runMethod(true,"getHeight"),main.mostCurrent._panel2.runMethod(true,"getHeight"),main.mostCurrent._companypanel.runMethod(true,"getHeight"),main.mostCurrent._barpanel.runMethod(true,"getHeight"),_totalpurchaselabel.runMethod(true,"getHeight"),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 30))),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 5)))}, "++++-+",6, 1)),(Object)(RemoteObject.solve(new RemoteObject[] {main.mostCurrent._activity.runMethod(true,"getWidth"),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 50)))}, "-",1, 1)),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 450)))));
- BA.debugLineNum = 380;BA.debugLine="purchasePanel.Initialize(\"\")";
-Debug.ShouldStop(134217728);
-main.mostCurrent._purchasepanel.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("")));
- BA.debugLineNum = 381;BA.debugLine="purchasePanel.Color = Colors.White";
-Debug.ShouldStop(268435456);
-main.mostCurrent._purchasepanel.runVoidMethod ("setColor",main.mostCurrent.__c.getField(false,"Colors").getField(true,"White"));
- BA.debugLineNum = 382;BA.debugLine="ScrollView1.Panel.AddView(purchasePanel,25dip";
-Debug.ShouldStop(536870912);
-main.mostCurrent._scrollview1.runMethod(false,"getPanel").runVoidMethod ("AddView",(Object)((main.mostCurrent._purchasepanel.getObject())),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 25)))),(Object)(RemoteObject.solve(new RemoteObject[] {_totalsalelabel.runMethod(true,"getHeight"),main.mostCurrent._panel2.runMethod(true,"getHeight"),main.mostCurrent._companypanel.runMethod(true,"getHeight"),main.mostCurrent._barpanel.runMethod(true,"getHeight"),_totalpurchaselabel.runMethod(true,"getHeight"),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 30)))}, "++++-",5, 1)),(Object)(RemoteObject.solve(new RemoteObject[] {main.mostCurrent._activity.runMethod(true,"getWidth"),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 50)))}, "-",1, 1)),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 450)))));
- BA.debugLineNum = 383;BA.debugLine="purchNxtBtn.Initialize(\"\")";
-Debug.ShouldStop(1073741824);
-main.mostCurrent._purchnxtbtn.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("")));
- BA.debugLineNum = 384;BA.debugLine="purchBackBtn.Initialize(\"\")";
-Debug.ShouldStop(-2147483648);
-main.mostCurrent._purchbackbtn.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("")));
- BA.debugLineNum = 385;BA.debugLine="sortBtn1.Initialize(\"sortBtn1\")";
-Debug.ShouldStop(1);
-main.mostCurrent._sortbtn1.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("sortBtn1")));
- BA.debugLineNum = 386;BA.debugLine="sortBtn2.Initialize(\"sortBtn2\")";
-Debug.ShouldStop(2);
-main.mostCurrent._sortbtn2.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("sortBtn2")));
- BA.debugLineNum = 387;BA.debugLine="defBtn.Initialize(\"defBtn\")";
-Debug.ShouldStop(4);
-main.mostCurrent._defbtn.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("defBtn")));
- BA.debugLineNum = 388;BA.debugLine="sales1btn.Initialize(\"sales1btn\")";
-Debug.ShouldStop(8);
-main.mostCurrent._sales1btn.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("sales1btn")));
- BA.debugLineNum = 389;BA.debugLine="sales2btn.Initialize(\"sales2btn\")";
-Debug.ShouldStop(16);
-main.mostCurrent._sales2btn.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("sales2btn")));
- BA.debugLineNum = 390;BA.debugLine="sales3btn.Initialize(\"sales3btn\")";
-Debug.ShouldStop(32);
-main.mostCurrent._sales3btn.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("sales3btn")));
- BA.debugLineNum = 392;BA.debugLine="barGraph1.Initialize(Activity, purchasePanel,";
-Debug.ShouldStop(128);
-main.mostCurrent._bargraph1.runClassMethod (b4a.example.bargraph.class, "_initialize" /*RemoteObject*/ ,main.mostCurrent.activityBA,(Object)(main.mostCurrent._activity),(Object)(main.mostCurrent._purchasepanel),(Object)(_purchase),(Object)(_purchase1),(Object)(_purchase2),(Object)(_companyname),(Object)(main.mostCurrent._legend),(Object)(_maxsale),(Object)(BA.ObjectToString("Total Purchase Per Company")),(Object)(_comid),(Object)(BA.ObjectToString("Branch")),(Object)(main.mostCurrent._purchnxtbtn),(Object)(main.mostCurrent._purchbackbtn),(Object)(main.mostCurrent._sortbtn1),(Object)(main.mostCurrent._sortbtn2),(Object)(main.mostCurrent._defbtn),(Object)(main.mostCurrent._sales1btn),(Object)(main.mostCurrent._sales2btn),(Object)(main.mostCurrent._sales3btn));
- BA.debugLineNum = 393;BA.debugLine="Log($\"maxSale:${maxSale}\"$)";
-Debug.ShouldStop(256);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","4327957",(RemoteObject.concat(RemoteObject.createImmutable("maxSale:"),main.mostCurrent.__c.runMethod(true,"SmartStringFormatter",(Object)(BA.ObjectToString("")),(Object)((_maxsale))),RemoteObject.createImmutable(""))),0);
- BA.debugLineNum = 395;BA.debugLine="totalGraphDataHeight = totalSaleLabel.Height+";
-Debug.ShouldStop(1024);
-main._totalgraphdataheight = RemoteObject.solve(new RemoteObject[] {_totalsalelabel.runMethod(true,"getHeight"),main.mostCurrent._barpanel.runMethod(true,"getHeight"),_totalpurchaselabel.runMethod(true,"getHeight"),main.mostCurrent._purchasepanel.runMethod(true,"getHeight")}, "+++",3, 1);
- BA.debugLineNum = 396;BA.debugLine="barGraphInitialized = True";
-Debug.ShouldStop(2048);
-main._bargraphinitialized = main.mostCurrent.__c.getField(true,"True");
- BA.debugLineNum = 397;BA.debugLine="ProgressDialogHide";
+ BA.debugLineNum = 333;BA.debugLine="totalSaleLabel.Initialize(\"\")";
 Debug.ShouldStop(4096);
+_totalsalelabel.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("")));
+ BA.debugLineNum = 334;BA.debugLine="totalSaleLabel.Text = \"Total Sales\"";
+Debug.ShouldStop(8192);
+_totalsalelabel.runMethod(true,"setText",BA.ObjectToCharSequence("Total Sales"));
+ BA.debugLineNum = 335;BA.debugLine="totalSaleLabel.TextColor = Colors.Black";
+Debug.ShouldStop(16384);
+_totalsalelabel.runMethod(true,"setTextColor",main.mostCurrent.__c.getField(false,"Colors").getField(true,"Black"));
+ BA.debugLineNum = 336;BA.debugLine="totalSaleLabel.Gravity = Gravity.CENTER_VERT";
+Debug.ShouldStop(32768);
+_totalsalelabel.runMethod(true,"setGravity",main.mostCurrent.__c.getField(false,"Gravity").getField(true,"CENTER_VERTICAL"));
+ BA.debugLineNum = 337;BA.debugLine="totalSaleLabel.Typeface = Typeface.MONOSPACE";
+Debug.ShouldStop(65536);
+_totalsalelabel.runMethod(false,"setTypeface",main.mostCurrent.__c.getField(false,"Typeface").getField(false,"MONOSPACE"));
+ BA.debugLineNum = 338;BA.debugLine="totalSalePanel.AddView(totalSaleLabel,imgVie";
+Debug.ShouldStop(131072);
+_totalsalepanel.runVoidMethod ("AddView",(Object)((_totalsalelabel.getObject())),(Object)(RemoteObject.solve(new RemoteObject[] {_imgview.runMethod(true,"getWidth"),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 5)))}, "+",1, 1)),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 0)))),(Object)(main.mostCurrent._activity.runMethod(true,"getWidth")),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 40)))));
+ BA.debugLineNum = 339;BA.debugLine="AdjustFontSizeToHeight(totalSaleLabel,2)";
+Debug.ShouldStop(262144);
+_adjustfontsizetoheight(_totalsalelabel,BA.numberCast(float.class, 2));
+ BA.debugLineNum = 341;BA.debugLine="ScrollView1.Panel.AddView(barPanel,25dip,tot";
+Debug.ShouldStop(1048576);
+main.mostCurrent._scrollview1.runMethod(false,"getPanel").runVoidMethod ("AddView",(Object)((main.mostCurrent._barpanel.getObject())),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 25)))),(Object)(RemoteObject.solve(new RemoteObject[] {_totalsalelabel.runMethod(true,"getHeight"),main.mostCurrent._panel2.runMethod(true,"getHeight"),main.mostCurrent._companypanel.runMethod(true,"getHeight"),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 30)))}, "++-",3, 1)),(Object)(RemoteObject.solve(new RemoteObject[] {main.mostCurrent._activity.runMethod(true,"getWidth"),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 50)))}, "-",1, 1)),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 450)))));
+ BA.debugLineNum = 342;BA.debugLine="barPanel.Color = Colors.White";
+Debug.ShouldStop(2097152);
+main.mostCurrent._barpanel.runVoidMethod ("setColor",main.mostCurrent.__c.getField(false,"Colors").getField(true,"White"));
+ BA.debugLineNum = 344;BA.debugLine="barPanel.RemoveAllViews";
+Debug.ShouldStop(8388608);
+main.mostCurrent._barpanel.runVoidMethod ("RemoveAllViews");
+ BA.debugLineNum = 345;BA.debugLine="barPanel.Invalidate ' Force a redraw";
+Debug.ShouldStop(16777216);
+main.mostCurrent._barpanel.runVoidMethod ("Invalidate");
+ BA.debugLineNum = 348;BA.debugLine="barGraph.Initialize(Activity,barPanel,sales,";
+Debug.ShouldStop(134217728);
+main.mostCurrent._bargraph.runClassMethod (b4a.example.bargraph.class, "_initialize" /*RemoteObject*/ ,main.mostCurrent.activityBA,(Object)(main.mostCurrent._activity),(Object)(main.mostCurrent._barpanel),(Object)(_sales),(Object)(_sales1),(Object)(_sales2),(Object)(_companyname),(Object)(main.mostCurrent._legend),(Object)(_maxsale),(Object)(BA.ObjectToString("Total Sale of the Company")),(Object)(_comid),(Object)(BA.ObjectToString("Branch")),(Object)(main.mostCurrent._salenxtbtn),(Object)(main.mostCurrent._salebackbtn),(Object)(main.mostCurrent._sortbtn1),(Object)(main.mostCurrent._sortbtn2),(Object)(main.mostCurrent._defbtn),(Object)(main.mostCurrent._sales1btn),(Object)(main.mostCurrent._sales2btn),(Object)(main.mostCurrent._sales3btn));
+ BA.debugLineNum = 349;BA.debugLine="legend = Array As String(\"Purchase1\",\"Purcha";
+Debug.ShouldStop(268435456);
+main.mostCurrent._legend = RemoteObject.createNewArray("String",new int[] {3},new Object[] {BA.ObjectToString("Purchase1"),BA.ObjectToString("Purchase2"),RemoteObject.createImmutable("Purchase3")});
+ BA.debugLineNum = 350;BA.debugLine="barGraphInitialized = True";
+Debug.ShouldStop(536870912);
+main._bargraphinitialized = main.mostCurrent.__c.getField(true,"True");
+ BA.debugLineNum = 351;BA.debugLine="ProgressDialogHide";
+Debug.ShouldStop(1073741824);
 main.mostCurrent.__c.runVoidMethod ("ProgressDialogHide");
  }else {
- BA.debugLineNum = 399;BA.debugLine="barGraph.sale_1 = sales";
-Debug.ShouldStop(16384);
+ BA.debugLineNum = 353;BA.debugLine="barGraph.sale_1 = sales";
+Debug.ShouldStop(1);
 main.mostCurrent._bargraph.setField ("_sale_1" /*RemoteObject*/ ,_sales);
- BA.debugLineNum = 400;BA.debugLine="barGraph.sale_2 = sales1";
-Debug.ShouldStop(32768);
+ BA.debugLineNum = 354;BA.debugLine="barGraph.sale_2 = sales1";
+Debug.ShouldStop(2);
 main.mostCurrent._bargraph.setField ("_sale_2" /*RemoteObject*/ ,_sales1);
- BA.debugLineNum = 401;BA.debugLine="barGraph.sale_3 = sales2";
-Debug.ShouldStop(65536);
+ BA.debugLineNum = 355;BA.debugLine="barGraph.sale_3 = sales2";
+Debug.ShouldStop(4);
 main.mostCurrent._bargraph.setField ("_sale_3" /*RemoteObject*/ ,_sales2);
- BA.debugLineNum = 402;BA.debugLine="barGraph.product1 = companyName";
-Debug.ShouldStop(131072);
+ BA.debugLineNum = 356;BA.debugLine="barGraph.product1 = companyName";
+Debug.ShouldStop(8);
 main.mostCurrent._bargraph.setField ("_product1" /*RemoteObject*/ ,_companyname);
- BA.debugLineNum = 403;BA.debugLine="barGraph.comId1 = sales ' Assuming comId1 sh";
-Debug.ShouldStop(262144);
+ BA.debugLineNum = 357;BA.debugLine="barGraph.comId1 = sales ' Assuming comId1 sh";
+Debug.ShouldStop(16);
 main.mostCurrent._bargraph.setField ("_comid1" /*RemoteObject*/ ,_sales);
- BA.debugLineNum = 404;BA.debugLine="barGraph.UpdateGraph";
-Debug.ShouldStop(524288);
+ BA.debugLineNum = 358;BA.debugLine="barGraph.UpdateGraph";
+Debug.ShouldStop(32);
 main.mostCurrent._bargraph.runClassMethod (b4a.example.bargraph.class, "_updategraph" /*RemoteObject*/ );
- BA.debugLineNum = 405;BA.debugLine="barGraph.SetCurrentPage(currentPage) ' Update";
-Debug.ShouldStop(1048576);
-main.mostCurrent._bargraph.runClassMethod (b4a.example.bargraph.class, "_setcurrentpage" /*RemoteObject*/ ,(Object)(main._currentpage));
  };
+ BA.debugLineNum = 361;BA.debugLine="Dim totalPurchasePanel As Panel";
+Debug.ShouldStop(256);
+_totalpurchasepanel = RemoteObject.createNew ("anywheresoftware.b4a.objects.PanelWrapper");Debug.locals.put("totalPurchasePanel", _totalpurchasepanel);
+ BA.debugLineNum = 362;BA.debugLine="totalPurchasePanel.Initialize(\"\")";
+Debug.ShouldStop(512);
+_totalpurchasepanel.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("")));
+ BA.debugLineNum = 363;BA.debugLine="ScrollView1.Panel.AddView(totalPurchasePanel,";
+Debug.ShouldStop(1024);
+main.mostCurrent._scrollview1.runMethod(false,"getPanel").runVoidMethod ("AddView",(Object)((_totalpurchasepanel.getObject())),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 5)))),(Object)(RemoteObject.solve(new RemoteObject[] {main.mostCurrent._barpanel.runMethod(true,"getHeight"),main.mostCurrent._panel2.runMethod(true,"getHeight"),main.mostCurrent._companypanel.runMethod(true,"getHeight"),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 15)))}, "+++",3, 1)),(Object)(main.mostCurrent._activity.runMethod(true,"getWidth")),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 40)))));
+ BA.debugLineNum = 365;BA.debugLine="Dim myImage As Bitmap";
+Debug.ShouldStop(4096);
+_myimage = RemoteObject.createNew ("anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper");Debug.locals.put("myImage", _myimage);
+ BA.debugLineNum = 366;BA.debugLine="myImage = LoadBitmap(File.DirAssets, \"stock.p";
+Debug.ShouldStop(8192);
+_myimage = main.mostCurrent.__c.runMethod(false,"LoadBitmap",(Object)(main.mostCurrent.__c.getField(false,"File").runMethod(true,"getDirAssets")),(Object)(RemoteObject.createImmutable("stock.png")));Debug.locals.put("myImage", _myimage);
+ BA.debugLineNum = 368;BA.debugLine="Dim imgView As ImageView";
+Debug.ShouldStop(32768);
+_imgview = RemoteObject.createNew ("anywheresoftware.b4a.objects.ImageViewWrapper");Debug.locals.put("imgView", _imgview);
+ BA.debugLineNum = 369;BA.debugLine="imgView.Initialize(\"\")";
+Debug.ShouldStop(65536);
+_imgview.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("")));
+ BA.debugLineNum = 370;BA.debugLine="imgView.Gravity = Gravity.FILL";
+Debug.ShouldStop(131072);
+_imgview.runMethod(true,"setGravity",main.mostCurrent.__c.getField(false,"Gravity").getField(true,"FILL"));
+ BA.debugLineNum = 371;BA.debugLine="imgView.Bitmap = myImage";
+Debug.ShouldStop(262144);
+_imgview.runMethod(false,"setBitmap",(_myimage.getObject()));
+ BA.debugLineNum = 372;BA.debugLine="totalPurchasePanel.AddView(imgView, 0dip, 12.";
+Debug.ShouldStop(524288);
+_totalpurchasepanel.runVoidMethod ("AddView",(Object)((_imgview.getObject())),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 0)))),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 12.5)))),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 15)))),(Object)(RemoteObject.solve(new RemoteObject[] {_totalpurchasepanel.runMethod(true,"getHeight"),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 25)))}, "-",1, 1)));
+ BA.debugLineNum = 374;BA.debugLine="Dim totalPurchaseLabel As Label";
+Debug.ShouldStop(2097152);
+_totalpurchaselabel = RemoteObject.createNew ("anywheresoftware.b4a.objects.LabelWrapper");Debug.locals.put("totalPurchaseLabel", _totalpurchaselabel);
+ BA.debugLineNum = 375;BA.debugLine="totalPurchaseLabel.Initialize(\"\")";
+Debug.ShouldStop(4194304);
+_totalpurchaselabel.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("")));
+ BA.debugLineNum = 376;BA.debugLine="totalPurchaseLabel.Text = \"Total Purchases\"";
+Debug.ShouldStop(8388608);
+_totalpurchaselabel.runMethod(true,"setText",BA.ObjectToCharSequence("Total Purchases"));
+ BA.debugLineNum = 377;BA.debugLine="totalPurchaseLabel.TextColor =Colors.Black";
+Debug.ShouldStop(16777216);
+_totalpurchaselabel.runMethod(true,"setTextColor",main.mostCurrent.__c.getField(false,"Colors").getField(true,"Black"));
+ BA.debugLineNum = 378;BA.debugLine="totalPurchaseLabel.Gravity = Gravity.CENTER_V";
+Debug.ShouldStop(33554432);
+_totalpurchaselabel.runMethod(true,"setGravity",main.mostCurrent.__c.getField(false,"Gravity").getField(true,"CENTER_VERTICAL"));
+ BA.debugLineNum = 379;BA.debugLine="totalPurchaseLabel.Typeface = Typeface.MONOSP";
+Debug.ShouldStop(67108864);
+_totalpurchaselabel.runMethod(false,"setTypeface",main.mostCurrent.__c.getField(false,"Typeface").getField(false,"MONOSPACE"));
+ BA.debugLineNum = 380;BA.debugLine="totalPurchasePanel.AddView(totalPurchaseLabel";
+Debug.ShouldStop(134217728);
+_totalpurchasepanel.runVoidMethod ("AddView",(Object)((_totalpurchaselabel.getObject())),(Object)(RemoteObject.solve(new RemoteObject[] {_imgview.runMethod(true,"getWidth"),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 5)))}, "+",1, 1)),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 0)))),(Object)(main.mostCurrent._activity.runMethod(true,"getWidth")),(Object)(_totalpurchasepanel.runMethod(true,"getHeight")));
+ BA.debugLineNum = 383;BA.debugLine="Dim shadowPurchPanel As Panel";
+Debug.ShouldStop(1073741824);
+_shadowpurchpanel = RemoteObject.createNew ("anywheresoftware.b4a.objects.PanelWrapper");Debug.locals.put("shadowPurchPanel", _shadowpurchpanel);
+ BA.debugLineNum = 384;BA.debugLine="shadowPurchPanel.Initialize(\"\")";
+Debug.ShouldStop(-2147483648);
+_shadowpurchpanel.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("")));
+ BA.debugLineNum = 385;BA.debugLine="shadowPurchPanel.Color = Colors.ARGB(50, 138,";
+Debug.ShouldStop(1);
+_shadowpurchpanel.runVoidMethod ("setColor",main.mostCurrent.__c.getField(false,"Colors").runMethod(true,"ARGB",(Object)(BA.numberCast(int.class, 50)),(Object)(BA.numberCast(int.class, 138)),(Object)(BA.numberCast(int.class, 138)),(Object)(BA.numberCast(int.class, 138))));
+ BA.debugLineNum = 386;BA.debugLine="ScrollView1.Panel.AddView(shadowPurchPanel, 2";
+Debug.ShouldStop(2);
+main.mostCurrent._scrollview1.runMethod(false,"getPanel").runVoidMethod ("AddView",(Object)((_shadowpurchpanel.getObject())),(Object)(RemoteObject.solve(new RemoteObject[] {main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 25))),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 5)))}, "+",1, 1)),(Object)(RemoteObject.solve(new RemoteObject[] {_totalsalelabel.runMethod(true,"getHeight"),main.mostCurrent._panel2.runMethod(true,"getHeight"),main.mostCurrent._companypanel.runMethod(true,"getHeight"),main.mostCurrent._barpanel.runMethod(true,"getHeight"),_totalpurchaselabel.runMethod(true,"getHeight"),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 30))),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 5)))}, "++++-+",6, 1)),(Object)(RemoteObject.solve(new RemoteObject[] {main.mostCurrent._activity.runMethod(true,"getWidth"),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 50)))}, "-",1, 1)),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 450)))));
+ BA.debugLineNum = 388;BA.debugLine="purchasePanel.Initialize(\"\")";
+Debug.ShouldStop(8);
+main.mostCurrent._purchasepanel.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("")));
+ BA.debugLineNum = 389;BA.debugLine="purchasePanel.Color = Colors.White";
+Debug.ShouldStop(16);
+main.mostCurrent._purchasepanel.runVoidMethod ("setColor",main.mostCurrent.__c.getField(false,"Colors").getField(true,"White"));
+ BA.debugLineNum = 390;BA.debugLine="ScrollView1.Panel.AddView(purchasePanel,25dip";
+Debug.ShouldStop(32);
+main.mostCurrent._scrollview1.runMethod(false,"getPanel").runVoidMethod ("AddView",(Object)((main.mostCurrent._purchasepanel.getObject())),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 25)))),(Object)(RemoteObject.solve(new RemoteObject[] {_totalsalelabel.runMethod(true,"getHeight"),main.mostCurrent._panel2.runMethod(true,"getHeight"),main.mostCurrent._companypanel.runMethod(true,"getHeight"),main.mostCurrent._barpanel.runMethod(true,"getHeight"),_totalpurchaselabel.runMethod(true,"getHeight"),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 30)))}, "++++-",5, 1)),(Object)(RemoteObject.solve(new RemoteObject[] {main.mostCurrent._activity.runMethod(true,"getWidth"),main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 50)))}, "-",1, 1)),(Object)(main.mostCurrent.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 450)))));
+ BA.debugLineNum = 391;BA.debugLine="purchNxtBtn.Initialize(\"\")";
+Debug.ShouldStop(64);
+main.mostCurrent._purchnxtbtn.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("")));
+ BA.debugLineNum = 392;BA.debugLine="purchBackBtn.Initialize(\"\")";
+Debug.ShouldStop(128);
+main.mostCurrent._purchbackbtn.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("")));
+ BA.debugLineNum = 393;BA.debugLine="sortBtn1.Initialize(\"sortBtn1\")";
+Debug.ShouldStop(256);
+main.mostCurrent._sortbtn1.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("sortBtn1")));
+ BA.debugLineNum = 394;BA.debugLine="sortBtn2.Initialize(\"sortBtn2\")";
+Debug.ShouldStop(512);
+main.mostCurrent._sortbtn2.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("sortBtn2")));
+ BA.debugLineNum = 395;BA.debugLine="defBtn.Initialize(\"defBtn\")";
+Debug.ShouldStop(1024);
+main.mostCurrent._defbtn.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("defBtn")));
+ BA.debugLineNum = 396;BA.debugLine="sales1btn.Initialize(\"sales1btn\")";
+Debug.ShouldStop(2048);
+main.mostCurrent._sales1btn.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("sales1btn")));
+ BA.debugLineNum = 397;BA.debugLine="sales2btn.Initialize(\"sales2btn\")";
+Debug.ShouldStop(4096);
+main.mostCurrent._sales2btn.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("sales2btn")));
+ BA.debugLineNum = 398;BA.debugLine="sales3btn.Initialize(\"sales3btn\")";
+Debug.ShouldStop(8192);
+main.mostCurrent._sales3btn.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("sales3btn")));
+ BA.debugLineNum = 400;BA.debugLine="barGraph1.Initialize(Activity, purchasePanel,";
+Debug.ShouldStop(32768);
+main.mostCurrent._bargraph1.runClassMethod (b4a.example.bargraph.class, "_initialize" /*RemoteObject*/ ,main.mostCurrent.activityBA,(Object)(main.mostCurrent._activity),(Object)(main.mostCurrent._purchasepanel),(Object)(_purchase),(Object)(_purchase1),(Object)(_purchase2),(Object)(_companyname),(Object)(main.mostCurrent._legend),(Object)(_maxsale),(Object)(BA.ObjectToString("Total Purchase Per Company")),(Object)(_comid),(Object)(BA.ObjectToString("Branch")),(Object)(main.mostCurrent._purchnxtbtn),(Object)(main.mostCurrent._purchbackbtn),(Object)(main.mostCurrent._sortbtn1),(Object)(main.mostCurrent._sortbtn2),(Object)(main.mostCurrent._defbtn),(Object)(main.mostCurrent._sales1btn),(Object)(main.mostCurrent._sales2btn),(Object)(main.mostCurrent._sales3btn));
+ BA.debugLineNum = 401;BA.debugLine="totalGraphDataHeight = totalSaleLabel.Height+";
+Debug.ShouldStop(65536);
+main._totalgraphdataheight = RemoteObject.solve(new RemoteObject[] {_totalsalelabel.runMethod(true,"getHeight"),main.mostCurrent._barpanel.runMethod(true,"getHeight"),_totalpurchaselabel.runMethod(true,"getHeight"),main.mostCurrent._purchasepanel.runMethod(true,"getHeight")}, "+++",3, 1);
+ BA.debugLineNum = 402;BA.debugLine="Log($\"maxSale:${maxSale}\"$)";
+Debug.ShouldStop(131072);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","5327966",(RemoteObject.concat(RemoteObject.createImmutable("maxSale:"),main.mostCurrent.__c.runMethod(true,"SmartStringFormatter",(Object)(BA.ObjectToString("")),(Object)((_maxsale))),RemoteObject.createImmutable(""))),0);
  break; }
 case 2: {
- BA.debugLineNum = 408;BA.debugLine="ToastMessageShow(\"Data updated successfully\",";
-Debug.ShouldStop(8388608);
+ BA.debugLineNum = 404;BA.debugLine="ToastMessageShow(\"Data updated successfully\",";
+Debug.ShouldStop(524288);
 main.mostCurrent.__c.runVoidMethod ("ToastMessageShow",(Object)(BA.ObjectToCharSequence("Data updated successfully")),(Object)(main.mostCurrent.__c.getField(true,"False")));
- BA.debugLineNum = 409;BA.debugLine="LoadCompanyData";
-Debug.ShouldStop(16777216);
+ BA.debugLineNum = 405;BA.debugLine="LoadCompanyData";
+Debug.ShouldStop(1048576);
 _loadcompanydata();
  break; }
 default: {
- BA.debugLineNum = 411;BA.debugLine="Log(\"Unknown job: \" & job.JobName)";
-Debug.ShouldStop(67108864);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","4327975",RemoteObject.concat(RemoteObject.createImmutable("Unknown job: "),_job.getField(true,"_jobname" /*RemoteObject*/ )),0);
+ BA.debugLineNum = 407;BA.debugLine="Log(\"Unknown job: \" & job.JobName)";
+Debug.ShouldStop(4194304);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","5327971",RemoteObject.concat(RemoteObject.createImmutable("Unknown job: "),_job.getField(true,"_jobname" /*RemoteObject*/ )),0);
  break; }
 }
 ;
  Debug.CheckDeviceExceptions();
 } 
-       catch (Exception e245) {
-			BA.rdebugUtils.runVoidMethod("setLastException",main.processBA, e245.toString()); BA.debugLineNum = 416;BA.debugLine="ToastMessageShow(\"Error parsing sales data\", Tr";
-Debug.ShouldStop(-2147483648);
+       catch (Exception e244) {
+			BA.rdebugUtils.runVoidMethod("setLastException",main.processBA, e244.toString()); BA.debugLineNum = 412;BA.debugLine="ToastMessageShow(\"Error parsing sales data\", Tr";
+Debug.ShouldStop(134217728);
 main.mostCurrent.__c.runVoidMethod ("ToastMessageShow",(Object)(BA.ObjectToCharSequence("Error parsing sales data")),(Object)(main.mostCurrent.__c.getField(true,"True")));
  };
- BA.debugLineNum = 418;BA.debugLine="ScrollView1.Panel.Height = totalGraphDataHeight";
-Debug.ShouldStop(2);
+ BA.debugLineNum = 414;BA.debugLine="ScrollView1.Panel.Height = totalGraphDataHeight";
+Debug.ShouldStop(536870912);
 main.mostCurrent._scrollview1.runMethod(false,"getPanel").runMethod(true,"setHeight",RemoteObject.solve(new RemoteObject[] {main._totalgraphdataheight,main._totalgetdataheight}, "+",1, 1));
  }else {
- BA.debugLineNum = 421;BA.debugLine="ToastMessageShow(\"Error: \" & job.ErrorMessage, T";
-Debug.ShouldStop(16);
+ BA.debugLineNum = 417;BA.debugLine="ToastMessageShow(\"Error: \" & job.ErrorMessage, T";
+Debug.ShouldStop(1);
 main.mostCurrent.__c.runVoidMethod ("ToastMessageShow",(Object)(BA.ObjectToCharSequence(RemoteObject.concat(RemoteObject.createImmutable("Error: "),_job.getField(true,"_errormessage" /*RemoteObject*/ )))),(Object)(main.mostCurrent.__c.getField(true,"True")));
  };
- BA.debugLineNum = 423;BA.debugLine="job.Release";
-Debug.ShouldStop(64);
+ BA.debugLineNum = 419;BA.debugLine="job.Release";
+Debug.ShouldStop(4);
 _job.runClassMethod (b4a.example.httpjob.class, "_release" /*RemoteObject*/ );
- BA.debugLineNum = 424;BA.debugLine="End Sub";
-Debug.ShouldStop(128);
+ BA.debugLineNum = 420;BA.debugLine="End Sub";
+Debug.ShouldStop(8);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -1094,27 +1091,27 @@ finally {
 		}}
 public static RemoteObject  _label17_click() throws Exception{
 try {
-		Debug.PushSubsStack("Label17_Click (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,442);
+		Debug.PushSubsStack("Label17_Click (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,438);
 if (RapidSub.canDelegate("label17_click")) { return b4a.example.main.remoteMe.runUserSub(false, "main","label17_click");}
 RemoteObject _clickedlabel = RemoteObject.declareNull("anywheresoftware.b4a.objects.LabelWrapper");
 RemoteObject _selectedcompany = RemoteObject.createImmutable("");
- BA.debugLineNum = 442;BA.debugLine="Private Sub Label17_Click";
-Debug.ShouldStop(33554432);
- BA.debugLineNum = 443;BA.debugLine="Dim clickedLabel As Label = Sender ' Get the clic";
-Debug.ShouldStop(67108864);
+ BA.debugLineNum = 438;BA.debugLine="Private Sub Label17_Click";
+Debug.ShouldStop(2097152);
+ BA.debugLineNum = 439;BA.debugLine="Dim clickedLabel As Label = Sender ' Get the clic";
+Debug.ShouldStop(4194304);
 _clickedlabel = RemoteObject.createNew ("anywheresoftware.b4a.objects.LabelWrapper");
 _clickedlabel = RemoteObject.declareNull("anywheresoftware.b4a.AbsObjectWrapper").runMethod(false, "ConvertToWrapper", RemoteObject.createNew("anywheresoftware.b4a.objects.LabelWrapper"), main.mostCurrent.__c.runMethod(false,"Sender",main.mostCurrent.activityBA));Debug.locals.put("clickedLabel", _clickedlabel);Debug.locals.put("clickedLabel", _clickedlabel);
- BA.debugLineNum = 444;BA.debugLine="Dim selectedCompany As String = clickedLabel.Tag";
-Debug.ShouldStop(134217728);
+ BA.debugLineNum = 440;BA.debugLine="Dim selectedCompany As String = clickedLabel.Tag";
+Debug.ShouldStop(8388608);
 _selectedcompany = BA.ObjectToString(_clickedlabel.runMethod(false,"getTag"));Debug.locals.put("selectedCompany", _selectedcompany);Debug.locals.put("selectedCompany", _selectedcompany);
- BA.debugLineNum = 446;BA.debugLine="Starter.company_selected = selectedCompany";
-Debug.ShouldStop(536870912);
+ BA.debugLineNum = 442;BA.debugLine="Starter.company_selected = selectedCompany";
+Debug.ShouldStop(33554432);
 main.mostCurrent._starter._company_selected /*RemoteObject*/  = _selectedcompany;
- BA.debugLineNum = 449;BA.debugLine="StartActivity(\"Branch\")";
-Debug.ShouldStop(1);
+ BA.debugLineNum = 445;BA.debugLine="StartActivity(\"Branch\")";
+Debug.ShouldStop(268435456);
 main.mostCurrent.__c.runVoidMethod ("StartActivity",main.processBA,(Object)((RemoteObject.createImmutable("Branch"))));
- BA.debugLineNum = 450;BA.debugLine="End Sub";
-Debug.ShouldStop(2);
+ BA.debugLineNum = 446;BA.debugLine="End Sub";
+Debug.ShouldStop(536870912);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -1149,7 +1146,7 @@ main.mostCurrent.__c.runVoidMethod ("ProgressDialogShow",main.mostCurrent.activi
        catch (Exception e7) {
 			BA.rdebugUtils.runVoidMethod("setLastException",main.processBA, e7.toString()); BA.debugLineNum = 94;BA.debugLine="Log(LastException.Message)";
 Debug.ShouldStop(536870912);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","4196615",main.mostCurrent.__c.runMethod(false,"LastException",main.mostCurrent.activityBA).runMethod(true,"getMessage"),0);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","5196615",main.mostCurrent.__c.runMethod(false,"LastException",main.mostCurrent.activityBA).runMethod(true,"getMessage"),0);
  };
  BA.debugLineNum = 97;BA.debugLine="End Sub";
 Debug.ShouldStop(1);
@@ -1170,9 +1167,9 @@ RemoteObject _job1 = RemoteObject.declareNull("b4a.example.httpjob");
 Debug.ShouldStop(4);
  BA.debugLineNum = 100;BA.debugLine="Try";
 Debug.ShouldStop(8);
-try { BA.debugLineNum = 103;BA.debugLine="PHPURLCompany = $\"https://192.168.8.117/Company/";
-Debug.ShouldStop(64);
-main.mostCurrent._phpurlcompany = (RemoteObject.createImmutable("https://192.168.8.117/Company/controller/company.php?action=get_company_list&page=1&company_sales=1&company_type="));
+try { BA.debugLineNum = 102;BA.debugLine="PHPURLCompany = $\"https://192.168.8.117/Company/";
+Debug.ShouldStop(32);
+main.mostCurrent._phpurlcompany = (RemoteObject.concat(RemoteObject.createImmutable("https://192.168.8.117/Company/controller/company.php?action=get_company_list&page="),main.mostCurrent.__c.runMethod(true,"SmartStringFormatter",(Object)(BA.ObjectToString("")),(Object)((main._currentpage))),RemoteObject.createImmutable("&company_sales="),main.mostCurrent.__c.runMethod(true,"SmartStringFormatter",(Object)(BA.ObjectToString("")),(Object)((main._salesdata1))),RemoteObject.createImmutable("&sort_type="),main.mostCurrent.__c.runMethod(true,"SmartStringFormatter",(Object)(BA.ObjectToString("")),(Object)((main.mostCurrent._sortdefaultvalue))),RemoteObject.createImmutable("")));
  BA.debugLineNum = 105;BA.debugLine="Dim Job1 As HttpJob";
 Debug.ShouldStop(256);
 _job1 = RemoteObject.createNew ("b4a.example.httpjob");Debug.locals.put("Job1", _job1);
@@ -1190,7 +1187,7 @@ main.mostCurrent.__c.runVoidMethod ("ProgressDialogShow",main.mostCurrent.activi
        catch (Exception e8) {
 			BA.rdebugUtils.runVoidMethod("setLastException",main.processBA, e8.toString()); BA.debugLineNum = 110;BA.debugLine="Log(\"LoadGraphData Error: \" & LastException.Mess";
 Debug.ShouldStop(8192);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","4262155",RemoteObject.concat(RemoteObject.createImmutable("LoadGraphData Error: "),main.mostCurrent.__c.runMethod(false,"LastException",main.mostCurrent.activityBA).runMethod(true,"getMessage")),0);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","5262155",RemoteObject.concat(RemoteObject.createImmutable("LoadGraphData Error: "),main.mostCurrent.__c.runMethod(false,"LastException",main.mostCurrent.activityBA).runMethod(true,"getMessage")),0);
  BA.debugLineNum = 111;BA.debugLine="ToastMessageShow(\"Error initiating graph load: \"";
 Debug.ShouldStop(16384);
 main.mostCurrent.__c.runVoidMethod ("ToastMessageShow",(Object)(BA.ObjectToCharSequence(RemoteObject.concat(RemoteObject.createImmutable("Error initiating graph load: "),main.mostCurrent.__c.runMethod(false,"LastException",main.mostCurrent.activityBA).runMethod(true,"getMessage")))),(Object)(main.mostCurrent.__c.getField(true,"True")));
@@ -1207,15 +1204,15 @@ finally {
 		}}
 public static RemoteObject  _nxtbtn_click() throws Exception{
 try {
-		Debug.PushSubsStack("nxtBtn_Click (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,454);
+		Debug.PushSubsStack("nxtBtn_Click (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,448);
 if (RapidSub.canDelegate("nxtbtn_click")) { return b4a.example.main.remoteMe.runUserSub(false, "main","nxtbtn_click");}
- BA.debugLineNum = 454;BA.debugLine="Sub nxtBtn_Click";
-Debug.ShouldStop(32);
- BA.debugLineNum = 455;BA.debugLine="Log(\"sad\")";
-Debug.ShouldStop(64);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","4655361",RemoteObject.createImmutable("sad"),0);
- BA.debugLineNum = 456;BA.debugLine="End Sub";
-Debug.ShouldStop(128);
+ BA.debugLineNum = 448;BA.debugLine="Sub nxtBtn_Click";
+Debug.ShouldStop(-2147483648);
+ BA.debugLineNum = 449;BA.debugLine="Log(\"sad\")";
+Debug.ShouldStop(1);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","5655361",RemoteObject.createImmutable("sad"),0);
+ BA.debugLineNum = 450;BA.debugLine="End Sub";
+Debug.ShouldStop(2);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -1259,37 +1256,37 @@ return RemoteObject.createImmutable("");
 }
 public static RemoteObject  _sales1btn_click() throws Exception{
 try {
-		Debug.PushSubsStack("sales1btn_Click (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,480);
+		Debug.PushSubsStack("sales1btn_Click (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,474);
 if (RapidSub.canDelegate("sales1btn_click")) { return b4a.example.main.remoteMe.runUserSub(false, "main","sales1btn_click");}
 RemoteObject _btn = RemoteObject.declareNull("anywheresoftware.b4a.objects.ButtonWrapper");
 RemoteObject _index = RemoteObject.createImmutable("");
- BA.debugLineNum = 480;BA.debugLine="Sub sales1btn_Click";
-Debug.ShouldStop(-2147483648);
- BA.debugLineNum = 481;BA.debugLine="Dim btn As Button = Sender";
-Debug.ShouldStop(1);
+ BA.debugLineNum = 474;BA.debugLine="Sub sales1btn_Click";
+Debug.ShouldStop(33554432);
+ BA.debugLineNum = 475;BA.debugLine="Dim btn As Button = Sender";
+Debug.ShouldStop(67108864);
 _btn = RemoteObject.createNew ("anywheresoftware.b4a.objects.ButtonWrapper");
 _btn = RemoteObject.declareNull("anywheresoftware.b4a.AbsObjectWrapper").runMethod(false, "ConvertToWrapper", RemoteObject.createNew("anywheresoftware.b4a.objects.ButtonWrapper"), main.mostCurrent.__c.runMethod(false,"Sender",main.mostCurrent.activityBA));Debug.locals.put("btn", _btn);Debug.locals.put("btn", _btn);
- BA.debugLineNum = 482;BA.debugLine="Dim index As String = btn.Tag";
-Debug.ShouldStop(2);
+ BA.debugLineNum = 476;BA.debugLine="Dim index As String = btn.Tag";
+Debug.ShouldStop(134217728);
 _index = BA.ObjectToString(_btn.runMethod(false,"getTag"));Debug.locals.put("index", _index);Debug.locals.put("index", _index);
- BA.debugLineNum = 483;BA.debugLine="salesData1 = index.ToLowerCase";
-Debug.ShouldStop(4);
+ BA.debugLineNum = 477;BA.debugLine="salesData1 = index.ToLowerCase";
+Debug.ShouldStop(268435456);
 main._salesdata1 = BA.numberCast(int.class, _index.runMethod(true,"toLowerCase"));
- BA.debugLineNum = 484;BA.debugLine="If sortDefaultValue=\"asc\" Or sortDefaultValue=\"de";
-Debug.ShouldStop(8);
+ BA.debugLineNum = 478;BA.debugLine="If sortDefaultValue=\"asc\" Or sortDefaultValue=\"de";
+Debug.ShouldStop(536870912);
 if (RemoteObject.solveBoolean("=",main.mostCurrent._sortdefaultvalue,BA.ObjectToString("asc")) || RemoteObject.solveBoolean("=",main.mostCurrent._sortdefaultvalue,BA.ObjectToString("desc"))) { 
- BA.debugLineNum = 486;BA.debugLine="LoadGraphData";
-Debug.ShouldStop(32);
+ BA.debugLineNum = 480;BA.debugLine="LoadGraphData";
+Debug.ShouldStop(-2147483648);
 _loadgraphdata();
  };
- BA.debugLineNum = 488;BA.debugLine="Log(sortDefaultValue)";
-Debug.ShouldStop(128);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","4917512",main.mostCurrent._sortdefaultvalue,0);
- BA.debugLineNum = 489;BA.debugLine="Log(\" sales 1 Button clicked: \" & index)";
-Debug.ShouldStop(256);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","4917513",RemoteObject.concat(RemoteObject.createImmutable(" sales 1 Button clicked: "),_index),0);
- BA.debugLineNum = 490;BA.debugLine="End Sub";
-Debug.ShouldStop(512);
+ BA.debugLineNum = 482;BA.debugLine="Log(sortDefaultValue)";
+Debug.ShouldStop(2);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","5917512",main.mostCurrent._sortdefaultvalue,0);
+ BA.debugLineNum = 483;BA.debugLine="Log(\" sales 1 Button clicked: \" & index)";
+Debug.ShouldStop(4);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","5917513",RemoteObject.concat(RemoteObject.createImmutable(" sales 1 Button clicked: "),_index),0);
+ BA.debugLineNum = 484;BA.debugLine="End Sub";
+Debug.ShouldStop(8);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -1300,37 +1297,37 @@ finally {
 		}}
 public static RemoteObject  _sales2btn_click() throws Exception{
 try {
-		Debug.PushSubsStack("sales2btn_Click (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,492);
+		Debug.PushSubsStack("sales2btn_Click (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,486);
 if (RapidSub.canDelegate("sales2btn_click")) { return b4a.example.main.remoteMe.runUserSub(false, "main","sales2btn_click");}
 RemoteObject _btn = RemoteObject.declareNull("anywheresoftware.b4a.objects.ButtonWrapper");
 RemoteObject _index = RemoteObject.createImmutable("");
- BA.debugLineNum = 492;BA.debugLine="Sub sales2btn_Click";
-Debug.ShouldStop(2048);
- BA.debugLineNum = 493;BA.debugLine="Dim btn As Button = Sender";
-Debug.ShouldStop(4096);
+ BA.debugLineNum = 486;BA.debugLine="Sub sales2btn_Click";
+Debug.ShouldStop(32);
+ BA.debugLineNum = 487;BA.debugLine="Dim btn As Button = Sender";
+Debug.ShouldStop(64);
 _btn = RemoteObject.createNew ("anywheresoftware.b4a.objects.ButtonWrapper");
 _btn = RemoteObject.declareNull("anywheresoftware.b4a.AbsObjectWrapper").runMethod(false, "ConvertToWrapper", RemoteObject.createNew("anywheresoftware.b4a.objects.ButtonWrapper"), main.mostCurrent.__c.runMethod(false,"Sender",main.mostCurrent.activityBA));Debug.locals.put("btn", _btn);Debug.locals.put("btn", _btn);
- BA.debugLineNum = 494;BA.debugLine="Dim index As String = btn.Tag";
-Debug.ShouldStop(8192);
+ BA.debugLineNum = 488;BA.debugLine="Dim index As String = btn.Tag";
+Debug.ShouldStop(128);
 _index = BA.ObjectToString(_btn.runMethod(false,"getTag"));Debug.locals.put("index", _index);Debug.locals.put("index", _index);
- BA.debugLineNum = 495;BA.debugLine="salesData1 = index.ToLowerCase";
-Debug.ShouldStop(16384);
+ BA.debugLineNum = 489;BA.debugLine="salesData1 = index.ToLowerCase";
+Debug.ShouldStop(256);
 main._salesdata1 = BA.numberCast(int.class, _index.runMethod(true,"toLowerCase"));
- BA.debugLineNum = 496;BA.debugLine="If sortDefaultValue=\"asc\" Or sortDefaultValue=\"de";
-Debug.ShouldStop(32768);
+ BA.debugLineNum = 490;BA.debugLine="If sortDefaultValue=\"asc\" Or sortDefaultValue=\"de";
+Debug.ShouldStop(512);
 if (RemoteObject.solveBoolean("=",main.mostCurrent._sortdefaultvalue,BA.ObjectToString("asc")) || RemoteObject.solveBoolean("=",main.mostCurrent._sortdefaultvalue,BA.ObjectToString("desc"))) { 
- BA.debugLineNum = 497;BA.debugLine="LoadGraphData";
-Debug.ShouldStop(65536);
+ BA.debugLineNum = 491;BA.debugLine="LoadGraphData";
+Debug.ShouldStop(1024);
 _loadgraphdata();
  };
- BA.debugLineNum = 499;BA.debugLine="Log(sortDefaultValue)";
-Debug.ShouldStop(262144);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","4983047",main.mostCurrent._sortdefaultvalue,0);
- BA.debugLineNum = 500;BA.debugLine="Log(\" sales 2 Button clicked: \" & index)";
-Debug.ShouldStop(524288);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","4983048",RemoteObject.concat(RemoteObject.createImmutable(" sales 2 Button clicked: "),_index),0);
- BA.debugLineNum = 501;BA.debugLine="End Sub";
-Debug.ShouldStop(1048576);
+ BA.debugLineNum = 493;BA.debugLine="Log(sortDefaultValue)";
+Debug.ShouldStop(4096);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","5983047",main.mostCurrent._sortdefaultvalue,0);
+ BA.debugLineNum = 494;BA.debugLine="Log(\" sales 2 Button clicked: \" & index)";
+Debug.ShouldStop(8192);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","5983048",RemoteObject.concat(RemoteObject.createImmutable(" sales 2 Button clicked: "),_index),0);
+ BA.debugLineNum = 495;BA.debugLine="End Sub";
+Debug.ShouldStop(16384);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -1341,34 +1338,37 @@ finally {
 		}}
 public static RemoteObject  _sales3btn_click() throws Exception{
 try {
-		Debug.PushSubsStack("sales3btn_Click (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,502);
+		Debug.PushSubsStack("sales3btn_Click (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,496);
 if (RapidSub.canDelegate("sales3btn_click")) { return b4a.example.main.remoteMe.runUserSub(false, "main","sales3btn_click");}
 RemoteObject _btn = RemoteObject.declareNull("anywheresoftware.b4a.objects.ButtonWrapper");
 RemoteObject _index = RemoteObject.createImmutable("");
- BA.debugLineNum = 502;BA.debugLine="Sub sales3btn_Click";
-Debug.ShouldStop(2097152);
- BA.debugLineNum = 503;BA.debugLine="Dim btn As Button = Sender";
-Debug.ShouldStop(4194304);
+ BA.debugLineNum = 496;BA.debugLine="Sub sales3btn_Click";
+Debug.ShouldStop(32768);
+ BA.debugLineNum = 497;BA.debugLine="Dim btn As Button = Sender";
+Debug.ShouldStop(65536);
 _btn = RemoteObject.createNew ("anywheresoftware.b4a.objects.ButtonWrapper");
 _btn = RemoteObject.declareNull("anywheresoftware.b4a.AbsObjectWrapper").runMethod(false, "ConvertToWrapper", RemoteObject.createNew("anywheresoftware.b4a.objects.ButtonWrapper"), main.mostCurrent.__c.runMethod(false,"Sender",main.mostCurrent.activityBA));Debug.locals.put("btn", _btn);Debug.locals.put("btn", _btn);
- BA.debugLineNum = 504;BA.debugLine="Dim index As String = btn.Tag";
-Debug.ShouldStop(8388608);
+ BA.debugLineNum = 498;BA.debugLine="Dim index As String = btn.Tag";
+Debug.ShouldStop(131072);
 _index = BA.ObjectToString(_btn.runMethod(false,"getTag"));Debug.locals.put("index", _index);Debug.locals.put("index", _index);
- BA.debugLineNum = 505;BA.debugLine="salesData1 = index.ToLowerCase";
-Debug.ShouldStop(16777216);
+ BA.debugLineNum = 499;BA.debugLine="salesData1 = index.ToLowerCase";
+Debug.ShouldStop(262144);
 main._salesdata1 = BA.numberCast(int.class, _index.runMethod(true,"toLowerCase"));
- BA.debugLineNum = 506;BA.debugLine="If sortDefaultValue=\"asc\" Or sortDefaultValue=\"de";
-Debug.ShouldStop(33554432);
+ BA.debugLineNum = 500;BA.debugLine="If sortDefaultValue=\"asc\" Or sortDefaultValue=\"de";
+Debug.ShouldStop(524288);
 if (RemoteObject.solveBoolean("=",main.mostCurrent._sortdefaultvalue,BA.ObjectToString("asc")) || RemoteObject.solveBoolean("=",main.mostCurrent._sortdefaultvalue,BA.ObjectToString("desc"))) { 
+ BA.debugLineNum = 501;BA.debugLine="LoadGraphData";
+Debug.ShouldStop(1048576);
+_loadgraphdata();
  };
- BA.debugLineNum = 509;BA.debugLine="Log(sortDefaultValue)";
-Debug.ShouldStop(268435456);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","41048583",main.mostCurrent._sortdefaultvalue,0);
- BA.debugLineNum = 510;BA.debugLine="Log(\" sales 3 Button clicked: \" & index)";
-Debug.ShouldStop(536870912);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","41048584",RemoteObject.concat(RemoteObject.createImmutable(" sales 3 Button clicked: "),_index),0);
- BA.debugLineNum = 511;BA.debugLine="End Sub";
-Debug.ShouldStop(1073741824);
+ BA.debugLineNum = 503;BA.debugLine="Log(sortDefaultValue)";
+Debug.ShouldStop(4194304);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","51048583",main.mostCurrent._sortdefaultvalue,0);
+ BA.debugLineNum = 504;BA.debugLine="Log(\" sales 3 Button clicked: \" & index)";
+Debug.ShouldStop(8388608);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","51048584",RemoteObject.concat(RemoteObject.createImmutable(" sales 3 Button clicked: "),_index),0);
+ BA.debugLineNum = 505;BA.debugLine="End Sub";
+Debug.ShouldStop(16777216);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -1379,30 +1379,30 @@ finally {
 		}}
 public static RemoteObject  _sortbtn1_click() throws Exception{
 try {
-		Debug.PushSubsStack("sortBtn1_Click (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,471);
+		Debug.PushSubsStack("sortBtn1_Click (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,465);
 if (RapidSub.canDelegate("sortbtn1_click")) { return b4a.example.main.remoteMe.runUserSub(false, "main","sortbtn1_click");}
 RemoteObject _chk = RemoteObject.declareNull("anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper");
 RemoteObject _index = RemoteObject.createImmutable("");
- BA.debugLineNum = 471;BA.debugLine="Sub sortBtn1_Click";
-Debug.ShouldStop(4194304);
- BA.debugLineNum = 472;BA.debugLine="Dim chk As RadioButton = Sender";
-Debug.ShouldStop(8388608);
+ BA.debugLineNum = 465;BA.debugLine="Sub sortBtn1_Click";
+Debug.ShouldStop(65536);
+ BA.debugLineNum = 466;BA.debugLine="Dim chk As RadioButton = Sender";
+Debug.ShouldStop(131072);
 _chk = RemoteObject.createNew ("anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper");
 _chk = RemoteObject.declareNull("anywheresoftware.b4a.AbsObjectWrapper").runMethod(false, "ConvertToWrapper", RemoteObject.createNew("anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper"), main.mostCurrent.__c.runMethod(false,"Sender",main.mostCurrent.activityBA));Debug.locals.put("chk", _chk);Debug.locals.put("chk", _chk);
- BA.debugLineNum = 473;BA.debugLine="Dim index As String = chk.Tag";
-Debug.ShouldStop(16777216);
+ BA.debugLineNum = 467;BA.debugLine="Dim index As String = chk.Tag";
+Debug.ShouldStop(262144);
 _index = BA.ObjectToString(_chk.runMethod(false,"getTag"));Debug.locals.put("index", _index);Debug.locals.put("index", _index);
- BA.debugLineNum = 475;BA.debugLine="sortDefaultValue = index.ToLowerCase";
-Debug.ShouldStop(67108864);
+ BA.debugLineNum = 469;BA.debugLine="sortDefaultValue = index.ToLowerCase";
+Debug.ShouldStop(1048576);
 main.mostCurrent._sortdefaultvalue = _index.runMethod(true,"toLowerCase");
- BA.debugLineNum = 476;BA.debugLine="Log($\"sort value: ${sortDefaultValue}\"$)";
-Debug.ShouldStop(134217728);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","4851973",(RemoteObject.concat(RemoteObject.createImmutable("sort value: "),main.mostCurrent.__c.runMethod(true,"SmartStringFormatter",(Object)(BA.ObjectToString("")),(Object)((main.mostCurrent._sortdefaultvalue))),RemoteObject.createImmutable(""))),0);
- BA.debugLineNum = 477;BA.debugLine="LoadGraphData";
-Debug.ShouldStop(268435456);
+ BA.debugLineNum = 470;BA.debugLine="Log($\"sort value: ${sortDefaultValue}\"$)";
+Debug.ShouldStop(2097152);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","5851973",(RemoteObject.concat(RemoteObject.createImmutable("sort value: "),main.mostCurrent.__c.runMethod(true,"SmartStringFormatter",(Object)(BA.ObjectToString("")),(Object)((main.mostCurrent._sortdefaultvalue))),RemoteObject.createImmutable(""))),0);
+ BA.debugLineNum = 471;BA.debugLine="LoadGraphData";
+Debug.ShouldStop(4194304);
 _loadgraphdata();
- BA.debugLineNum = 478;BA.debugLine="End Sub";
-Debug.ShouldStop(536870912);
+ BA.debugLineNum = 472;BA.debugLine="End Sub";
+Debug.ShouldStop(8388608);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -1413,33 +1413,33 @@ finally {
 		}}
 public static RemoteObject  _sortbtn2_click() throws Exception{
 try {
-		Debug.PushSubsStack("sortBtn2_Click (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,458);
+		Debug.PushSubsStack("sortBtn2_Click (main) ","main",0,main.mostCurrent.activityBA,main.mostCurrent,452);
 if (RapidSub.canDelegate("sortbtn2_click")) { return b4a.example.main.remoteMe.runUserSub(false, "main","sortbtn2_click");}
 RemoteObject _chk = RemoteObject.declareNull("anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper");
 RemoteObject _index = RemoteObject.createImmutable("");
- BA.debugLineNum = 458;BA.debugLine="Sub sortBtn2_Click";
-Debug.ShouldStop(512);
- BA.debugLineNum = 459;BA.debugLine="Dim chk As RadioButton = Sender";
-Debug.ShouldStop(1024);
+ BA.debugLineNum = 452;BA.debugLine="Sub sortBtn2_Click";
+Debug.ShouldStop(8);
+ BA.debugLineNum = 453;BA.debugLine="Dim chk As RadioButton = Sender";
+Debug.ShouldStop(16);
 _chk = RemoteObject.createNew ("anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper");
 _chk = RemoteObject.declareNull("anywheresoftware.b4a.AbsObjectWrapper").runMethod(false, "ConvertToWrapper", RemoteObject.createNew("anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper"), main.mostCurrent.__c.runMethod(false,"Sender",main.mostCurrent.activityBA));Debug.locals.put("chk", _chk);Debug.locals.put("chk", _chk);
- BA.debugLineNum = 460;BA.debugLine="Dim index As String = chk.Tag";
-Debug.ShouldStop(2048);
+ BA.debugLineNum = 454;BA.debugLine="Dim index As String = chk.Tag";
+Debug.ShouldStop(32);
 _index = BA.ObjectToString(_chk.runMethod(false,"getTag"));Debug.locals.put("index", _index);Debug.locals.put("index", _index);
- BA.debugLineNum = 462;BA.debugLine="sortDefaultValue = index.ToLowerCase";
-Debug.ShouldStop(8192);
+ BA.debugLineNum = 456;BA.debugLine="sortDefaultValue = index.ToLowerCase";
+Debug.ShouldStop(128);
 main.mostCurrent._sortdefaultvalue = _index.runMethod(true,"toLowerCase");
- BA.debugLineNum = 463;BA.debugLine="Log($\"sort value: ${sortDefaultValue}\"$)";
-Debug.ShouldStop(16384);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","4720901",(RemoteObject.concat(RemoteObject.createImmutable("sort value: "),main.mostCurrent.__c.runMethod(true,"SmartStringFormatter",(Object)(BA.ObjectToString("")),(Object)((main.mostCurrent._sortdefaultvalue))),RemoteObject.createImmutable(""))),0);
- BA.debugLineNum = 464;BA.debugLine="LoadGraphData";
-Debug.ShouldStop(32768);
+ BA.debugLineNum = 457;BA.debugLine="Log($\"sort value: ${sortDefaultValue}\"$)";
+Debug.ShouldStop(256);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","5720901",(RemoteObject.concat(RemoteObject.createImmutable("sort value: "),main.mostCurrent.__c.runMethod(true,"SmartStringFormatter",(Object)(BA.ObjectToString("")),(Object)((main.mostCurrent._sortdefaultvalue))),RemoteObject.createImmutable(""))),0);
+ BA.debugLineNum = 458;BA.debugLine="LoadGraphData";
+Debug.ShouldStop(512);
 _loadgraphdata();
- BA.debugLineNum = 465;BA.debugLine="Log(\"descending\")";
-Debug.ShouldStop(65536);
-main.mostCurrent.__c.runVoidMethod ("LogImpl","4720903",RemoteObject.createImmutable("descending"),0);
- BA.debugLineNum = 466;BA.debugLine="End Sub";
-Debug.ShouldStop(131072);
+ BA.debugLineNum = 459;BA.debugLine="Log(\"descending\")";
+Debug.ShouldStop(1024);
+main.mostCurrent.__c.runVoidMethod ("LogImpl","5720903",RemoteObject.createImmutable("descending"),0);
+ BA.debugLineNum = 460;BA.debugLine="End Sub";
+Debug.ShouldStop(2048);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {

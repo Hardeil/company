@@ -16,6 +16,6 @@ ModuleClosedNodes2=
 ModuleClosedNodes3=
 ModuleClosedNodes4=
 ModuleClosedNodes5=1
-NavigationStack=barGraph,GetCurrentPage,390,0,CheckBargraph,Class_Globals,0,0,barGraph,Class_Globals,0,6,barGraph,DrawGraph,404,6,barGraph,Initialize,60,6,Main,AdjustFontSizeToHeight,504,0,Main,LoadGraphData,103,0,Main,Globals,25,0,Main,nxtBtn_Click,453,0,Main,JobDone,383,1
+NavigationStack=Main,sortBtn1_Click,470,0,Main,sales1btn_Click,479,0,Main,sales2btn_Click,490,0,Main,sales3btn_Click,500,0,barGraph,Initialize,210,0,barGraph,Class_Globals,35,0,Main,Activity_Pause,435,0,barGraph,DrawGraph,218,6,Main,JobDone,385,4,Main,LoadGraphData,101,0
 SelectedBuild=0
 VisibleModules=1,2,3,4,5

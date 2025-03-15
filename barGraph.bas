@@ -39,6 +39,7 @@ Sub Class_Globals
 	Private isFirstInit As Boolean = True
 	Dim sortMainpanel As Panel
 	Dim shownMainpanel As Panel
+	Dim showHideBtn As Button
 End Sub
 
 Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2() As Int, sale3() As Int, product() As String, legend() As String, maxSales As Int, TitleString As String, comId() As Int, layout1 As String,NextBtn As Button,Backbtn As Button,sortBtn As RadioButton,BtnSort2 As RadioButton,Defaultbtn As RadioButton,Sales1btn As RadioButton,Sales2btn As RadioButton,Sales3btn As RadioButton)
@@ -214,7 +215,7 @@ Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2(
 	'radioLabelSalesTitles.Visible = sale1.Length >= 5
 	'radioLabelSortTitles.Visible = sale1.Length >= 5		
 	
-	'DrawGraph(Active, panel, sale1, sale2, sale3, product, maxSales, TitleString)
+	DrawGraph(Active, panel, sale1, sale2, sale3, product, maxSales, TitleString)
 End Sub
 
 Public Sub DrawGraph(Active As Activity, panel As Panel, sale1() As Int, sale2() As Int, sale3() As Int, product() As String, maxSales As Int, TitleString As String)
@@ -226,6 +227,14 @@ Public Sub DrawGraph(Active As Activity, panel As Panel, sale1() As Int, sale2()
 			panel.Width = 800dip
 		End If
 		Dim halfWidth As Int = panel.Width / 2
+		If sortMainpanel.IsInitialized = False Then
+			sortMainpanel.Initialize("")
+		End If
+		sortMainpanel.Left = 0dip
+		sortMainpanel.Top = 5dip
+		sortMainpanel.Width = halfWidth
+		sortMainpanel.Height = 120dip
+		panel.AddView(sortMainpanel, 0dip, 5dip, halfWidth, 120dip)
 		
 		Dim cd As ColorDrawable
 		cd.Initialize2(Colors.White, 5dip, 1dip, Colors.Black)
@@ -318,9 +327,10 @@ Public Sub DrawGraph(Active As Activity, panel As Panel, sale1() As Int, sale2()
 			productLabel.Tag = comId1(i)
 			productLabel.TextColor = Colors.Black
 			productLabel.Gravity = Gravity.CENTER
-			Dim productLabelY As Int = activityPanel.Height + alignTopCenter + 30dip
+			Dim productLabelY As Int = activityPanel.Height + alignTopCenter + 10dip
 			Dim productLabelX As Int = alignLeftCenter
-			panel.AddView(productLabel, xPos + productLabelX, productLabelY+20, 100dip, 30dip)
+			Dim productLabelWidth As Int = (activityPanel.Width / totalProducts) - (padding+gap)
+			panel.AddView(productLabel, xPos + productLabelX, productLabelY+20dip, productLabelWidth, 30dip)
 		Next
     
 		Dim numLabels As Int = 10
@@ -341,18 +351,9 @@ Public Sub DrawGraph(Active As Activity, panel As Panel, sale1() As Int, sale2()
 		btnBack.Enabled = currentPage > 1
 		btnNext.Enabled = (currentPage * itemsPerPage) < sale1.Length
 		' Add buttons to panel without reinitializing
-
-		
 		
 		Dim buttonWidth As Int = 50dip
 		Dim buttonHeight As Int = 40dip
-		Dim buttonSpacing As Int = 25dip ' Adjust as needed
-
-		Dim graphBottom As Int = activityPanel.Top + activityPanel.Height
-		Dim buttonY As Int = graphBottom + buttonSpacing ' Position buttons below the graph
-
-		Dim btnBackX As Int = (panel.Width / 2) - buttonWidth - 100dip ' Left side
-		Dim btnNextX As Int = (panel.Width / 2) + 100dip ' Right side
 		
 		Dim btnMainPanel As Panel 
 		btnMainPanel.Initialize("")
@@ -388,7 +389,7 @@ Public Sub DrawGraph(Active As Activity, panel As Panel, sale1() As Int, sale2()
         
 		Dim paginationLabel As Label
 		paginationLabel.Initialize("")
-		paginationLabel.Text = $"Page 1 out of 10"$
+		paginationLabel.Text = $"Page 1 out of 1"$
 		paginationLabel.Gravity = Gravity.CENTER
 		paginationLabel.Typeface = Typeface.MONOSPACE
 		paginationPanel.AddView(paginationLabel,buttonWidth,0,paginationPanel.Width-(buttonWidth*2),paginationPanel.Height)
@@ -403,12 +404,13 @@ Public Sub DrawGraph(Active As Activity, panel As Panel, sale1() As Int, sale2()
 		btnBack.Enabled = currentPage > 1
 		btnNext.Enabled = (currentPage * itemsPerPage) < sale1.Length
 		
-		Dim showHideBtn As Button
 		showHideBtn.Initialize("")
 		showHideBtn.Text = $"Show Details"$
 		showHideBtn.TextColor = Colors.White
 		btnMainPanel.AddView(showHideBtn,paginationPanel.Width+5dip,5dip,(btnMainPanel.Width-paginationPanel.Width)-10dip,buttonHeight)
-		
+
+		showHideBtn.Width = (btnMainPanel.Width-paginationPanel.Width)-10dip
+		'+paginationPanel.Width = btnMainPanel.Width-paginationPanel.Width
 		Dim cdBack As ColorDrawable
 		cdBack.Initialize2(Colors.RGB(61, 12, 2), 10dip, 2dip, Colors.Black)
 		showHideBtn.Background = cdBack

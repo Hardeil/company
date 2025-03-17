@@ -8,66 +8,66 @@ public class bargraph_subs_0 {
 
 public static RemoteObject  _chkchange_checkedchange(RemoteObject __ref,RemoteObject _checked) throws Exception{
 try {
-		Debug.PushSubsStack("chkChange_CheckedChange (bargraph) ","bargraph",1,__ref.getField(false, "ba"),__ref,462);
+		Debug.PushSubsStack("chkChange_CheckedChange (bargraph) ","bargraph",1,__ref.getField(false, "ba"),__ref,460);
 if (RapidSub.canDelegate("chkchange_checkedchange")) { return __ref.runUserSub(false, "bargraph","chkchange_checkedchange", __ref, _checked);}
 RemoteObject _chk = RemoteObject.declareNull("anywheresoftware.b4a.objects.CompoundButtonWrapper.CheckBoxWrapper");
 RemoteObject _index = RemoteObject.createImmutable(0);
 RemoteObject _checkedcount = RemoteObject.createImmutable(0);
 int _i = 0;
 Debug.locals.put("Checked", _checked);
- BA.debugLineNum = 462;BA.debugLine="Sub chkChange_CheckedChange(Checked As Boolean)";
-Debug.ShouldStop(8192);
- BA.debugLineNum = 463;BA.debugLine="If Sender Is CheckBox Then";
-Debug.ShouldStop(16384);
+ BA.debugLineNum = 460;BA.debugLine="Sub chkChange_CheckedChange(Checked As Boolean)";
+Debug.ShouldStop(2048);
+ BA.debugLineNum = 461;BA.debugLine="If Sender Is CheckBox Then";
+Debug.ShouldStop(4096);
 if (RemoteObject.solveBoolean("i",bargraph.__c.runMethod(false,"Sender",__ref.getField(false, "ba")), RemoteObject.createImmutable("android.widget.CheckBox"))) { 
- BA.debugLineNum = 464;BA.debugLine="Dim chk As CheckBox = Sender";
-Debug.ShouldStop(32768);
+ BA.debugLineNum = 462;BA.debugLine="Dim chk As CheckBox = Sender";
+Debug.ShouldStop(8192);
 _chk = RemoteObject.createNew ("anywheresoftware.b4a.objects.CompoundButtonWrapper.CheckBoxWrapper");
 _chk = RemoteObject.declareNull("anywheresoftware.b4a.AbsObjectWrapper").runMethod(false, "ConvertToWrapper", RemoteObject.createNew("anywheresoftware.b4a.objects.CompoundButtonWrapper.CheckBoxWrapper"), bargraph.__c.runMethod(false,"Sender",__ref.getField(false, "ba")));Debug.locals.put("chk", _chk);Debug.locals.put("chk", _chk);
- BA.debugLineNum = 465;BA.debugLine="Dim index As Int = chk.Tag";
-Debug.ShouldStop(65536);
+ BA.debugLineNum = 463;BA.debugLine="Dim index As Int = chk.Tag";
+Debug.ShouldStop(16384);
 _index = BA.numberCast(int.class, _chk.runMethod(false,"getTag"));Debug.locals.put("index", _index);Debug.locals.put("index", _index);
- BA.debugLineNum = 467;BA.debugLine="Dim checkedCount As Int = 0";
-Debug.ShouldStop(262144);
+ BA.debugLineNum = 465;BA.debugLine="Dim checkedCount As Int = 0";
+Debug.ShouldStop(65536);
 _checkedcount = BA.numberCast(int.class, 0);Debug.locals.put("checkedCount", _checkedcount);Debug.locals.put("checkedCount", _checkedcount);
- BA.debugLineNum = 468;BA.debugLine="For i = 0 To checkedSales.Length - 1";
-Debug.ShouldStop(524288);
+ BA.debugLineNum = 466;BA.debugLine="For i = 0 To checkedSales.Length - 1";
+Debug.ShouldStop(131072);
 {
 final int step5 = 1;
 final int limit5 = RemoteObject.solve(new RemoteObject[] {__ref.getField(false,"_checkedsales" /*RemoteObject*/ ).getField(true,"length"),RemoteObject.createImmutable(1)}, "-",1, 1).<Integer>get().intValue();
 _i = 0 ;
 for (;(step5 > 0 && _i <= limit5) || (step5 < 0 && _i >= limit5) ;_i = ((int)(0 + _i + step5))  ) {
 Debug.locals.put("i", _i);
- BA.debugLineNum = 469;BA.debugLine="If checkedSales(i) = True Then checkedCount = c";
-Debug.ShouldStop(1048576);
+ BA.debugLineNum = 467;BA.debugLine="If checkedSales(i) = True Then checkedCount = c";
+Debug.ShouldStop(262144);
 if (RemoteObject.solveBoolean("=",__ref.getField(false,"_checkedsales" /*RemoteObject*/ ).getArrayElement(true,BA.numberCast(int.class, _i)),bargraph.__c.getField(true,"True"))) { 
 _checkedcount = RemoteObject.solve(new RemoteObject[] {_checkedcount,RemoteObject.createImmutable(1)}, "+",1, 1);Debug.locals.put("checkedCount", _checkedcount);};
  }
 }Debug.locals.put("i", _i);
 ;
- BA.debugLineNum = 472;BA.debugLine="If Checked = False And checkedCount = 1 Then";
-Debug.ShouldStop(8388608);
+ BA.debugLineNum = 470;BA.debugLine="If Checked = False And checkedCount = 1 Then";
+Debug.ShouldStop(2097152);
 if (RemoteObject.solveBoolean("=",_checked,bargraph.__c.getField(true,"False")) && RemoteObject.solveBoolean("=",_checkedcount,BA.numberCast(double.class, 1))) { 
- BA.debugLineNum = 473;BA.debugLine="chk.Checked = True";
-Debug.ShouldStop(16777216);
+ BA.debugLineNum = 471;BA.debugLine="chk.Checked = True";
+Debug.ShouldStop(4194304);
 _chk.runMethodAndSync(true,"setChecked",bargraph.__c.getField(true,"True"));
- BA.debugLineNum = 474;BA.debugLine="Return";
-Debug.ShouldStop(33554432);
+ BA.debugLineNum = 472;BA.debugLine="Return";
+Debug.ShouldStop(8388608);
 Debug.CheckDeviceExceptions();if (true) return RemoteObject.createImmutable("");
  };
- BA.debugLineNum = 477;BA.debugLine="checkedSales(index) = Checked";
-Debug.ShouldStop(268435456);
+ BA.debugLineNum = 475;BA.debugLine="checkedSales(index) = Checked";
+Debug.ShouldStop(67108864);
 __ref.getField(false,"_checkedsales" /*RemoteObject*/ ).setArrayElement (_checked,_index);
- BA.debugLineNum = 478;BA.debugLine="UpdateGraph ' Call DrawGraph without parameters";
-Debug.ShouldStop(536870912);
+ BA.debugLineNum = 476;BA.debugLine="UpdateGraph ' Call DrawGraph without parameters";
+Debug.ShouldStop(134217728);
 __ref.runClassMethod (b4a.example.bargraph.class, "_updategraph" /*RemoteObject*/ );
  }else {
- BA.debugLineNum = 480;BA.debugLine="Log(\"Error: Sender is not a CheckBox\")";
-Debug.ShouldStop(-2147483648);
+ BA.debugLineNum = 478;BA.debugLine="Log(\"Error: Sender is not a CheckBox\")";
+Debug.ShouldStop(536870912);
 bargraph.__c.runVoidMethod ("LogImpl","71835026",RemoteObject.createImmutable("Error: Sender is not a CheckBox"),0);
  };
- BA.debugLineNum = 482;BA.debugLine="End Sub";
-Debug.ShouldStop(2);
+ BA.debugLineNum = 480;BA.debugLine="End Sub";
+Debug.ShouldStop(-2147483648);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -566,85 +566,86 @@ _btnmainpanel = RemoteObject.createNew ("anywheresoftware.b4a.objects.PanelWrapp
  BA.debugLineNum = 358;BA.debugLine="btnMainPanel.Initialize(\"\")";
 Debug.ShouldStop(32);
 _btnmainpanel.runVoidMethod ("Initialize",__ref.getField(false, "ba"),(Object)(RemoteObject.createImmutable("")));
- BA.debugLineNum = 359;BA.debugLine="Log($\"alignTopCenter:${alignTopCenter}\"$)";
+ BA.debugLineNum = 359;BA.debugLine="panel.AddView(btnMainPanel, alignLeftCenter, pan";
 Debug.ShouldStop(64);
-bargraph.__c.runVoidMethod ("LogImpl","71376395",(RemoteObject.concat(RemoteObject.createImmutable("alignTopCenter:"),bargraph.__c.runMethod(true,"SmartStringFormatter",(Object)(BA.ObjectToString("")),(Object)((_aligntopcenter))),RemoteObject.createImmutable(""))),0);
- BA.debugLineNum = 360;BA.debugLine="panel.AddView(btnMainPanel,alignLeftCenter,panel";
-Debug.ShouldStop(128);
 _panel.runVoidMethod ("AddView",(Object)((_btnmainpanel.getObject())),(Object)(_alignleftcenter),(Object)(BA.numberCast(int.class, RemoteObject.solve(new RemoteObject[] {_panel.runMethod(true,"getHeight"),(RemoteObject.solve(new RemoteObject[] {(RemoteObject.solve(new RemoteObject[] {_aligntopcenter,RemoteObject.createImmutable(2)}, "/",0, 0)),bargraph.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 20)))}, "+",1, 0))}, "-",1, 0))),(Object)(_activitypanel.runMethod(true,"getWidth")),(Object)(bargraph.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 50)))));
- BA.debugLineNum = 362;BA.debugLine="Dim paginationPanel As Panel";
-Debug.ShouldStop(512);
+ BA.debugLineNum = 361;BA.debugLine="Dim paginationPanel As Panel";
+Debug.ShouldStop(256);
 _paginationpanel = RemoteObject.createNew ("anywheresoftware.b4a.objects.PanelWrapper");Debug.locals.put("paginationPanel", _paginationpanel);
- BA.debugLineNum = 363;BA.debugLine="paginationPanel.Initialize(\"\")";
-Debug.ShouldStop(1024);
+ BA.debugLineNum = 362;BA.debugLine="paginationPanel.Initialize(\"\")";
+Debug.ShouldStop(512);
 _paginationpanel.runVoidMethod ("Initialize",__ref.getField(false, "ba"),(Object)(RemoteObject.createImmutable("")));
- BA.debugLineNum = 364;BA.debugLine="btnMainPanel.AddView(paginationPanel,0,0,btnMain";
-Debug.ShouldStop(2048);
+ BA.debugLineNum = 363;BA.debugLine="btnMainPanel.AddView(paginationPanel, 0, 0, btnM";
+Debug.ShouldStop(1024);
 _btnmainpanel.runVoidMethod ("AddView",(Object)((_paginationpanel.getObject())),(Object)(BA.numberCast(int.class, 0)),(Object)(BA.numberCast(int.class, 0)),(Object)(RemoteObject.solve(new RemoteObject[] {_btnmainpanel.runMethod(true,"getWidth"),bargraph.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 150)))}, "-",1, 1)),(Object)(_btnmainpanel.runMethod(true,"getHeight")));
- BA.debugLineNum = 368;BA.debugLine="If btnBack.Parent <> Null Then btnBack.RemoveVie";
-Debug.ShouldStop(32768);
+ BA.debugLineNum = 366;BA.debugLine="If btnBack.Parent <> Null Then btnBack.Rem";
+Debug.ShouldStop(8192);
 if (RemoteObject.solveBoolean("N",__ref.getField(false,"_btnback" /*RemoteObject*/ ).runMethod(false,"getParent"))) { 
 __ref.getField(false,"_btnback" /*RemoteObject*/ ).runVoidMethod ("RemoveView");};
- BA.debugLineNum = 369;BA.debugLine="If btnNext.Parent <> Null Then btnNext.RemoveVie";
-Debug.ShouldStop(65536);
+ BA.debugLineNum = 367;BA.debugLine="If btnNext.Parent <> Null Then btnNext.Rem";
+Debug.ShouldStop(16384);
 if (RemoteObject.solveBoolean("N",__ref.getField(false,"_btnnext" /*RemoteObject*/ ).runMethod(false,"getParent"))) { 
 __ref.getField(false,"_btnnext" /*RemoteObject*/ ).runVoidMethod ("RemoveView");};
- BA.debugLineNum = 372;BA.debugLine="btnBack.Text = \"<\"";
-Debug.ShouldStop(524288);
+ BA.debugLineNum = 368;BA.debugLine="If showHideBtn.Parent <> Null Then showHideBtn.R";
+Debug.ShouldStop(32768);
+if (RemoteObject.solveBoolean("N",__ref.getField(false,"_showhidebtn" /*RemoteObject*/ ).runMethod(false,"getParent"))) { 
+__ref.getField(false,"_showhidebtn" /*RemoteObject*/ ).runVoidMethod ("RemoveView");};
+ BA.debugLineNum = 371;BA.debugLine="btnBack.Text = \"<\"";
+Debug.ShouldStop(262144);
 __ref.getField(false,"_btnback" /*RemoteObject*/ ).runMethod(true,"setText",BA.ObjectToCharSequence("<"));
- BA.debugLineNum = 373;BA.debugLine="btnBack.TextSize = 14";
-Debug.ShouldStop(1048576);
+ BA.debugLineNum = 372;BA.debugLine="btnBack.TextSize = 14";
+Debug.ShouldStop(524288);
 __ref.getField(false,"_btnback" /*RemoteObject*/ ).runMethod(true,"setTextSize",BA.numberCast(float.class, 14));
- BA.debugLineNum = 374;BA.debugLine="btnBack.Typeface = Typeface.MONOSPACE";
-Debug.ShouldStop(2097152);
+ BA.debugLineNum = 373;BA.debugLine="btnBack.Typeface = Typeface.MONOSPACE";
+Debug.ShouldStop(1048576);
 __ref.getField(false,"_btnback" /*RemoteObject*/ ).runMethod(false,"setTypeface",bargraph.__c.getField(false,"Typeface").getField(false,"MONOSPACE"));
- BA.debugLineNum = 375;BA.debugLine="btnBack.TextColor = Colors.White";
-Debug.ShouldStop(4194304);
+ BA.debugLineNum = 374;BA.debugLine="btnBack.TextColor = Colors.White";
+Debug.ShouldStop(2097152);
 __ref.getField(false,"_btnback" /*RemoteObject*/ ).runMethod(true,"setTextColor",bargraph.__c.getField(false,"Colors").getField(true,"White"));
- BA.debugLineNum = 376;BA.debugLine="Dim cdBack As ColorDrawable";
-Debug.ShouldStop(8388608);
+ BA.debugLineNum = 375;BA.debugLine="Dim cdBack As ColorDrawable";
+Debug.ShouldStop(4194304);
 _cdback = RemoteObject.createNew ("anywheresoftware.b4a.objects.drawable.ColorDrawable");Debug.locals.put("cdBack", _cdback);
- BA.debugLineNum = 377;BA.debugLine="cdBack.Initialize2(Colors.RGB(61, 12, 2), 10dip,";
-Debug.ShouldStop(16777216);
+ BA.debugLineNum = 376;BA.debugLine="cdBack.Initialize2(Colors.RGB(61, 12, 2), 10dip,";
+Debug.ShouldStop(8388608);
 _cdback.runVoidMethod ("Initialize2",(Object)(bargraph.__c.getField(false,"Colors").runMethod(true,"RGB",(Object)(BA.numberCast(int.class, 61)),(Object)(BA.numberCast(int.class, 12)),(Object)(BA.numberCast(int.class, 2)))),(Object)(bargraph.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 10)))),(Object)(bargraph.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 2)))),(Object)(bargraph.__c.getField(false,"Colors").getField(true,"Black")));
- BA.debugLineNum = 378;BA.debugLine="btnBack.Background = cdBack";
-Debug.ShouldStop(33554432);
+ BA.debugLineNum = 377;BA.debugLine="btnBack.Background = cdBack";
+Debug.ShouldStop(16777216);
 __ref.getField(false,"_btnback" /*RemoteObject*/ ).runMethod(false,"setBackground",(_cdback.getObject()));
- BA.debugLineNum = 381;BA.debugLine="btnNext.Text = \">\"";
-Debug.ShouldStop(268435456);
+ BA.debugLineNum = 380;BA.debugLine="btnNext.Text = \">\"";
+Debug.ShouldStop(134217728);
 __ref.getField(false,"_btnnext" /*RemoteObject*/ ).runMethod(true,"setText",BA.ObjectToCharSequence(">"));
- BA.debugLineNum = 382;BA.debugLine="btnNext.TextSize = 14";
-Debug.ShouldStop(536870912);
+ BA.debugLineNum = 381;BA.debugLine="btnNext.TextSize = 14";
+Debug.ShouldStop(268435456);
 __ref.getField(false,"_btnnext" /*RemoteObject*/ ).runMethod(true,"setTextSize",BA.numberCast(float.class, 14));
- BA.debugLineNum = 383;BA.debugLine="btnNext.Typeface = Typeface.MONOSPACE";
-Debug.ShouldStop(1073741824);
+ BA.debugLineNum = 382;BA.debugLine="btnNext.Typeface = Typeface.MONOSPACE";
+Debug.ShouldStop(536870912);
 __ref.getField(false,"_btnnext" /*RemoteObject*/ ).runMethod(false,"setTypeface",bargraph.__c.getField(false,"Typeface").getField(false,"MONOSPACE"));
- BA.debugLineNum = 384;BA.debugLine="btnNext.TextColor = Colors.White";
-Debug.ShouldStop(-2147483648);
+ BA.debugLineNum = 383;BA.debugLine="btnNext.TextColor = Colors.White";
+Debug.ShouldStop(1073741824);
 __ref.getField(false,"_btnnext" /*RemoteObject*/ ).runMethod(true,"setTextColor",bargraph.__c.getField(false,"Colors").getField(true,"White"));
- BA.debugLineNum = 385;BA.debugLine="Dim cdNext As ColorDrawable";
-Debug.ShouldStop(1);
+ BA.debugLineNum = 384;BA.debugLine="Dim cdNext As ColorDrawable";
+Debug.ShouldStop(-2147483648);
 _cdnext = RemoteObject.createNew ("anywheresoftware.b4a.objects.drawable.ColorDrawable");Debug.locals.put("cdNext", _cdnext);
- BA.debugLineNum = 386;BA.debugLine="cdNext.Initialize2(Colors.RGB(185, 46, 52), 10di";
-Debug.ShouldStop(2);
+ BA.debugLineNum = 385;BA.debugLine="cdNext.Initialize2(Colors.RGB(185, 46, 52), 10di";
+Debug.ShouldStop(1);
 _cdnext.runVoidMethod ("Initialize2",(Object)(bargraph.__c.getField(false,"Colors").runMethod(true,"RGB",(Object)(BA.numberCast(int.class, 185)),(Object)(BA.numberCast(int.class, 46)),(Object)(BA.numberCast(int.class, 52)))),(Object)(bargraph.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 10)))),(Object)(bargraph.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 2)))),(Object)(bargraph.__c.getField(false,"Colors").getField(true,"Black")));
- BA.debugLineNum = 387;BA.debugLine="btnNext.Background = cdNext";
-Debug.ShouldStop(4);
+ BA.debugLineNum = 386;BA.debugLine="btnNext.Background = cdNext";
+Debug.ShouldStop(2);
 __ref.getField(false,"_btnnext" /*RemoteObject*/ ).runMethod(false,"setBackground",(_cdnext.getObject()));
- BA.debugLineNum = 390;BA.debugLine="paginationLabel.Initialize(\"\")";
-Debug.ShouldStop(32);
+ BA.debugLineNum = 389;BA.debugLine="paginationLabel.Initialize(\"\")";
+Debug.ShouldStop(16);
 __ref.getField(false,"_paginationlabel" /*RemoteObject*/ ).runVoidMethod ("Initialize",__ref.getField(false, "ba"),(Object)(RemoteObject.createImmutable("")));
- BA.debugLineNum = 391;BA.debugLine="paginationLabel.Text = $\"Page ${pageNo} out of $";
-Debug.ShouldStop(64);
+ BA.debugLineNum = 390;BA.debugLine="paginationLabel.Text = $\"Page ${pageNo} out of $";
+Debug.ShouldStop(32);
 __ref.getField(false,"_paginationlabel" /*RemoteObject*/ ).runMethod(true,"setText",BA.ObjectToCharSequence((RemoteObject.concat(RemoteObject.createImmutable("Page "),bargraph.__c.runMethod(true,"SmartStringFormatter",(Object)(BA.ObjectToString("")),(Object)((__ref.getField(true,"_pageno" /*RemoteObject*/ )))),RemoteObject.createImmutable(" out of "),bargraph.__c.runMethod(true,"SmartStringFormatter",(Object)(BA.ObjectToString("")),(Object)((__ref.getField(true,"_totalpages" /*RemoteObject*/ )))),RemoteObject.createImmutable("")))));
- BA.debugLineNum = 392;BA.debugLine="paginationLabel.Gravity = Gravity.CENTER";
-Debug.ShouldStop(128);
+ BA.debugLineNum = 391;BA.debugLine="paginationLabel.Gravity = Gravity.CENTER";
+Debug.ShouldStop(64);
 __ref.getField(false,"_paginationlabel" /*RemoteObject*/ ).runMethod(true,"setGravity",bargraph.__c.getField(false,"Gravity").getField(true,"CENTER"));
- BA.debugLineNum = 393;BA.debugLine="paginationLabel.Typeface = Typeface.MONOSPACE";
-Debug.ShouldStop(256);
+ BA.debugLineNum = 392;BA.debugLine="paginationLabel.Typeface = Typeface.MONOSPACE";
+Debug.ShouldStop(128);
 __ref.getField(false,"_paginationlabel" /*RemoteObject*/ ).runMethod(false,"setTypeface",bargraph.__c.getField(false,"Typeface").getField(false,"MONOSPACE"));
- BA.debugLineNum = 394;BA.debugLine="paginationPanel.AddView(paginationLabel,buttonWi";
-Debug.ShouldStop(512);
+ BA.debugLineNum = 393;BA.debugLine="paginationPanel.AddView(paginationLabel, buttonW";
+Debug.ShouldStop(256);
 _paginationpanel.runVoidMethod ("AddView",(Object)((__ref.getField(false,"_paginationlabel" /*RemoteObject*/ ).getObject())),(Object)(_buttonwidth),(Object)(BA.numberCast(int.class, 0)),(Object)(RemoteObject.solve(new RemoteObject[] {_paginationpanel.runMethod(true,"getWidth"),(RemoteObject.solve(new RemoteObject[] {_buttonwidth,RemoteObject.createImmutable(2)}, "*",0, 1))}, "-",1, 1)),(Object)(_paginationpanel.runMethod(true,"getHeight")));
  BA.debugLineNum = 396;BA.debugLine="Dim buttonWidth As Int = 50dip";
 Debug.ShouldStop(2048);
@@ -652,51 +653,39 @@ _buttonwidth = bargraph.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast
  BA.debugLineNum = 397;BA.debugLine="Dim buttonHeight As Int = 40dip";
 Debug.ShouldStop(4096);
 _buttonheight = bargraph.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 40)));Debug.locals.put("buttonHeight", _buttonheight);Debug.locals.put("buttonHeight", _buttonheight);
- BA.debugLineNum = 399;BA.debugLine="paginationPanel.AddView(btnBack, 0, (paginationP";
-Debug.ShouldStop(16384);
+ BA.debugLineNum = 398;BA.debugLine="paginationPanel.AddView(btnBack, 0, (paginationP";
+Debug.ShouldStop(8192);
 _paginationpanel.runVoidMethod ("AddView",(Object)((__ref.getField(false,"_btnback" /*RemoteObject*/ ).getObject())),(Object)(BA.numberCast(int.class, 0)),(Object)(BA.numberCast(int.class, RemoteObject.solve(new RemoteObject[] {(RemoteObject.solve(new RemoteObject[] {_paginationpanel.runMethod(true,"getHeight"),_buttonheight}, "-",1, 1)),RemoteObject.createImmutable(2)}, "/",0, 0))),(Object)(_buttonwidth),(Object)(_buttonheight));
- BA.debugLineNum = 400;BA.debugLine="paginationPanel.AddView(btnNext, paginationPanel";
-Debug.ShouldStop(32768);
+ BA.debugLineNum = 399;BA.debugLine="paginationPanel.AddView(btnNext, paginationPanel";
+Debug.ShouldStop(16384);
 _paginationpanel.runVoidMethod ("AddView",(Object)((__ref.getField(false,"_btnnext" /*RemoteObject*/ ).getObject())),(Object)(RemoteObject.solve(new RemoteObject[] {_paginationpanel.runMethod(true,"getWidth"),_buttonwidth}, "-",1, 1)),(Object)(BA.numberCast(int.class, RemoteObject.solve(new RemoteObject[] {(RemoteObject.solve(new RemoteObject[] {_paginationpanel.runMethod(true,"getHeight"),_buttonheight}, "-",1, 1)),RemoteObject.createImmutable(2)}, "/",0, 0))),(Object)(_buttonwidth),(Object)(_buttonheight));
- BA.debugLineNum = 403;BA.debugLine="btnBack.Enabled = currentPage > 1";
-Debug.ShouldStop(262144);
+ BA.debugLineNum = 402;BA.debugLine="btnBack.Enabled = currentPage > 1";
+Debug.ShouldStop(131072);
 __ref.getField(false,"_btnback" /*RemoteObject*/ ).runMethod(true,"setEnabled",BA.ObjectToBoolean(RemoteObject.solveBoolean(">",__ref.getField(true,"_currentpage" /*RemoteObject*/ ),BA.numberCast(double.class, 1))));
- BA.debugLineNum = 404;BA.debugLine="btnNext.Enabled = (currentPage * itemsPerPage) <";
-Debug.ShouldStop(524288);
+ BA.debugLineNum = 403;BA.debugLine="btnNext.Enabled = (currentPage * itemsPerPage) <";
+Debug.ShouldStop(262144);
 __ref.getField(false,"_btnnext" /*RemoteObject*/ ).runMethod(true,"setEnabled",BA.ObjectToBoolean(RemoteObject.solveBoolean("<",(RemoteObject.solve(new RemoteObject[] {__ref.getField(true,"_currentpage" /*RemoteObject*/ ),__ref.getField(true,"_itemsperpage" /*RemoteObject*/ )}, "*",0, 1)),BA.numberCast(double.class, _sale1.getField(true,"length")))));
- BA.debugLineNum = 406;BA.debugLine="showHideBtn.Initialize(\"showHideBtn\")";
+ BA.debugLineNum = 406;BA.debugLine="showHideBtn.Text = \"Show Details\"";
 Debug.ShouldStop(2097152);
-__ref.getField(false,"_showhidebtn" /*RemoteObject*/ ).runVoidMethod ("Initialize",__ref.getField(false, "ba"),(Object)(RemoteObject.createImmutable("showHideBtn")));
- BA.debugLineNum = 407;BA.debugLine="showHideBtn.Text = $\"Show Details\"$";
+__ref.getField(false,"_showhidebtn" /*RemoteObject*/ ).runMethod(true,"setText",BA.ObjectToCharSequence("Show Details"));
+ BA.debugLineNum = 407;BA.debugLine="showHideBtn.TextColor = Colors.White";
 Debug.ShouldStop(4194304);
-__ref.getField(false,"_showhidebtn" /*RemoteObject*/ ).runMethod(true,"setText",BA.ObjectToCharSequence((RemoteObject.createImmutable("Show Details"))));
- BA.debugLineNum = 408;BA.debugLine="showHideBtn.TextColor = Colors.White";
-Debug.ShouldStop(8388608);
 __ref.getField(false,"_showhidebtn" /*RemoteObject*/ ).runMethod(true,"setTextColor",bargraph.__c.getField(false,"Colors").getField(true,"White"));
- BA.debugLineNum = 409;BA.debugLine="btnMainPanel.AddView(showHideBtn,paginationPanel";
+ BA.debugLineNum = 408;BA.debugLine="showHideBtn.Background = cdBack";
+Debug.ShouldStop(8388608);
+__ref.getField(false,"_showhidebtn" /*RemoteObject*/ ).runMethod(false,"setBackground",(_cdback.getObject()));
+ BA.debugLineNum = 409;BA.debugLine="btnMainPanel.AddView(showHideBtn, paginati";
 Debug.ShouldStop(16777216);
 _btnmainpanel.runVoidMethod ("AddView",(Object)((__ref.getField(false,"_showhidebtn" /*RemoteObject*/ ).getObject())),(Object)(RemoteObject.solve(new RemoteObject[] {_paginationpanel.runMethod(true,"getWidth"),bargraph.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 5)))}, "+",1, 1)),(Object)(bargraph.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 5)))),(Object)(RemoteObject.solve(new RemoteObject[] {(RemoteObject.solve(new RemoteObject[] {_btnmainpanel.runMethod(true,"getWidth"),_paginationpanel.runMethod(true,"getWidth")}, "-",1, 1)),bargraph.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 10)))}, "-",1, 1)),(Object)(_buttonheight));
- BA.debugLineNum = 411;BA.debugLine="showHideBtn.Width = (btnMainPanel.Width-paginati";
-Debug.ShouldStop(67108864);
-__ref.getField(false,"_showhidebtn" /*RemoteObject*/ ).runMethod(true,"setWidth",RemoteObject.solve(new RemoteObject[] {(RemoteObject.solve(new RemoteObject[] {_btnmainpanel.runMethod(true,"getWidth"),_paginationpanel.runMethod(true,"getWidth")}, "-",1, 1)),bargraph.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 10)))}, "-",1, 1));
- BA.debugLineNum = 413;BA.debugLine="Dim cdBack As ColorDrawable";
-Debug.ShouldStop(268435456);
-_cdback = RemoteObject.createNew ("anywheresoftware.b4a.objects.drawable.ColorDrawable");Debug.locals.put("cdBack", _cdback);
- BA.debugLineNum = 414;BA.debugLine="cdBack.Initialize2(Colors.RGB(61, 12, 2), 10dip,";
-Debug.ShouldStop(536870912);
-_cdback.runVoidMethod ("Initialize2",(Object)(bargraph.__c.getField(false,"Colors").runMethod(true,"RGB",(Object)(BA.numberCast(int.class, 61)),(Object)(BA.numberCast(int.class, 12)),(Object)(BA.numberCast(int.class, 2)))),(Object)(bargraph.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 10)))),(Object)(bargraph.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int.class, 2)))),(Object)(bargraph.__c.getField(false,"Colors").getField(true,"Black")));
- BA.debugLineNum = 415;BA.debugLine="showHideBtn.Background = cdBack";
-Debug.ShouldStop(1073741824);
-__ref.getField(false,"_showhidebtn" /*RemoteObject*/ ).runMethod(false,"setBackground",(_cdback.getObject()));
  Debug.CheckDeviceExceptions();
 } 
-       catch (Exception e157) {
-			BA.rdebugUtils.runVoidMethod("setLastException",__ref.getField(false, "ba"), e157.toString()); BA.debugLineNum = 417;BA.debugLine="Log(LastException)";
-Debug.ShouldStop(1);
-bargraph.__c.runVoidMethod ("LogImpl","71376453",BA.ObjectToString(bargraph.__c.runMethod(false,"LastException",__ref.getField(false, "ba"))),0);
+       catch (Exception e153) {
+			BA.rdebugUtils.runVoidMethod("setLastException",__ref.getField(false, "ba"), e153.toString()); BA.debugLineNum = 415;BA.debugLine="Log(LastException)";
+Debug.ShouldStop(1073741824);
+bargraph.__c.runVoidMethod ("LogImpl","71376451",BA.ObjectToString(bargraph.__c.runMethod(false,"LastException",__ref.getField(false, "ba"))),0);
  };
- BA.debugLineNum = 419;BA.debugLine="End Sub";
-Debug.ShouldStop(4);
+ BA.debugLineNum = 417;BA.debugLine="End Sub";
+Debug.ShouldStop(1);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -707,32 +696,32 @@ finally {
 		}}
 public static RemoteObject  _formatnumberwithlabel(RemoteObject __ref,RemoteObject _number) throws Exception{
 try {
-		Debug.PushSubsStack("FormatNumberWithLabel (bargraph) ","bargraph",1,__ref.getField(false, "ba"),__ref,453);
+		Debug.PushSubsStack("FormatNumberWithLabel (bargraph) ","bargraph",1,__ref.getField(false, "ba"),__ref,451);
 if (RapidSub.canDelegate("formatnumberwithlabel")) { return __ref.runUserSub(false, "bargraph","formatnumberwithlabel", __ref, _number);}
 Debug.locals.put("number", _number);
- BA.debugLineNum = 453;BA.debugLine="Sub FormatNumberWithLabel(number As Int) As String";
-Debug.ShouldStop(16);
- BA.debugLineNum = 454;BA.debugLine="If number >= 1000000 Then";
-Debug.ShouldStop(32);
+ BA.debugLineNum = 451;BA.debugLine="Sub FormatNumberWithLabel(number As Int) As String";
+Debug.ShouldStop(4);
+ BA.debugLineNum = 452;BA.debugLine="If number >= 1000000 Then";
+Debug.ShouldStop(8);
 if (RemoteObject.solveBoolean("g",_number,BA.numberCast(double.class, 1000000))) { 
- BA.debugLineNum = 455;BA.debugLine="Return Floor(number / 1000000) & \"M\"";
-Debug.ShouldStop(64);
+ BA.debugLineNum = 453;BA.debugLine="Return Floor(number / 1000000) & \"M\"";
+Debug.ShouldStop(16);
 Debug.CheckDeviceExceptions();if (true) return RemoteObject.concat(bargraph.__c.runMethod(true,"Floor",(Object)(RemoteObject.solve(new RemoteObject[] {_number,RemoteObject.createImmutable(1000000)}, "/",0, 0))),RemoteObject.createImmutable("M"));
  }else 
-{ BA.debugLineNum = 456;BA.debugLine="Else If number >= 1000 Then";
-Debug.ShouldStop(128);
+{ BA.debugLineNum = 454;BA.debugLine="Else If number >= 1000 Then";
+Debug.ShouldStop(32);
 if (RemoteObject.solveBoolean("g",_number,BA.numberCast(double.class, 1000))) { 
- BA.debugLineNum = 457;BA.debugLine="Return Floor(number / 1000) & \"k\"";
-Debug.ShouldStop(256);
+ BA.debugLineNum = 455;BA.debugLine="Return Floor(number / 1000) & \"k\"";
+Debug.ShouldStop(64);
 Debug.CheckDeviceExceptions();if (true) return RemoteObject.concat(bargraph.__c.runMethod(true,"Floor",(Object)(RemoteObject.solve(new RemoteObject[] {_number,RemoteObject.createImmutable(1000)}, "/",0, 0))),RemoteObject.createImmutable("k"));
  }else {
- BA.debugLineNum = 459;BA.debugLine="Return number";
-Debug.ShouldStop(1024);
+ BA.debugLineNum = 457;BA.debugLine="Return number";
+Debug.ShouldStop(256);
 Debug.CheckDeviceExceptions();if (true) return BA.NumberToString(_number);
  }}
 ;
- BA.debugLineNum = 461;BA.debugLine="End Sub";
-Debug.ShouldStop(4096);
+ BA.debugLineNum = 459;BA.debugLine="End Sub";
+Debug.ShouldStop(1024);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -743,32 +732,32 @@ finally {
 		}}
 public static RemoteObject  _formatnumberwithsuffix(RemoteObject __ref,RemoteObject _number) throws Exception{
 try {
-		Debug.PushSubsStack("FormatNumberWithSuffix (bargraph) ","bargraph",1,__ref.getField(false, "ba"),__ref,443);
+		Debug.PushSubsStack("FormatNumberWithSuffix (bargraph) ","bargraph",1,__ref.getField(false, "ba"),__ref,441);
 if (RapidSub.canDelegate("formatnumberwithsuffix")) { return __ref.runUserSub(false, "bargraph","formatnumberwithsuffix", __ref, _number);}
 Debug.locals.put("number", _number);
- BA.debugLineNum = 443;BA.debugLine="Sub FormatNumberWithSuffix(number As Int) As Strin";
-Debug.ShouldStop(67108864);
- BA.debugLineNum = 444;BA.debugLine="If number >= 1000000 Then";
-Debug.ShouldStop(134217728);
+ BA.debugLineNum = 441;BA.debugLine="Sub FormatNumberWithSuffix(number As Int) As Strin";
+Debug.ShouldStop(16777216);
+ BA.debugLineNum = 442;BA.debugLine="If number >= 1000000 Then";
+Debug.ShouldStop(33554432);
 if (RemoteObject.solveBoolean("g",_number,BA.numberCast(double.class, 1000000))) { 
- BA.debugLineNum = 445;BA.debugLine="Return NumberFormat(number / 1000000, 1, 1) & \"M";
-Debug.ShouldStop(268435456);
+ BA.debugLineNum = 443;BA.debugLine="Return NumberFormat(number / 1000000, 1, 1) & \"M";
+Debug.ShouldStop(67108864);
 Debug.CheckDeviceExceptions();if (true) return RemoteObject.concat(bargraph.__c.runMethod(true,"NumberFormat",(Object)(RemoteObject.solve(new RemoteObject[] {_number,RemoteObject.createImmutable(1000000)}, "/",0, 0)),(Object)(BA.numberCast(int.class, 1)),(Object)(BA.numberCast(int.class, 1))),RemoteObject.createImmutable("M"));
  }else 
-{ BA.debugLineNum = 446;BA.debugLine="Else If number >= 1000 Then";
-Debug.ShouldStop(536870912);
+{ BA.debugLineNum = 444;BA.debugLine="Else If number >= 1000 Then";
+Debug.ShouldStop(134217728);
 if (RemoteObject.solveBoolean("g",_number,BA.numberCast(double.class, 1000))) { 
- BA.debugLineNum = 447;BA.debugLine="Return NumberFormat(number / 1000, 1, 1) & \"k\"";
-Debug.ShouldStop(1073741824);
+ BA.debugLineNum = 445;BA.debugLine="Return NumberFormat(number / 1000, 1, 1) & \"k\"";
+Debug.ShouldStop(268435456);
 Debug.CheckDeviceExceptions();if (true) return RemoteObject.concat(bargraph.__c.runMethod(true,"NumberFormat",(Object)(RemoteObject.solve(new RemoteObject[] {_number,RemoteObject.createImmutable(1000)}, "/",0, 0)),(Object)(BA.numberCast(int.class, 1)),(Object)(BA.numberCast(int.class, 1))),RemoteObject.createImmutable("k"));
  }else {
- BA.debugLineNum = 449;BA.debugLine="Return NumberFormat(number, 1, 0)";
-Debug.ShouldStop(1);
+ BA.debugLineNum = 447;BA.debugLine="Return NumberFormat(number, 1, 0)";
+Debug.ShouldStop(1073741824);
 Debug.CheckDeviceExceptions();if (true) return bargraph.__c.runMethod(true,"NumberFormat",(Object)(BA.numberCast(double.class, _number)),(Object)(BA.numberCast(int.class, 1)),(Object)(BA.numberCast(int.class, 0)));
  }}
 ;
- BA.debugLineNum = 451;BA.debugLine="End Sub";
-Debug.ShouldStop(4);
+ BA.debugLineNum = 449;BA.debugLine="End Sub";
+Debug.ShouldStop(1);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -779,15 +768,15 @@ finally {
 		}}
 public static RemoteObject  _getcheckedsales(RemoteObject __ref) throws Exception{
 try {
-		Debug.PushSubsStack("GetCheckedSales (bargraph) ","bargraph",1,__ref.getField(false, "ba"),__ref,484);
+		Debug.PushSubsStack("GetCheckedSales (bargraph) ","bargraph",1,__ref.getField(false, "ba"),__ref,482);
 if (RapidSub.canDelegate("getcheckedsales")) { return __ref.runUserSub(false, "bargraph","getcheckedsales", __ref);}
- BA.debugLineNum = 484;BA.debugLine="Public Sub GetCheckedSales As Boolean()";
-Debug.ShouldStop(8);
- BA.debugLineNum = 485;BA.debugLine="Return checkedSales";
-Debug.ShouldStop(16);
+ BA.debugLineNum = 482;BA.debugLine="Public Sub GetCheckedSales As Boolean()";
+Debug.ShouldStop(2);
+ BA.debugLineNum = 483;BA.debugLine="Return checkedSales";
+Debug.ShouldStop(4);
 Debug.CheckDeviceExceptions();if (true) return __ref.getField(false,"_checkedsales" /*RemoteObject*/ );
- BA.debugLineNum = 486;BA.debugLine="End Sub";
-Debug.ShouldStop(32);
+ BA.debugLineNum = 484;BA.debugLine="End Sub";
+Debug.ShouldStop(8);
 return RemoteObject.createImmutable(null);
 }
 catch (Exception e) {
@@ -798,15 +787,15 @@ finally {
 		}}
 public static RemoteObject  _getcurrentpage(RemoteObject __ref) throws Exception{
 try {
-		Debug.PushSubsStack("GetCurrentPage (bargraph) ","bargraph",1,__ref.getField(false, "ba"),__ref,425);
+		Debug.PushSubsStack("GetCurrentPage (bargraph) ","bargraph",1,__ref.getField(false, "ba"),__ref,423);
 if (RapidSub.canDelegate("getcurrentpage")) { return __ref.runUserSub(false, "bargraph","getcurrentpage", __ref);}
- BA.debugLineNum = 425;BA.debugLine="Public Sub GetCurrentPage As Int";
-Debug.ShouldStop(256);
- BA.debugLineNum = 426;BA.debugLine="Return currentPage";
-Debug.ShouldStop(512);
+ BA.debugLineNum = 423;BA.debugLine="Public Sub GetCurrentPage As Int";
+Debug.ShouldStop(64);
+ BA.debugLineNum = 424;BA.debugLine="Return currentPage";
+Debug.ShouldStop(128);
 Debug.CheckDeviceExceptions();if (true) return __ref.getField(true,"_currentpage" /*RemoteObject*/ );
- BA.debugLineNum = 427;BA.debugLine="End Sub";
-Debug.ShouldStop(1024);
+ BA.debugLineNum = 425;BA.debugLine="End Sub";
+Debug.ShouldStop(256);
 return RemoteObject.createImmutable(0);
 }
 catch (Exception e) {
@@ -815,10 +804,10 @@ catch (Exception e) {
 finally {
 			Debug.PopSubsStack();
 		}}
-public static RemoteObject  _initialize(RemoteObject __ref,RemoteObject _ba,RemoteObject _active,RemoteObject _panel,RemoteObject _sale1,RemoteObject _sale2,RemoteObject _sale3,RemoteObject _product,RemoteObject _legend,RemoteObject _maxsales,RemoteObject _titlestring,RemoteObject _comid,RemoteObject _layout1,RemoteObject _nextbtn,RemoteObject _backbtn,RemoteObject _sortbtn,RemoteObject _btnsort2,RemoteObject _defaultbtn,RemoteObject _sales1btn,RemoteObject _sales2btn,RemoteObject _sales3btn) throws Exception{
+public static RemoteObject  _initialize(RemoteObject __ref,RemoteObject _ba,RemoteObject _active,RemoteObject _panel,RemoteObject _sale1,RemoteObject _sale2,RemoteObject _sale3,RemoteObject _product,RemoteObject _legend,RemoteObject _maxsales,RemoteObject _titlestring,RemoteObject _comid,RemoteObject _layout1,RemoteObject _nextbtn,RemoteObject _backbtn,RemoteObject _sortbtn,RemoteObject _btnsort2,RemoteObject _defaultbtn,RemoteObject _sales1btn,RemoteObject _sales2btn,RemoteObject _sales3btn,RemoteObject _hideshowbtn) throws Exception{
 try {
 		Debug.PushSubsStack("Initialize (bargraph) ","bargraph",1,__ref.getField(false, "ba"),__ref,43);
-if (RapidSub.canDelegate("initialize")) { return __ref.runUserSub(false, "bargraph","initialize", __ref, _ba, _active, _panel, _sale1, _sale2, _sale3, _product, _legend, _maxsales, _titlestring, _comid, _layout1, _nextbtn, _backbtn, _sortbtn, _btnsort2, _defaultbtn, _sales1btn, _sales2btn, _sales3btn);}
+if (RapidSub.canDelegate("initialize")) { return __ref.runUserSub(false, "bargraph","initialize", __ref, _ba, _active, _panel, _sale1, _sale2, _sale3, _product, _legend, _maxsales, _titlestring, _comid, _layout1, _nextbtn, _backbtn, _sortbtn, _btnsort2, _defaultbtn, _sales1btn, _sales2btn, _sales3btn, _hideshowbtn);}
 __ref.runVoidMethodAndSync("innerInitializeHelper", _ba);
 RemoteObject _cd = RemoteObject.declareNull("anywheresoftware.b4a.objects.drawable.ColorDrawable");
 RemoteObject _halfwidth = RemoteObject.createImmutable(0);
@@ -859,6 +848,7 @@ Debug.locals.put("Defaultbtn", _defaultbtn);
 Debug.locals.put("Sales1btn", _sales1btn);
 Debug.locals.put("Sales2btn", _sales2btn);
 Debug.locals.put("Sales3btn", _sales3btn);
+Debug.locals.put("hideShowBtn", _hideshowbtn);
  BA.debugLineNum = 43;BA.debugLine="Public Sub Initialize(Active As Activity, panel As";
 Debug.ShouldStop(1024);
  BA.debugLineNum = 44;BA.debugLine="If Active.IsInitialized = False Then";
@@ -928,6 +918,9 @@ __ref.setField ("_sales2" /*RemoteObject*/ ,_sales2btn);
  BA.debugLineNum = 66;BA.debugLine="sales3 = Sales3btn";
 Debug.ShouldStop(2);
 __ref.setField ("_sales3" /*RemoteObject*/ ,_sales3btn);
+ BA.debugLineNum = 67;BA.debugLine="showHideBtn = hideShowBtn";
+Debug.ShouldStop(4);
+__ref.setField ("_showhidebtn" /*RemoteObject*/ ,_hideshowbtn);
  BA.debugLineNum = 68;BA.debugLine="Dim cd As ColorDrawable";
 Debug.ShouldStop(8);
 _cd = RemoteObject.createNew ("anywheresoftware.b4a.objects.drawable.ColorDrawable");Debug.locals.put("cd", _cd);
@@ -1013,10 +1006,10 @@ __ref.setField ("_checkedsales" /*RemoteObject*/ ,_tempcheckedsales);
  BA.debugLineNum = 106;BA.debugLine="For i = 0 To legend.Length - 1";
 Debug.ShouldStop(512);
 {
-final int step52 = 1;
-final int limit52 = RemoteObject.solve(new RemoteObject[] {_legend.getField(true,"length"),RemoteObject.createImmutable(1)}, "-",1, 1).<Integer>get().intValue();
+final int step53 = 1;
+final int limit53 = RemoteObject.solve(new RemoteObject[] {_legend.getField(true,"length"),RemoteObject.createImmutable(1)}, "-",1, 1).<Integer>get().intValue();
 _i = 0 ;
-for (;(step52 > 0 && _i <= limit52) || (step52 < 0 && _i >= limit52) ;_i = ((int)(0 + _i + step52))  ) {
+for (;(step53 > 0 && _i <= limit53) || (step53 < 0 && _i >= limit53) ;_i = ((int)(0 + _i + step53))  ) {
 Debug.locals.put("i", _i);
  BA.debugLineNum = 107;BA.debugLine="Dim chk As CheckBox";
 Debug.ShouldStop(1024);
@@ -1064,10 +1057,10 @@ __ref.setField ("_isfirstinit" /*RemoteObject*/ ,bargraph.__c.getField(true,"Fal
  BA.debugLineNum = 123;BA.debugLine="For i = 0 To checkBoxes.Length - 1";
 Debug.ShouldStop(67108864);
 {
-final int step68 = 1;
-final int limit68 = RemoteObject.solve(new RemoteObject[] {__ref.getField(false,"_checkboxes" /*RemoteObject*/ ).getField(true,"length"),RemoteObject.createImmutable(1)}, "-",1, 1).<Integer>get().intValue();
+final int step69 = 1;
+final int limit69 = RemoteObject.solve(new RemoteObject[] {__ref.getField(false,"_checkboxes" /*RemoteObject*/ ).getField(true,"length"),RemoteObject.createImmutable(1)}, "-",1, 1).<Integer>get().intValue();
 _i = 0 ;
-for (;(step68 > 0 && _i <= limit68) || (step68 < 0 && _i >= limit68) ;_i = ((int)(0 + _i + step68))  ) {
+for (;(step69 > 0 && _i <= limit69) || (step69 < 0 && _i >= limit69) ;_i = ((int)(0 + _i + step69))  ) {
 Debug.locals.put("i", _i);
  BA.debugLineNum = 124;BA.debugLine="checkBoxes(i).Checked = checkedSales(i)";
 Debug.ShouldStop(134217728);
@@ -1188,10 +1181,10 @@ _spacing = bargraph.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int
  BA.debugLineNum = 177;BA.debugLine="For i = 0 To totalButtons - 1";
 Debug.ShouldStop(65536);
 {
-final int step109 = 1;
-final int limit109 = RemoteObject.solve(new RemoteObject[] {_totalbuttons,RemoteObject.createImmutable(1)}, "-",1, 1).<Integer>get().intValue();
+final int step110 = 1;
+final int limit110 = RemoteObject.solve(new RemoteObject[] {_totalbuttons,RemoteObject.createImmutable(1)}, "-",1, 1).<Integer>get().intValue();
 _i = 0 ;
-for (;(step109 > 0 && _i <= limit109) || (step109 < 0 && _i >= limit109) ;_i = ((int)(0 + _i + step109))  ) {
+for (;(step110 > 0 && _i <= limit110) || (step110 < 0 && _i >= limit110) ;_i = ((int)(0 + _i + step110))  ) {
 Debug.locals.put("i", _i);
  BA.debugLineNum = 178;BA.debugLine="radioButtons(i).Text = radioTexts(i)";
 Debug.ShouldStop(131072);
@@ -1241,10 +1234,10 @@ _spacing = bargraph.__c.runMethod(true,"DipToCurrent",(Object)(BA.numberCast(int
  BA.debugLineNum = 200;BA.debugLine="For i = 0 To totalLabels - 1";
 Debug.ShouldStop(128);
 {
-final int step125 = 1;
-final int limit125 = RemoteObject.solve(new RemoteObject[] {_totallabels,RemoteObject.createImmutable(1)}, "-",1, 1).<Integer>get().intValue();
+final int step126 = 1;
+final int limit126 = RemoteObject.solve(new RemoteObject[] {_totallabels,RemoteObject.createImmutable(1)}, "-",1, 1).<Integer>get().intValue();
 _i = 0 ;
-for (;(step125 > 0 && _i <= limit125) || (step125 < 0 && _i >= limit125) ;_i = ((int)(0 + _i + step125))  ) {
+for (;(step126 > 0 && _i <= limit126) || (step126 < 0 && _i >= limit126) ;_i = ((int)(0 + _i + step126))  ) {
 Debug.locals.put("i", _i);
  BA.debugLineNum = 201;BA.debugLine="salesLabels(i).Text = legend(i)";
 Debug.ShouldStop(256);
@@ -1288,33 +1281,33 @@ finally {
 		}}
 public static RemoteObject  _productlabel_click(RemoteObject __ref) throws Exception{
 try {
-		Debug.PushSubsStack("productLabel_Click (bargraph) ","bargraph",1,__ref.getField(false, "ba"),__ref,434);
+		Debug.PushSubsStack("productLabel_Click (bargraph) ","bargraph",1,__ref.getField(false, "ba"),__ref,432);
 if (RapidSub.canDelegate("productlabel_click")) { return __ref.runUserSub(false, "bargraph","productlabel_click", __ref);}
 RemoteObject _clickedlabel = RemoteObject.declareNull("anywheresoftware.b4a.objects.LabelWrapper");
 RemoteObject _selectedcompany = RemoteObject.createImmutable(0);
- BA.debugLineNum = 434;BA.debugLine="Sub productLabel_Click";
-Debug.ShouldStop(131072);
- BA.debugLineNum = 435;BA.debugLine="Dim clickedLabel As Label = Sender";
-Debug.ShouldStop(262144);
+ BA.debugLineNum = 432;BA.debugLine="Sub productLabel_Click";
+Debug.ShouldStop(32768);
+ BA.debugLineNum = 433;BA.debugLine="Dim clickedLabel As Label = Sender";
+Debug.ShouldStop(65536);
 _clickedlabel = RemoteObject.createNew ("anywheresoftware.b4a.objects.LabelWrapper");
 _clickedlabel = RemoteObject.declareNull("anywheresoftware.b4a.AbsObjectWrapper").runMethod(false, "ConvertToWrapper", RemoteObject.createNew("anywheresoftware.b4a.objects.LabelWrapper"), bargraph.__c.runMethod(false,"Sender",__ref.getField(false, "ba")));Debug.locals.put("clickedLabel", _clickedlabel);Debug.locals.put("clickedLabel", _clickedlabel);
- BA.debugLineNum = 436;BA.debugLine="Dim selectedCompany As Int = clickedLabel.Tag";
-Debug.ShouldStop(524288);
+ BA.debugLineNum = 434;BA.debugLine="Dim selectedCompany As Int = clickedLabel.Tag";
+Debug.ShouldStop(131072);
 _selectedcompany = BA.numberCast(int.class, _clickedlabel.runMethod(false,"getTag"));Debug.locals.put("selectedCompany", _selectedcompany);Debug.locals.put("selectedCompany", _selectedcompany);
- BA.debugLineNum = 437;BA.debugLine="Log(\"Selected Company ID: \" & selectedCompany)";
-Debug.ShouldStop(1048576);
+ BA.debugLineNum = 435;BA.debugLine="Log(\"Selected Company ID: \" & selectedCompany)";
+Debug.ShouldStop(262144);
 bargraph.__c.runVoidMethod ("LogImpl","71638403",RemoteObject.concat(RemoteObject.createImmutable("Selected Company ID: "),_selectedcompany),0);
- BA.debugLineNum = 438;BA.debugLine="Starter.company_selected = selectedCompany";
-Debug.ShouldStop(2097152);
+ BA.debugLineNum = 436;BA.debugLine="Starter.company_selected = selectedCompany";
+Debug.ShouldStop(524288);
 bargraph._starter._company_selected /*RemoteObject*/  = BA.NumberToString(_selectedcompany);
- BA.debugLineNum = 439;BA.debugLine="StartActivity(layout)";
-Debug.ShouldStop(4194304);
+ BA.debugLineNum = 437;BA.debugLine="StartActivity(layout)";
+Debug.ShouldStop(1048576);
 bargraph.__c.runVoidMethod ("StartActivity",__ref.getField(false, "ba"),(Object)((__ref.getField(true,"_layout" /*RemoteObject*/ ))));
- BA.debugLineNum = 440;BA.debugLine="Active1.Finish";
-Debug.ShouldStop(8388608);
+ BA.debugLineNum = 438;BA.debugLine="Active1.Finish";
+Debug.ShouldStop(2097152);
 __ref.getField(false,"_active1" /*RemoteObject*/ ).runVoidMethod ("Finish");
- BA.debugLineNum = 441;BA.debugLine="End Sub";
-Debug.ShouldStop(16777216);
+ BA.debugLineNum = 439;BA.debugLine="End Sub";
+Debug.ShouldStop(4194304);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -1325,41 +1318,19 @@ finally {
 		}}
 public static RemoteObject  _setcurrentpage(RemoteObject __ref,RemoteObject _page) throws Exception{
 try {
-		Debug.PushSubsStack("SetCurrentPage (bargraph) ","bargraph",1,__ref.getField(false, "ba"),__ref,429);
+		Debug.PushSubsStack("SetCurrentPage (bargraph) ","bargraph",1,__ref.getField(false, "ba"),__ref,427);
 if (RapidSub.canDelegate("setcurrentpage")) { return __ref.runUserSub(false, "bargraph","setcurrentpage", __ref, _page);}
 Debug.locals.put("page", _page);
- BA.debugLineNum = 429;BA.debugLine="Public Sub SetCurrentPage(page As Int)";
-Debug.ShouldStop(4096);
- BA.debugLineNum = 430;BA.debugLine="currentPage = page";
-Debug.ShouldStop(8192);
-__ref.setField ("_currentpage" /*RemoteObject*/ ,_page);
- BA.debugLineNum = 431;BA.debugLine="UpdateGraph";
-Debug.ShouldStop(16384);
-__ref.runClassMethod (b4a.example.bargraph.class, "_updategraph" /*RemoteObject*/ );
- BA.debugLineNum = 432;BA.debugLine="End Sub";
-Debug.ShouldStop(32768);
-return RemoteObject.createImmutable("");
-}
-catch (Exception e) {
-			throw Debug.ErrorCaught(e);
-		} 
-finally {
-			Debug.PopSubsStack();
-		}}
-public static RemoteObject  _showhidebtn_click(RemoteObject __ref) throws Exception{
-try {
-		Debug.PushSubsStack("showHideBtn_Click (bargraph) ","bargraph",1,__ref.getField(false, "ba"),__ref,489);
-if (RapidSub.canDelegate("showhidebtn_click")) { return __ref.runUserSub(false, "bargraph","showhidebtn_click", __ref);}
- BA.debugLineNum = 489;BA.debugLine="Public Sub showHideBtn_Click";
-Debug.ShouldStop(256);
- BA.debugLineNum = 490;BA.debugLine="hideShowPanel.Visible= False";
-Debug.ShouldStop(512);
-__ref.getField(false,"_hideshowpanel" /*RemoteObject*/ ).runMethod(true,"setVisible",bargraph.__c.getField(true,"False"));
- BA.debugLineNum = 491;BA.debugLine="Log(\"sad\")";
+ BA.debugLineNum = 427;BA.debugLine="Public Sub SetCurrentPage(page As Int)";
 Debug.ShouldStop(1024);
-bargraph.__c.runVoidMethod ("LogImpl","78323074",RemoteObject.createImmutable("sad"),0);
- BA.debugLineNum = 492;BA.debugLine="End Sub";
+ BA.debugLineNum = 428;BA.debugLine="currentPage = page";
 Debug.ShouldStop(2048);
+__ref.setField ("_currentpage" /*RemoteObject*/ ,_page);
+ BA.debugLineNum = 429;BA.debugLine="UpdateGraph";
+Debug.ShouldStop(4096);
+__ref.runClassMethod (b4a.example.bargraph.class, "_updategraph" /*RemoteObject*/ );
+ BA.debugLineNum = 430;BA.debugLine="End Sub";
+Debug.ShouldStop(8192);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {
@@ -1370,15 +1341,15 @@ finally {
 		}}
 public static RemoteObject  _updategraph(RemoteObject __ref) throws Exception{
 try {
-		Debug.PushSubsStack("UpdateGraph (bargraph) ","bargraph",1,__ref.getField(false, "ba"),__ref,421);
+		Debug.PushSubsStack("UpdateGraph (bargraph) ","bargraph",1,__ref.getField(false, "ba"),__ref,419);
 if (RapidSub.canDelegate("updategraph")) { return __ref.runUserSub(false, "bargraph","updategraph", __ref);}
- BA.debugLineNum = 421;BA.debugLine="Public Sub UpdateGraph";
-Debug.ShouldStop(16);
- BA.debugLineNum = 422;BA.debugLine="DrawGraph(Active1, panel_l, sale_1, sale_2, sale_";
-Debug.ShouldStop(32);
+ BA.debugLineNum = 419;BA.debugLine="Public Sub UpdateGraph";
+Debug.ShouldStop(4);
+ BA.debugLineNum = 420;BA.debugLine="DrawGraph(Active1, panel_l, sale_1, sale_2, sale_";
+Debug.ShouldStop(8);
 __ref.runClassMethod (b4a.example.bargraph.class, "_drawgraph" /*RemoteObject*/ ,(Object)(__ref.getField(false,"_active1" /*RemoteObject*/ )),(Object)(__ref.getField(false,"_panel_l" /*RemoteObject*/ )),(Object)(__ref.getField(false,"_sale_1" /*RemoteObject*/ )),(Object)(__ref.getField(false,"_sale_2" /*RemoteObject*/ )),(Object)(__ref.getField(false,"_sale_3" /*RemoteObject*/ )),(Object)(__ref.getField(false,"_product1" /*RemoteObject*/ )),(Object)(__ref.getField(true,"_maxsales1" /*RemoteObject*/ )),(Object)(__ref.getField(true,"_titlestring1" /*RemoteObject*/ )));
- BA.debugLineNum = 423;BA.debugLine="End Sub";
-Debug.ShouldStop(64);
+ BA.debugLineNum = 421;BA.debugLine="End Sub";
+Debug.ShouldStop(16);
 return RemoteObject.createImmutable("");
 }
 catch (Exception e) {

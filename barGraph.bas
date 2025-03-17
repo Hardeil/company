@@ -46,7 +46,7 @@ Sub Class_Globals
 	Dim hideShowPanel As Panel
 End Sub
 
-Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2() As Int, sale3() As Int, product() As String, legend() As String, maxSales As Int, TitleString As String, comId() As Int, layout1 As String,NextBtn As Button,Backbtn As Button,sortBtn As RadioButton,BtnSort2 As RadioButton,Defaultbtn As RadioButton,Sales1btn As RadioButton,Sales2btn As RadioButton,Sales3btn As RadioButton)
+Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2() As Int, sale3() As Int, product() As String, legend() As String, maxSales As Int, TitleString As String, comId() As Int, layout1 As String,NextBtn As Button,Backbtn As Button,sortBtn As RadioButton,BtnSort2 As RadioButton,Defaultbtn As RadioButton,Sales1btn As RadioButton,Sales2btn As RadioButton,Sales3btn As RadioButton,hideShowBtn As Button)
 	If Active.IsInitialized = False Then
 		Log("Error: Activity is not initialized")
 		Return
@@ -70,7 +70,7 @@ Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2(
 	sales1 = Sales1btn
 	sales2 = Sales2btn
 	sales3 = Sales3btn
-	
+	showHideBtn = hideShowBtn
 	Dim cd As ColorDrawable
 	cd.Initialize2(Colors.White, 5dip, 1dip, Colors.Black)
 	
@@ -362,63 +362,61 @@ Public Sub DrawGraph(Active As Activity, panel As Panel, sale1() As Int, sale2()
 		
 		Dim btnMainPanel As Panel
 		btnMainPanel.Initialize("")
-		Log($"alignTopCenter:${alignTopCenter}"$)
-		panel.AddView(btnMainPanel,alignLeftCenter,panel.Height-((alignTopCenter/2)+20dip),activityPanel.Width,50dip)
+		panel.AddView(btnMainPanel, alignLeftCenter, panel.Height - ((alignTopCenter / 2) + 20dip), activityPanel.Width, 50dip)
 		
-		Dim paginationPanel As Panel
+        Dim paginationPanel As Panel
 		paginationPanel.Initialize("")
-		btnMainPanel.AddView(paginationPanel,0,0,btnMainPanel.Width-150dip,btnMainPanel.Height)
-		'btnMainPanel.Color = Colors.red
+		btnMainPanel.AddView(paginationPanel, 0, 0, btnMainPanel.Width - 150dip, btnMainPanel.Height)
 		
-		' Remove buttons from any existing parent before adding
-		If btnBack.Parent <> Null Then btnBack.RemoveView
-		If btnNext.Parent <> Null Then btnNext.RemoveView
-        
+		' Ensure buttons are removed from any existing parent BEFORE configuring and adding
+        If btnBack.Parent <> Null Then btnBack.RemoveView
+        If btnNext.Parent <> Null Then btnNext.RemoveView
+		If showHideBtn.Parent <> Null Then showHideBtn.RemoveView ' Also handle showHideBtn
+		
 		' Configure btnBack
-		btnBack.Text = "<"
+        btnBack.Text = "<"
 		btnBack.TextSize = 14
 		btnBack.Typeface = Typeface.MONOSPACE
 		btnBack.TextColor = Colors.White
 		Dim cdBack As ColorDrawable
 		cdBack.Initialize2(Colors.RGB(61, 12, 2), 10dip, 2dip, Colors.Black)
 		btnBack.Background = cdBack
-
+		
 		' Configure btnNext
-		btnNext.Text = ">"
+        btnNext.Text = ">"
 		btnNext.TextSize = 14
 		btnNext.Typeface = Typeface.MONOSPACE
 		btnNext.TextColor = Colors.White
 		Dim cdNext As ColorDrawable
 		cdNext.Initialize2(Colors.RGB(185, 46, 52), 10dip, 2dip, Colors.Black)
 		btnNext.Background = cdNext
-        
-
-		paginationLabel.Initialize("")
+		
+		' Configure pagination label
+        paginationLabel.Initialize("")
 		paginationLabel.Text = $"Page ${pageNo} out of ${totalPages}"$
 		paginationLabel.Gravity = Gravity.CENTER
 		paginationLabel.Typeface = Typeface.MONOSPACE
-		paginationPanel.AddView(paginationLabel,buttonWidth,0,paginationPanel.Width-(buttonWidth*2),paginationPanel.Height)
+		paginationPanel.AddView(paginationLabel, buttonWidth, 0, paginationPanel.Width - (buttonWidth * 2), paginationPanel.Height)
+
 		' Add buttons with proper positioning
 		Dim buttonWidth As Int = 50dip
-		Dim buttonHeight As Int = 40dip
-        
+        Dim buttonHeight As Int = 40dip
 		paginationPanel.AddView(btnBack, 0, (paginationPanel.Height - buttonHeight) / 2, buttonWidth, buttonHeight)
 		paginationPanel.AddView(btnNext, paginationPanel.Width - buttonWidth, (paginationPanel.Height - buttonHeight) / 2, buttonWidth, buttonHeight)
-        
+
 		' Update button states
 		btnBack.Enabled = currentPage > 1
 		btnNext.Enabled = (currentPage * itemsPerPage) < sale1.Length
-		
-		showHideBtn.Initialize("showHideBtn")
-		showHideBtn.Text = $"Show Details"$
-		showHideBtn.TextColor = Colors.White
-		btnMainPanel.AddView(showHideBtn,paginationPanel.Width+5dip,5dip,(btnMainPanel.Width-paginationPanel.Width)-10dip,buttonHeight)
 
-		showHideBtn.Width = (btnMainPanel.Width-paginationPanel.Width)-10dip
-		'+paginationPanel.Width = btnMainPanel.Width-paginationPanel.Width
-		Dim cdBack As ColorDrawable
-		cdBack.Initialize2(Colors.RGB(61, 12, 2), 10dip, 2dip, Colors.Black)
+		' Configure and add showHideBtn
+		showHideBtn.Text = "Show Details"
+		showHideBtn.TextColor = Colors.White
 		showHideBtn.Background = cdBack
+        btnMainPanel.AddView(showHideBtn, paginationPanel.Width + 5dip, 5dip, (btnMainPanel.Width - paginationPanel.Width) - 10dip, buttonHeight)
+	
+		'Dim cdBack As ColorDrawable
+		'cdBack.Initialize2(Colors.RGB(61, 12, 2), 10dip, 2dip, Colors.Black)
+		'showHideBtn.Background = cdBack
 	Catch
 		Log(LastException)
 	End Try
@@ -491,8 +489,3 @@ Public Sub GetCheckedSales As Boolean()
 	Return checkedSales
 End Sub
 
-
-Public Sub showHideBtn_Click
-	hideShowPanel.Visible= False
-	Log("sad")
-End Sub

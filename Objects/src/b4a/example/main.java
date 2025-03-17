@@ -1294,9 +1294,6 @@ mostCurrent._barpanel.RemoveAllViews();
 RDebugUtils.currentLine=327908;
  //BA.debugLineNum = 327908;BA.debugLine="barPanel.Invalidate ' Force a redraw";
 mostCurrent._barpanel.Invalidate();
-RDebugUtils.currentLine=327911;
- //BA.debugLineNum = 327911;BA.debugLine="barGraph.Initialize(Activity,barPanel,sales,";
-mostCurrent._bargraph._initialize /*String*/ (null,mostCurrent.activityBA,mostCurrent._activity,mostCurrent._barpanel,_sales,_sales1,_sales2,_companyname,mostCurrent._legend,_maxsale,"Total Sale of the Company",_comid,"Branch",mostCurrent._salenxtbtn,mostCurrent._salebackbtn,mostCurrent._sortbtn1,mostCurrent._sortbtn2,mostCurrent._defbtn,mostCurrent._sales1btn,mostCurrent._sales2btn,mostCurrent._sales3btn);
 RDebugUtils.currentLine=327912;
  //BA.debugLineNum = 327912;BA.debugLine="legend = Array As String(\"Purchase1\",\"Purcha";
 mostCurrent._legend = new String[]{"Purchase1","Purchase2","Purchase3"};
@@ -1425,9 +1422,6 @@ mostCurrent._sales2btn.Initialize(mostCurrent.activityBA,"sales2btn");
 RDebugUtils.currentLine=327961;
  //BA.debugLineNum = 327961;BA.debugLine="sales3btn.Initialize(\"sales3btn\")";
 mostCurrent._sales3btn.Initialize(mostCurrent.activityBA,"sales3btn");
-RDebugUtils.currentLine=327963;
- //BA.debugLineNum = 327963;BA.debugLine="barGraph1.Initialize(Activity, purchasePanel";
-mostCurrent._bargraph1._initialize /*String*/ (null,mostCurrent.activityBA,mostCurrent._activity,mostCurrent._purchasepanel,_purchase,_purchase1,_purchase2,_companyname,mostCurrent._legend,_maxsale,"Total Purchase Per Company",_comid,"Branch",mostCurrent._purchnxtbtn,mostCurrent._purchbackbtn,mostCurrent._sortbtn1,mostCurrent._sortbtn2,mostCurrent._defbtn,mostCurrent._sales1btn,mostCurrent._sales2btn,mostCurrent._sales3btn);
  };
 RDebugUtils.currentLine=327967;
  //BA.debugLineNum = 327967;BA.debugLine="totalGraphDataHeight = 1000dip";
@@ -1452,8 +1446,8 @@ anywheresoftware.b4a.keywords.Common.LogImpl("7327974","Unknown job: "+_job._job
 }
 ;
  } 
-       catch (Exception e245) {
-			processBA.setLastException(e245);RDebugUtils.currentLine=327980;
+       catch (Exception e243) {
+			processBA.setLastException(e243);RDebugUtils.currentLine=327980;
  //BA.debugLineNum = 327980;BA.debugLine="Log(\"\")";
 anywheresoftware.b4a.keywords.Common.LogImpl("7327980","",0);
  };

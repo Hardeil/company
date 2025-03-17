@@ -911,9 +911,6 @@ main.mostCurrent._barpanel.runVoidMethod ("RemoveAllViews");
  BA.debugLineNum = 344;BA.debugLine="barPanel.Invalidate ' Force a redraw";
 Debug.ShouldStop(8388608);
 main.mostCurrent._barpanel.runVoidMethod ("Invalidate");
- BA.debugLineNum = 347;BA.debugLine="barGraph.Initialize(Activity,barPanel,sales,";
-Debug.ShouldStop(67108864);
-main.mostCurrent._bargraph.runClassMethod (b4a.example.bargraph.class, "_initialize" /*RemoteObject*/ ,main.mostCurrent.activityBA,(Object)(main.mostCurrent._activity),(Object)(main.mostCurrent._barpanel),(Object)(_sales),(Object)(_sales1),(Object)(_sales2),(Object)(_companyname),(Object)(main.mostCurrent._legend),(Object)(_maxsale),(Object)(BA.ObjectToString("Total Sale of the Company")),(Object)(_comid),(Object)(BA.ObjectToString("Branch")),(Object)(main.mostCurrent._salenxtbtn),(Object)(main.mostCurrent._salebackbtn),(Object)(main.mostCurrent._sortbtn1),(Object)(main.mostCurrent._sortbtn2),(Object)(main.mostCurrent._defbtn),(Object)(main.mostCurrent._sales1btn),(Object)(main.mostCurrent._sales2btn),(Object)(main.mostCurrent._sales3btn));
  BA.debugLineNum = 348;BA.debugLine="legend = Array As String(\"Purchase1\",\"Purcha";
 Debug.ShouldStop(134217728);
 main.mostCurrent._legend = RemoteObject.createNewArray("String",new int[] {3},new Object[] {BA.ObjectToString("Purchase1"),BA.ObjectToString("Purchase2"),RemoteObject.createImmutable("Purchase3")});
@@ -1042,9 +1039,6 @@ main.mostCurrent._sales2btn.runVoidMethod ("Initialize",main.mostCurrent.activit
  BA.debugLineNum = 397;BA.debugLine="sales3btn.Initialize(\"sales3btn\")";
 Debug.ShouldStop(4096);
 main.mostCurrent._sales3btn.runVoidMethod ("Initialize",main.mostCurrent.activityBA,(Object)(RemoteObject.createImmutable("sales3btn")));
- BA.debugLineNum = 399;BA.debugLine="barGraph1.Initialize(Activity, purchasePanel";
-Debug.ShouldStop(16384);
-main.mostCurrent._bargraph1.runClassMethod (b4a.example.bargraph.class, "_initialize" /*RemoteObject*/ ,main.mostCurrent.activityBA,(Object)(main.mostCurrent._activity),(Object)(main.mostCurrent._purchasepanel),(Object)(_purchase),(Object)(_purchase1),(Object)(_purchase2),(Object)(_companyname),(Object)(main.mostCurrent._legend),(Object)(_maxsale),(Object)(BA.ObjectToString("Total Purchase Per Company")),(Object)(_comid),(Object)(BA.ObjectToString("Branch")),(Object)(main.mostCurrent._purchnxtbtn),(Object)(main.mostCurrent._purchbackbtn),(Object)(main.mostCurrent._sortbtn1),(Object)(main.mostCurrent._sortbtn2),(Object)(main.mostCurrent._defbtn),(Object)(main.mostCurrent._sales1btn),(Object)(main.mostCurrent._sales2btn),(Object)(main.mostCurrent._sales3btn));
  };
  BA.debugLineNum = 403;BA.debugLine="totalGraphDataHeight = 1000dip";
 Debug.ShouldStop(262144);
@@ -1070,8 +1064,8 @@ main.mostCurrent.__c.runVoidMethod ("LogImpl","7327974",RemoteObject.concat(Remo
 ;
  Debug.CheckDeviceExceptions();
 } 
-       catch (Exception e245) {
-			BA.rdebugUtils.runVoidMethod("setLastException",main.processBA, e245.toString()); BA.debugLineNum = 416;BA.debugLine="Log(\"\")";
+       catch (Exception e243) {
+			BA.rdebugUtils.runVoidMethod("setLastException",main.processBA, e243.toString()); BA.debugLineNum = 416;BA.debugLine="Log(\"\")";
 Debug.ShouldStop(-2147483648);
 main.mostCurrent.__c.runVoidMethod ("LogImpl","7327980",RemoteObject.createImmutable(""),0);
  };

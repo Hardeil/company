@@ -384,7 +384,7 @@ Sub JobDone(job As HttpJob)
 						barPanel.Invalidate ' Force a redraw
 					
 						'barGraph.Initialize(Activity,barPanel,sales,sales1,sales2,companyName,legend,maxSale,"Sales Per Company",comId,"Branch",saleNxtBtn,saleBackBtn)
-						barGraph.Initialize(Activity,barPanel,sales,sales1,sales2,companyName,legend,maxSale,"Total Sale of the Company",comId,"Branch",saleNxtBtn,saleBackBtn,sortBtn1,sortBtn2,defBtn,sales1btn,sales2btn,sales3btn)
+						'barGraph.Initialize(Activity,barPanel,sales,sales1,sales2,companyName,legend,maxSale,"Total Sale of the Company",comId,"Branch",saleNxtBtn,saleBackBtn,sortBtn1,sortBtn2,defBtn,sales1btn,sales2btn,sales3btn)
 						legend = Array As String("Purchase1","Purchase2","Purchase3")
 						barGraphInitialized = True
 						ProgressDialogHide
@@ -436,7 +436,7 @@ Sub JobDone(job As HttpJob)
 						sales2btn.Initialize("sales2btn")
 						sales3btn.Initialize("sales3btn")
 						'barGraph1.Initialize(Activity, purchasePanel, purchase, purchase1, purchase2, companyName,legend,maxSale,"Purchases Per Company",comId,"Branch",purchNxtBtn,purchBackBtn)
-						barGraph1.Initialize(Activity, purchasePanel, purchase, purchase1, purchase2, companyName,legend,maxSale,"Total Purchase Per Company",comId,"Branch",purchNxtBtn,purchBackBtn,sortBtn1,sortBtn2,defBtn,sales1btn,sales2btn,sales3btn)
+						'barGraph1.Initialize(Activity, purchasePanel, purchase, purchase1, purchase2, companyName,legend,maxSale,"Total Purchase Per Company",comId,"Branch",purchNxtBtn,purchBackBtn,sortBtn1,sortBtn2,defBtn,sales1btn,sales2btn,sales3btn)
 					End If
 					
 					'totalGraphDataHeight = totalSaleLabel.Height+barPanel.Height+totalPurchaseLabel.Height + purchasePanel.Height

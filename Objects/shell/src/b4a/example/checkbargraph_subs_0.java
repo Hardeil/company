@@ -64,7 +64,7 @@ __ref.runClassMethod (b4a.example.checkbargraph.class, "_drawgraph" /*RemoteObje
  }else {
  BA.debugLineNum = 97;BA.debugLine="Log(\"Error: Sender is not a CheckBox\")";
 Debug.ShouldStop(1);
-checkbargraph.__c.runVoidMethod ("LogImpl","53735570",RemoteObject.createImmutable("Error: Sender is not a CheckBox"),0);
+checkbargraph.__c.runVoidMethod ("LogImpl","73735570",RemoteObject.createImmutable("Error: Sender is not a CheckBox"),0);
  };
  BA.debugLineNum = 99;BA.debugLine="End Sub";
 Debug.ShouldStop(4);

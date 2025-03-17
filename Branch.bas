@@ -51,6 +51,7 @@ Sub Globals
 	Dim salesData1 As Int
 	Dim salesDataDefault As Int = 1
 	Dim sortDefaultValue As String
+	Dim showHideBtn As Button
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
@@ -450,6 +451,7 @@ Sub JobDone(job As HttpJob)
 					Dim branchSales1(totalBranches) As Int
 					Dim branchSales2(totalBranches) As Int
 					Dim branchSales3(totalBranches) As Int
+					Dim branchCount As Int = 0
                     
 					' Populate arrays with data
 					For i = 0 To totalBranches - 1
@@ -458,8 +460,9 @@ Sub JobDone(job As HttpJob)
 						branchSales1(i) = record.GetDefault("sales_1", 0)
 						branchSales2(i) = record.GetDefault("sales_2", 0)
 						branchSales3(i) = record.GetDefault("sales_3", 0)
+						branchCount = record.GetDefault("total_branch_count", 0)
 					Next
-                    
+					Log($"branchCount:${branchCount}"$)
 					' Define legend for the graph
 					Dim legend() As String = Array As String("Sales 1", "Sales 2", "Sales 3")
                     
@@ -476,17 +479,23 @@ Sub JobDone(job As HttpJob)
 						salesBtn1.Initialize("salesBtn1")
 						salesBtn2.Initialize("salesBtn2")
 						salesBtn3.Initialize("salesBtn3")
-                        
+
 						barGraph.Initialize(Activity, purchasePanel, branchSales1, branchSales2, branchSales3, branchNames, legend, 10000, "Sales Per Branch", branchSales1, "Branch", nxtBtn, backbtn, sortBtn1, sortBtn2, defBtn, salesBtn1, salesBtn2, salesBtn3)
+						barGraph.totalPages = branchCount / 5
+						barGraph.UpdateGraph
 						barGraphInitialized = True
 						Log("Bar graph initialized")
 					Else
 						' Update existing bar graph with new data
+						Dim totalPage As Int = 5 / branchCount
+						'barGraph.paginationLabel.Text = $"Page ${currentPage} out of ${totalPage}"$
+						barGraph.pageNo = currentPage
 						barGraph.sale_1 = branchSales1
 						barGraph.sale_2 = branchSales2
 						barGraph.sale_3 = branchSales3
 						barGraph.product1 = branchNames
 						barGraph.comId1 = branchSales1 ' Assuming this is used for some comparison
+					'	barGraph.SetCurrentPage(currentPage)
 						barGraph.UpdateGraph
 						Log("Bar graph updated")
 					End If
@@ -579,6 +588,7 @@ Sub nxtBtn_Click
 	currentPage = currentPage + 1
 	Log(currentPage)
 	FetchNewPageData
+	LoadCompanyData
 End Sub
 
 Sub backbtn_Click

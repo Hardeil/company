@@ -51,6 +51,7 @@ Version=13.1
 	#FullScreen: True
 	#IncludeTitle: False
 #End Region
+
 Sub Process_Globals
 	'These global variables will be declared once when the application starts.
 	'These variables can be accessed from all modules.
@@ -236,18 +237,18 @@ Sub JobDone(job As HttpJob)
 						Label17.Gravity = Gravity.CENTER_VERTICAL
 						Label17.Typeface = Typeface.MONOSPACE
 						PanelTitle.AddView(Label17, 5dip, 0dip, PanelTitle.Width, PanelTitle.Height)
-						'	AdjustFontSizeToHeight(Label17,2)
+					'	AdjustFontSizeToHeight(Label17,2)
 							
-						Dim myImage As Bitmap
-						myImage = LoadBitmap(File.DirAssets, "arrows-removebg-preview.png")
-						If myImage.IsInitialized Then
-							Dim resizedImage As Bitmap = myImage.Resize(DipToCurrent(4.5%x), myImage.Height * DipToCurrent(2%y) / myImage.Width, True)
-							Dim imgView As ImageView
-							imgView.Initialize("")
-							imgView.Gravity = Gravity.FILL
-							imgView.Bitmap = myImage
-							PanelTitle.AddView(imgView, PanelTitle.Width - 5%x, 5dip, 5%x, PanelTitle.Height - 10dip)
-						Else
+							Dim myImage As Bitmap
+							myImage = LoadBitmap(File.DirAssets, "arrows-removebg-preview.png")
+							If myImage.IsInitialized Then
+								Dim resizedImage As Bitmap = myImage.Resize(DipToCurrent(4.5%x), myImage.Height * DipToCurrent(2%y) / myImage.Width, True)
+								Dim imgView As ImageView
+								imgView.Initialize("")
+								imgView.Gravity = Gravity.FILL
+								imgView.Bitmap = myImage
+								PanelTitle.AddView(imgView, PanelTitle.Width - 5%x, 5dip, 5%x, PanelTitle.Height - 10dip)
+							Else
 							Log("Error loading image")
 						End If
 					
@@ -366,7 +367,7 @@ Sub JobDone(job As HttpJob)
 						imgView.Gravity = Gravity.FILL
 						imgView.Bitmap = myImage
 						imgView.Bitmap = myImage
-						totalSalePanel.AddView(imgView, 0dip, 12.5dip, 15dip, totalSalePanel.Height - 25dip)
+						totalSalePanel.AddView(imgView, 0dip, 12.5dip, 15dip, totalSalePanel.Height - 25dip)				
 						
 						Dim totalSaleLabel As Label
 						totalSaleLabel.Initialize("")
@@ -375,7 +376,7 @@ Sub JobDone(job As HttpJob)
 						totalSaleLabel.Gravity = Gravity.CENTER_VERTICAL
 						totalSaleLabel.Typeface = Typeface.MONOSPACE
 						totalSalePanel.AddView(totalSaleLabel,imgView.Width+5dip,0dip,Activity.Width,40dip)
-						AdjustFontSizeToHeight(totalSaleLabel,2)
+					 	AdjustFontSizeToHeight(totalSaleLabel,2)
 					
 						ScrollView1.Panel.AddView(barPanel,25dip,totalSaleLabel.Height+Panel2.Height+companyPanel.Height - 30dip,Activity.Width-50dip,450dip)
 						barPanel.Color = Colors.White
@@ -396,51 +397,48 @@ Sub JobDone(job As HttpJob)
 						barGraph.comId1 = sales ' Assuming comId1 should match sales1 for simplicity
 						barGraph.UpdateGraph
 					End If
-					If barGraphInitialized = False Then
-						Dim totalPurchasePanel As Panel
-						totalPurchasePanel.Initialize("")
-						ScrollView1.Panel.AddView(totalPurchasePanel,5dip,barPanel.Height + Panel2.Height+companyPanel.Height+15dip,Activity.Width,40dip)
+						
+					Dim totalPurchasePanel As Panel
+					totalPurchasePanel.Initialize("")
+					ScrollView1.Panel.AddView(totalPurchasePanel,5dip,barPanel.Height + Panel2.Height+companyPanel.Height+15dip,Activity.Width,40dip)
 					
-						Dim myImage As Bitmap
-						myImage = LoadBitmap(File.DirAssets, "stock.png")
+					Dim myImage As Bitmap
+					myImage = LoadBitmap(File.DirAssets, "stock.png")
 		
-						Dim imgView As ImageView
-						imgView.Initialize("")
-						imgView.Gravity = Gravity.FILL
-						imgView.Bitmap = myImage
-						totalPurchasePanel.AddView(imgView, 0dip, 12.5dip, 15dip, totalPurchasePanel.Height - 25dip)
+					Dim imgView As ImageView
+					imgView.Initialize("")
+					imgView.Gravity = Gravity.FILL
+					imgView.Bitmap = myImage
+					totalPurchasePanel.AddView(imgView, 0dip, 12.5dip, 15dip, totalPurchasePanel.Height - 25dip)
 					
-						Dim totalPurchaseLabel As Label
-						totalPurchaseLabel.Initialize("")
-						totalPurchaseLabel.Text = "Total Purchases"
-						totalPurchaseLabel.TextColor =Colors.Black
-						totalPurchaseLabel.Gravity = Gravity.CENTER_VERTICAL
-						totalPurchaseLabel.Typeface = Typeface.MONOSPACE
-						totalPurchasePanel.AddView(totalPurchaseLabel,imgView.Width + 5dip,0dip,Activity.Width,totalPurchasePanel.Height)
-						'	AdjustFontSizeToHeight(totalPurchaseLabel,2)
+					Dim totalPurchaseLabel As Label
+					totalPurchaseLabel.Initialize("")
+					totalPurchaseLabel.Text = "Total Purchases"
+					totalPurchaseLabel.TextColor =Colors.Black
+					totalPurchaseLabel.Gravity = Gravity.CENTER_VERTICAL
+					totalPurchaseLabel.Typeface = Typeface.MONOSPACE
+					totalPurchasePanel.AddView(totalPurchaseLabel,imgView.Width + 5dip,0dip,Activity.Width,totalPurchasePanel.Height)
+					'	AdjustFontSizeToHeight(totalPurchaseLabel,2)
 					
-						Dim shadowPurchPanel As Panel
-						shadowPurchPanel.Initialize("")
-						shadowPurchPanel.Color = Colors.ARGB(50, 138, 138, 138)
-						ScrollView1.Panel.AddView(shadowPurchPanel, 25dip + 5dip,totalSaleLabel.Height+Panel2.Height+companyPanel.Height+barPanel.Height+totalPurchaseLabel.Height- 30dip+5dip, Activity.Width - 50dip, 450dip)
+					Dim shadowPurchPanel As Panel
+					shadowPurchPanel.Initialize("")
+					shadowPurchPanel.Color = Colors.ARGB(50, 138, 138, 138)
+					ScrollView1.Panel.AddView(shadowPurchPanel, 25dip + 5dip,totalSaleLabel.Height+Panel2.Height+companyPanel.Height+barPanel.Height+totalPurchaseLabel.Height- 30dip+5dip, Activity.Width - 50dip, 450dip)
 					
-						purchasePanel.Initialize("")
-						purchasePanel.Color = Colors.White
-						ScrollView1.Panel.AddView(purchasePanel,25dip, totalSaleLabel.Height+Panel2.Height+companyPanel.Height+barPanel.Height+totalPurchaseLabel.Height- 30dip,Activity.Width-50dip,450dip)
-						purchNxtBtn.Initialize("")
-						purchBackBtn.Initialize("")
-						sortBtn1.Initialize("sortBtn1")
-						sortBtn2.Initialize("sortBtn2")
-						defBtn.Initialize("defBtn")
-						sales1btn.Initialize("sales1btn")
-						sales2btn.Initialize("sales2btn")
-						sales3btn.Initialize("sales3btn")
-						'barGraph1.Initialize(Activity, purchasePanel, purchase, purchase1, purchase2, companyName,legend,maxSale,"Purchases Per Company",comId,"Branch",purchNxtBtn,purchBackBtn)
-						barGraph1.Initialize(Activity, purchasePanel, purchase, purchase1, purchase2, companyName,legend,maxSale,"Total Purchase Per Company",comId,"Branch",purchNxtBtn,purchBackBtn,sortBtn1,sortBtn2,defBtn,sales1btn,sales2btn,sales3btn)
-					End If
-					
-					'totalGraphDataHeight = totalSaleLabel.Height+barPanel.Height+totalPurchaseLabel.Height + purchasePanel.Height
-					totalGraphDataHeight = 1000dip
+					purchasePanel.Initialize("")
+					purchasePanel.Color = Colors.White
+					ScrollView1.Panel.AddView(purchasePanel,25dip, totalSaleLabel.Height+Panel2.Height+companyPanel.Height+barPanel.Height+totalPurchaseLabel.Height- 30dip,Activity.Width-50dip,450dip)
+					purchNxtBtn.Initialize("")
+					purchBackBtn.Initialize("")
+					sortBtn1.Initialize("sortBtn1")
+					sortBtn2.Initialize("sortBtn2")
+					defBtn.Initialize("defBtn")
+					sales1btn.Initialize("sales1btn")
+					sales2btn.Initialize("sales2btn")
+					sales3btn.Initialize("sales3btn")
+					'barGraph1.Initialize(Activity, purchasePanel, purchase, purchase1, purchase2, companyName,legend,maxSale,"Purchases Per Company",comId,"Branch",purchNxtBtn,purchBackBtn)
+					barGraph1.Initialize(Activity, purchasePanel, purchase, purchase1, purchase2, companyName,legend,maxSale,"Total Purchase Per Company",comId,"Branch",purchNxtBtn,purchBackBtn,sortBtn1,sortBtn2,defBtn,sales1btn,sales2btn,sales3btn)
+					totalGraphDataHeight = totalSaleLabel.Height+barPanel.Height+totalPurchaseLabel.Height + purchasePanel.Height
 					Log($"maxSale:${maxSale}"$)
 				Case "UpdateData"
 					ToastMessageShow("Data updated successfully", False)
@@ -451,8 +449,7 @@ Sub JobDone(job As HttpJob)
 			'ScrollView1.Panel.Height = totalSaleLabel.Height+Panel2.Height+companyPanel.Height+barPanel.Height+totalPurchaseLabel.Height + purchasePanel.Height
 			
 		Catch
-			'ToastMessageShow("Error parsing sales data", True)
-			Log("")
+			ToastMessageShow("Error parsing sales data", True)
 		End Try
 		ScrollView1.Panel.Height = totalGraphDataHeight + totalGetDataHeight
 		'ScrollView1.Panel.Height = 1400dip
@@ -492,125 +489,59 @@ Sub nxtBtn_Click
 	Log("sad")
 End Sub
 
-Sub sortBtn1_Click
-	Dim chk As RadioButton = Sender
-	Dim index As String = chk.Tag
-    
-	sortDefaultValue = index.ToLowerCase ' "asc"
-	Log($"sort value: ${sortDefaultValue}"$)
-    
-	If Not(barGraphInitialized) Then
-		ToastMessageShow("Graph not yet initialized.", True)
-		Return
-	End If
-    
-	' Check if the selected sales data is hidden in the legend
-	Dim checkedSales() As Boolean = barGraph.GetCheckedSales
-	If checkedSales.Length > 0 Then
-		Select Case salesData1
-			Case 1
-				If Not(checkedSales(0)) Then
-					ToastMessageShow("Please show Sales1 in the legend before sorting by it.", True)
-					Return
-				End If
-			Case 2
-				If Not(checkedSales(1)) Then
-					ToastMessageShow("Please show Sales2 in the legend before sorting by it.", True)
-					Return
-				End If
-			Case 3
-				If Not(checkedSales(2)) Then
-					ToastMessageShow("Please show Sales3 in the legend before sorting by it.", True)
-					Return
-				End If
-		End Select
-	End If
-    
-	LoadGraphData
-End Sub
-
 Sub sortBtn2_Click
 	Dim chk As RadioButton = Sender
 	Dim index As String = chk.Tag
-    
-	sortDefaultValue = index.ToLowerCase ' "desc"
+	
+	sortDefaultValue = index.ToLowerCase
 	Log($"sort value: ${sortDefaultValue}"$)
-    
-	If Not(barGraphInitialized) Then
-		ToastMessageShow("Graph not yet initialized.", True)
-		Return
-	End If
-    
-	' Check if the selected sales data is hidden in the legend
-	Dim checkedSales() As Boolean = barGraph.GetCheckedSales
-	If checkedSales.Length > 0 Then
-		Select Case salesData1
-			Case 1
-				If Not(checkedSales(0)) Then
-					ToastMessageShow("Please show Sales1 in the legend before sorting by it.", True)
-					Return
-				End If
-			Case 2
-				If Not(checkedSales(1)) Then
-					ToastMessageShow("Please show Sales2 in the legend before sorting by it.", True)
-					Return
-				End If
-			Case 3
-				If Not(checkedSales(2)) Then
-					ToastMessageShow("Please show Sales3 in the legend before sorting by it.", True)
-					Return
-				End If
-		End Select
-	End If
-    
+	LoadGraphData
+	Log("descending")
+End Sub
+Sub defBtn_Click
+	Log("Default")
+End Sub
+
+Sub sortBtn1_Click
+	Dim chk As RadioButton = Sender
+	Dim index As String = chk.Tag
+	
+	sortDefaultValue = index.ToLowerCase
+	Log($"sort value: ${sortDefaultValue}"$)
 	LoadGraphData
 End Sub
 
-
-
-Sub defBtn_Click
-	sortDefaultValue = "" ' Reset to default (no sorting)
-	Log("Default sorting applied")
-	LoadGraphData ' Reload data without sorting
-End Sub
-
 Sub sales1btn_Click
-	Dim btn As RadioButton = Sender ' Assuming it's a RadioButton for consistency
+	Dim btn As Button = Sender
 	Dim index As String = btn.Tag
-    
-	salesData1 = 1 ' Set to integer value for Sales1
-	Log("Sales 1 Button clicked: " & index)
-	Log($"sort value: ${sortDefaultValue}"$)
-    
-	If sortDefaultValue = "asc" Or sortDefaultValue = "desc" Then
-		LoadGraphData
+	salesData1 = index.ToLowerCase
+	If sortDefaultValue="asc" Or sortDefaultValue="desc" Then
+	
+	LoadGraphData
 	End If
+	Log(sortDefaultValue)
+	Log(" sales 1 Button clicked: " & index)
 End Sub
 
 Sub sales2btn_Click
-	Dim btn As RadioButton = Sender
+	Dim btn As Button = Sender
 	Dim index As String = btn.Tag
-    
-	salesData1 = 2 ' Set to integer value for Sales2
-	Log("Sales 2 Button clicked: " & index)
-	Log($"sort value: ${sortDefaultValue}"$)
-    
-	If sortDefaultValue = "asc" Or sortDefaultValue = "desc" Then
-		LoadGraphData
+	salesData1 = index.ToLowerCase
+	If sortDefaultValue="asc" Or sortDefaultValue="desc" Then
+	LoadGraphData
 	End If
+	Log(sortDefaultValue)
+	Log(" sales 2 Button clicked: " & index)
 End Sub
-
 Sub sales3btn_Click
-	Dim btn As RadioButton = Sender
+	Dim btn As Button = Sender
 	Dim index As String = btn.Tag
-    
-	salesData1 = 3 ' Set to integer value for Sales3
-	Log("Sales 3 Button clicked: " & index)
-	Log($"sort value: ${sortDefaultValue}"$)
-    
-	If sortDefaultValue = "asc" Or sortDefaultValue = "desc" Then
-		LoadGraphData
+	salesData1 = index.ToLowerCase
+	If sortDefaultValue="asc" Or sortDefaultValue="desc" Then
+	LoadGraphData
 	End If
+	Log(sortDefaultValue)
+	Log(" sales 3 Button clicked: " & index)
 End Sub
 
 Sub AdjustFontSizeToHeight(lbl As Label, fontScaleFactor As Float) As Float

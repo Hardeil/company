@@ -526,7 +526,7 @@ anywheresoftware.b4a.keywords.Common.ProgressDialogShow(mostCurrent.activityBA,B
        catch (Exception e7) {
 			processBA.setLastException(e7);RDebugUtils.currentLine=196615;
  //BA.debugLineNum = 196615;BA.debugLine="Log(LastException.Message)";
-anywheresoftware.b4a.keywords.Common.LogImpl("7196615",anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
+anywheresoftware.b4a.keywords.Common.LogImpl("5196615",anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
  };
 RDebugUtils.currentLine=196618;
  //BA.debugLineNum = 196618;BA.debugLine="End Sub";
@@ -560,7 +560,7 @@ anywheresoftware.b4a.keywords.Common.ProgressDialogShow(mostCurrent.activityBA,B
        catch (Exception e8) {
 			processBA.setLastException(e8);RDebugUtils.currentLine=262155;
  //BA.debugLineNum = 262155;BA.debugLine="Log(\"LoadGraphData Error: \" & LastException.Mess";
-anywheresoftware.b4a.keywords.Common.LogImpl("7262155","LoadGraphData Error: "+anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
+anywheresoftware.b4a.keywords.Common.LogImpl("5262155","LoadGraphData Error: "+anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage(),0);
 RDebugUtils.currentLine=262156;
  //BA.debugLineNum = 262156;BA.debugLine="ToastMessageShow(\"Error initiating graph load: \"";
 anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Error initiating graph load: "+anywheresoftware.b4a.keywords.Common.LastException(mostCurrent.activityBA).getMessage()),anywheresoftware.b4a.keywords.Common.True);
@@ -633,19 +633,13 @@ public static String  _defbtn_click() throws Exception{
 RDebugUtils.currentModule="main";
 if (Debug.shouldDelegate(mostCurrent.activityBA, "defbtn_click", false))
 	 {return ((String) Debug.delegate(mostCurrent.activityBA, "defbtn_click", null));}
-RDebugUtils.currentLine=851968;
- //BA.debugLineNum = 851968;BA.debugLine="Sub defBtn_Click";
-RDebugUtils.currentLine=851969;
- //BA.debugLineNum = 851969;BA.debugLine="sortDefaultValue = \"\" ' Reset to default (no sort";
-mostCurrent._sortdefaultvalue = "";
-RDebugUtils.currentLine=851970;
- //BA.debugLineNum = 851970;BA.debugLine="Log(\"Default sorting applied\")";
-anywheresoftware.b4a.keywords.Common.LogImpl("7851970","Default sorting applied",0);
-RDebugUtils.currentLine=851971;
- //BA.debugLineNum = 851971;BA.debugLine="LoadGraphData ' Reload data without sorting";
-_loadgraphdata();
-RDebugUtils.currentLine=851972;
- //BA.debugLineNum = 851972;BA.debugLine="End Sub";
+RDebugUtils.currentLine=786432;
+ //BA.debugLineNum = 786432;BA.debugLine="Sub defBtn_Click";
+RDebugUtils.currentLine=786433;
+ //BA.debugLineNum = 786433;BA.debugLine="Log(\"Default\")";
+anywheresoftware.b4a.keywords.Common.LogImpl("5786433","Default",0);
+RDebugUtils.currentLine=786434;
+ //BA.debugLineNum = 786434;BA.debugLine="End Sub";
 return "";
 }
 public static Object  _getmapvalueordefault(anywheresoftware.b4a.objects.collections.Map _m,String _key,Object _defaultvalue) throws Exception{
@@ -931,13 +925,13 @@ RDebugUtils.currentLine=327766;
  //BA.debugLineNum = 327766;BA.debugLine="Dim myImage As Bitmap";
 _myimage = new anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper();
 RDebugUtils.currentLine=327767;
- //BA.debugLineNum = 327767;BA.debugLine="myImage = LoadBitmap(File.DirAssets, \"arrows";
+ //BA.debugLineNum = 327767;BA.debugLine="myImage = LoadBitmap(File.DirAssets, \"arrow";
 _myimage = anywheresoftware.b4a.keywords.Common.LoadBitmap(anywheresoftware.b4a.keywords.Common.File.getDirAssets(),"arrows-removebg-preview.png");
 RDebugUtils.currentLine=327768;
  //BA.debugLineNum = 327768;BA.debugLine="If myImage.IsInitialized Then";
 if (_myimage.IsInitialized()) { 
 RDebugUtils.currentLine=327769;
- //BA.debugLineNum = 327769;BA.debugLine="Dim resizedImage As Bitmap = myImage.Resize";
+ //BA.debugLineNum = 327769;BA.debugLine="Dim resizedImage As Bitmap = myImage.Resiz";
 _resizedimage = new anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper();
 _resizedimage = _myimage.Resize((float) (anywheresoftware.b4a.keywords.Common.DipToCurrent(anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (4.5),mostCurrent.activityBA))),(float) (_myimage.getHeight()*anywheresoftware.b4a.keywords.Common.DipToCurrent(anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (2),mostCurrent.activityBA))/(double)_myimage.getWidth()),anywheresoftware.b4a.keywords.Common.True);
 RDebugUtils.currentLine=327770;
@@ -953,12 +947,12 @@ RDebugUtils.currentLine=327773;
  //BA.debugLineNum = 327773;BA.debugLine="imgView.Bitmap = myImage";
 _imgview.setBitmap((android.graphics.Bitmap)(_myimage.getObject()));
 RDebugUtils.currentLine=327774;
- //BA.debugLineNum = 327774;BA.debugLine="PanelTitle.AddView(imgView, PanelTitle.Widt";
+ //BA.debugLineNum = 327774;BA.debugLine="PanelTitle.AddView(imgView, PanelTitle.Wid";
 _paneltitle.AddView((android.view.View)(_imgview.getObject()),(int) (_paneltitle.getWidth()-anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (5),mostCurrent.activityBA)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (5)),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (5),mostCurrent.activityBA),(int) (_paneltitle.getHeight()-anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (10))));
  }else {
 RDebugUtils.currentLine=327776;
  //BA.debugLineNum = 327776;BA.debugLine="Log(\"Error loading image\")";
-anywheresoftware.b4a.keywords.Common.LogImpl("7327776","Error loading image",0);
+anywheresoftware.b4a.keywords.Common.LogImpl("5327776","Error loading image",0);
  };
 RDebugUtils.currentLine=327779;
  //BA.debugLineNum = 327779;BA.debugLine="Dim panelWidth As Int = Panel.Width /3";
@@ -1192,7 +1186,7 @@ RDebugUtils.currentLine=327865;
 _maxsale = (int) (anywheresoftware.b4a.keywords.Common.Max(_maxsale,_max_value[_i]));
 RDebugUtils.currentLine=327866;
  //BA.debugLineNum = 327866;BA.debugLine="Log(companyName(i) & sales(i))";
-anywheresoftware.b4a.keywords.Common.LogImpl("7327866",_companyname[_i]+BA.NumberToString(_sales[_i]),0);
+anywheresoftware.b4a.keywords.Common.LogImpl("5327866",_companyname[_i]+BA.NumberToString(_sales[_i]),0);
  }
 };
 RDebugUtils.currentLine=327869;
@@ -1329,9 +1323,6 @@ RDebugUtils.currentLine=327922;
  //BA.debugLineNum = 327922;BA.debugLine="barGraph.UpdateGraph";
 mostCurrent._bargraph._updategraph /*String*/ (null);
  };
-RDebugUtils.currentLine=327924;
- //BA.debugLineNum = 327924;BA.debugLine="If barGraphInitialized = False Then";
-if (_bargraphinitialized==anywheresoftware.b4a.keywords.Common.False) { 
 RDebugUtils.currentLine=327925;
  //BA.debugLineNum = 327925;BA.debugLine="Dim totalPurchasePanel As Panel";
 _totalpurchasepanel = new anywheresoftware.b4a.objects.PanelWrapper();
@@ -1339,13 +1330,13 @@ RDebugUtils.currentLine=327926;
  //BA.debugLineNum = 327926;BA.debugLine="totalPurchasePanel.Initialize(\"\")";
 _totalpurchasepanel.Initialize(mostCurrent.activityBA,"");
 RDebugUtils.currentLine=327927;
- //BA.debugLineNum = 327927;BA.debugLine="ScrollView1.Panel.AddView(totalPurchasePanel";
+ //BA.debugLineNum = 327927;BA.debugLine="ScrollView1.Panel.AddView(totalPurchasePanel,";
 mostCurrent._scrollview1.getPanel().AddView((android.view.View)(_totalpurchasepanel.getObject()),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (5)),(int) (mostCurrent._barpanel.getHeight()+mostCurrent._panel2.getHeight()+mostCurrent._companypanel.getHeight()+anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (15))),mostCurrent._activity.getWidth(),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (40)));
 RDebugUtils.currentLine=327929;
  //BA.debugLineNum = 327929;BA.debugLine="Dim myImage As Bitmap";
 _myimage = new anywheresoftware.b4a.objects.drawable.CanvasWrapper.BitmapWrapper();
 RDebugUtils.currentLine=327930;
- //BA.debugLineNum = 327930;BA.debugLine="myImage = LoadBitmap(File.DirAssets, \"stock.";
+ //BA.debugLineNum = 327930;BA.debugLine="myImage = LoadBitmap(File.DirAssets, \"stock.p";
 _myimage = anywheresoftware.b4a.keywords.Common.LoadBitmap(anywheresoftware.b4a.keywords.Common.File.getDirAssets(),"stock.png");
 RDebugUtils.currentLine=327932;
  //BA.debugLineNum = 327932;BA.debugLine="Dim imgView As ImageView";
@@ -1360,7 +1351,7 @@ RDebugUtils.currentLine=327935;
  //BA.debugLineNum = 327935;BA.debugLine="imgView.Bitmap = myImage";
 _imgview.setBitmap((android.graphics.Bitmap)(_myimage.getObject()));
 RDebugUtils.currentLine=327936;
- //BA.debugLineNum = 327936;BA.debugLine="totalPurchasePanel.AddView(imgView, 0dip, 12";
+ //BA.debugLineNum = 327936;BA.debugLine="totalPurchasePanel.AddView(imgView, 0dip, 12.";
 _totalpurchasepanel.AddView((android.view.View)(_imgview.getObject()),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (0)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (12.5)),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (15)),(int) (_totalpurchasepanel.getHeight()-anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (25))));
 RDebugUtils.currentLine=327938;
  //BA.debugLineNum = 327938;BA.debugLine="Dim totalPurchaseLabel As Label";
@@ -1375,13 +1366,13 @@ RDebugUtils.currentLine=327941;
  //BA.debugLineNum = 327941;BA.debugLine="totalPurchaseLabel.TextColor =Colors.Black";
 _totalpurchaselabel.setTextColor(anywheresoftware.b4a.keywords.Common.Colors.Black);
 RDebugUtils.currentLine=327942;
- //BA.debugLineNum = 327942;BA.debugLine="totalPurchaseLabel.Gravity = Gravity.CENTER_";
+ //BA.debugLineNum = 327942;BA.debugLine="totalPurchaseLabel.Gravity = Gravity.CENTER_V";
 _totalpurchaselabel.setGravity(anywheresoftware.b4a.keywords.Common.Gravity.CENTER_VERTICAL);
 RDebugUtils.currentLine=327943;
- //BA.debugLineNum = 327943;BA.debugLine="totalPurchaseLabel.Typeface = Typeface.MONOS";
+ //BA.debugLineNum = 327943;BA.debugLine="totalPurchaseLabel.Typeface = Typeface.MONOSP";
 _totalpurchaselabel.setTypeface(anywheresoftware.b4a.keywords.Common.Typeface.MONOSPACE);
 RDebugUtils.currentLine=327944;
- //BA.debugLineNum = 327944;BA.debugLine="totalPurchasePanel.AddView(totalPurchaseLabe";
+ //BA.debugLineNum = 327944;BA.debugLine="totalPurchasePanel.AddView(totalPurchaseLabel";
 _totalpurchasepanel.AddView((android.view.View)(_totalpurchaselabel.getObject()),(int) (_imgview.getWidth()+anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (5))),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (0)),mostCurrent._activity.getWidth(),_totalpurchasepanel.getHeight());
 RDebugUtils.currentLine=327947;
  //BA.debugLineNum = 327947;BA.debugLine="Dim shadowPurchPanel As Panel";
@@ -1390,10 +1381,10 @@ RDebugUtils.currentLine=327948;
  //BA.debugLineNum = 327948;BA.debugLine="shadowPurchPanel.Initialize(\"\")";
 _shadowpurchpanel.Initialize(mostCurrent.activityBA,"");
 RDebugUtils.currentLine=327949;
- //BA.debugLineNum = 327949;BA.debugLine="shadowPurchPanel.Color = Colors.ARGB(50, 138";
+ //BA.debugLineNum = 327949;BA.debugLine="shadowPurchPanel.Color = Colors.ARGB(50, 138,";
 _shadowpurchpanel.setColor(anywheresoftware.b4a.keywords.Common.Colors.ARGB((int) (50),(int) (138),(int) (138),(int) (138)));
 RDebugUtils.currentLine=327950;
- //BA.debugLineNum = 327950;BA.debugLine="ScrollView1.Panel.AddView(shadowPurchPanel,";
+ //BA.debugLineNum = 327950;BA.debugLine="ScrollView1.Panel.AddView(shadowPurchPanel, 2";
 mostCurrent._scrollview1.getPanel().AddView((android.view.View)(_shadowpurchpanel.getObject()),(int) (anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (25))+anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (5))),(int) (_totalsalelabel.getHeight()+mostCurrent._panel2.getHeight()+mostCurrent._companypanel.getHeight()+mostCurrent._barpanel.getHeight()+_totalpurchaselabel.getHeight()-anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (30))+anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (5))),(int) (mostCurrent._activity.getWidth()-anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (50))),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (450)));
 RDebugUtils.currentLine=327952;
  //BA.debugLineNum = 327952;BA.debugLine="purchasePanel.Initialize(\"\")";
@@ -1402,7 +1393,7 @@ RDebugUtils.currentLine=327953;
  //BA.debugLineNum = 327953;BA.debugLine="purchasePanel.Color = Colors.White";
 mostCurrent._purchasepanel.setColor(anywheresoftware.b4a.keywords.Common.Colors.White);
 RDebugUtils.currentLine=327954;
- //BA.debugLineNum = 327954;BA.debugLine="ScrollView1.Panel.AddView(purchasePanel,25di";
+ //BA.debugLineNum = 327954;BA.debugLine="ScrollView1.Panel.AddView(purchasePanel,25dip";
 mostCurrent._scrollview1.getPanel().AddView((android.view.View)(mostCurrent._purchasepanel.getObject()),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (25)),(int) (_totalsalelabel.getHeight()+mostCurrent._panel2.getHeight()+mostCurrent._companypanel.getHeight()+mostCurrent._barpanel.getHeight()+_totalpurchaselabel.getHeight()-anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (30))),(int) (mostCurrent._activity.getWidth()-anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (50))),anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (450)));
 RDebugUtils.currentLine=327955;
  //BA.debugLineNum = 327955;BA.debugLine="purchNxtBtn.Initialize(\"\")";
@@ -1429,50 +1420,49 @@ RDebugUtils.currentLine=327962;
  //BA.debugLineNum = 327962;BA.debugLine="sales3btn.Initialize(\"sales3btn\")";
 mostCurrent._sales3btn.Initialize(mostCurrent.activityBA,"sales3btn");
 RDebugUtils.currentLine=327964;
- //BA.debugLineNum = 327964;BA.debugLine="barGraph1.Initialize(Activity, purchasePanel";
+ //BA.debugLineNum = 327964;BA.debugLine="barGraph1.Initialize(Activity, purchasePanel,";
 mostCurrent._bargraph1._initialize /*String*/ (null,mostCurrent.activityBA,mostCurrent._activity,mostCurrent._purchasepanel,_purchase,_purchase1,_purchase2,_companyname,mostCurrent._legend,_maxsale,"Total Purchase Per Company",_comid,"Branch",mostCurrent._purchnxtbtn,mostCurrent._purchbackbtn,mostCurrent._sortbtn1,mostCurrent._sortbtn2,mostCurrent._defbtn,mostCurrent._sales1btn,mostCurrent._sales2btn,mostCurrent._sales3btn);
- };
-RDebugUtils.currentLine=327968;
- //BA.debugLineNum = 327968;BA.debugLine="totalGraphDataHeight = 1000dip";
-_totalgraphdataheight = anywheresoftware.b4a.keywords.Common.DipToCurrent((int) (1000));
-RDebugUtils.currentLine=327969;
- //BA.debugLineNum = 327969;BA.debugLine="Log($\"maxSale:${maxSale}\"$)";
-anywheresoftware.b4a.keywords.Common.LogImpl("7327969",("maxSale:"+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(_maxsale))+""),0);
+RDebugUtils.currentLine=327965;
+ //BA.debugLineNum = 327965;BA.debugLine="totalGraphDataHeight = totalSaleLabel.Height+";
+_totalgraphdataheight = (int) (_totalsalelabel.getHeight()+mostCurrent._barpanel.getHeight()+_totalpurchaselabel.getHeight()+mostCurrent._purchasepanel.getHeight());
+RDebugUtils.currentLine=327966;
+ //BA.debugLineNum = 327966;BA.debugLine="Log($\"maxSale:${maxSale}\"$)";
+anywheresoftware.b4a.keywords.Common.LogImpl("5327966",("maxSale:"+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(_maxsale))+""),0);
  break; }
 case 2: {
-RDebugUtils.currentLine=327971;
- //BA.debugLineNum = 327971;BA.debugLine="ToastMessageShow(\"Data updated successfully\",";
+RDebugUtils.currentLine=327968;
+ //BA.debugLineNum = 327968;BA.debugLine="ToastMessageShow(\"Data updated successfully\",";
 anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Data updated successfully"),anywheresoftware.b4a.keywords.Common.False);
-RDebugUtils.currentLine=327972;
- //BA.debugLineNum = 327972;BA.debugLine="LoadCompanyData";
+RDebugUtils.currentLine=327969;
+ //BA.debugLineNum = 327969;BA.debugLine="LoadCompanyData";
 _loadcompanydata();
  break; }
 default: {
-RDebugUtils.currentLine=327974;
- //BA.debugLineNum = 327974;BA.debugLine="Log(\"Unknown job: \" & job.JobName)";
-anywheresoftware.b4a.keywords.Common.LogImpl("7327974","Unknown job: "+_job._jobname /*String*/ ,0);
+RDebugUtils.currentLine=327971;
+ //BA.debugLineNum = 327971;BA.debugLine="Log(\"Unknown job: \" & job.JobName)";
+anywheresoftware.b4a.keywords.Common.LogImpl("5327971","Unknown job: "+_job._jobname /*String*/ ,0);
  break; }
 }
 ;
  } 
-       catch (Exception e246) {
-			processBA.setLastException(e246);RDebugUtils.currentLine=327980;
- //BA.debugLineNum = 327980;BA.debugLine="Log(\"\")";
-anywheresoftware.b4a.keywords.Common.LogImpl("7327980","",0);
+       catch (Exception e244) {
+			processBA.setLastException(e244);RDebugUtils.currentLine=327976;
+ //BA.debugLineNum = 327976;BA.debugLine="ToastMessageShow(\"Error parsing sales data\", Tr";
+anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Error parsing sales data"),anywheresoftware.b4a.keywords.Common.True);
  };
-RDebugUtils.currentLine=327982;
- //BA.debugLineNum = 327982;BA.debugLine="ScrollView1.Panel.Height = totalGraphDataHeight";
+RDebugUtils.currentLine=327978;
+ //BA.debugLineNum = 327978;BA.debugLine="ScrollView1.Panel.Height = totalGraphDataHeight";
 mostCurrent._scrollview1.getPanel().setHeight((int) (_totalgraphdataheight+_totalgetdataheight));
  }else {
-RDebugUtils.currentLine=327985;
- //BA.debugLineNum = 327985;BA.debugLine="ToastMessageShow(\"Error: \" & job.ErrorMessage, T";
+RDebugUtils.currentLine=327981;
+ //BA.debugLineNum = 327981;BA.debugLine="ToastMessageShow(\"Error: \" & job.ErrorMessage, T";
 anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Error: "+_job._errormessage /*String*/ ),anywheresoftware.b4a.keywords.Common.True);
  };
-RDebugUtils.currentLine=327987;
- //BA.debugLineNum = 327987;BA.debugLine="job.Release";
+RDebugUtils.currentLine=327983;
+ //BA.debugLineNum = 327983;BA.debugLine="job.Release";
 _job._release /*String*/ (null);
-RDebugUtils.currentLine=327988;
- //BA.debugLineNum = 327988;BA.debugLine="End Sub";
+RDebugUtils.currentLine=327984;
+ //BA.debugLineNum = 327984;BA.debugLine="End Sub";
 return "";
 }
 public static String  _label17_click() throws Exception{
@@ -1508,7 +1498,7 @@ RDebugUtils.currentLine=655360;
  //BA.debugLineNum = 655360;BA.debugLine="Sub nxtBtn_Click";
 RDebugUtils.currentLine=655361;
  //BA.debugLineNum = 655361;BA.debugLine="Log(\"sad\")";
-anywheresoftware.b4a.keywords.Common.LogImpl("7655361","sad",0);
+anywheresoftware.b4a.keywords.Common.LogImpl("5655361","sad",0);
 RDebugUtils.currentLine=655362;
  //BA.debugLineNum = 655362;BA.debugLine="End Sub";
 return "";
@@ -1517,105 +1507,105 @@ public static String  _sales1btn_click() throws Exception{
 RDebugUtils.currentModule="main";
 if (Debug.shouldDelegate(mostCurrent.activityBA, "sales1btn_click", false))
 	 {return ((String) Debug.delegate(mostCurrent.activityBA, "sales1btn_click", null));}
-anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper _btn = null;
+anywheresoftware.b4a.objects.ButtonWrapper _btn = null;
 String _index = "";
 RDebugUtils.currentLine=917504;
  //BA.debugLineNum = 917504;BA.debugLine="Sub sales1btn_Click";
 RDebugUtils.currentLine=917505;
- //BA.debugLineNum = 917505;BA.debugLine="Dim btn As RadioButton = Sender ' Assuming it's a";
-_btn = new anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper();
-_btn = (anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper(), (android.widget.RadioButton)(anywheresoftware.b4a.keywords.Common.Sender(mostCurrent.activityBA)));
+ //BA.debugLineNum = 917505;BA.debugLine="Dim btn As Button = Sender";
+_btn = new anywheresoftware.b4a.objects.ButtonWrapper();
+_btn = (anywheresoftware.b4a.objects.ButtonWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.ButtonWrapper(), (android.widget.Button)(anywheresoftware.b4a.keywords.Common.Sender(mostCurrent.activityBA)));
 RDebugUtils.currentLine=917506;
  //BA.debugLineNum = 917506;BA.debugLine="Dim index As String = btn.Tag";
 _index = BA.ObjectToString(_btn.getTag());
+RDebugUtils.currentLine=917507;
+ //BA.debugLineNum = 917507;BA.debugLine="salesData1 = index.ToLowerCase";
+_salesdata1 = (int)(Double.parseDouble(_index.toLowerCase()));
 RDebugUtils.currentLine=917508;
- //BA.debugLineNum = 917508;BA.debugLine="salesData1 = 1 ' Set to integer value for Sales1";
-_salesdata1 = (int) (1);
-RDebugUtils.currentLine=917509;
- //BA.debugLineNum = 917509;BA.debugLine="Log(\"Sales 1 Button clicked: \" & index)";
-anywheresoftware.b4a.keywords.Common.LogImpl("7917509","Sales 1 Button clicked: "+_index,0);
-RDebugUtils.currentLine=917510;
- //BA.debugLineNum = 917510;BA.debugLine="Log($\"sort value: ${sortDefaultValue}\"$)";
-anywheresoftware.b4a.keywords.Common.LogImpl("7917510",("sort value: "+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(mostCurrent._sortdefaultvalue))+""),0);
-RDebugUtils.currentLine=917512;
- //BA.debugLineNum = 917512;BA.debugLine="If sortDefaultValue = \"asc\" Or sortDefaultValue =";
+ //BA.debugLineNum = 917508;BA.debugLine="If sortDefaultValue=\"asc\" Or sortDefaultValue=\"de";
 if ((mostCurrent._sortdefaultvalue).equals("asc") || (mostCurrent._sortdefaultvalue).equals("desc")) { 
-RDebugUtils.currentLine=917513;
- //BA.debugLineNum = 917513;BA.debugLine="LoadGraphData";
+RDebugUtils.currentLine=917510;
+ //BA.debugLineNum = 917510;BA.debugLine="LoadGraphData";
 _loadgraphdata();
  };
-RDebugUtils.currentLine=917515;
- //BA.debugLineNum = 917515;BA.debugLine="End Sub";
+RDebugUtils.currentLine=917512;
+ //BA.debugLineNum = 917512;BA.debugLine="Log(sortDefaultValue)";
+anywheresoftware.b4a.keywords.Common.LogImpl("5917512",mostCurrent._sortdefaultvalue,0);
+RDebugUtils.currentLine=917513;
+ //BA.debugLineNum = 917513;BA.debugLine="Log(\" sales 1 Button clicked: \" & index)";
+anywheresoftware.b4a.keywords.Common.LogImpl("5917513"," sales 1 Button clicked: "+_index,0);
+RDebugUtils.currentLine=917514;
+ //BA.debugLineNum = 917514;BA.debugLine="End Sub";
 return "";
 }
 public static String  _sales2btn_click() throws Exception{
 RDebugUtils.currentModule="main";
 if (Debug.shouldDelegate(mostCurrent.activityBA, "sales2btn_click", false))
 	 {return ((String) Debug.delegate(mostCurrent.activityBA, "sales2btn_click", null));}
-anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper _btn = null;
+anywheresoftware.b4a.objects.ButtonWrapper _btn = null;
 String _index = "";
 RDebugUtils.currentLine=983040;
  //BA.debugLineNum = 983040;BA.debugLine="Sub sales2btn_Click";
 RDebugUtils.currentLine=983041;
- //BA.debugLineNum = 983041;BA.debugLine="Dim btn As RadioButton = Sender";
-_btn = new anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper();
-_btn = (anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper(), (android.widget.RadioButton)(anywheresoftware.b4a.keywords.Common.Sender(mostCurrent.activityBA)));
+ //BA.debugLineNum = 983041;BA.debugLine="Dim btn As Button = Sender";
+_btn = new anywheresoftware.b4a.objects.ButtonWrapper();
+_btn = (anywheresoftware.b4a.objects.ButtonWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.ButtonWrapper(), (android.widget.Button)(anywheresoftware.b4a.keywords.Common.Sender(mostCurrent.activityBA)));
 RDebugUtils.currentLine=983042;
  //BA.debugLineNum = 983042;BA.debugLine="Dim index As String = btn.Tag";
 _index = BA.ObjectToString(_btn.getTag());
+RDebugUtils.currentLine=983043;
+ //BA.debugLineNum = 983043;BA.debugLine="salesData1 = index.ToLowerCase";
+_salesdata1 = (int)(Double.parseDouble(_index.toLowerCase()));
 RDebugUtils.currentLine=983044;
- //BA.debugLineNum = 983044;BA.debugLine="salesData1 = 2 ' Set to integer value for Sales2";
-_salesdata1 = (int) (2);
-RDebugUtils.currentLine=983045;
- //BA.debugLineNum = 983045;BA.debugLine="Log(\"Sales 2 Button clicked: \" & index)";
-anywheresoftware.b4a.keywords.Common.LogImpl("7983045","Sales 2 Button clicked: "+_index,0);
-RDebugUtils.currentLine=983046;
- //BA.debugLineNum = 983046;BA.debugLine="Log($\"sort value: ${sortDefaultValue}\"$)";
-anywheresoftware.b4a.keywords.Common.LogImpl("7983046",("sort value: "+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(mostCurrent._sortdefaultvalue))+""),0);
-RDebugUtils.currentLine=983048;
- //BA.debugLineNum = 983048;BA.debugLine="If sortDefaultValue = \"asc\" Or sortDefaultValue =";
+ //BA.debugLineNum = 983044;BA.debugLine="If sortDefaultValue=\"asc\" Or sortDefaultValue=\"de";
 if ((mostCurrent._sortdefaultvalue).equals("asc") || (mostCurrent._sortdefaultvalue).equals("desc")) { 
-RDebugUtils.currentLine=983049;
- //BA.debugLineNum = 983049;BA.debugLine="LoadGraphData";
+RDebugUtils.currentLine=983045;
+ //BA.debugLineNum = 983045;BA.debugLine="LoadGraphData";
 _loadgraphdata();
  };
-RDebugUtils.currentLine=983051;
- //BA.debugLineNum = 983051;BA.debugLine="End Sub";
+RDebugUtils.currentLine=983047;
+ //BA.debugLineNum = 983047;BA.debugLine="Log(sortDefaultValue)";
+anywheresoftware.b4a.keywords.Common.LogImpl("5983047",mostCurrent._sortdefaultvalue,0);
+RDebugUtils.currentLine=983048;
+ //BA.debugLineNum = 983048;BA.debugLine="Log(\" sales 2 Button clicked: \" & index)";
+anywheresoftware.b4a.keywords.Common.LogImpl("5983048"," sales 2 Button clicked: "+_index,0);
+RDebugUtils.currentLine=983049;
+ //BA.debugLineNum = 983049;BA.debugLine="End Sub";
 return "";
 }
 public static String  _sales3btn_click() throws Exception{
 RDebugUtils.currentModule="main";
 if (Debug.shouldDelegate(mostCurrent.activityBA, "sales3btn_click", false))
 	 {return ((String) Debug.delegate(mostCurrent.activityBA, "sales3btn_click", null));}
-anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper _btn = null;
+anywheresoftware.b4a.objects.ButtonWrapper _btn = null;
 String _index = "";
 RDebugUtils.currentLine=1048576;
  //BA.debugLineNum = 1048576;BA.debugLine="Sub sales3btn_Click";
 RDebugUtils.currentLine=1048577;
- //BA.debugLineNum = 1048577;BA.debugLine="Dim btn As RadioButton = Sender";
-_btn = new anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper();
-_btn = (anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper(), (android.widget.RadioButton)(anywheresoftware.b4a.keywords.Common.Sender(mostCurrent.activityBA)));
+ //BA.debugLineNum = 1048577;BA.debugLine="Dim btn As Button = Sender";
+_btn = new anywheresoftware.b4a.objects.ButtonWrapper();
+_btn = (anywheresoftware.b4a.objects.ButtonWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.ButtonWrapper(), (android.widget.Button)(anywheresoftware.b4a.keywords.Common.Sender(mostCurrent.activityBA)));
 RDebugUtils.currentLine=1048578;
  //BA.debugLineNum = 1048578;BA.debugLine="Dim index As String = btn.Tag";
 _index = BA.ObjectToString(_btn.getTag());
+RDebugUtils.currentLine=1048579;
+ //BA.debugLineNum = 1048579;BA.debugLine="salesData1 = index.ToLowerCase";
+_salesdata1 = (int)(Double.parseDouble(_index.toLowerCase()));
 RDebugUtils.currentLine=1048580;
- //BA.debugLineNum = 1048580;BA.debugLine="salesData1 = 3 ' Set to integer value for Sales3";
-_salesdata1 = (int) (3);
-RDebugUtils.currentLine=1048581;
- //BA.debugLineNum = 1048581;BA.debugLine="Log(\"Sales 3 Button clicked: \" & index)";
-anywheresoftware.b4a.keywords.Common.LogImpl("71048581","Sales 3 Button clicked: "+_index,0);
-RDebugUtils.currentLine=1048582;
- //BA.debugLineNum = 1048582;BA.debugLine="Log($\"sort value: ${sortDefaultValue}\"$)";
-anywheresoftware.b4a.keywords.Common.LogImpl("71048582",("sort value: "+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(mostCurrent._sortdefaultvalue))+""),0);
-RDebugUtils.currentLine=1048584;
- //BA.debugLineNum = 1048584;BA.debugLine="If sortDefaultValue = \"asc\" Or sortDefaultValue =";
+ //BA.debugLineNum = 1048580;BA.debugLine="If sortDefaultValue=\"asc\" Or sortDefaultValue=\"de";
 if ((mostCurrent._sortdefaultvalue).equals("asc") || (mostCurrent._sortdefaultvalue).equals("desc")) { 
-RDebugUtils.currentLine=1048585;
- //BA.debugLineNum = 1048585;BA.debugLine="LoadGraphData";
+RDebugUtils.currentLine=1048581;
+ //BA.debugLineNum = 1048581;BA.debugLine="LoadGraphData";
 _loadgraphdata();
  };
-RDebugUtils.currentLine=1048587;
- //BA.debugLineNum = 1048587;BA.debugLine="End Sub";
+RDebugUtils.currentLine=1048583;
+ //BA.debugLineNum = 1048583;BA.debugLine="Log(sortDefaultValue)";
+anywheresoftware.b4a.keywords.Common.LogImpl("51048583",mostCurrent._sortdefaultvalue,0);
+RDebugUtils.currentLine=1048584;
+ //BA.debugLineNum = 1048584;BA.debugLine="Log(\" sales 3 Button clicked: \" & index)";
+anywheresoftware.b4a.keywords.Common.LogImpl("51048584"," sales 3 Button clicked: "+_index,0);
+RDebugUtils.currentLine=1048585;
+ //BA.debugLineNum = 1048585;BA.debugLine="End Sub";
 return "";
 }
 public static String  _sortbtn1_click() throws Exception{
@@ -1624,85 +1614,26 @@ if (Debug.shouldDelegate(mostCurrent.activityBA, "sortbtn1_click", false))
 	 {return ((String) Debug.delegate(mostCurrent.activityBA, "sortbtn1_click", null));}
 anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper _chk = null;
 String _index = "";
-boolean[] _checkedsales = null;
-RDebugUtils.currentLine=720896;
- //BA.debugLineNum = 720896;BA.debugLine="Sub sortBtn1_Click";
-RDebugUtils.currentLine=720897;
- //BA.debugLineNum = 720897;BA.debugLine="Dim chk As RadioButton = Sender";
+RDebugUtils.currentLine=851968;
+ //BA.debugLineNum = 851968;BA.debugLine="Sub sortBtn1_Click";
+RDebugUtils.currentLine=851969;
+ //BA.debugLineNum = 851969;BA.debugLine="Dim chk As RadioButton = Sender";
 _chk = new anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper();
 _chk = (anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper(), (android.widget.RadioButton)(anywheresoftware.b4a.keywords.Common.Sender(mostCurrent.activityBA)));
-RDebugUtils.currentLine=720898;
- //BA.debugLineNum = 720898;BA.debugLine="Dim index As String = chk.Tag";
+RDebugUtils.currentLine=851970;
+ //BA.debugLineNum = 851970;BA.debugLine="Dim index As String = chk.Tag";
 _index = BA.ObjectToString(_chk.getTag());
-RDebugUtils.currentLine=720900;
- //BA.debugLineNum = 720900;BA.debugLine="sortDefaultValue = index.ToLowerCase ' \"asc\"";
+RDebugUtils.currentLine=851972;
+ //BA.debugLineNum = 851972;BA.debugLine="sortDefaultValue = index.ToLowerCase";
 mostCurrent._sortdefaultvalue = _index.toLowerCase();
-RDebugUtils.currentLine=720901;
- //BA.debugLineNum = 720901;BA.debugLine="Log($\"sort value: ${sortDefaultValue}\"$)";
-anywheresoftware.b4a.keywords.Common.LogImpl("7720901",("sort value: "+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(mostCurrent._sortdefaultvalue))+""),0);
-RDebugUtils.currentLine=720903;
- //BA.debugLineNum = 720903;BA.debugLine="If Not(barGraphInitialized) Then";
-if (anywheresoftware.b4a.keywords.Common.Not(_bargraphinitialized)) { 
-RDebugUtils.currentLine=720904;
- //BA.debugLineNum = 720904;BA.debugLine="ToastMessageShow(\"Graph not yet initialized.\", T";
-anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Graph not yet initialized."),anywheresoftware.b4a.keywords.Common.True);
-RDebugUtils.currentLine=720905;
- //BA.debugLineNum = 720905;BA.debugLine="Return";
-if (true) return "";
- };
-RDebugUtils.currentLine=720909;
- //BA.debugLineNum = 720909;BA.debugLine="Dim checkedSales() As Boolean = barGraph.GetCheck";
-_checkedsales = mostCurrent._bargraph._getcheckedsales /*boolean[]*/ (null);
-RDebugUtils.currentLine=720910;
- //BA.debugLineNum = 720910;BA.debugLine="If checkedSales.Length > 0 Then";
-if (_checkedsales.length>0) { 
-RDebugUtils.currentLine=720911;
- //BA.debugLineNum = 720911;BA.debugLine="Select Case salesData1";
-switch (_salesdata1) {
-case 1: {
-RDebugUtils.currentLine=720913;
- //BA.debugLineNum = 720913;BA.debugLine="If Not(checkedSales(0)) Then";
-if (anywheresoftware.b4a.keywords.Common.Not(_checkedsales[(int) (0)])) { 
-RDebugUtils.currentLine=720914;
- //BA.debugLineNum = 720914;BA.debugLine="ToastMessageShow(\"Please show Sales1 in the l";
-anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Please show Sales1 in the legend before sorting by it."),anywheresoftware.b4a.keywords.Common.True);
-RDebugUtils.currentLine=720915;
- //BA.debugLineNum = 720915;BA.debugLine="Return";
-if (true) return "";
- };
- break; }
-case 2: {
-RDebugUtils.currentLine=720918;
- //BA.debugLineNum = 720918;BA.debugLine="If Not(checkedSales(1)) Then";
-if (anywheresoftware.b4a.keywords.Common.Not(_checkedsales[(int) (1)])) { 
-RDebugUtils.currentLine=720919;
- //BA.debugLineNum = 720919;BA.debugLine="ToastMessageShow(\"Please show Sales2 in the l";
-anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Please show Sales2 in the legend before sorting by it."),anywheresoftware.b4a.keywords.Common.True);
-RDebugUtils.currentLine=720920;
- //BA.debugLineNum = 720920;BA.debugLine="Return";
-if (true) return "";
- };
- break; }
-case 3: {
-RDebugUtils.currentLine=720923;
- //BA.debugLineNum = 720923;BA.debugLine="If Not(checkedSales(2)) Then";
-if (anywheresoftware.b4a.keywords.Common.Not(_checkedsales[(int) (2)])) { 
-RDebugUtils.currentLine=720924;
- //BA.debugLineNum = 720924;BA.debugLine="ToastMessageShow(\"Please show Sales3 in the l";
-anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Please show Sales3 in the legend before sorting by it."),anywheresoftware.b4a.keywords.Common.True);
-RDebugUtils.currentLine=720925;
- //BA.debugLineNum = 720925;BA.debugLine="Return";
-if (true) return "";
- };
- break; }
-}
-;
- };
-RDebugUtils.currentLine=720930;
- //BA.debugLineNum = 720930;BA.debugLine="LoadGraphData";
+RDebugUtils.currentLine=851973;
+ //BA.debugLineNum = 851973;BA.debugLine="Log($\"sort value: ${sortDefaultValue}\"$)";
+anywheresoftware.b4a.keywords.Common.LogImpl("5851973",("sort value: "+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(mostCurrent._sortdefaultvalue))+""),0);
+RDebugUtils.currentLine=851974;
+ //BA.debugLineNum = 851974;BA.debugLine="LoadGraphData";
 _loadgraphdata();
-RDebugUtils.currentLine=720931;
- //BA.debugLineNum = 720931;BA.debugLine="End Sub";
+RDebugUtils.currentLine=851975;
+ //BA.debugLineNum = 851975;BA.debugLine="End Sub";
 return "";
 }
 public static String  _sortbtn2_click() throws Exception{
@@ -1711,85 +1642,29 @@ if (Debug.shouldDelegate(mostCurrent.activityBA, "sortbtn2_click", false))
 	 {return ((String) Debug.delegate(mostCurrent.activityBA, "sortbtn2_click", null));}
 anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper _chk = null;
 String _index = "";
-boolean[] _checkedsales = null;
-RDebugUtils.currentLine=786432;
- //BA.debugLineNum = 786432;BA.debugLine="Sub sortBtn2_Click";
-RDebugUtils.currentLine=786433;
- //BA.debugLineNum = 786433;BA.debugLine="Dim chk As RadioButton = Sender";
+RDebugUtils.currentLine=720896;
+ //BA.debugLineNum = 720896;BA.debugLine="Sub sortBtn2_Click";
+RDebugUtils.currentLine=720897;
+ //BA.debugLineNum = 720897;BA.debugLine="Dim chk As RadioButton = Sender";
 _chk = new anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper();
 _chk = (anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper) anywheresoftware.b4a.AbsObjectWrapper.ConvertToWrapper(new anywheresoftware.b4a.objects.CompoundButtonWrapper.RadioButtonWrapper(), (android.widget.RadioButton)(anywheresoftware.b4a.keywords.Common.Sender(mostCurrent.activityBA)));
-RDebugUtils.currentLine=786434;
- //BA.debugLineNum = 786434;BA.debugLine="Dim index As String = chk.Tag";
+RDebugUtils.currentLine=720898;
+ //BA.debugLineNum = 720898;BA.debugLine="Dim index As String = chk.Tag";
 _index = BA.ObjectToString(_chk.getTag());
-RDebugUtils.currentLine=786436;
- //BA.debugLineNum = 786436;BA.debugLine="sortDefaultValue = index.ToLowerCase ' \"desc\"";
+RDebugUtils.currentLine=720900;
+ //BA.debugLineNum = 720900;BA.debugLine="sortDefaultValue = index.ToLowerCase";
 mostCurrent._sortdefaultvalue = _index.toLowerCase();
-RDebugUtils.currentLine=786437;
- //BA.debugLineNum = 786437;BA.debugLine="Log($\"sort value: ${sortDefaultValue}\"$)";
-anywheresoftware.b4a.keywords.Common.LogImpl("7786437",("sort value: "+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(mostCurrent._sortdefaultvalue))+""),0);
-RDebugUtils.currentLine=786439;
- //BA.debugLineNum = 786439;BA.debugLine="If Not(barGraphInitialized) Then";
-if (anywheresoftware.b4a.keywords.Common.Not(_bargraphinitialized)) { 
-RDebugUtils.currentLine=786440;
- //BA.debugLineNum = 786440;BA.debugLine="ToastMessageShow(\"Graph not yet initialized.\", T";
-anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Graph not yet initialized."),anywheresoftware.b4a.keywords.Common.True);
-RDebugUtils.currentLine=786441;
- //BA.debugLineNum = 786441;BA.debugLine="Return";
-if (true) return "";
- };
-RDebugUtils.currentLine=786445;
- //BA.debugLineNum = 786445;BA.debugLine="Dim checkedSales() As Boolean = barGraph.GetCheck";
-_checkedsales = mostCurrent._bargraph._getcheckedsales /*boolean[]*/ (null);
-RDebugUtils.currentLine=786446;
- //BA.debugLineNum = 786446;BA.debugLine="If checkedSales.Length > 0 Then";
-if (_checkedsales.length>0) { 
-RDebugUtils.currentLine=786447;
- //BA.debugLineNum = 786447;BA.debugLine="Select Case salesData1";
-switch (_salesdata1) {
-case 1: {
-RDebugUtils.currentLine=786449;
- //BA.debugLineNum = 786449;BA.debugLine="If Not(checkedSales(0)) Then";
-if (anywheresoftware.b4a.keywords.Common.Not(_checkedsales[(int) (0)])) { 
-RDebugUtils.currentLine=786450;
- //BA.debugLineNum = 786450;BA.debugLine="ToastMessageShow(\"Please show Sales1 in the l";
-anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Please show Sales1 in the legend before sorting by it."),anywheresoftware.b4a.keywords.Common.True);
-RDebugUtils.currentLine=786451;
- //BA.debugLineNum = 786451;BA.debugLine="Return";
-if (true) return "";
- };
- break; }
-case 2: {
-RDebugUtils.currentLine=786454;
- //BA.debugLineNum = 786454;BA.debugLine="If Not(checkedSales(1)) Then";
-if (anywheresoftware.b4a.keywords.Common.Not(_checkedsales[(int) (1)])) { 
-RDebugUtils.currentLine=786455;
- //BA.debugLineNum = 786455;BA.debugLine="ToastMessageShow(\"Please show Sales2 in the l";
-anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Please show Sales2 in the legend before sorting by it."),anywheresoftware.b4a.keywords.Common.True);
-RDebugUtils.currentLine=786456;
- //BA.debugLineNum = 786456;BA.debugLine="Return";
-if (true) return "";
- };
- break; }
-case 3: {
-RDebugUtils.currentLine=786459;
- //BA.debugLineNum = 786459;BA.debugLine="If Not(checkedSales(2)) Then";
-if (anywheresoftware.b4a.keywords.Common.Not(_checkedsales[(int) (2)])) { 
-RDebugUtils.currentLine=786460;
- //BA.debugLineNum = 786460;BA.debugLine="ToastMessageShow(\"Please show Sales3 in the l";
-anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("Please show Sales3 in the legend before sorting by it."),anywheresoftware.b4a.keywords.Common.True);
-RDebugUtils.currentLine=786461;
- //BA.debugLineNum = 786461;BA.debugLine="Return";
-if (true) return "";
- };
- break; }
-}
-;
- };
-RDebugUtils.currentLine=786466;
- //BA.debugLineNum = 786466;BA.debugLine="LoadGraphData";
+RDebugUtils.currentLine=720901;
+ //BA.debugLineNum = 720901;BA.debugLine="Log($\"sort value: ${sortDefaultValue}\"$)";
+anywheresoftware.b4a.keywords.Common.LogImpl("5720901",("sort value: "+anywheresoftware.b4a.keywords.Common.SmartStringFormatter("",(Object)(mostCurrent._sortdefaultvalue))+""),0);
+RDebugUtils.currentLine=720902;
+ //BA.debugLineNum = 720902;BA.debugLine="LoadGraphData";
 _loadgraphdata();
-RDebugUtils.currentLine=786467;
- //BA.debugLineNum = 786467;BA.debugLine="End Sub";
+RDebugUtils.currentLine=720903;
+ //BA.debugLineNum = 720903;BA.debugLine="Log(\"descending\")";
+anywheresoftware.b4a.keywords.Common.LogImpl("5720903","descending",0);
+RDebugUtils.currentLine=720904;
+ //BA.debugLineNum = 720904;BA.debugLine="End Sub";
 return "";
 }
 }

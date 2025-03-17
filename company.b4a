@@ -51,6 +51,7 @@ Version=13.1
 	#FullScreen: True
 	#IncludeTitle: False
 #End Region
+
 Sub Process_Globals
 	'These global variables will be declared once when the application starts.
 	'These variables can be accessed from all modules.
@@ -184,7 +185,7 @@ Sub JobDone(job As HttpJob)
 						Dim row As Int = Floor(count / 3)
 						Dim name As String = record.Get("company_name")
 						Dim company_id As Int = record.Get("company_id")
-						Dim total_count As Int = record.Get("total_count")
+						Dim total_count As Int = record.Get("total_branch_count")
 						Dim total_pos As Int = record.Get("totalDevices")
 						Dim dashPanel As Panel
 						dashPanel.Initialize("")

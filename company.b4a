@@ -51,7 +51,6 @@ Version=13.1
 	#FullScreen: True
 	#IncludeTitle: False
 #End Region
-
 Sub Process_Globals
 	'These global variables will be declared once when the application starts.
 	'These variables can be accessed from all modules.
@@ -98,8 +97,8 @@ Sub Globals
 	Dim salesData1 As Int = 1
 	Dim currentPage As Int = 1
 	Dim barGraphInitialized As Boolean = False
-	Dim PHPURLCompany As String = $"https://192.168.8.117/Company/controller/company.php?action=get_company_list&page=${currentPage}&company_sales=${salesData1}&sort_type=${sortDefaultValue}"$
-	
+	Dim PHPURLCompany As String = $"https://192.168.8.117/Company/controller/company.php?action=get_company_list&page=${currentPage}&company_sales=${salesData1}&company_type=${sortDefaultValue}"$
+	Dim calculatedSize As Float = 0
 End Sub
 
 
@@ -139,12 +138,8 @@ End Sub
 Sub LoadGraphData
 	Try
 		'If currentPage < 1 Then currentPage = 1
-<<<<<<< HEAD
 		PHPURLCompany = $"https://192.168.8.117/Company/controller/company.php?action=get_company_list&page=${currentPage}&company_sales=${salesData1}&sort_type=${sortDefaultValue}"$
-=======
-		'PHPURLCompany = $"https://192.168.8.117/Company/controller/company.php?action=get_company_list&page=${currentPage}&company_sales=${salesData1}&company_type=${sortDefaultValue}"$
-		PHPURLCompany = $"https://192.168.8.117/Company/controller/company.php?action=get_company_list&page=1&company_sales=1&company_type="$
->>>>>>> 1beef7d1ede11fdd330a1990e6c0b2719dc09b75
+		'PHPURLCompany = $"https://192.168.8.117/Company/controller/company.php?action=get_company_list&page=1&company_sales=1&company_type="$
 		'Log("URL: " & PHPURLCompany)
 		Dim Job1 As HttpJob
 		Job1.Initialize("GetCompany", Me)
@@ -196,14 +191,14 @@ Sub JobDone(job As HttpJob)
 						ScrollView1.Panel.AddView(dashPanel, 5dip, Panel2.Height, 200dip, 40dip)
 						'AdjustFontSizeToHeight(dashLabel,2)
 							
-						'Dim myImage As Bitmap
-						'	myImage = LoadBitmap(File.DirAssets, "dashboard.png")
+						Dim myImage As Bitmap
+						myImage = LoadBitmap(File.DirAssets, "dashboard.png")
 		
-						'Dim imgView As ImageView
-						'imgView.Initialize("")
-						'imgView.Gravity = Gravity.FILL
-						'imgView.Bitmap = myImage
-						'dashPanel.AddView(imgView, 0dip, 12.5dip, 15dip, dashPanel.Height - 25dip)
+						Dim imgView As ImageView
+						imgView.Initialize("")
+						imgView.Gravity = Gravity.FILL
+						imgView.Bitmap = myImage
+						dashPanel.AddView(imgView, 0dip, 12.5dip, 15dip, dashPanel.Height - 25dip)
 								
 						Dim dashLabel As Label
 						dashLabel.Initialize("")
@@ -211,8 +206,9 @@ Sub JobDone(job As HttpJob)
 						dashLabel.TextColor = Colors.ARGB(50,156,0,0)
 						dashLabel.Gravity = Gravity.CENTER_VERTICAL
 						dashLabel.Typeface = Typeface.MONOSPACE
-						'dashPanel.AddView(dashLabel, imgView.Width+5dip, 0dip, dashPanel.Width, dashPanel.Height)
-						'	AdjustFontSizeToHeight(dashLabel,2)
+						dashPanel.AddView(dashLabel, imgView.Width+5dip, 0dip, dashPanel.Width, dashPanel.Height)
+						calculatedSize = AdjustFontSizeToHeight(dashLabel, 2)
+						dashLabel.TextSize = calculatedSize
 							
 							
 						companyPanel.Initialize("Panel")
@@ -242,18 +238,18 @@ Sub JobDone(job As HttpJob)
 						PanelTitle.AddView(Label17, 5dip, 0dip, PanelTitle.Width, PanelTitle.Height)
 						'	AdjustFontSizeToHeight(Label17,2)
 							
-						'		Dim myImage As Bitmap
-						'	myImage = LoadBitmap(File.DirAssets, "arrows-removebg-preview.png")
-						'	If myImage.IsInitialized Then
-						''		Dim resizedImage As Bitmap = myImage.Resize(DipToCurrent(4.5%x), myImage.Height * DipToCurrent(2%y) / myImage.Width, True)
-						'		Dim imgView As ImageView
-						'		imgView.Initialize("")
-						'		imgView.Gravity = Gravity.FILL
-						'		imgView.Bitmap = myImage
-						'		PanelTitle.AddView(imgView, PanelTitle.Width - 5%x, 5dip, 5%x, PanelTitle.Height - 10dip)
-						'	Else
-						'	Log("Error loading image")
-						'End If
+						Dim myImage As Bitmap
+						myImage = LoadBitmap(File.DirAssets, "arrows-removebg-preview.png")
+						If myImage.IsInitialized Then
+							Dim resizedImage As Bitmap = myImage.Resize(DipToCurrent(4.5%x), myImage.Height * DipToCurrent(2%y) / myImage.Width, True)
+							Dim imgView As ImageView
+							imgView.Initialize("")
+							imgView.Gravity = Gravity.FILL
+							imgView.Bitmap = myImage
+							PanelTitle.AddView(imgView, PanelTitle.Width - 5%x, 5dip, 5%x, PanelTitle.Height - 10dip)
+						Else
+							Log("Error loading image")
+						End If
 					
 						Dim panelWidth As Int = Panel.Width /3
 						Dim padding As Int = 10dip
@@ -268,7 +264,7 @@ Sub JobDone(job As HttpJob)
 						totalStore.Gravity = Gravity.CENTER
 						totalStore.Typeface = Typeface.SERIF
 						Panel.AddView(totalStore,0,PanelTitle.Height,panelWidth,labelheight-30dip)
-						AdjustFontSizeToHeight(totalStore,1.3)
+						'AdjustFontSizeToHeight(totalStore,1.3)
 							
 						Dim totalStoreLabel As Label
 						totalStoreLabel.Initialize("")
@@ -287,8 +283,8 @@ Sub JobDone(job As HttpJob)
 						totalPos.TextSize = primaryFontSize
 						totalPos.Gravity = Gravity.CENTER
 						totalPos.Typeface = Typeface.SERIF
-					Panel.AddView(totalPos,panelWidth,PanelTitle.Height,panelWidth,labelheight-30dip)
-						AdjustFontSizeToHeight(totalPos,1.3)
+						Panel.AddView(totalPos,panelWidth,PanelTitle.Height,panelWidth,labelheight-30dip)
+						'AdjustFontSizeToHeight(totalPos,1.3)
 							
 						Dim totalPosLabel As Label
 						totalPosLabel.Initialize("")
@@ -333,7 +329,7 @@ Sub JobDone(job As HttpJob)
 					For i = 0 To totalCompanies - 1
 						Dim record As Map = salesArray.Get(i)
 						companyName(i) = record.GetDefault("company_name", "Unknown")
-						comId(i) = record.GetDefault("company_id", 0)
+						comId(i) = record.GetDefault("comId", 0)
 						sales(i) = record.GetDefault("sales_1", 0)
 						sales1(i) = record.GetDefault("sales_2", 0)
 						sales2(i) = record.GetDefault("sales_3", 0)
@@ -348,7 +344,7 @@ Sub JobDone(job As HttpJob)
 					Activity.Initialize("")
 
 					Dim legend() As String = Array As String("Sales1","Sales2","Sales3")
-					' barGraph.changePage(Activity,"Branch")
+					'barGraph.changePage(Activity,"Branch")
 					If barGraphInitialized = False Then
 						saleNxtBtn.Initialize("nxtBtn")
 						saleBackBtn.Initialize("backbtn")
@@ -361,40 +357,58 @@ Sub JobDone(job As HttpJob)
 						Dim totalSalePanel As Panel
 						totalSalePanel.Initialize("")
 						ScrollView1.Panel.AddView(totalSalePanel,5dip,Panel2.Height+companyPanel.Height-28dip,Activity.Width,40dip)
-					
-					
+						
+						Dim myImage As Bitmap
+						myImage = LoadBitmap(File.DirAssets, "stock.png")
+			
+						Dim imgView As ImageView
+						imgView.Initialize("")
+						imgView.Gravity = Gravity.FILL
+						imgView.Bitmap = myImage
+						imgView.Bitmap = myImage
+						totalSalePanel.AddView(imgView, 0dip, 12.5dip, 15dip, totalSalePanel.Height - 25dip)
+						
 						Dim totalSaleLabel As Label
 						totalSaleLabel.Initialize("")
 						totalSaleLabel.Text = "Total Sales"
 						totalSaleLabel.TextColor = Colors.Black
 						totalSaleLabel.Gravity = Gravity.CENTER_VERTICAL
 						totalSaleLabel.Typeface = Typeface.MONOSPACE
-						'	totalSalePanel.AddView(totalSaleLabel,imgView.Width+5dip,0dip,Activity.Width,40dip)
-						'AdjustFontSizeToHeight(totalSaleLabel,2)
-						
-				
+						totalSalePanel.AddView(totalSaleLabel,imgView.Width+5dip,0dip,Activity.Width,40dip)
+						AdjustFontSizeToHeight(totalSaleLabel,2)
+					
 						ScrollView1.Panel.AddView(barPanel,25dip,totalSaleLabel.Height+Panel2.Height+companyPanel.Height - 30dip,Activity.Width-50dip,450dip)
 						barPanel.Color = Colors.White
-					
+						
 						barPanel.RemoveAllViews
 						barPanel.Invalidate ' Force a redraw
-				
+					
 						'barGraph.Initialize(Activity,barPanel,sales,sales1,sales2,companyName,legend,maxSale,"Sales Per Company",comId,"Branch",saleNxtBtn,saleBackBtn)
 						barGraph.Initialize(Activity,barPanel,sales,sales1,sales2,companyName,legend,maxSale,"Total Sale of the Company",comId,"Branch",saleNxtBtn,saleBackBtn,sortBtn1,sortBtn2,defBtn,sales1btn,sales2btn,sales3btn)
 						legend = Array As String("Purchase1","Purchase2","Purchase3")
+						barGraphInitialized = True
+						ProgressDialogHide
+					Else
+						barGraph.sale_1 = sales
+						barGraph.sale_2 = sales1
+						barGraph.sale_3 = sales2
+						barGraph.product1 = companyName
+						barGraph.comId1 = sales ' Assuming comId1 should match sales1 for simplicity
+						barGraph.UpdateGraph
+					End If
+					If barGraphInitialized = False Then
+						Dim totalPurchasePanel As Panel
+						totalPurchasePanel.Initialize("")
+						ScrollView1.Panel.AddView(totalPurchasePanel,5dip,barPanel.Height + Panel2.Height+companyPanel.Height+15dip,Activity.Width,40dip)
 					
-						'	Dim totalPurchasePanel As Panel
-						'	totalPurchasePanel.Initialize("")
-						'	ScrollView1.Panel.AddView(totalPurchasePanel,5dip,barPanel.Height + Panel2.Height+companyPanel.Height+15dip,Activity.Width,40dip)
-					
-						'	Dim myImage As Bitmap
-						'	myImage = LoadBitmap(File.DirAssets, "stock.png")
+						Dim myImage As Bitmap
+						myImage = LoadBitmap(File.DirAssets, "stock.png")
 		
-						'Dim imgView As ImageView
-						'imgView.Initialize("")
-						'imgView.Gravity = Gravity.FILL
-						'	imgView.Bitmap = myImage
-						'	totalPurchasePanel.AddView(imgView, 0dip, 12.5dip, 15dip, totalPurchasePanel.Height - 25dip)
+						Dim imgView As ImageView
+						imgView.Initialize("")
+						imgView.Gravity = Gravity.FILL
+						imgView.Bitmap = myImage
+						totalPurchasePanel.AddView(imgView, 0dip, 12.5dip, 15dip, totalPurchasePanel.Height - 25dip)
 					
 						Dim totalPurchaseLabel As Label
 						totalPurchaseLabel.Initialize("")
@@ -402,7 +416,7 @@ Sub JobDone(job As HttpJob)
 						totalPurchaseLabel.TextColor =Colors.Black
 						totalPurchaseLabel.Gravity = Gravity.CENTER_VERTICAL
 						totalPurchaseLabel.Typeface = Typeface.MONOSPACE
-						'		totalPurchasePanel.AddView(totalPurchaseLabel,imgView.Width + 5dip,0dip,Activity.Width,totalPurchasePanel.Height)
+						totalPurchasePanel.AddView(totalPurchaseLabel,imgView.Width + 5dip,0dip,Activity.Width,totalPurchasePanel.Height)
 						'	AdjustFontSizeToHeight(totalPurchaseLabel,2)
 					
 						Dim shadowPurchPanel As Panel
@@ -413,8 +427,8 @@ Sub JobDone(job As HttpJob)
 						purchasePanel.Initialize("")
 						purchasePanel.Color = Colors.White
 						ScrollView1.Panel.AddView(purchasePanel,25dip, totalSaleLabel.Height+Panel2.Height+companyPanel.Height+barPanel.Height+totalPurchaseLabel.Height- 30dip,Activity.Width-50dip,450dip)
-						purchNxtBtn.Initialize("nxtBtn")
-						purchBackBtn.Initialize("backbtn")
+						purchNxtBtn.Initialize("")
+						purchBackBtn.Initialize("")
 						sortBtn1.Initialize("sortBtn1")
 						sortBtn2.Initialize("sortBtn2")
 						defBtn.Initialize("defBtn")
@@ -423,20 +437,11 @@ Sub JobDone(job As HttpJob)
 						sales3btn.Initialize("sales3btn")
 						'barGraph1.Initialize(Activity, purchasePanel, purchase, purchase1, purchase2, companyName,legend,maxSale,"Purchases Per Company",comId,"Branch",purchNxtBtn,purchBackBtn)
 						barGraph1.Initialize(Activity, purchasePanel, purchase, purchase1, purchase2, companyName,legend,maxSale,"Total Purchase Per Company",comId,"Branch",purchNxtBtn,purchBackBtn,sortBtn1,sortBtn2,defBtn,sales1btn,sales2btn,sales3btn)
-						Log($"maxSale:${maxSale}"$)
-						'
-						'		totalGraphDataHeight = totalSaleLabel.Height+barPanel.Height+totalPurchaseLabel.Height + purchasePanel.Height
-						barGraphInitialized = True
-						ProgressDialogHide
-					Else
-						barGraph.sale_1 = sales
-						barGraph.sale_2 = sales1
-						barGraph.sale_3 = sales2
-						barGraph.product1 = companyName
-						barGraph.comId1 = sales ' Assuming comId1 should match sales1 for simplicity
-						barGraph.UpdateGraph
-						barGraph.SetCurrentPage(currentPage) ' Update page
 					End If
+					
+					'totalGraphDataHeight = totalSaleLabel.Height+barPanel.Height+totalPurchaseLabel.Height + purchasePanel.Height
+					totalGraphDataHeight = 1000dip
+					Log($"maxSale:${maxSale}"$)
 				Case "UpdateData"
 					ToastMessageShow("Data updated successfully", False)
 					LoadCompanyData
@@ -446,10 +451,11 @@ Sub JobDone(job As HttpJob)
 			'ScrollView1.Panel.Height = totalSaleLabel.Height+Panel2.Height+companyPanel.Height+barPanel.Height+totalPurchaseLabel.Height + purchasePanel.Height
 			
 		Catch
-			ToastMessageShow("Error parsing sales data", True)
+			'ToastMessageShow("Error parsing sales data", True)
+			Log("")
 		End Try
-		''	ScrollView1.Panel.Height = totalGraphDataHeight + totalGetDataHeight
-		ScrollView1.Panel.Height = 1400dip
+		ScrollView1.Panel.Height = totalGraphDataHeight + totalGetDataHeight
+		'ScrollView1.Panel.Height = 1400dip
 	Else
 		ToastMessageShow("Error: " & job.ErrorMessage, True)
 	End If
@@ -482,72 +488,135 @@ Private Sub Label17_Click
 	StartActivity("Branch")
 End Sub
 
-
-
 Sub nxtBtn_Click
 	Log("sad")
-End Sub
-
-Sub sortBtn2_Click
-	Dim chk As RadioButton = Sender
-	Dim index As String = chk.Tag
-	
-	sortDefaultValue = index.ToLowerCase
-	Log($"sort value: ${sortDefaultValue}"$)
-	LoadGraphData
-	Log("descending")
-End Sub
-Sub defBtn_Click
-	Log("Default")
 End Sub
 
 Sub sortBtn1_Click
 	Dim chk As RadioButton = Sender
 	Dim index As String = chk.Tag
-	
-	sortDefaultValue = index.ToLowerCase
+    
+	sortDefaultValue = index.ToLowerCase ' "asc"
 	Log($"sort value: ${sortDefaultValue}"$)
+    
+	If Not(barGraphInitialized) Then
+		ToastMessageShow("Graph not yet initialized.", True)
+		Return
+	End If
+    
+	' Check if the selected sales data is hidden in the legend
+	Dim checkedSales() As Boolean = barGraph.GetCheckedSales
+	If checkedSales.Length > 0 Then
+		Select Case salesData1
+			Case 1
+				If Not(checkedSales(0)) Then
+					ToastMessageShow("Please show Sales1 in the legend before sorting by it.", True)
+					Return
+				End If
+			Case 2
+				If Not(checkedSales(1)) Then
+					ToastMessageShow("Please show Sales2 in the legend before sorting by it.", True)
+					Return
+				End If
+			Case 3
+				If Not(checkedSales(2)) Then
+					ToastMessageShow("Please show Sales3 in the legend before sorting by it.", True)
+					Return
+				End If
+		End Select
+	End If
+    
 	LoadGraphData
 End Sub
 
+Sub sortBtn2_Click
+	Dim chk As RadioButton = Sender
+	Dim index As String = chk.Tag
+    
+	sortDefaultValue = index.ToLowerCase ' "desc"
+	Log($"sort value: ${sortDefaultValue}"$)
+    
+	If Not(barGraphInitialized) Then
+		ToastMessageShow("Graph not yet initialized.", True)
+		Return
+	End If
+    
+	' Check if the selected sales data is hidden in the legend
+	Dim checkedSales() As Boolean = barGraph.GetCheckedSales
+	If checkedSales.Length > 0 Then
+		Select Case salesData1
+			Case 1
+				If Not(checkedSales(0)) Then
+					ToastMessageShow("Please show Sales1 in the legend before sorting by it.", True)
+					Return
+				End If
+			Case 2
+				If Not(checkedSales(1)) Then
+					ToastMessageShow("Please show Sales2 in the legend before sorting by it.", True)
+					Return
+				End If
+			Case 3
+				If Not(checkedSales(2)) Then
+					ToastMessageShow("Please show Sales3 in the legend before sorting by it.", True)
+					Return
+				End If
+		End Select
+	End If
+    
+	LoadGraphData
+End Sub
+
+
+
+Sub defBtn_Click
+	sortDefaultValue = "" ' Reset to default (no sorting)
+	Log("Default sorting applied")
+	LoadGraphData ' Reload data without sorting
+End Sub
+
 Sub sales1btn_Click
-	Dim btn As Button = Sender
+	Dim btn As RadioButton = Sender ' Assuming it's a RadioButton for consistency
 	Dim index As String = btn.Tag
-	salesData1 = index.ToLowerCase
-	If sortDefaultValue="asc" Or sortDefaultValue="desc" Then
-	
+    
+	salesData1 = 1 ' Set to integer value for Sales1
+	Log("Sales 1 Button clicked: " & index)
+	Log($"sort value: ${sortDefaultValue}"$)
+    
+	If sortDefaultValue = "asc" Or sortDefaultValue = "desc" Then
 		LoadGraphData
 	End If
-	Log(sortDefaultValue)
-	Log(" sales 1 Button clicked: " & index)
 End Sub
 
 Sub sales2btn_Click
-	Dim btn As Button = Sender
+	Dim btn As RadioButton = Sender
 	Dim index As String = btn.Tag
-	salesData1 = index.ToLowerCase
-	If sortDefaultValue="asc" Or sortDefaultValue="desc" Then
+    
+	salesData1 = 2 ' Set to integer value for Sales2
+	Log("Sales 2 Button clicked: " & index)
+	Log($"sort value: ${sortDefaultValue}"$)
+    
+	If sortDefaultValue = "asc" Or sortDefaultValue = "desc" Then
 		LoadGraphData
 	End If
-	Log(sortDefaultValue)
-	Log(" sales 2 Button clicked: " & index)
 End Sub
+
 Sub sales3btn_Click
-	Dim btn As Button = Sender
+	Dim btn As RadioButton = Sender
 	Dim index As String = btn.Tag
-	salesData1 = index.ToLowerCase
-	If sortDefaultValue="asc" Or sortDefaultValue="desc" Then
-		'LoadGraphData
+    
+	salesData1 = 3 ' Set to integer value for Sales3
+	Log("Sales 3 Button clicked: " & index)
+	Log($"sort value: ${sortDefaultValue}"$)
+    
+	If sortDefaultValue = "asc" Or sortDefaultValue = "desc" Then
+		LoadGraphData
 	End If
-	Log(sortDefaultValue)
-	Log(" sales 3 Button clicked: " & index)
 End Sub
 
-Sub AdjustFontSizeToHeight(lbl As Label,fontNum As Float)
-	Dim fontSize As Float = lbl.Height * fontNum / GetDeviceDensity ' 70% of height
-	lbl.TextSize = fontSize
+Sub AdjustFontSizeToHeight(lbl As Label, fontScaleFactor As Float) As Float
+	Dim fontSize As Float = lbl.Height * fontScaleFactor / GetDeviceDensity
+	Return fontSize
 End Sub
-
 Sub GetDeviceDensity As Float
 	Dim pixelWidth As Int = 100%x ' Screen width in pixels
 	Dim dipWidth As Int = 100dip  ' 100 DIPs in pixels

@@ -16,6 +16,6 @@ ModuleClosedNodes2=
 ModuleClosedNodes3=
 ModuleClosedNodes4=
 ModuleClosedNodes5=1
-NavigationStack=barGraph,UpdateGraph,417,0,Main,sortBtn1_Click,468,0,Main,sortBtn2_Click,505,0,Branch,Activity_Create,78,0,Main,Globals,30,0,Main,Activity_Create,81,0,Main,sales2btn_Click,565,0,Main,sales3btn_Click,578,0,barGraph,Class_Globals,0,0,Main,JobDone,398,6
+NavigationStack=Main,GetDeviceDensity,614,0,Main,sales2btn_Click,553,0,Main,sales1btn_Click,545,0,Main,Globals,32,1,Main,JobDone,417,0,Main,purch2btn_Click,626,0,Main,purch3btn_Click,634,0,Main,purch1btn_Click,618,0,Main,sortBtn2_Click,503,0,Main,sortBtnPurchase2_Click,578,3,Main,sortBtnPurchase1_Click,567,0
 SelectedBuild=0
 VisibleModules=2,1,3,4,5

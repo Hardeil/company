@@ -38,7 +38,6 @@ Sub Class_Globals
 	Dim layout As String = ""
 	Private isFirstInit As Boolean = True
 	Dim sortMainpanel As Panel
-	Dim shownMainpanel As Panel
 	Dim showHideBtn As Button
 End Sub
 

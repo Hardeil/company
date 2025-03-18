@@ -6,82 +6,106 @@ checkbargraph
 httpjob
 1
 httpjob
-main,activity_create,1,0,66,86
-,label1,,panel1,,panel2,,scrollview1,,barpanel,,phpurl,,phpurlcompany,,currentpage,,salesdata1,,sortdefaultvalue
-,label1,,panel1,,panel2,,scrollview1,,phpurlcompany
-,loadcompanydata,,loadgraphdata,httpjob,initialize,httpjob,download,httpjob,addscheme
-main,loadcompanydata,0,0,87,97
-,phpurl
-
-httpjob,initialize,httpjob,download,httpjob,addscheme
-main,loadgraphdata,0,0,99,113
-,phpurlcompany,,currentpage,,salesdata1,,sortdefaultvalue
-,phpurlcompany
-httpjob,initialize,httpjob,download,httpjob,addscheme
-main,activity_pause,0,0,437,439
-
-
-
-main,activity_resume,0,0,433,435
-
-
-
-main,adjustfontsizetoheight,0,0,577,580
+main,activity_create,1,0,67,111
+,label1,,panel1,,panel2,,scrollview1,,dashpanel,,toppositionsale,,calculatedsize,,barpanel,,purchasepanel,,companypanel,,phpurlcompany,,currentpage,,salesdata1,,sortdefaultvalue,,phpurl
+,label1,,panel1,,panel2,,scrollview1,,toppositionsale,,calculatedsize,,phpurlcompany
+,adjustfontsizetoheight,,loadgraphdata,,loadgraphdatapurchase,,loadcompanydata,,getdevicedensity,httpjob,initialize,httpjob,download,httpjob,addscheme
+main,adjustfontsizetoheight,0,0,685,689
 
 
 ,getdevicedensity
-main,getdevicedensity,0,0,581,586
+main,loadgraphdata,0,0,125,136
+,phpurlcompany,,currentpage,,salesdata1,,sortdefaultvalue
+,phpurlcompany
+httpjob,initialize,httpjob,download,httpjob,addscheme
+main,loadgraphdatapurchase,0,0,138,149
+,phpurlcompany,,currentpage,,salesdata1,,sortdefaultvalue
+,phpurlcompany
+httpjob,initialize,httpjob,download,httpjob,addscheme
+main,loadcompanydata,0,0,113,123
+,phpurlcompany,,currentpage,,phpurl
+,phpurlcompany
+httpjob,initialize,httpjob,download,httpjob,addscheme
+main,activity_pause,0,0,460,461
 
 
 
-main,defbtn_click,0,0,532,536
+main,activity_resume,0,0,457,458
+
+
+
+main,getdevicedensity,0,0,691,695
+
+
+
+main,defbtn_click,0,0,551,555
 ,sortdefaultvalue,,phpurlcompany,,currentpage,,salesdata1
 ,sortdefaultvalue,,phpurlcompany
 ,loadgraphdata,httpjob,initialize,httpjob,download,httpjob,addscheme
-main,getmapvalueordefault,0,0,425,431
+main,defbtnpurchase_click,0,0,557,561
+,sortdefaultvalue,,phpurlcompany,,currentpage,,salesdata1
+,sortdefaultvalue,,phpurlcompany
+,loadgraphdatapurchase,httpjob,initialize,httpjob,download,httpjob,addscheme
+main,globals,0,1,20,65
+,phpurl,,primaryfontsize,,secondaryfontsize,,legend,,legendpurchase,,height,,totalgraphdataheight,,totalgetdataheight,,sortdefaultvalue,,salesdata1,,currentpage,,bargraphinitialized,,bargraphinitializedpurchase,,phpurlcompany,,calculatedsize,,toppositionsale,,toppositionpurch
+,phpurl,,primaryfontsize,,secondaryfontsize,,legend,,legendpurchase,,height,,totalgraphdataheight,,totalgetdataheight,,sortdefaultvalue,,salesdata1,,currentpage,,bargraphinitialized,,bargraphinitializedpurchase,,phpurlcompany,,calculatedsize,,toppositionsale,,toppositionpurch
 
-
-
-main,globals,0,1,23,63
-,phpurl,,primaryfontsize,,secondaryfontsize,,legend,,height,,totalgraphdataheight,,totalgetdataheight,,sortdefaultvalue,,salesdata1,,currentpage,,bargraphinitialized,,phpurlcompany,,calculatedsize
-,phpurl,,primaryfontsize,,secondaryfontsize,,legend,,height,,totalgraphdataheight,,totalgetdataheight,,sortdefaultvalue,,salesdata1,,currentpage,,bargraphinitialized,,phpurlcompany,,calculatedsize
-
-main,jobdone,0,0,116,424
-,height,,scrollview1,,panel2,,calculatedsize,,companypanel,,primaryfontsize,,secondaryfontsize,,totalgetdataheight,,legend,,bargraphinitialized,,salenxtbtn,,salebackbtn,,sortbtn1,,sortbtn2,,defbtn,,sales1btn,,sales2btn,,sales3btn,,barpanel,,bargraph,,purchasepanel,,purchnxtbtn,,purchbackbtn,,totalgraphdataheight,httputils2service,tempfolder,,phpurl
-,height,,calculatedsize,,totalgetdataheight,,legend,,bargraphinitialized,,totalgraphdataheight
-httpjob,getstring,,adjustfontsizetoheight,bargraph,updategraph,,loadcompanydata,httpjob,release,httpjob,getstring2,,getdevicedensity,bargraph,drawgraph,bargraph,formatnumberwithsuffix,bargraph,formatnumberwithlabel,httpjob,initialize,httpjob,download,httpjob,addscheme
-main,label17_click,0,0,442,450
+main,jobdone,1,0,151,455
+,barpanel,,panel2,,dashpanel,,bargraphinitialized,,salenxtbtn,,salebackbtn,,sortbtn1,,sortbtn2,,defbtn,,sales1btn,,sales2btn,,sales3btn,,showdetailbutton,,scrollview1,,toppositionsale,,bargraph,,legend,,purchasepanel,,bargraphinitializedpurchase,,purchnxtbtn,,purchbackbtn,,sortbtnpurchase1,,sortbtnpurchase2,,defbtnpurchase,,purch1btn,,purch2btn,,purch3btn,,bargraphpurchase,,legendpurchase,,toppositionpurch,,height,,companypanel,,primaryfontsize,,secondaryfontsize,,totalgetdataheight,httputils2service,tempfolder,,phpurlcompany,,currentpage,,phpurl
+,toppositionsale,,bargraphinitialized,,bargraphinitializedpurchase,,toppositionpurch,,height,,totalgetdataheight,,phpurlcompany
+httpjob,getstring,,adjustfontsizetoheight,bargraph,initialize,bargraph,updategraph,,loadcompanydata,httpjob,release,httpjob,getstring2,,getdevicedensity,bargraph,drawgraph,bargraph,formatnumberwithsuffix,bargraph,formatnumberwithlabel,httpjob,initialize,httpjob,download,httpjob,addscheme
+main,label17_click,0,0,463,468
 starter,company_selected
 starter,company_selected
 
-main,nxtbtn_click,0,0,452,454
+main,nxtbtn_click,0,0,470,472
 
 
 
-main,process_globals,0,1,15,21
+main,process_globals,0,1,15,18
 
 
 
-main,sales1btn_click,0,0,538,549
-,salesdata1,,sortdefaultvalue,,phpurlcompany,,currentpage
-,salesdata1,,phpurlcompany
-,loadgraphdata,httpjob,initialize,httpjob,download,httpjob,addscheme
-main,sales2btn_click,0,0,551,562
-,salesdata1,,sortdefaultvalue,,phpurlcompany,,currentpage
-,salesdata1,,phpurlcompany
-,loadgraphdata,httpjob,initialize,httpjob,download,httpjob,addscheme
-main,sales3btn_click,0,0,564,575
-,salesdata1,,sortdefaultvalue,,phpurlcompany,,currentpage
-,salesdata1,,phpurlcompany
-,loadgraphdata,httpjob,initialize,httpjob,download,httpjob,addscheme
-main,sortbtn1_click,0,0,456,491
+main,purch1btn_click,0,0,661,667
+,salesdata1,,sortdefaultvalue
+,salesdata1
+
+main,purch2btn_click,0,0,669,675
+,salesdata1,,sortdefaultvalue
+,salesdata1
+
+main,purch3btn_click,0,0,677,683
+,salesdata1,,sortdefaultvalue
+,salesdata1
+
+main,sales1btn_click,0,0,563,569
+,salesdata1,,sortdefaultvalue
+,salesdata1
+
+main,sales2btn_click,0,0,571,577
+,salesdata1,,sortdefaultvalue
+,salesdata1
+
+main,sales3btn_click,0,0,579,585
+,salesdata1,,sortdefaultvalue
+,salesdata1
+
+main,sortbtn1_click,0,0,474,509
 ,sortdefaultvalue,,bargraphinitialized,,bargraph,,salesdata1,,phpurlcompany,,currentpage
 ,sortdefaultvalue,,phpurlcompany
 bargraph,getcheckedsales,,loadgraphdata,httpjob,initialize,httpjob,download,httpjob,addscheme
-main,sortbtn2_click,0,0,493,528
+main,sortbtn2_click,0,0,512,547
 ,sortdefaultvalue,,bargraphinitialized,,bargraph,,salesdata1,,phpurlcompany,,currentpage
 ,sortdefaultvalue,,phpurlcompany
 bargraph,getcheckedsales,,loadgraphdata,httpjob,initialize,httpjob,download,httpjob,addscheme
+main,sortbtnpurchase1_click,0,0,587,622
+,sortdefaultvalue,,bargraphinitializedpurchase,,bargraphpurchase,,salesdata1,,phpurlcompany,,currentpage
+,sortdefaultvalue,,phpurlcompany
+bargraph,getcheckedsales,,loadgraphdatapurchase,httpjob,initialize,httpjob,download,httpjob,addscheme
+main,sortbtnpurchase2_click,0,0,624,659
+,sortdefaultvalue,,bargraphinitializedpurchase,,bargraphpurchase,,salesdata1,,phpurlcompany,,currentpage
+,sortdefaultvalue,,phpurlcompany
+bargraph,getcheckedsales,,loadgraphdatapurchase,httpjob,initialize,httpjob,download,httpjob,addscheme
 httpjob,getstring,0,0,291,293
 httputils2service,tempfolder
 
@@ -190,151 +214,155 @@ httpjob,putstring,0,0,75,77
 
 
 ,putbytes,,addscheme
-bargraph,updategraph,0,0,419,421
+bargraph,initialize,1,0,42,217
 
 
 ,drawgraph,,formatnumberwithsuffix,,formatnumberwithlabel
-bargraph,getcheckedsales,0,0,482,484
+bargraph,updategraph,0,0,418,420
+
+
+,drawgraph,,formatnumberwithsuffix,,formatnumberwithlabel
+bargraph,getcheckedsales,0,0,481,483
 
 
 
-bargraph,chkchange_checkedchange,1,0,460,480
+bargraph,chkchange_checkedchange,1,0,459,479
 
 
 ,updategraph,,drawgraph,,formatnumberwithsuffix,,formatnumberwithlabel
-bargraph,class_globals,0,0,1,41
+bargraph,class_globals,0,0,1,40
 
 
 
-bargraph,drawgraph,0,1,220,417
+bargraph,drawgraph,0,0,219,416
 
 
 ,formatnumberwithsuffix,,formatnumberwithlabel
-bargraph,formatnumberwithsuffix,0,0,441,449
+bargraph,formatnumberwithsuffix,0,0,440,448
 
 
 
-bargraph,formatnumberwithlabel,0,0,451,459
+bargraph,formatnumberwithlabel,0,0,450,458
 
 
 
-bargraph,getcurrentpage,0,0,423,425
+bargraph,getcurrentpage,0,0,422,424
 
 
 
-bargraph,initialize,1,0,43,218
-
-
-,drawgraph,,formatnumberwithsuffix,,formatnumberwithlabel
-bargraph,productlabel_click,0,0,432,439
+bargraph,productlabel_click,0,0,431,438
 starter,company_selected
 starter,company_selected
 
-bargraph,setcurrentpage,0,0,427,430
+bargraph,setcurrentpage,0,0,426,429
 
 
 ,updategraph,,drawgraph,,formatnumberwithsuffix,,formatnumberwithlabel
-branch,activity_create,1,1,52,129
-,labeltitle,,panel3,,panel4,,scrollview1,,home,,branches,,popuppanel,,target_id_display,,target_countlabel,,purchasepanel,,scrollviewpanel4,,totaltarget,,phpurl,starter,company_selected,,phpurl1,,currentpage,,salesdata1,,sortdefaultvalue
+branch,activity_create,1,0,53,170
+,labeltitle,,panel3,,panel4,,scrollview1,,home,,branches,,popuppanel,,popuppanelbackground,,target_id_display,,target_countlabel,,purchasepanel,,scrollviewpanel4,,totaltarget,,phpurl,starter,company_selected,,currentpage,,phpurl1,,salesdata1,,sortdefaultvalue
 ,labeltitle,,panel3,,panel4,,scrollview1,,phpurl,,phpurl1
-,responsivelabel,,loadcompanydata,,loadcompanydatabranchgraph,httpjob,initialize,httpjob,download,httpjob,addscheme
-branch,responsivelabel,0,0,566,571
+,responsivelabel,,addbottombordertolabel,,loadcompanydata,,loadcompanydatabranchgraph,httpjob,initialize,httpjob,download,httpjob,addscheme
+branch,responsivelabel,0,0,611,616
 
 
 
-branch,loadcompanydata,0,1,153,164
-,totaltarget,,phpurl,starter,company_selected
+branch,addbottombordertolabel,0,0,728,742
+
+
+
+branch,loadcompanydata,0,0,193,202
+,totaltarget,,phpurl,starter,company_selected,,currentpage
 ,phpurl
 httpjob,initialize,httpjob,download,httpjob,addscheme
-branch,loadcompanydatabranchgraph,0,0,137,150
+branch,loadcompanydatabranchgraph,0,0,178,190
 ,phpurl1,starter,company_selected,,currentpage,,salesdata1,,sortdefaultvalue
 ,phpurl1
 httpjob,initialize,httpjob,download,httpjob,addscheme
-branch,activity_pause,0,0,134,135
+branch,activity_pause,0,0,175,176
 
 
 
-branch,activity_resume,0,1,130,132
+branch,activity_resume,0,0,171,173
 
 
 
-branch,backbtn_click,0,0,595,598
-,currentpage,,phpurl1,starter,company_selected,,salesdata1,,sortdefaultvalue
-,currentpage,,phpurl1
-,fetchnewpagedata,,loadcompanydatabranchgraph,httpjob,initialize,httpjob,download,httpjob,addscheme
-branch,fetchnewpagedata,0,0,533,535
-,phpurl1,starter,company_selected,,currentpage,,salesdata1,,sortdefaultvalue
-,phpurl1
-,loadcompanydatabranchgraph,httpjob,initialize,httpjob,download,httpjob,addscheme
-branch,closebutton_click,0,0,562,564
+branch,backbtn_click,0,0,639,646
+,currentpage,,phpurl1,starter,company_selected,,salesdata1,,sortdefaultvalue,,totaltarget,,phpurl
+,currentpage,,phpurl1,,phpurl
+,loadcompanydatabranchgraph,,loadcompanydata,httpjob,initialize,httpjob,download,httpjob,addscheme
+branch,closebutton_click,0,0,607,609
 ,popuppanel
 
 
-branch,defbtn_click,0,0,601,612
-,sortdefaultvalue,,totaltarget,,phpurl,starter,company_selected
+branch,defbtn_click,0,0,649,660
+,sortdefaultvalue,,totaltarget,,phpurl,starter,company_selected,,currentpage
 ,sortdefaultvalue,,phpurl
 ,loadcompanydata,httpjob,initialize,httpjob,download,httpjob,addscheme
-branch,edit_button_click,0,0,537,547
-,target_id_display,,target_countlabel,,phpurl,,totaltarget,starter,company_selected
+branch,edit_button_click,0,0,579,590
+,target_id_display,,target_countlabel,,popuppanel,,phpurl,,totaltarget,starter,company_selected,,currentpage
 ,phpurl
 ,updatedata_remote,,loadcompanydata,httpjob,initialize,httpjob,download,httpjob,addscheme
-branch,updatedata_remote,0,0,166,171
+branch,updatedata_remote,0,0,204,209
 ,phpurl
 ,phpurl
 httpjob,initialize,httpjob,download,httpjob,addscheme
-branch,globals,0,1,12,50
+branch,fetchnewpagedata,0,0,575,577
+,phpurl1,starter,company_selected,,currentpage,,salesdata1,,sortdefaultvalue
+,phpurl1
+,loadcompanydatabranchgraph,httpjob,initialize,httpjob,download,httpjob,addscheme
+branch,globals,0,1,12,51
 ,phpurl,starter,company_selected,,phpurl1,,titlefontsize,,primaryfontsize,,secondaryfontsize,,num,,currentpage,,totalsales,,bargraphinitialized,,salesdatadefault,,showhide
 ,phpurl,,phpurl1,,titlefontsize,,primaryfontsize,,secondaryfontsize,,num,,currentpage,,totalsales,,bargraphinitialized,,salesdatadefault,,showhide
 
-branch,home_click,0,0,575,578
+branch,home_click,0,0,620,623
 
 
 
-branch,jobdone,1,1,173,530
-,tabledetails,,totaltarget,,panel,,showhide,,scrollviewpanel4,,totalsales,,target_countlabel,,branches,,labeltitle,,primaryfontsize,,secondaryfontsize,,purchasepanel,,bargraphinitialized,,nxtbtn,,backbtn,,sortbtn1,,sortbtn2,,defbtn,,salesbtn1,,salesbtn2,,salesbtn3,,showhidebtn,,bargraph,,currentpage,httputils2service,tempfolder,,phpurl,starter,company_selected
+branch,jobdone,1,0,211,572
+,tabledetails,,totaltarget,,panel,,showhide,,scrollviewpanel4,,totalsales,,branches,,labeltitle,,primaryfontsize,,secondaryfontsize,,purchasepanel,,bargraphinitialized,,nxtbtn,,backbtn,,sortbtn1,,sortbtn2,,defbtn,,salesbtn1,,salesbtn2,,salesbtn3,,showhidebtn,,bargraph,,currentpage,httputils2service,tempfolder,,phpurl,starter,company_selected
 ,tabledetails,,totalsales,,showhidebtn,,bargraphinitialized,,phpurl
 httpjob,getstring,,loadcompanydata,bargraph,initialize,bargraph,updategraph,httpjob,release,httpjob,getstring2,httpjob,initialize,httpjob,download,httpjob,addscheme,bargraph,drawgraph,bargraph,formatnumberwithsuffix,bargraph,formatnumberwithlabel
-branch,label17_click,0,0,580,585
+branch,label17_click,0,0,625,630
 ,branch_selected
 ,branch_selected
 
-branch,nxtbtn_click,0,0,588,593
+branch,nxtbtn_click,0,0,632,637
 ,currentpage,,phpurl1,starter,company_selected,,salesdata1,,sortdefaultvalue,,totaltarget,,phpurl
 ,currentpage,,phpurl1,,phpurl
-,fetchnewpagedata,,loadcompanydata,,loadcompanydatabranchgraph,httpjob,initialize,httpjob,download,httpjob,addscheme
+,loadcompanydatabranchgraph,,loadcompanydata,httpjob,initialize,httpjob,download,httpjob,addscheme
 branch,process_globals,0,1,6,10
 
 
 
-branch,salesbtn1_click,0,0,634,643
+branch,salesbtn1_click,0,0,682,691
 ,salesdata1,,sortdefaultvalue,,phpurl1,starter,company_selected,,currentpage
 ,salesdata1,,phpurl1
 ,loadcompanydatabranchgraph,httpjob,initialize,httpjob,download,httpjob,addscheme
-branch,salesbtn2_click,0,0,645,655
+branch,salesbtn2_click,0,0,693,703
 ,salesdata1,,sortdefaultvalue,,phpurl1,starter,company_selected,,currentpage
 ,salesdata1,,phpurl1
 ,loadcompanydatabranchgraph,httpjob,initialize,httpjob,download,httpjob,addscheme
-branch,salesbtn3_click,0,0,656,667
+branch,salesbtn3_click,0,0,704,715
 ,salesdata1,,sortdefaultvalue,,phpurl1,starter,company_selected,,currentpage
 ,salesdata1,,phpurl1
 ,loadcompanydatabranchgraph,httpjob,initialize,httpjob,download,httpjob,addscheme
-branch,showhidebtn_click,0,1,670,678
-,showhide,,totaltarget,,phpurl,starter,company_selected
+branch,showhidebtn_click,0,0,718,726
+,showhide,,totaltarget,,phpurl,starter,company_selected,,currentpage
 ,showhide,,phpurl
 ,loadcompanydata,httpjob,initialize,httpjob,download,httpjob,addscheme
-branch,sortbtn1_click,0,0,625,632
+branch,sortbtn1_click,0,0,673,680
 ,sortdefaultvalue,,phpurl1,starter,company_selected,,currentpage,,salesdata1
 ,sortdefaultvalue,,phpurl1
 ,loadcompanydatabranchgraph,httpjob,initialize,httpjob,download,httpjob,addscheme
-branch,sortbtn2_click,0,0,615,621
+branch,sortbtn2_click,0,0,663,669
 ,sortdefaultvalue,,phpurl1,starter,company_selected,,currentpage,,salesdata1
 ,sortdefaultvalue,,phpurl1
 ,loadcompanydatabranchgraph,httpjob,initialize,httpjob,download,httpjob,addscheme
-branch,totaltarget_click,0,0,549,554
-,popuppanel,,target_id_display
+branch,totaltarget_click,1,0,592,599
+,popuppanel,,target_id_display,,target_countlabel
 
 
-branch,totaltargettitle_click,0,0,556,560
+branch,totaltargettitle_click,0,0,601,605
 ,popuppanel
 
 

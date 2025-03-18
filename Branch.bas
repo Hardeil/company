@@ -34,12 +34,15 @@ Sub Globals
 	Dim totalTarget As Label
 	Dim Panel As Panel
 	Dim barGraph As barGraph
+	Dim barGraphPurchase As barGraph
 	Dim nxtBtn As Button
 	Dim backbtn As Button
-	Dim purchasePanel As Panel
+	Dim salesPanel As Panel ' New panel for sales graph
+	Dim purchasePanel As Panel ' Existing panel renamed for clarity
 	Dim currentPage As Int = 1
 	Dim totalSales As Int = 0
 	Dim barGraphInitialized As Boolean = False
+	Dim barGraphInitializedPurchase As Boolean = False
 	Private Panel4 As Panel
 	Dim scrollViewPanel4 As ScrollView
 	Dim sortBtn1 As RadioButton
@@ -158,21 +161,20 @@ Sub Activity_Create(FirstTime As Boolean)
 	cdBack.Initialize2(Colors.RGB(61, 12, 2), 10dip, 2dip, Colors.Black)
 	edit_button.Background = cdBack
 	
-	
-	
-	
-	
+
 	purchasePanel.Initialize("")
-	Panel4.AddView(purchasePanel, 0, 0dip, Activity.Width, 530dip) ' Ensure purchasePanel has enough height
-	purchasePanel.Color = Colors.White ' Set a visible background to debug visibility
+	Panel4.AddView(purchasePanel, 0, 0dip, Activity.Width, 530dip)
+	purchasePanel.Color = Colors.White 
     
 	scrollViewPanel4.Initialize(Panel4.Height - purchasePanel.Height)
 	Panel4.AddView(scrollViewPanel4, 0, purchasePanel.Height, Panel4.Width, Panel4.Height - purchasePanel.Height)
+	
+	
 	'Panel.Initialize("")
 
-
 	LoadCompanyData
-	LoadCompanyDataBranchGraph
+	LoadCompanyDataBranchGraphSales
+	LoadCompanyDataBranchGraphPurchase
 End Sub
 Sub Activity_Resume
 		
@@ -181,14 +183,28 @@ End Sub
 Sub Activity_Pause (UserClosed As Boolean)
 End Sub
 
-Sub LoadCompanyDataBranchGraph
+Sub LoadCompanyDataBranchGraphSales
 	Try
 		Dim Job1 As HttpJob
 		Job1.Initialize("GetBranches", Me)
 		PHPURL1 = $"https://192.168.8.117/Company/controller/branch.php?action=get_branch&company_id=${Starter.company_selected}&page=${currentPage}&branch_sales=${salesData1}&sort_type=${sortDefaultValue}"$
 		Log(Starter.company_selected & "isd")
 		Job1.Download(PHPURL1)
-		ProgressDialogShow("Loading Graph Data...")
+		'ProgressDialogShow("Loading Graph Data...")
+
+	Catch
+		Log(LastException.Message)
+	End Try
+End Sub
+
+Sub LoadCompanyDataBranchGraphPurchase
+	Try
+		Dim Job1 As HttpJob
+		Job1.Initialize("GetBranchesPurchase", Me)
+		PHPURL1 = $"https://192.168.8.117/Company/controller/branch.php?action=get_branch&company_id=${Starter.company_selected}&page=${currentPage}&branch_purchase=${salesData1}&sort_type=${sortDefaultValue}"$
+		Log(Starter.company_selected & "isd")
+		Job1.Download(PHPURL1)
+		'ProgressDialogShow("Loading Graph Data...")
 
 	Catch
 		Log(LastException.Message)
@@ -200,10 +216,10 @@ Sub LoadCompanyData
 	Dim Job1 As HttpJob
 	totalTarget.Initialize("")
 	totalTarget.RemoveView
-	PHPURL = $"https://192.168.8.117/Company/controller/branch.php?action=get_branch&company_id=${Starter.company_selected}&page=${currentPage}"$
+	PHPURL = $"https://192.168.8.117/Company/controller/branch.php?action=get_branch&company_id=${Starter.company_selected}&page=${currentPage}&branch_purchase=${salesData1}&sort_type=${sortDefaultValue}"$
 	Log($"Fetching panel data for company ID: ${Starter.company_selected}, page: ${currentPage}"$)
 	Job1.Initialize("GetData", Me)
-	ProgressDialogShow("Loading Graph Data...")
+	'ProgressDialogShow("Loading Graph Data...")
 	Job1.Download(PHPURL)
 End Sub
 
@@ -504,6 +520,9 @@ Sub JobDone(job As HttpJob)
 					Dim branchSales1(totalBranches) As Int
 					Dim branchSales2(totalBranches) As Int
 					Dim branchSales3(totalBranches) As Int
+					Dim branchPurchase1(totalBranches) As Int
+					Dim branchPurchase2(totalBranches) As Int
+					Dim branchPurchase3(totalBranches) As Int
 					Dim branchCount As Int = 0
                     
 					' Populate arrays with data
@@ -532,8 +551,6 @@ Sub JobDone(job As HttpJob)
 						salesBtn1.Initialize("salesBtn1")
 						salesBtn2.Initialize("salesBtn2")
 						salesBtn3.Initialize("salesBtn3")
-						
-						Dim showHideBtn As Button
 						showHideBtn.Initialize("showHideBtn")
 						barGraph.Initialize(Activity, purchasePanel, branchSales1, branchSales2, branchSales3, branchNames, legend, 10000, "Sales Per Branch", branchSales1, "Branch", nxtBtn, backbtn, sortBtn1, sortBtn2, defBtn, salesBtn1, salesBtn2, salesBtn3,showHideBtn)
 						barGraph.totalPages = branchCount / 5
@@ -548,15 +565,82 @@ Sub JobDone(job As HttpJob)
 						barGraph.sale_3 = branchSales3
 						barGraph.product1 = branchNames
 						barGraph.comId1 = branchSales1 ' Assuming this is used for some comparison
-					'	barGraph.SetCurrentPage(currentPage)
+						'	barGraph.SetCurrentPage(currentPage)
 						barGraph.UpdateGraph
 						Log("Bar graph updated")
 					End If
                     
+			'	Case "GetBranchesPurchase"
+				'	Dim salesArray As List = parser.NextArray
+				'	If salesArray.Size = 0 Then
+				'		Log("No branch data returned")
+				'		ToastMessageShow("No branch data available", False)
+				'		Return
+				'	End If
+
+					' Initialize arrays based on the number of branches
+				'	Dim totalBranches As Int = salesArray.Size
+				'	Dim branchNames(totalBranches) As String
+				'	Dim branchSales1(totalBranches) As Int
+				'	Dim branchSales2(totalBranches) As Int
+				'	Dim branchSales3(totalBranches) As Int
+				'	Dim branchPurchase1(totalBranches) As Int
+					'Dim branchPurchase2(totalBranches) As Int
+				'	Dim branchPurchase3(totalBranches) As Int
+				'	Dim branchCount As Int = 0
+                    
+					' Populate arrays with data
+				'	For i = 0 To totalBranches - 1
+					'	Dim record As Map = salesArray.Get(i)
+					'	branchNames(i) = record.GetDefault("branch_name", "Unknown")
+					'	branchSales1(i) = record.GetDefault("sales_1", 0)
+					'	branchSales2(i) = record.GetDefault("sales_2", 0)
+					'	branchSales3(i) = record.GetDefault("sales_3", 0)
+					'	branchPurchase1(i) = record.GetDefault("purchase_1", 0)
+					'	branchPurchase2(i) = record.GetDefault("purchase_2", 0)
+					'	branchPurchase3(i) = record.GetDefault("purchase_3", 0)
+					'	branchCount = record.GetDefault("total_branch_count", 0)
+					'Next
+					'Log($"branchCount:${branchCount}"$)
+					' Define legend for the graph
+					'Dim legend() As String = Array As String("Sales 1", "Sales 2", "Sales 3")
+                    
+					' Clear previous views in purchasePanel
+					'purchasePanel.RemoveAllViews
+                    
+					' Initialize or update bar graph
+					'If barGraphInitializedPurchase = False Then
+					'	nxtBtn.Initialize("nxtBtn")
+					'	backbtn.Initialize("backbtn")
+					'	sortBtn1.Initialize("sortBtn1")
+					'	sortBtn2.Initialize("sortBtn2")
+					'	defBtn.Initialize("defBtn")
+					'	salesBtn1.Initialize("salesBtn1")
+					'	salesBtn2.Initialize("salesBtn2")
+					'	salesBtn3.Initialize("salesBtn3")
+					'	showHideBtn.Initialize("showHideBtn")
+					'	barGraphPurchase.Initialize(Activity, purchasePanel, branchPurchase1, branchPurchase2, branchPurchase3, branchNames, legend, 10000, "Purhcase Per Branch", branchSales1, "Branch", nxtBtn, backbtn, sortBtn1, sortBtn2, defBtn, salesBtn1, salesBtn2, salesBtn3,showHideBtn)
+					'	barGraphPurchase.totalPages = branchCount / 5
+					'	barGraphPurchase.UpdateGraph
+					'	barGraphInitializedPurchase = True
+					'	Log("Bar graph initialized")
+					'Else
+						' Update existing bar graph with new data
+					'	barGraphPurchase.pageNo = currentPage
+					'	barGraphPurchase.sale_1 = branchSales1
+					'	barGraphPurchase.sale_2 = branchSales2
+					'	barGraphPurchase.sale_3 = branchSales3
+					''	barGraphPurchase.product1 = branchNames
+					'	barGraphPurchase.comId1 = branchSales1 ' Assuming this is used for some comparison
+						'	barGraph.SetCurrentPage(currentPage)
+					'	barGraphPurchase.UpdateGraph
+					'	Log("Bar graph updated")
+					'End If
+
 					' Enable/disable navigation buttons
 					backbtn.Enabled = currentPage > 1
 					nxtBtn.Enabled = salesArray.Size > 0 ' Adjust based on your pagination logic
-                    
+                      	
 				Case "UpdateData"
 					ToastMessageShow("Data updated successfully", False)
 					LoadCompanyData
@@ -575,11 +659,6 @@ Sub JobDone(job As HttpJob)
 	End If
     
 	job.Release
-End Sub
-
-
-Sub FetchNewPageData
-	LoadCompanyDataBranchGraph ' Fetch new data for the current page
 End Sub
 
 Sub edit_button_Click
@@ -638,16 +717,18 @@ End Sub
 Sub nxtBtn_Click
 	currentPage = currentPage + 1
 	Log($"Next page: ${currentPage}"$)
-	LoadCompanyDataBranchGraph ' Updates graph
+	LoadCompanyDataBranchGraphSales ' Updates graph
 	LoadCompanyData ' Updates panels
+	ProgressDialogShow("Loading Graph Data...")
 End Sub
 
 Sub backbtn_Click
 	If currentPage > 1 Then
 		currentPage = currentPage - 1
 		Log($"Previous page: ${currentPage}"$)
-		LoadCompanyDataBranchGraph ' Updates graph
+		LoadCompanyDataBranchGraphSales ' Updates graph
 		LoadCompanyData ' Updates panels
+		ProgressDialogShow("Loading Graph Data...")
 	End If
 End Sub
 
@@ -669,8 +750,38 @@ End Sub
 Sub sortBtn2_Click
 	Dim chk As RadioButton = Sender
 	Dim index As String = chk.Tag
-	sortDefaultValue = index.ToLowerCase
-	LoadCompanyDataBranchGraph
+    
+	sortDefaultValue = index.ToLowerCase ' "asc"
+	Log($"sort value: ${sortDefaultValue}"$)
+    
+	If Not(barGraphInitialized) Then
+		ToastMessageShow("Graph not yet initialized.", True)
+		Return
+	End If
+    
+	' Check if the selected sales data is hidden in the legend
+	Dim checkedSales() As Boolean = barGraph.GetCheckedSales
+	If checkedSales.Length > 0 Then
+		Select Case salesData1
+			Case 1
+				If Not(checkedSales(0)) Then
+					ToastMessageShow("Please show Sales1 in the legend before sorting by it.", True)
+					Return
+				End If
+			Case 2
+				If Not(checkedSales(1)) Then
+					ToastMessageShow("Please show Sales2 in the legend before sorting by it.", True)
+					Return
+				End If
+			Case 3
+				If Not(checkedSales(2)) Then
+					ToastMessageShow("Please show Sales3 in the legend before sorting by it.", True)
+					Return
+				End If
+		End Select
+	End If
+	LoadCompanyData
+	LoadCompanyDataBranchGraphSales
 	Log($"sort value: ${sortDefaultValue}"$)
 End Sub
 
@@ -679,45 +790,142 @@ End Sub
 Sub sortBtn1_Click
 	Dim chk As RadioButton = Sender
 	Dim index As String = chk.Tag
-	
-	sortDefaultValue = index.ToLowerCase
+    
+	sortDefaultValue = index.ToLowerCase ' "asc"
 	Log($"sort value: ${sortDefaultValue}"$)
-	LoadCompanyDataBranchGraph
+    
+	If Not(barGraphInitialized) Then
+		ToastMessageShow("Graph not yet initialized.", True)
+		Return
+	End If
+    
+	' Check if the selected sales data is hidden in the legend
+	Dim checkedSales() As Boolean = barGraph.GetCheckedSales
+	If checkedSales.Length > 0 Then
+		Select Case salesData1
+			Case 1
+				If Not(checkedSales(0)) Then
+					ToastMessageShow("Please show Sales1 in the legend before sorting by it.", True)
+					Return
+				End If
+			Case 2
+				If Not(checkedSales(1)) Then
+					ToastMessageShow("Please show Sales2 in the legend before sorting by it.", True)
+					Return
+				End If
+			Case 3
+				If Not(checkedSales(2)) Then
+					ToastMessageShow("Please show Sales3 in the legend before sorting by it.", True)
+					Return
+				End If
+		End Select
+	End If
+    LoadCompanyData
+	LoadCompanyDataBranchGraphSales
 End Sub
 
 Sub salesBtn1_Click
 	Dim btn As Button = Sender
 	Dim index As String = btn.Tag
+	Dim checkedSales() As Boolean = barGraph.GetCheckedSales
+	
 	salesData1 = index.ToLowerCase
 	If sortDefaultValue="asc" Or sortDefaultValue="desc" Then
-		LoadCompanyDataBranchGraph
+	'	LoadCompanyDataBranchGraphSales
 	End If
+	
+	If checkedSales.Length > 0 Then
+		Select Case salesData1
+			Case 1
+				If Not(checkedSales(0)) Then
+					ToastMessageShow("Please show Sales1 in the legend before sorting by it.", True)
+					Return
+				End If
+			Case 2
+				If Not(checkedSales(1)) Then
+					ToastMessageShow("Please show Sales2 in the legend before sorting by it.", True)
+					Return
+				End If
+			Case 3
+				If Not(checkedSales(2)) Then
+					ToastMessageShow("Please show Sales3 in the legend before sorting by it.", True)
+					Return
+				End If
+				End Select
+	End If
+	LoadCompanyDataBranchGraphSales
+	
 	Log(sortDefaultValue)
 	Log(" sales 1 Button clicked: " & index)
 End Sub
 
 Sub salesBtn2_Click
-	Dim btn As Button = Sender ' Get the button that was clicked
+	Dim btn As Button = Sender
 	Dim index As String = btn.Tag
+	Dim checkedSales() As Boolean = barGraph.GetCheckedSales
+	
 	salesData1 = index.ToLowerCase
 	If sortDefaultValue="asc" Or sortDefaultValue="desc" Then
-		LoadCompanyDataBranchGraph
+		'	LoadCompanyDataBranchGraphSales
 	End If
+	
+	If checkedSales.Length > 0 Then
+		Select Case salesData1
+			Case 1
+				If Not(checkedSales(0)) Then
+					ToastMessageShow("Please show Sales1 in the legend before sorting by it.", True)
+					Return
+				End If
+			Case 2
+				If Not(checkedSales(1)) Then
+					ToastMessageShow("Please show Sales2 in the legend before sorting by it.", True)
+					Return
+				End If
+			Case 3
+				If Not(checkedSales(2)) Then
+					ToastMessageShow("Please show Sales3 in the legend before sorting by it.", True)
+					Return
+				End If
+		End Select
+	End If
+	LoadCompanyDataBranchGraphSales
+	
 	Log(sortDefaultValue)
-	Log(index)
-	Log("(Sale2)")
+	Log(" sales 1 Button clicked: " & index)
 End Sub
 Sub salesBtn3_Click
-	Dim btn As Button = Sender ' Get the button that was clicked
+	Dim btn As Button = Sender
 	Dim index As String = btn.Tag
+	Dim checkedSales() As Boolean = barGraph.GetCheckedSales
+	
 	salesData1 = index.ToLowerCase
 	If sortDefaultValue="asc" Or sortDefaultValue="desc" Then
-		LoadCompanyDataBranchGraph
+		'	LoadCompanyDataBranchGraphSales
 	End If
+	
+	If checkedSales.Length > 0 Then
+		Select Case salesData1
+			Case 1
+				If Not(checkedSales(0)) Then
+					ToastMessageShow("Please show Sales1 in the legend before sorting by it.", True)
+					Return
+				End If
+			Case 2
+				If Not(checkedSales(1)) Then
+					ToastMessageShow("Please show Sales2 in the legend before sorting by it.", True)
+					Return
+				End If
+			Case 3
+				If Not(checkedSales(2)) Then
+					ToastMessageShow("Please show Sales3 in the legend before sorting by it.", True)
+					Return
+				End If
+		End Select
+	End If
+	LoadCompanyDataBranchGraphSales
+	
 	Log(sortDefaultValue)
-	'LoadCompanyData1
-	Log(index)
-	Log("(Sale3)")
+	Log(" sales 1 Button clicked: " & index)
 End Sub
 
 

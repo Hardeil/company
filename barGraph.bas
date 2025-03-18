@@ -41,8 +41,8 @@ Sub Class_Globals
 	Dim showHideBtn As Button
 	Dim paginationLabel As Label
 	Dim pageNo As Int = 1
-	Dim totalPages As Int = 0
-	Dim hideShowPanel As Panel
+	Dim totalPages As Int = 1
+	Dim hideShowBoolean As Boolean 
 End Sub
 
 Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2() As Int, sale3() As Int, product() As String, legend() As String, maxSales As Int, TitleString As String, comId() As Int, layout1 As String,NextBtn As Button,Backbtn As Button,sortBtn As RadioButton,BtnSort2 As RadioButton,Defaultbtn As RadioButton,Sales1btn As RadioButton,Sales2btn As RadioButton,Sales3btn As RadioButton,hideShowBtn As Button)
@@ -73,6 +73,7 @@ Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2(
 	Dim cd As ColorDrawable
 	cd.Initialize2(Colors.White, 5dip, 1dip, Colors.Black)
 	
+	defBtn.Checked = True
 
 	If sale1.Length <> product.Length Or sale2.Length <> product.Length Or sale3.Length <> product.Length Then
 		Return
@@ -412,7 +413,9 @@ Public Sub DrawGraph(Active As Activity, panel As Panel, sale1() As Int, sale2()
 		showHideBtn.TextColor = Colors.White
 		showHideBtn.Background = cdBack
         btnMainPanel.AddView(showHideBtn, paginationPanel.Width + 5dip, 5dip, (btnMainPanel.Width - paginationPanel.Width) - 10dip, buttonHeight)
-	
+		If hideShowBoolean = True Then
+			paginationPanel.Width = btnMainPanel.Width
+		End If
 		'Dim cdBack As ColorDrawable
 		'cdBack.Initialize2(Colors.RGB(61, 12, 2), 10dip, 2dip, Colors.Black)
 		'showHideBtn.Background = cdBack

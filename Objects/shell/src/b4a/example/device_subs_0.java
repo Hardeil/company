@@ -903,7 +903,7 @@ RemoteObject _job1 = RemoteObject.declareNull("b4a.example.httpjob");
 Debug.ShouldStop(67108864);
  BA.debugLineNum = 157;BA.debugLine="Log(PHPURL)";
 Debug.ShouldStop(268435456);
-device.mostCurrent.__c.runVoidMethod ("LogImpl","24915202",device.mostCurrent._phpurl,0);
+device.mostCurrent.__c.runVoidMethod ("LogImpl","63932162",device.mostCurrent._phpurl,0);
  BA.debugLineNum = 158;BA.debugLine="Dim Job1 As HttpJob";
 Debug.ShouldStop(536870912);
 _job1 = RemoteObject.createNew ("b4a.example.httpjob");Debug.locals.put("Job1", _job1);

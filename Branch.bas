@@ -53,6 +53,7 @@ Sub Globals
 	Dim sortDefaultValue As String
 	Dim showHideBtn As Button
 	Dim showHide As Boolean = True
+	Dim popupPanelBackground As Panel
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
@@ -78,50 +79,89 @@ Sub Activity_Create(FirstTime As Boolean)
 	popupPanel.Visible = False
 	Activity.AddView(popupPanel, 0, 0, Activity.Width, Activity.Height)
     
-	Dim popupPanelBackground As Panel
+	Dim cd As ColorDrawable
+	cd.Initialize2(Colors.White, 5dip, 1dip, Colors.Black)
+	
+	
 	popupPanelBackground.Initialize("")
 	popupPanelBackground.Color = Colors.White
 	popupPanel.AddView(popupPanelBackground, 70dip, 50dip, 550dip, Activity.Height - 500dip)
+	'popupPanelBackground.Background = cd
+	
 	Dim leftPosition As Int = (popupPanel.Width - popupPanelBackground.Width) / 2
 	popupPanelBackground.Left = leftPosition
     
+	
+	
 	Dim closeButton As Label
 	closeButton.Initialize("closeButton")
 	closeButton.Text = "X"
-	closeButton.TextSize = 20
+	closeButton.TextSize = 15
 	closeButton.TextColor = Colors.Red
 	closeButton.Typeface = Typeface.DEFAULT_BOLD
-	popupPanelBackground.AddView(closeButton, popupPanelBackground.Width - 25dip, 5dip, 100dip, 40dip)
-    
+	closeButton.Gravity = Gravity.CENTER
+	popupPanelBackground.AddView(closeButton, popupPanelBackground.Width - 35dip, 10dip, 30dip, 30dip)
+	closeButton.Background = cd
+	
 	target_id_display.Initialize("target_id_display")
 	target_id_display.TextSize = 20
 	target_id_display.TextColor = Colors.Red
 	target_id_display.Typeface = Typeface.DEFAULT_BOLD
-	popupPanelBackground.AddView(target_id_display, popupPanelBackground.Width - 25dip, 50dip, 100dip, 40dip)
-    
+	'popupPanelBackground.AddView(target_id_display, popupPanelBackground.Width - 25dip, 50dip, 100dip, 40dip)
+
+	Dim myImage As Bitmap = LoadBitmap(File.DirAssets, "store.PNG")
+	Dim imgView As ImageView
+	imgView.Initialize("")
+	imgView.Gravity = Gravity.FILL
+	imgView.Bitmap = myImage
+	popupPanelBackground.AddView(imgView, 25%x, 12.5dip, popupPanelBackground.Width - 50%x, 200dip)
+					
+					
 	Dim popupText As Label
 	popupText.Initialize("")
-	popupText.Text = "Edit Target"
+	popupText.Text = "Modify Target Sales"
 	popupText.TextColor = Colors.Black
-	popupText.TextSize = 58
+	popupText.TextSize = 50
+	popupText.Typeface = Typeface.DEFAULT_BOLD
 	popupText.Gravity = Gravity.CENTER
-	popupPanelBackground.AddView(popupText, 25dip, 10dip, 80%x - 40dip, 100dip)
+	popupPanelBackground.AddView(popupText, 25dip, imgView.Top + imgView.Height, popupPanelBackground.Width-50dip, 65dip)
     
+	Dim popupDirectionText As Label
+	popupDirectionText.Initialize("")
+	popupDirectionText.Text = "Modify the sales target and set a new goal for total company sales."
+	popupDirectionText.TextColor = Colors.ARGB(150,0,0,0)
+	popupDirectionText.TextSize = 15
+	popupDirectionText.Typeface = Typeface.MONOSPACE
+	popupDirectionText.Gravity = Gravity.CENTER
+	popupPanelBackground.AddView(popupDirectionText, 50dip, popupText.Top + popupText.Height, popupPanelBackground.Width-100dip, 40dip)
+	
 	target_countLabel.Initialize("")
+	'target_countLabel.Text = total_count
 	target_countLabel.TextColor = Colors.Black
-	target_countLabel.TextSize = 58
+	target_countLabel.TextSize = 25
 	target_countLabel.Gravity = Gravity.CENTER
-	popupPanelBackground.AddView(target_countLabel, 25dip, 80dip, 80%x - 40dip, 100dip)
+							
+	popupPanelBackground.AddView(target_countLabel, 50dip, popupDirectionText.Top + popupDirectionText.height, popupPanelBackground.Width - 100dip, 50dip)
 	ScrollView1.Panel.Color = Colors.ARGB(255, 251, 251, 251)
     
+	AddBottomBorderToLabel(target_countLabel)
+	
 	Dim edit_button As Button
 	edit_button.Initialize("edit_button")
 	edit_button.Text = "Update"
-	edit_button.TextColor = Colors.Black
-	edit_button.TextSize = 58
+	edit_button.TextColor = Colors.White
+	edit_button.TextSize = 25
 	edit_button.Gravity = Gravity.CENTER
-	popupPanelBackground.AddView(edit_button, 25dip, 200dip, 80%x - 40dip, 100dip)
+	popupPanelBackground.AddView(edit_button, 30%x, target_countLabel.Top+target_countLabel.Height+25dip, popupPanelBackground.Width - 60%x, 50dip)
     
+	Dim cdBack As ColorDrawable
+	cdBack.Initialize2(Colors.RGB(61, 12, 2), 10dip, 2dip, Colors.Black)
+	edit_button.Background = cdBack
+	
+	
+	
+	
+	
 	purchasePanel.Initialize("")
 	Panel4.AddView(purchasePanel, 0, 0dip, Activity.Width, 530dip) ' Ensure purchasePanel has enough height
 	purchasePanel.Color = Colors.White ' Set a visible background to debug visibility
@@ -129,6 +169,7 @@ Sub Activity_Create(FirstTime As Boolean)
 	scrollViewPanel4.Initialize(Panel4.Height - purchasePanel.Height)
 	Panel4.AddView(scrollViewPanel4, 0, purchasePanel.Height, Panel4.Width, Panel4.Height - purchasePanel.Height)
 	'Panel.Initialize("")
+
 
 	LoadCompanyData
 	LoadCompanyDataBranchGraph
@@ -145,11 +186,10 @@ Sub LoadCompanyDataBranchGraph
 		Dim Job1 As HttpJob
 		Job1.Initialize("GetBranches", Me)
 		PHPURL1 = $"https://192.168.8.117/Company/controller/branch.php?action=get_branch&company_id=${Starter.company_selected}&page=${currentPage}&branch_sales=${salesData1}&sort_type=${sortDefaultValue}"$
-		'PHPURL1 = $"https://192.168.8.117/Company/controller/branch.php?action=get_branch&company_id=${Starter.company_selected}"$
-
 		Log(Starter.company_selected & "isd")
 		Job1.Download(PHPURL1)
-		'ProgressDialogShow("Loading Data...")
+		ProgressDialogShow("Loading Graph Data...")
+
 	Catch
 		Log(LastException.Message)
 	End Try
@@ -160,17 +200,15 @@ Sub LoadCompanyData
 	Dim Job1 As HttpJob
 	totalTarget.Initialize("")
 	totalTarget.RemoveView
-	
-	'Panel.RemoveAllViews
-	PHPURL = "https://192.168.8.117/Company/controller/branch.php?action=get_branch&company_id=" & Starter.company_selected
-	Log(Starter.company_selected & "id")
+	PHPURL = $"https://192.168.8.117/Company/controller/branch.php?action=get_branch&company_id=${Starter.company_selected}&page=${currentPage}"$
+	Log($"Fetching panel data for company ID: ${Starter.company_selected}, page: ${currentPage}"$)
 	Job1.Initialize("GetData", Me)
+	ProgressDialogShow("Loading Graph Data...")
 	Job1.Download(PHPURL)
-	'ProgressDialogShow("Loading Data...")
 End Sub
 
 Sub UpdateData_Remote(target_id As Int, new_value As Int)
-	Dim PHPURL As String = $"https://192.168.8.141/Company/controller/branch.php?action=target_update&id=${target_id}&value=${new_value}"$
+	Dim PHPURL As String = $"https://192.168.8.117/Company/controller/branch.php?action=target_update&id=${target_id}&value=${new_value}"$
 	Dim job As HttpJob
 	job.Initialize("UpdateData", Me)
 	job.Download(PHPURL)
@@ -222,7 +260,6 @@ Sub JobDone(job As HttpJob)
 							Dim totalSales3 As String = record.Get("sales_3")
 							Dim target_id As String = record.Get("target_id")
 							totalSales = totalSales1.Length
-							target_countLabel.Text = total_count
 							branches.Text = "Branches - " & companyName
 							branches.Text = branches.Text.ToUpperCase
 	                        
@@ -382,6 +419,7 @@ Sub JobDone(job As HttpJob)
 	                
 							panelWidth = Panel.Width / 2
 	                        
+							
 							totalTarget.Initialize("totalTarget")
 							totalTarget.Text = total_count
 							totalTarget.Tag = target_id
@@ -412,6 +450,8 @@ Sub JobDone(job As HttpJob)
 							totalPos.Typeface = Typeface.SERIF
 							Panel.AddView(totalPos, panelWidth, totalTargetTitle.Height + padding + 160dip, panelWidth, labelheight)
 	                
+					
+					
 							Dim totalPosTitle As Label
 							totalPosTitle.Initialize("")
 							totalPosTitle.Text = " Total Pos"
@@ -426,6 +466,8 @@ Sub JobDone(job As HttpJob)
 							cd.Initialize2(Colors.White, 0dip, 2dip, Colors.RGB(156, 0, 0))
 							Panel.Background = cd
 	                
+					
+					
 							If Activity.Width >= 1340 Then
 								count = count + 1
 								If count Mod numColumns = 0 Then
@@ -547,6 +589,7 @@ Sub edit_button_Click
 	If IsNumber(target_id) And IsNumber(new_value) Then
 		UpdateData_Remote(target_id, new_value)
 		LoadCompanyData
+		popupPanel.Visible = False
 	Else
 		Log("Invalid input values")
 	End If
@@ -556,7 +599,9 @@ Sub totalTarget_Click
 	popupPanel.Visible = True
 	Dim target_id_btn As Label = Sender
 	Dim target_id As String = target_id_btn.Tag
+	Dim total_count As String = target_id_btn.Text
 	target_id_display.Text = target_id
+	target_countLabel.Text = total_count 
 End Sub
 
 Sub totalTargetTitle_Click
@@ -590,17 +635,20 @@ Private Sub Label17_Click
 	StartActivity("Device")
 End Sub
 
-' New click event handlers for barGraph buttons
 Sub nxtBtn_Click
 	currentPage = currentPage + 1
-	Log(currentPage)
-	FetchNewPageData
-	LoadCompanyData
+	Log($"Next page: ${currentPage}"$)
+	LoadCompanyDataBranchGraph ' Updates graph
+	LoadCompanyData ' Updates panels
 End Sub
 
 Sub backbtn_Click
-	currentPage = currentPage - 1
-	FetchNewPageData
+	If currentPage > 1 Then
+		currentPage = currentPage - 1
+		Log($"Previous page: ${currentPage}"$)
+		LoadCompanyDataBranchGraph ' Updates graph
+		LoadCompanyData ' Updates panels
+	End If
 End Sub
 
 
@@ -681,4 +729,20 @@ Public Sub showHideBtn_Click
 		showHide = True
 	End If
 	LoadCompanyData
+End Sub
+
+Sub AddBottomBorderToLabel(lbl As EditText)
+	' Create a bitmap for the label's background
+	Dim bmp As Bitmap
+	bmp.InitializeMutable(lbl.Width, lbl.Height)
+    
+	' Draw on the bitmap with a Canvas
+	Dim cvs As Canvas
+	cvs.Initialize2(bmp)
+	cvs.DrawLine(0, lbl.Height - 2dip, lbl.Width, lbl.Height - 2dip, Colors.Black, 2dip) ' Draw bottom border
+    
+	' Set the bitmap as the label's background
+	Dim bd As BitmapDrawable
+	bd.Initialize(bmp)
+	lbl.Background = bd
 End Sub

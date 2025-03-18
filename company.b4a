@@ -1,6 +1,7 @@
 ﻿Build1=Default,b4a.example,HU2_ACCEPTALL
 File1=arrow-right-solid.svg
 File10=store.PNG
+File11=target.png
 File2=arrows-removebg-preview.png
 File3=Branch.bal
 File4=cyduck.jpg
@@ -11,6 +12,7 @@ File8=Layout.bal
 File9=stock.png
 FileGroup1=Default Group
 FileGroup10=Default Group
+FileGroup11=Default Group
 FileGroup2=Default Group
 FileGroup3=Default Group
 FileGroup4=Default Group
@@ -33,7 +35,7 @@ Module2=Branch
 Module3=CheckBargraph
 Module4=Device
 Module5=Starter
-NumberOfFiles=10
+NumberOfFiles=11
 NumberOfLibraries=7
 NumberOfModules=5
 Version=13.1
@@ -60,9 +62,6 @@ End Sub
 Sub Globals
 	Private ScrollView1 As ScrollView
 	Dim PHPURL As String = "https://192.168.8.117/Company/controller/company.php?action=get_company_list&page=1"
-	Dim TableDetails As List
-	Private Button1 As Button
-	Private navigate As Label
 	Dim primaryFontSize As Int = 1.4%y
 	Dim secondaryFontSize As Int = 1%y
 	Private Panel1 As Panel
@@ -72,7 +71,6 @@ Sub Globals
 	Dim barGraphPurchase As barGraph ' Renamed for consistency
 	Dim purchasePanel As Panel
 	Dim barPanel As Panel
-	Dim activityPanel As Panel
 	Dim saleNxtBtn As Button
 	Dim saleBackBtn As Button
 	Dim purchNxtBtn As Button
@@ -89,7 +87,7 @@ Sub Globals
 	Public purch1btn As RadioButton ' Added for purchase selection
 	Public purch2btn As RadioButton
 	Public purch3btn As RadioButton
-	Public showDetailButton As RadioButton
+	Public showDetailButton As Button
 	Public legend() As String = Array As String("Sales1", "Sales2", "Sales3")
 	Public legendPurchase() As String = Array As String("Purchase1", "Purchase2", "Purchase3")
 	Dim height As Int = 0
@@ -103,6 +101,9 @@ Sub Globals
 	Dim barGraphInitializedPurchase As Boolean = False ' Renamed for clarity
 	Dim PHPURLCompany As String = $"https://192.168.8.117/Company/controller/company.php?action=get_company_list&page=${currentPage}&company_sales=${salesData1}&company_type=${sortDefaultValue}"$
 	Dim calculatedSize As Float = 0
+	Dim topPositionSale As Int = 0
+	Dim topPositionPurch As Int = 0
+	Dim dashPanel As Panel
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
@@ -119,18 +120,41 @@ Sub Activity_Create(FirstTime As Boolean)
 	gradient.Initialize("RIGHT_LEFT", Array As Int(Colors.ARGB(255, 185, 46, 52), Colors.ARGB(255, 61, 12, 2)))
 	Panel2.Background = gradient
 	
+
+	dashPanel.Initialize("")
+	topPositionSale = Panel2.Height
+	ScrollView1.Panel.AddView(dashPanel, 5dip, Panel2.Height, 200dip, 40dip)
+						
+	Dim myImage As Bitmap = LoadBitmap(File.DirAssets, "dashboard.png")
+	Dim imgView As ImageView
+	imgView.Initialize("")
+	imgView.Gravity = Gravity.FILL
+	imgView.Bitmap = myImage
+	dashPanel.AddView(imgView, 0dip, 12.5dip, 15dip, dashPanel.Height - 25dip)
+						
+	Dim dashLabel As Label
+	dashLabel.Initialize("")
+	dashLabel.Text = "Dashboard"
+	dashLabel.TextColor = Colors.Black
+	dashLabel.Gravity = Gravity.CENTER_VERTICAL
+	dashLabel.Typeface = Typeface.MONOSPACE
+	dashPanel.AddView(dashLabel, imgView.Width + 5dip, 0dip, dashPanel.Width, dashPanel.Height)
+	calculatedSize = AdjustFontSizeToHeight(dashLabel, 2)
+	dashLabel.TextSize = calculatedSize
+	
 	' Initialize panels
 	barPanel.Initialize("")
 	purchasePanel.Initialize("")
 	companyPanel.Initialize("Panel")
 	
-	LoadCompanyData
 	LoadGraphData
 	LoadGraphDataPurchase
+	LoadCompanyData
 End Sub
 
 Sub LoadCompanyData
 	Try
+		PHPURLCompany = $"https://192.168.8.117/Company/controller/company.php?action=get_company_list&page=${currentPage}"$
 		Dim Job1 As HttpJob
 		Job1.Initialize("GetData", Me)
 		Job1.Download(PHPURL)
@@ -172,8 +196,182 @@ Sub JobDone(job As HttpJob)
 		Try
 			Dim parser As JSONParser
 			parser.Initialize(job.GetString)
+			Dim getDataHeight As Int = 0
+			Dim GetCompanySalesHeight As Int = 0
+			Dim GetCompanyPurchaseHeight As Int = 0
 			
 			Select Case job.JobName
+				Case "GetCompany"
+					Dim salesArray As List = parser.NextArray
+					If salesArray.Size = 0 Then
+						ToastMessageShow("No data received", True)
+						Return
+					End If
+					
+					Dim totalCompanies As Int = salesArray.Size
+					Dim sales(totalCompanies) As Int
+					Dim comId(totalCompanies) As Int
+					Dim sales1(totalCompanies) As Int
+					Dim sales2(totalCompanies) As Int
+					Dim purchase(totalCompanies) As Int
+					Dim purchase1(totalCompanies) As Int
+					Dim purchase2(totalCompanies) As Int
+					Dim companyName(totalCompanies) As String
+					Dim max_value(totalCompanies) As Int
+					Dim maxSale As Int = 0
+					
+					For i = 0 To totalCompanies - 1
+						Dim record As Map = salesArray.Get(i)
+						companyName(i) = record.GetDefault("company_name", "Unknown")
+						comId(i) = record.GetDefault("company_id", 0)
+						sales(i) = record.GetDefault("sales_1", 0)
+						sales1(i) = record.GetDefault("sales_2", 0)
+						sales2(i) = record.GetDefault("sales_3", 0)
+						purchase(i) = record.GetDefault("purchase_1", 0)
+						purchase1(i) = record.GetDefault("purchase_2", 0)
+						purchase2(i) = record.GetDefault("purchase_3", 0)
+						max_value(i) = record.GetDefault("max_sales", 0)
+						maxSale = Max(maxSale, max_value(i))
+					Next
+					
+					Dim totalSalePanel As Panel
+					totalSalePanel.Initialize("")
+					totalSalePanel.Height = 40dip 
+					barPanel.Height = 530dip
+					GetCompanySalesHeight = Panel2.Height + dashPanel.Height
+					If Not(barGraphInitialized) Then
+						saleNxtBtn.Initialize("nxtBtn")
+						saleBackBtn.Initialize("backbtn")
+						sortBtn1.Initialize("sortBtn1")
+						sortBtn2.Initialize("sortBtn2")
+						defBtn.Initialize("defBtn")
+						sales1btn.Initialize("sales1btn")
+						sales2btn.Initialize("sales2btn")
+						sales3btn.Initialize("sales3btn")
+						showDetailButton.Initialize("showDetailButton")
+						
+						
+						ScrollView1.Panel.AddView(totalSalePanel, 5dip, GetCompanySalesHeight , Activity.Width, totalSalePanel.Height)
+						
+						Dim myImage As Bitmap = LoadBitmap(File.DirAssets, "stock.png")
+						Dim imgView As ImageView
+						imgView.Initialize("")
+						imgView.Gravity = Gravity.FILL
+						imgView.Bitmap = myImage
+						totalSalePanel.AddView(imgView, 0dip, 12.5dip, 15dip, totalSalePanel.Height - 25dip)
+	
+						Dim totalSaleLabel As Label
+						totalSaleLabel.Initialize("")
+						totalSaleLabel.Text = "Total Sales"
+						totalSaleLabel.TextColor = Colors.Black
+						totalSaleLabel.Gravity = Gravity.CENTER_VERTICAL
+						totalSaleLabel.Typeface = Typeface.MONOSPACE
+						totalSalePanel.AddView(totalSaleLabel, imgView.Width + 5dip, 0dip, Activity.Width, 40dip)
+						AdjustFontSizeToHeight(totalSaleLabel, 2)
+						
+						topPositionSale = topPositionSale + totalSalePanel.Height
+						GetCompanySalesHeight = GetCompanySalesHeight + totalSalePanel.Height
+						ScrollView1.Panel.AddView(barPanel, 25dip, GetCompanySalesHeight , Activity.Width - 50dip, barPanel.Height)
+						barPanel.Color = Colors.White
+						barPanel.RemoveAllViews
+						barPanel.Invalidate
+						
+						GetCompanyPurchaseHeight = GetCompanySalesHeight + barPanel.Height
+						Log($"GetCompanyPurchaseHeight:${GetCompanyPurchaseHeight}"$)
+						barGraph.Initialize(Activity, barPanel, sales, sales1, sales2, companyName, legend, maxSale, "Total Sale of the Company", comId, "Branch", saleNxtBtn, saleBackBtn, sortBtn1, sortBtn2, defBtn, sales1btn, sales2btn, sales3btn,showDetailButton)
+						barGraphInitialized = True
+						topPositionSale = topPositionSale + barPanel.Height
+						ProgressDialogHide
+					Else
+						barGraph.sale_1 = sales
+						barGraph.sale_2 = sales1
+						barGraph.sale_3 = sales2
+						barGraph.product1 = companyName
+						barGraph.comId1 = comId ' Corrected to use comId
+						barGraph.UpdateGraph
+					End If
+					GetCompanySalesHeight = Panel2.Height + dashPanel.Height + totalSalePanel.Height + barPanel.Height
+					topPositionSale = GetCompanySalesHeight
+					GetCompanyPurchaseHeight = GetCompanySalesHeight
+					Log($"GetCompanyPurchaseHeight:${GetCompanyPurchaseHeight}"$)
+				Case "GetCompanyPurchase"
+					Log($"topPositionSale:${topPositionSale}"$)
+					Dim salesArray As List = parser.NextArray
+					If salesArray.Size = 0 Then
+						ToastMessageShow("No data received", True)
+						Return
+					End If
+					Dim totalCompanies As Int = salesArray.Size
+					Dim purchase(totalCompanies) As Int
+					Dim purchase1(totalCompanies) As Int
+					Dim purchase2(totalCompanies) As Int
+					Dim companyName(totalCompanies) As String
+					Dim comId(totalCompanies) As Int
+					Dim maxSale As Int = 0
+					
+					For i = 0 To totalCompanies - 1
+						Dim record As Map = salesArray.Get(i)
+						companyName(i) = record.GetDefault("company_name", "Unknown")
+						comId(i) = record.GetDefault("company_id", 0)
+						purchase(i) = record.GetDefault("purchase_1", 0)
+						purchase1(i) = record.GetDefault("purchase_2", 0)
+						purchase2(i) = record.GetDefault("purchase_3", 0)
+						maxSale = Max(maxSale, record.GetDefault("max_sales", 0))
+					Next
+					
+					Dim totalPurchasePanel As Panel
+					totalPurchasePanel.Initialize("")
+					purchasePanel.Height = 450dip
+					totalPurchasePanel.Height = 40dip
+					GetCompanyPurchaseHeight = 900
+					If barGraphInitializedPurchase = False Then
+						purchNxtBtn.Initialize("purchNxtBtn")
+						purchBackBtn.Initialize("purchBackBtn")
+						sortBtnPurchase1.Initialize("sortBtnPurchase1")
+						sortBtnPurchase2.Initialize("sortBtnPurchase2")
+						defBtnPurchase.Initialize("defBtnPurchase")
+						purch1btn.Initialize("purch1btn")
+						purch2btn.Initialize("purch2btn")
+						purch3btn.Initialize("purch3btn")
+						showDetailButton.Initialize("showDetailButton")
+						
+						ScrollView1.Panel.AddView(totalPurchasePanel, 5dip, GetCompanyPurchaseHeight, Activity.Width, totalPurchasePanel.Height)
+						
+						Dim myImage As Bitmap = LoadBitmap(File.DirAssets, "stock.png")
+						Dim imgView As ImageView
+						imgView.Initialize("")
+						imgView.Gravity = Gravity.FILL
+						imgView.Bitmap = myImage
+						totalPurchasePanel.AddView(imgView, 0dip, 12.5dip, 15dip, totalPurchasePanel.Height - 25dip)
+						
+						Dim totalPurchaseLabel As Label
+						totalPurchaseLabel.Initialize("")
+						totalPurchaseLabel.Text = "Total Purchases"
+						totalPurchaseLabel.TextColor = Colors.Black
+						totalPurchaseLabel.Gravity = Gravity.CENTER_VERTICAL
+						totalPurchaseLabel.Typeface = Typeface.MONOSPACE
+						totalPurchasePanel.AddView(totalPurchaseLabel, imgView.Width + 5dip, 0dip, Activity.Width, totalPurchasePanel.Height)
+						AdjustFontSizeToHeight(totalPurchaseLabel, 2)
+						
+						GetCompanyPurchaseHeight = GetCompanyPurchaseHeight + totalPurchasePanel.Height
+						ScrollView1.Panel.AddView(purchasePanel, 25dip, GetCompanyPurchaseHeight, Activity.Width - 50dip, purchasePanel.Height)
+						purchasePanel.Color = Colors.White
+						purchasePanel.RemoveAllViews
+						purchasePanel.Invalidate
+						
+						barGraphPurchase.Initialize(Activity, purchasePanel, purchase, purchase1, purchase2, companyName, legendPurchase, maxSale, "Total Purchase Per Company", comId, "Branch", purchNxtBtn, purchBackBtn, sortBtnPurchase1, sortBtnPurchase2, defBtnPurchase, purch1btn, purch2btn, purch3btn,showDetailButton)
+						barGraphInitializedPurchase = True
+						ProgressDialogHide
+					Else
+						barGraphPurchase.sale_1 = purchase ' Adjusted to purchase properties
+						barGraphPurchase.sale_2 = purchase1
+						barGraphPurchase.sale_3 = purchase2
+						barGraphPurchase.product1 = companyName
+						barGraphPurchase.comId1 = comId ' Corrected to use comId
+						barGraphPurchase.UpdateGraph
+					End If
+					topPositionPurch = topPositionSale + totalPurchasePanel.top + purchasePanel.Height
+					ScrollView1.Panel.Height = purchasePanel.top + purchasePanel.Height + 360dip
 				Case "GetData"
 					Dim salesArray As List = parser.NextArray
 					If salesArray.Size = 0 Then
@@ -194,29 +392,10 @@ Sub JobDone(job As HttpJob)
 						Dim company_id As Int = record.Get("company_id")
 						Dim total_count As Int = record.Get("total_branch_count")
 						Dim total_pos As Int = record.Get("totalDevices")
-						Dim dashPanel As Panel
-						dashPanel.Initialize("")
-						ScrollView1.Panel.AddView(dashPanel, 5dip, Panel2.Height, 200dip, 40dip)
 						
-						Dim myImage As Bitmap = LoadBitmap(File.DirAssets, "dashboard.png")
-						Dim imgView As ImageView
-						imgView.Initialize("")
-						imgView.Gravity = Gravity.FILL
-						imgView.Bitmap = myImage
-						dashPanel.AddView(imgView, 0dip, 12.5dip, 15dip, dashPanel.Height - 25dip)
-						
-						Dim dashLabel As Label
-						dashLabel.Initialize("")
-						dashLabel.Text = "Dashboard"
-						dashLabel.TextColor = Colors.ARGB(50, 156, 0, 0)
-						dashLabel.Gravity = Gravity.CENTER_VERTICAL
-						dashLabel.Typeface = Typeface.MONOSPACE
-						dashPanel.AddView(dashLabel, imgView.Width + 5dip, 0dip, dashPanel.Width, dashPanel.Height)
-						calculatedSize = AdjustFontSizeToHeight(dashLabel, 2)
-						dashLabel.TextSize = calculatedSize
 						
 						companyPanel.Initialize("Panel")
-						ScrollView1.Panel.AddView(companyPanel, 5dip, dashPanel.Height, Activity.Width - 10dip, height)
+						ScrollView1.Panel.AddView(companyPanel, 25dip, 1580, Activity.Width - 50dip, height)
 						
 						mainPanelWidth = companyPanel.Width / rowNum
 						Dim Panel As Panel
@@ -273,7 +452,7 @@ Sub JobDone(job As HttpJob)
 						totalStoreLabel.Gravity = Gravity.CENTER
 						totalStoreLabel.Typeface = Typeface.MONOSPACE
 						totalStoreLabel.Text = totalStoreLabel.Text.ToUpperCase
-						Panel.AddView(totalStoreLabel, 0, totalStore.Top + padding + 20dip, panelWidth, labelheight)
+						Panel.AddView(totalStoreLabel, 0, totalStore.top + padding + 20dip, panelWidth, labelheight)
 						
 						Dim totalPos As Label
 						totalPos.Initialize("")
@@ -292,7 +471,7 @@ Sub JobDone(job As HttpJob)
 						totalPosLabel.Gravity = Gravity.CENTER
 						totalPosLabel.Typeface = Typeface.MONOSPACE
 						totalPosLabel.Text = totalPosLabel.Text.ToUpperCase
-						Panel.AddView(totalPosLabel, panelWidth, totalPos.Top + padding + 20dip, panelWidth, labelheight)
+						Panel.AddView(totalPosLabel, panelWidth, totalPos.top + padding + 20dip, panelWidth, labelheight)
 						
 						Dim cd As ColorDrawable
 						cd.Initialize2(Colors.White, 0dip, 0dip, Colors.Black)
@@ -300,163 +479,6 @@ Sub JobDone(job As HttpJob)
 						count = count + 1
 					Next
 					totalGetDataHeight = Panel2.Height + companyPanel.Height
-				
-				Case "GetCompany"
-					Dim salesArray As List = parser.NextArray
-					If salesArray.Size = 0 Then
-						ToastMessageShow("No data received", True)
-						Return
-					End If
-					
-					Dim totalCompanies As Int = salesArray.Size
-					Dim sales(totalCompanies) As Int
-					Dim comId(totalCompanies) As Int
-					Dim sales1(totalCompanies) As Int
-					Dim sales2(totalCompanies) As Int
-					Dim purchase(totalCompanies) As Int
-					Dim purchase1(totalCompanies) As Int
-					Dim purchase2(totalCompanies) As Int
-					Dim companyName(totalCompanies) As String
-					Dim max_value(totalCompanies) As Int
-					Dim maxSale As Int = 0
-					
-					For i = 0 To totalCompanies - 1
-						Dim record As Map = salesArray.Get(i)
-						companyName(i) = record.GetDefault("company_name", "Unknown")
-						comId(i) = record.GetDefault("comId", 0)
-						sales(i) = record.GetDefault("sales_1", 0)
-						sales1(i) = record.GetDefault("sales_2", 0)
-						sales2(i) = record.GetDefault("sales_3", 0)
-						purchase(i) = record.GetDefault("purchase_1", 0)
-						purchase1(i) = record.GetDefault("purchase_2", 0)
-						purchase2(i) = record.GetDefault("purchase_3", 0)
-						max_value(i) = record.GetDefault("max_sales", 0)
-						maxSale = Max(maxSale, max_value(i))
-						Log(companyName(i) & sales(i))
-					Next
-					
-					If Not(barGraphInitialized) Then
-						saleNxtBtn.Initialize("nxtBtn")
-						saleBackBtn.Initialize("backbtn")
-						sortBtn1.Initialize("sortBtn1")
-						sortBtn2.Initialize("sortBtn2")
-						defBtn.Initialize("defBtn")
-						sales1btn.Initialize("sales1btn")
-						sales2btn.Initialize("sales2btn")
-						sales3btn.Initialize("sales3btn")
-						showDetailButton.Initialize("showDetailButton")
-						Dim totalSalePanel As Panel
-						totalSalePanel.Initialize("")
-						ScrollView1.Panel.AddView(totalSalePanel, 5dip, Panel2.Height + companyPanel.Height - 28dip, Activity.Width, 40dip)
-						
-						Dim myImage As Bitmap = LoadBitmap(File.DirAssets, "stock.png")
-						Dim imgView As ImageView
-						imgView.Initialize("")
-						imgView.Gravity = Gravity.FILL
-						imgView.Bitmap = myImage
-						totalSalePanel.AddView(imgView, 0dip, 12.5dip, 15dip, totalSalePanel.Height - 25dip)
-						
-						Dim totalSaleLabel As Label
-						totalSaleLabel.Initialize("")
-						totalSaleLabel.Text = "Total Sales"
-						totalSaleLabel.TextColor = Colors.Black
-						totalSaleLabel.Gravity = Gravity.CENTER_VERTICAL
-						totalSaleLabel.Typeface = Typeface.MONOSPACE
-						totalSalePanel.AddView(totalSaleLabel, imgView.Width + 5dip, 0dip, Activity.Width, 40dip)
-						AdjustFontSizeToHeight(totalSaleLabel, 2)
-						
-						ScrollView1.Panel.AddView(barPanel, 25dip, totalSaleLabel.Height + Panel2.Height + companyPanel.Height - 30dip, Activity.Width - 50dip, 450dip)
-						barPanel.Color = Colors.White
-						barPanel.RemoveAllViews
-						barPanel.Invalidate
-						
-						barGraph.Initialize(Activity, barPanel, sales, sales1, sales2, companyName, legend, maxSale, "Total Sale of the Company", comId, "Branch", saleNxtBtn, saleBackBtn, sortBtn1, sortBtn2, defBtn, sales1btn, sales2btn, sales3btn)
-						barGraphInitialized = True
-						ProgressDialogHide
-					Else
-						barGraph.sale_1 = sales
-						barGraph.sale_2 = sales1
-						barGraph.sale_3 = sales2
-						barGraph.product1 = companyName
-						barGraph.comId1 = comId ' Corrected to use comId
-						barGraph.UpdateGraph
-					End If
-					
-				Case "GetCompanyPurchase"
-					Dim salesArray As List = parser.NextArray
-					If salesArray.Size = 0 Then
-						ToastMessageShow("No data received", True)
-						Return
-					End If
-					
-					Dim totalCompanies As Int = salesArray.Size
-					Dim purchase(totalCompanies) As Int
-					Dim purchase1(totalCompanies) As Int
-					Dim purchase2(totalCompanies) As Int
-					Dim companyName(totalCompanies) As String
-					Dim comId(totalCompanies) As Int
-					Dim maxSale As Int = 0
-					
-					For i = 0 To totalCompanies - 1
-						Dim record As Map = salesArray.Get(i)
-						companyName(i) = record.GetDefault("company_name", "Unknown")
-						comId(i) = record.GetDefault("comId", 0)
-						purchase(i) = record.GetDefault("purchase_1", 0)
-						purchase1(i) = record.GetDefault("purchase_2", 0)
-						purchase2(i) = record.GetDefault("purchase_3", 0)
-						maxSale = Max(maxSale, record.GetDefault("max_sales", 0))
-					Next
-					
-					If Not(barGraphInitializedPurchase) Then
-						purchNxtBtn.Initialize("purchNxtBtn")
-						purchBackBtn.Initialize("purchBackBtn")
-						sortBtnPurchase1.Initialize("sortBtnPurchase1")
-						sortBtnPurchase2.Initialize("sortBtnPurchase2")
-						defBtnPurchase.Initialize("defBtnPurchase")
-						purch1btn.Initialize("purch1btn")
-						purch2btn.Initialize("purch2btn")
-						purch3btn.Initialize("purch3btn")
-						showDetailButton.Initialize("showDetailButton")
-						
-						Dim totalPurchasePanel As Panel
-						totalPurchasePanel.Initialize("")
-						ScrollView1.Panel.AddView(totalPurchasePanel, 5dip, barPanel.Top + barPanel.Height + 15dip, Activity.Width, 40dip)
-						
-						Dim myImage As Bitmap = LoadBitmap(File.DirAssets, "stock.png")
-						Dim imgView As ImageView
-						imgView.Initialize("")
-						imgView.Gravity = Gravity.FILL
-						imgView.Bitmap = myImage
-						totalPurchasePanel.AddView(imgView, 0dip, 12.5dip, 15dip, totalPurchasePanel.Height - 25dip)
-						
-						Dim totalPurchaseLabel As Label
-						totalPurchaseLabel.Initialize("")
-						totalPurchaseLabel.Text = "Total Purchases"
-						totalPurchaseLabel.TextColor = Colors.Black
-						totalPurchaseLabel.Gravity = Gravity.CENTER_VERTICAL
-						totalPurchaseLabel.Typeface = Typeface.MONOSPACE
-						totalPurchasePanel.AddView(totalPurchaseLabel, imgView.Width + 5dip, 0dip, Activity.Width, totalPurchasePanel.Height)
-						AdjustFontSizeToHeight(totalPurchaseLabel, 2)
-						
-						ScrollView1.Panel.AddView(purchasePanel, 25dip, totalPurchasePanel.Top + totalPurchasePanel.Height + 10dip, Activity.Width - 50dip, 450dip)
-						purchasePanel.Color = Colors.White
-						purchasePanel.RemoveAllViews
-						purchasePanel.Invalidate
-						
-						barGraphPurchase.Initialize(Activity, purchasePanel, purchase, purchase1, purchase2, companyName, legendPurchase, maxSale, "Total Purchase Per Company", comId, "Branch", purchNxtBtn, purchBackBtn, sortBtnPurchase1, sortBtnPurchase2, defBtnPurchase, purch1btn, purch2btn, purch3btn)
-						barGraphInitializedPurchase = True
-						ProgressDialogHide
-					Else
-						barGraphPurchase.sale_1 = purchase ' Adjusted to purchase properties
-						barGraphPurchase.sale_2 = purchase1
-						barGraphPurchase.sale_3 = purchase2
-						barGraphPurchase.product1 = companyName
-						barGraphPurchase.comId1 = comId ' Corrected to use comId
-						barGraphPurchase.UpdateGraph
-					End If
-					
-					ScrollView1.Panel.Height = purchasePanel.Top + purchasePanel.Height + 300dip
-					Log($"maxSale:${maxSale}"$)
 				
 				Case "UpdateData"
 					ToastMessageShow("Data updated successfully", False)

@@ -53,7 +53,7 @@ Debug.ShouldStop(33554432);
 _chk.runMethodAndSync(true,"setChecked",checkbargraph.__c.getField(true,"True"));
  BA.debugLineNum = 91;BA.debugLine="Return";
 Debug.ShouldStop(67108864);
-Debug.CheckDeviceExceptions();if (true) return RemoteObject.createImmutable("");
+if (true) return RemoteObject.createImmutable("");
  };
  BA.debugLineNum = 94;BA.debugLine="checkedSales(index) = Checked";
 Debug.ShouldStop(536870912);
@@ -64,7 +64,7 @@ __ref.runClassMethod (b4a.example.checkbargraph.class, "_drawgraph" /*RemoteObje
  }else {
  BA.debugLineNum = 97;BA.debugLine="Log(\"Error: Sender is not a CheckBox\")";
 Debug.ShouldStop(1);
-checkbargraph.__c.runVoidMethod ("LogImpl","73735570",RemoteObject.createImmutable("Error: Sender is not a CheckBox"),0);
+checkbargraph.__c.runVoidMethod ("LogImpl","24325394",RemoteObject.createImmutable("Error: Sender is not a CheckBox"),0);
  };
  BA.debugLineNum = 99;BA.debugLine="End Sub";
 Debug.ShouldStop(4);
@@ -691,7 +691,7 @@ _y = RemoteObject.solve(new RemoteObject[] {_y,_lineheight}, "+",1, 1);Debug.loc
  };
  BA.debugLineNum = 312;BA.debugLine="Return y - originalY";
 Debug.ShouldStop(8388608);
-Debug.CheckDeviceExceptions();if (true) return RemoteObject.solve(new RemoteObject[] {_y,_originaly}, "-",1, 1);
+if (true) return RemoteObject.solve(new RemoteObject[] {_y,_originaly}, "-",1, 1);
  BA.debugLineNum = 313;BA.debugLine="End Sub";
 Debug.ShouldStop(16777216);
 return RemoteObject.createImmutable(0);
@@ -714,18 +714,18 @@ Debug.ShouldStop(32);
 if (RemoteObject.solveBoolean("g",_number,BA.numberCast(double.class, 1000000))) { 
  BA.debugLineNum = 327;BA.debugLine="Return Floor(number / 1000000) & \"M\"";
 Debug.ShouldStop(64);
-Debug.CheckDeviceExceptions();if (true) return RemoteObject.concat(checkbargraph.__c.runMethod(true,"Floor",(Object)(RemoteObject.solve(new RemoteObject[] {_number,RemoteObject.createImmutable(1000000)}, "/",0, 0))),RemoteObject.createImmutable("M"));
+if (true) return RemoteObject.concat(checkbargraph.__c.runMethod(true,"Floor",(Object)(RemoteObject.solve(new RemoteObject[] {_number,RemoteObject.createImmutable(1000000)}, "/",0, 0))),RemoteObject.createImmutable("M"));
  }else 
 { BA.debugLineNum = 328;BA.debugLine="Else If number >= 1000 Then";
 Debug.ShouldStop(128);
 if (RemoteObject.solveBoolean("g",_number,BA.numberCast(double.class, 1000))) { 
  BA.debugLineNum = 329;BA.debugLine="Return Floor(number / 1000) & \"k\"";
 Debug.ShouldStop(256);
-Debug.CheckDeviceExceptions();if (true) return RemoteObject.concat(checkbargraph.__c.runMethod(true,"Floor",(Object)(RemoteObject.solve(new RemoteObject[] {_number,RemoteObject.createImmutable(1000)}, "/",0, 0))),RemoteObject.createImmutable("k"));
+if (true) return RemoteObject.concat(checkbargraph.__c.runMethod(true,"Floor",(Object)(RemoteObject.solve(new RemoteObject[] {_number,RemoteObject.createImmutable(1000)}, "/",0, 0))),RemoteObject.createImmutable("k"));
  }else {
  BA.debugLineNum = 331;BA.debugLine="Return Floor(number)";
 Debug.ShouldStop(1024);
-Debug.CheckDeviceExceptions();if (true) return BA.NumberToString(checkbargraph.__c.runMethod(true,"Floor",(Object)(BA.numberCast(double.class, _number))));
+if (true) return BA.NumberToString(checkbargraph.__c.runMethod(true,"Floor",(Object)(BA.numberCast(double.class, _number))));
  }}
 ;
  BA.debugLineNum = 333;BA.debugLine="End Sub";
@@ -750,18 +750,18 @@ Debug.ShouldStop(134217728);
 if (RemoteObject.solveBoolean("g",_number,BA.numberCast(double.class, 1000000))) { 
  BA.debugLineNum = 317;BA.debugLine="Return NumberFormat(number / 1000000, 1, 1) & \"M";
 Debug.ShouldStop(268435456);
-Debug.CheckDeviceExceptions();if (true) return RemoteObject.concat(checkbargraph.__c.runMethod(true,"NumberFormat",(Object)(RemoteObject.solve(new RemoteObject[] {_number,RemoteObject.createImmutable(1000000)}, "/",0, 0)),(Object)(BA.numberCast(int.class, 1)),(Object)(BA.numberCast(int.class, 1))),RemoteObject.createImmutable("M"));
+if (true) return RemoteObject.concat(checkbargraph.__c.runMethod(true,"NumberFormat",(Object)(RemoteObject.solve(new RemoteObject[] {_number,RemoteObject.createImmutable(1000000)}, "/",0, 0)),(Object)(BA.numberCast(int.class, 1)),(Object)(BA.numberCast(int.class, 1))),RemoteObject.createImmutable("M"));
  }else 
 { BA.debugLineNum = 318;BA.debugLine="Else If number >= 1000 Then";
 Debug.ShouldStop(536870912);
 if (RemoteObject.solveBoolean("g",_number,BA.numberCast(double.class, 1000))) { 
  BA.debugLineNum = 319;BA.debugLine="Return NumberFormat(number / 1000, 1, 1) & \"k\"";
 Debug.ShouldStop(1073741824);
-Debug.CheckDeviceExceptions();if (true) return RemoteObject.concat(checkbargraph.__c.runMethod(true,"NumberFormat",(Object)(RemoteObject.solve(new RemoteObject[] {_number,RemoteObject.createImmutable(1000)}, "/",0, 0)),(Object)(BA.numberCast(int.class, 1)),(Object)(BA.numberCast(int.class, 1))),RemoteObject.createImmutable("k"));
+if (true) return RemoteObject.concat(checkbargraph.__c.runMethod(true,"NumberFormat",(Object)(RemoteObject.solve(new RemoteObject[] {_number,RemoteObject.createImmutable(1000)}, "/",0, 0)),(Object)(BA.numberCast(int.class, 1)),(Object)(BA.numberCast(int.class, 1))),RemoteObject.createImmutable("k"));
  }else {
  BA.debugLineNum = 321;BA.debugLine="Return NumberFormat(number, 1, 0)";
 Debug.ShouldStop(1);
-Debug.CheckDeviceExceptions();if (true) return checkbargraph.__c.runMethod(true,"NumberFormat",(Object)(BA.numberCast(double.class, _number)),(Object)(BA.numberCast(int.class, 1)),(Object)(BA.numberCast(int.class, 0)));
+if (true) return checkbargraph.__c.runMethod(true,"NumberFormat",(Object)(BA.numberCast(double.class, _number)),(Object)(BA.numberCast(int.class, 1)),(Object)(BA.numberCast(int.class, 0)));
  }}
 ;
  BA.debugLineNum = 323;BA.debugLine="End Sub";

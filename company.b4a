@@ -40,17 +40,16 @@ NumberOfLibraries=7
 NumberOfModules=5
 Version=13.1
 @EndOfDesignText@
-#Region Project Attributes 
+#Region  Project Attributes 
 	#ApplicationLabel: B4A Example
 	#VersionCode: 1
-	#VersionName: 1.1
-	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#VersionName: 1.0
 	#SupportedOrientations: unspecified
 	#CanInstallToExternalStorage: False
 #End Region
 
-#Region Activity Attributes 
-	#FullScreen: True
+#Region  Activity Attributes 
+	#FullScreen: False
 	#IncludeTitle: False
 #End Region
 
@@ -236,7 +235,7 @@ Sub JobDone(job As HttpJob)
 					
 					Dim totalSalePanel As Panel
 					totalSalePanel.Initialize("")
-					totalSalePanel.Height = 40dip 
+					totalSalePanel.Height = 40dip
 					barPanel.Height = 530dip
 					GetCompanySalesHeight = Panel2.Height + dashPanel.Height
 					If Not(barGraphInitialized) Then
@@ -613,7 +612,7 @@ End Sub
 Sub sales2btn_Click
 	salesData1 = 2
 	Log("Sales 2 selected")
-	If sortDefaultValue <> "" Then 
+	If sortDefaultValue <> "" Then
 		'LoadGraphData
 	End If
 End Sub
@@ -621,7 +620,7 @@ End Sub
 Sub sales3btn_Click
 	salesData1 = 3
 	Log("Sales 3 selected")
-	If sortDefaultValue <> "" Then 
+	If sortDefaultValue <> "" Then
 		'LoadGraphData
 	End If
 End Sub
@@ -703,7 +702,7 @@ End Sub
 Sub purch1btn_Click
 	salesData1 = 1
 	Log("Purchase 1 selected")
-	If sortDefaultValue <> "" Then 
+	If sortDefaultValue <> "" Then
 		'LoadGraphDataPurchase
 	End If
 End Sub
@@ -711,7 +710,7 @@ End Sub
 Sub purch2btn_Click
 	salesData1 = 2
 	Log("Purchase 2 selected")
-	If sortDefaultValue <> "" Then 
+	If sortDefaultValue <> "" Then
 		'LoadGraphDataPurchase
 	End If
 End Sub

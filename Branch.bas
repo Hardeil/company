@@ -216,7 +216,7 @@ Sub LoadCompanyData
 	Dim Job1 As HttpJob
 	totalTarget.Initialize("")
 	totalTarget.RemoveView
-	PHPURL = $"https://192.168.8.117/Company/controller/branch.php?action=get_branch&company_id=${Starter.company_selected}&page=${currentPage}&branch_purchase=${salesData1}&sort_type=${sortDefaultValue}"$
+	PHPURL = $"https://192.168.8.117/Company/controller/branch.php?action=get_branch&company_id=${Starter.company_selected}&page=${currentPage}&branch_sales=${salesData1}&sort_type=${sortDefaultValue}"$
 	Log($"Fetching panel data for company ID: ${Starter.company_selected}, page: ${currentPage}"$)
 	Job1.Initialize("GetData", Me)
 	'ProgressDialogShow("Loading Graph Data...")
@@ -557,6 +557,7 @@ Sub JobDone(job As HttpJob)
 						barGraph.UpdateGraph
 						barGraphInitialized = True
 						Log("Bar graph initialized")
+						salesData1 = 1
 					Else
 						' Update existing bar graph with new data
 						barGraph.pageNo = currentPage
@@ -711,6 +712,7 @@ Private Sub Label17_Click
 	Dim clickedLabel As Label = Sender
 	Dim selectedCompany As String = clickedLabel.Tag
 	branch_selected = selectedCompany
+	Log(branch_selected&"this is device")
 	StartActivity("Device")
 End Sub
 
@@ -750,39 +752,45 @@ End Sub
 Sub sortBtn2_Click
 	Dim chk As RadioButton = Sender
 	Dim index As String = chk.Tag
-    
-	sortDefaultValue = index.ToLowerCase ' "asc"
+
+	sortDefaultValue = index.ToLowerCase ' "desc"
 	Log($"sort value: ${sortDefaultValue}"$)
-    
+
+	' Check if graph is initialized
 	If Not(barGraphInitialized) Then
 		ToastMessageShow("Graph not yet initialized.", True)
 		Return
 	End If
-    
+
 	' Check if the selected sales data is hidden in the legend
 	Dim checkedSales() As Boolean = barGraph.GetCheckedSales
-	If checkedSales.Length > 0 Then
-		Select Case salesData1
-			Case 1
-				If Not(checkedSales(0)) Then
-					ToastMessageShow("Please show Sales1 in the legend before sorting by it.", True)
-					Return
-				End If
-			Case 2
-				If Not(checkedSales(1)) Then
-					ToastMessageShow("Please show Sales2 in the legend before sorting by it.", True)
-					Return
-				End If
-			Case 3
-				If Not(checkedSales(2)) Then
-					ToastMessageShow("Please show Sales3 in the legend before sorting by it.", True)
-					Return
-				End If
-		End Select
+	If checkedSales.Length = 0 Then
+		ToastMessageShow("No sales data available in legend.", True)
+		Return
 	End If
+
+	' Ensure the selected sales data is visible
+	Select Case salesData1
+		Case 1
+			If Not(checkedSales(0)) Then
+				ToastMessageShow("Please show Sales1 in the legend before sorting by it.", True)
+				Return
+			End If
+		Case 2
+			If Not(checkedSales(1)) Then
+				ToastMessageShow("Please show Sales2 in the legend before sorting by it.", True)
+				Return
+			End If
+		Case 3
+			If Not(checkedSales(2)) Then
+				ToastMessageShow("Please show Sales3 in the legend before sorting by it.", True)
+				Return
+			End If
+	End Select
+
+	' Load data after all checks pass
 	LoadCompanyData
 	LoadCompanyDataBranchGraphSales
-	Log($"sort value: ${sortDefaultValue}"$)
 End Sub
 
 
@@ -790,73 +798,73 @@ End Sub
 Sub sortBtn1_Click
 	Dim chk As RadioButton = Sender
 	Dim index As String = chk.Tag
-    
+
 	sortDefaultValue = index.ToLowerCase ' "asc"
 	Log($"sort value: ${sortDefaultValue}"$)
-    
+
+	' Check if graph is initialized
 	If Not(barGraphInitialized) Then
 		ToastMessageShow("Graph not yet initialized.", True)
 		Return
 	End If
-    
+
 	' Check if the selected sales data is hidden in the legend
 	Dim checkedSales() As Boolean = barGraph.GetCheckedSales
-	If checkedSales.Length > 0 Then
-		Select Case salesData1
-			Case 1
-				If Not(checkedSales(0)) Then
-					ToastMessageShow("Please show Sales1 in the legend before sorting by it.", True)
-					Return
-				End If
-			Case 2
-				If Not(checkedSales(1)) Then
-					ToastMessageShow("Please show Sales2 in the legend before sorting by it.", True)
-					Return
-				End If
-			Case 3
-				If Not(checkedSales(2)) Then
-					ToastMessageShow("Please show Sales3 in the legend before sorting by it.", True)
-					Return
-				End If
-		End Select
+	If checkedSales.Length = 0 Then
+		ToastMessageShow("No sales data available in legend.", True)
+		Return
 	End If
-    LoadCompanyData
+
+	' Ensure the selected sales data is visible
+	Select Case salesData1
+		Case 1
+			If Not(checkedSales(0)) Then
+				ToastMessageShow("Please show Sales1 in the legend before sorting by it.", True)
+				Return
+			End If
+		Case 2
+			If Not(checkedSales(1)) Then
+				ToastMessageShow("Please show Sales2 in the legend before sorting by it.", True)
+				Return
+			End If
+		Case 3
+			If Not(checkedSales(2)) Then
+				ToastMessageShow("Please show Sales3 in the legend before sorting by it.", True)
+				Return
+			End If
+	End Select
+
+	' Load data after all checks pass
+	LoadCompanyData
 	LoadCompanyDataBranchGraphSales
 End Sub
 
 Sub salesBtn1_Click
-	Dim btn As Button = Sender
+	Dim btn As RadioButton = Sender
 	Dim index As String = btn.Tag
 	Dim checkedSales() As Boolean = barGraph.GetCheckedSales
-	
-	salesData1 = index.ToLowerCase
-	If sortDefaultValue="asc" Or sortDefaultValue="desc" Then
-	'	LoadCompanyDataBranchGraphSales
+
+	salesData1 = 1 ' Set directly instead of using index
+	Log("Sales 1 selected")
+
+	' Check if graph is initialized
+	If Not(barGraphInitialized) Then
+		ToastMessageShow("Graph not yet initialized.", True)
+		Return
 	End If
-	
-	If checkedSales.Length > 0 Then
-		Select Case salesData1
-			Case 1
-				If Not(checkedSales(0)) Then
-					ToastMessageShow("Please show Sales1 in the legend before sorting by it.", True)
-					Return
-				End If
-			Case 2
-				If Not(checkedSales(1)) Then
-					ToastMessageShow("Please show Sales2 in the legend before sorting by it.", True)
-					Return
-				End If
-			Case 3
-				If Not(checkedSales(2)) Then
-					ToastMessageShow("Please show Sales3 in the legend before sorting by it.", True)
-					Return
-				End If
-				End Select
+
+	' Check legend visibility for Sales1
+	If checkedSales.Length = 0 Or Not(checkedSales(0)) Then
+		ToastMessageShow("Please show Sales1 in the legend before sorting by it.", True)
+		Return
 	End If
-	LoadCompanyDataBranchGraphSales
-	
-	Log(sortDefaultValue)
-	Log(" sales 1 Button clicked: " & index)
+
+	' Load data only if sort value is valid
+	If sortDefaultValue = "asc" Or sortDefaultValue = "desc" Then
+		LoadCompanyDataBranchGraphSales
+	End If
+
+	Log("salesBtn1_Click executed with sortDefaultValue: " & sortDefaultValue)
 End Sub
 
 Sub salesBtn2_Click
@@ -866,7 +874,7 @@ Sub salesBtn2_Click
 	
 	salesData1 = index.ToLowerCase
 	If sortDefaultValue="asc" Or sortDefaultValue="desc" Then
-		'	LoadCompanyDataBranchGraphSales
+			LoadCompanyDataBranchGraphSales
 	End If
 	
 	If checkedSales.Length > 0 Then
@@ -888,7 +896,7 @@ Sub salesBtn2_Click
 				End If
 		End Select
 	End If
-	LoadCompanyDataBranchGraphSales
+	'LoadCompanyDataBranchGraphSales
 	
 	Log(sortDefaultValue)
 	Log(" sales 1 Button clicked: " & index)
@@ -900,7 +908,7 @@ Sub salesBtn3_Click
 	
 	salesData1 = index.ToLowerCase
 	If sortDefaultValue="asc" Or sortDefaultValue="desc" Then
-		'	LoadCompanyDataBranchGraphSales
+			LoadCompanyDataBranchGraphSales
 	End If
 	
 	If checkedSales.Length > 0 Then
@@ -922,7 +930,7 @@ Sub salesBtn3_Click
 				End If
 		End Select
 	End If
-	LoadCompanyDataBranchGraphSales
+	'LoadCompanyDataBranchGraphSales
 	
 	Log(sortDefaultValue)
 	Log(" sales 1 Button clicked: " & index)

@@ -74,6 +74,7 @@ Public Sub Initialize(Active As Activity, panel As Panel, sale1() As Int, sale2(
 	cd.Initialize2(Colors.White, 5dip, 1dip, Colors.Black)
 	
 	defBtn.Checked = True
+	sales1.Checked = True
 
 	If sale1.Length <> product.Length Or sale2.Length <> product.Length Or sale3.Length <> product.Length Then
 		Return

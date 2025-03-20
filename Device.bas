@@ -24,8 +24,7 @@ Sub Globals
 	Private Panel3 As Panel
 	Dim pageNo As Int = 1
 	Dim pageLabel As Label
-	Dim PHPURL As String = "https://192.168.8.117/Company/controller/device.php?action=get_device&id=27"
-	Dim PHPURL As String 
+	Dim PHPURL As String = $"https://192.168.8.117/Company/controller/device.php?action=get_device&id=${Branch.branch_selected}"$
 	Dim panelWidth As Int = 0
 	Private Panel2 As Panel
 	Private Panel1 As Panel
@@ -159,7 +158,7 @@ Sub responsiveLabel(label As Label) As Int
 End Sub
 
 Sub LoadCompanyData
-	'PHPURL = "https://192.168.8.117/Company/fetch.php?action=get_device&id="&Branch.branch_selected&"&page="&pageNo&"&limit="&limit
+	PHPURL = $"https://192.168.8.117/Company/controller/device.php?action=get_device&id=${Branch.branch_selected}&page=${pageNo}&limit=${limit}"$
 	Log(PHPURL)
 	Dim Job1 As HttpJob
 	Job1.Initialize("", Me)

@@ -99,6 +99,7 @@ Sub Globals
 	Dim barGraphInitialized As Boolean = False
 	Dim barGraphInitializedPurchase As Boolean = False ' Renamed for clarity
 	Dim PHPURLCompany As String = $"https://192.168.8.117/Company/controller/company.php?action=get_company_list&page=${currentPage}&company_sales=${salesData1}&company_type=${sortDefaultValue}"$
+	Dim PHPURLDefault As String 
 	Dim calculatedSize As Float = 0
 	Dim topPositionSale As Int = 0
 	Dim topPositionPurch As Int = 0
@@ -169,6 +170,18 @@ Sub LoadGraphData
 		Dim Job1 As HttpJob
 		Job1.Initialize("GetCompany", Me)
 		Job1.Download(PHPURLCompany)
+		ProgressDialogShow("Loading Graph Data...")
+	Catch
+		Log("LoadGraphData Error: " & LastException.Message)
+		ToastMessageShow("Error initiating graph load: " & LastException.Message, True)
+	End Try
+End Sub
+Sub LoadGraphDataDefault
+	Try
+		PHPURLDefault = $"https://192.168.8.117/Company/controller/company.php?action=get_company_list&page=1&company_sales=1&sort_type=asc"$
+		Dim Job1 As HttpJob
+		Job1.Initialize("GetCompany", Me)
+		Job1.Download(PHPURLDefault)
 		ProgressDialogShow("Loading Graph Data...")
 	Catch
 		Log("LoadGraphData Error: " & LastException.Message)
@@ -592,7 +605,7 @@ End Sub
 Sub defBtn_Click
 	sortDefaultValue = ""
 	Log("Default sorting applied")
-	LoadGraphData
+	LoadGraphDataDefault
 End Sub
 
 Sub defBtnPurchase_Click
@@ -603,25 +616,84 @@ End Sub
 
 Sub sales1btn_Click
 	salesData1 = 1
-	Log("Sales 1 selected")
-	If sortDefaultValue <> "" Then
-		' LoadGraphData
+	Log("Sales 3 selected")
+
+	' Check if graph is initialized
+	If Not(barGraphInitialized) Then
+		ToastMessageShow("Graph not yet initialized.", True)
+		Return
 	End If
+
+	' Check sort value and legend visibility before loading data
+	Dim checkedSales() As Boolean = barGraph.GetCheckedSales
+	If checkedSales.Length > 0 Then
+		If Not(checkedSales(0)) Then ' Check if Sales3 is hidden in the legend
+			ToastMessageShow("Please show Sales 1 in the legend before sorting by it.", True)
+			Return
+		End If
+	End If
+
+	' Load data if sort value is valid
+	If sortDefaultValue = "asc" Or sortDefaultValue = "desc" Then
+		LoadGraphData
+	Else
+		ToastMessageShow("Invalid sort value. Use 'asc' or 'desc'.", True)
+	End If
+	
+	
+	
 End Sub
 
 Sub sales2btn_Click
 	salesData1 = 2
-	Log("Sales 2 selected")
-	If sortDefaultValue <> "" Then
-		'LoadGraphData
+	Log("Sales 3 selected")
+
+	' Check if graph is initialized
+	If Not(barGraphInitialized) Then
+		ToastMessageShow("Graph not yet initialized.", True)
+		Return
 	End If
+
+	' Check sort value and legend visibility before loading data
+	Dim checkedSales() As Boolean = barGraph.GetCheckedSales
+	If checkedSales.Length > 0 Then
+		If Not(checkedSales(1)) Then ' Check if Sales3 is hidden in the legend
+			ToastMessageShow("Please show Sales2 in the legend before sorting by it.", True)
+			Return
+		End If
+	End If
+
+	' Load data if sort value is valid
+	If sortDefaultValue = "asc" Or sortDefaultValue = "desc" Then
+		LoadGraphData
+	Else
+		ToastMessageShow("Invalid sort value. Use 'asc' or 'desc'.", True)
+	End If
+	
 End Sub
 
 Sub sales3btn_Click
 	salesData1 = 3
 	Log("Sales 3 selected")
-	If sortDefaultValue <> "" Then
-		'LoadGraphData
+
+	' Check if graph is initialized
+	If Not(barGraphInitialized) Then
+		ToastMessageShow("Graph not yet initialized.", True)
+		Return
+	End If
+
+	' Check legend visibility for Sales3
+	Dim checkedSales() As Boolean = barGraph.GetCheckedSales
+	If checkedSales.Length = 0 Or Not(checkedSales(2)) Then ' Check if Sales3 is hidden or array is empty
+		ToastMessageShow("Please show Sales3 in the legend before sorting by it.", True)
+		Return
+	End If
+
+	' Load data only if sort value is valid and Sales3 is visible
+	If sortDefaultValue = "asc" Or sortDefaultValue = "desc" Then
+		LoadGraphData
+	Else
+		ToastMessageShow("Invalid sort value. Use 'asc' or 'desc'.", True)
 	End If
 End Sub
 
@@ -701,26 +773,82 @@ End Sub
 
 Sub purch1btn_Click
 	salesData1 = 1
-	Log("Purchase 1 selected")
-	If sortDefaultValue <> "" Then
-		'LoadGraphDataPurchase
+	Log("Sales 3 selected")
+
+	' Check if graph is initialized
+	If Not(barGraphInitializedPurchase) Then
+		ToastMessageShow("Graph not yet initialized.", True)
+		Return
+	End If
+
+	' Check sort value and legend visibility before loading data
+	Dim checkedSales() As Boolean = barGraphPurchase.GetCheckedSales
+	If checkedSales.Length > 0 Then
+		If Not(checkedSales(0)) Then ' Check if Sales3 is hidden in the legend
+			ToastMessageShow("Please show Purchase 1 in the legend before sorting by it.", True)
+			Return
+		End If
+	End If
+
+	' Load data if sort value is valid
+	If sortDefaultValue = "asc" Or sortDefaultValue = "desc" Then
+		LoadGraphDataPurchase
+	Else
+		ToastMessageShow("Invalid sort value. Use 'asc' or 'desc'.", True)
 	End If
 End Sub
 
 Sub purch2btn_Click
 	salesData1 = 2
-	Log("Purchase 2 selected")
-	If sortDefaultValue <> "" Then
-		'LoadGraphDataPurchase
+	Log("Sales 3 selected")
+
+	' Check if graph is initialized
+	If Not(barGraphInitializedPurchase) Then
+		ToastMessageShow("Graph not yet initialized.", True)
+		Return
+	End If
+
+	' Check sort value and legend visibility before loading data
+	Dim checkedSales() As Boolean = barGraphPurchase.GetCheckedSales
+	If checkedSales.Length > 0 Then
+		If Not(checkedSales(1)) Then ' Check if Sales3 is hidden in the legend
+			ToastMessageShow("Please show Purchase 2 in the legend before sorting by it.", True)
+			Return
+		End If
+	End If
+
+	' Load data if sort value is valid
+	If sortDefaultValue = "asc" Or sortDefaultValue = "desc" Then
+		LoadGraphDataPurchase
+	Else
+		ToastMessageShow("Invalid sort value. Use 'asc' or 'desc'.", True)
 	End If
 End Sub
 
 Sub purch3btn_Click
 	salesData1 = 3
-	Log("Purchase 3 selected")
-	If sortDefaultValue <> "" Then
-		' LoadGraphDataPurchase
+	Log("Sales 3 selected")
+
+	' Check if graph is initialized
+	If Not(barGraphInitializedPurchase) Then
+		ToastMessageShow("Graph not yet initialized.", True)
+		Return
 	End If
+
+	' Check legend visibility for Sales3
+	Dim checkedSales() As Boolean = barGraphPurchase.GetCheckedSales
+	If checkedSales.Length = 0 Or Not(checkedSales(2)) Then ' Check if Sales3 is hidden or array is empty
+		ToastMessageShow("Please show Purchase 3 in the legend before sorting by it.", True)
+		Return
+	End If
+
+	' Load data only if sort value is valid and Sales3 is visible
+	If sortDefaultValue = "asc" Or sortDefaultValue = "desc" Then
+		LoadGraphDataPurchase
+	Else
+		ToastMessageShow("Invalid sort value. Use 'asc' or 'desc'.", True)
+	End If
+	
 End Sub
 
 Sub AdjustFontSizeToHeight(lbl As Label, fontScaleFactor As Float) As Float
